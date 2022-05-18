@@ -12,7 +12,7 @@ ContentsCore::~ContentsCore()
 {
 }
 
-void ContentsCore::UserStart()
+void ContentsCore::Start()
 {
 	// 리소스를 로드하는데.
 
@@ -27,7 +27,7 @@ void ContentsCore::UserStart()
 	//            스테이지2
 }
 
-void ContentsCore::UserUpdate(float _DeltaTime)
+void ContentsCore::Update(float _DeltaTime)
 {
 	// 서버가 종료되었어.
 	// 무조건 경고 메세지창을 띄워줘야한다.
@@ -35,7 +35,7 @@ void ContentsCore::UserUpdate(float _DeltaTime)
 	
 }
 
-void ContentsCore::UserEnd()
+void ContentsCore::End()
 {
 	int a = 0;
 }
