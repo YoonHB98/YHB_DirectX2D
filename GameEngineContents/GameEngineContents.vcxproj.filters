@@ -7,10 +7,19 @@
     <Filter Include="Level">
       <UniqueIdentifier>{5df23444-ca8f-40f8-8c39-0d7d75f58b7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor">
+      <UniqueIdentifier>{a3b1e0f8-0523-4b58-8f93-57039920db56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global">
+      <UniqueIdentifier>{635c7acb-f4a4-4f8b-b02f-b45772517ef5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
       <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
