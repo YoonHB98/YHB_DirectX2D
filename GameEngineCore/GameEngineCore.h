@@ -30,7 +30,6 @@ protected:
 	virtual void Update(float _DeltaTime) = 0;
 	virtual void End() = 0;
 
-
 	GameEngineCore();
 	~GameEngineCore();
 
@@ -51,6 +50,9 @@ private:
 	static std::map<std::string, class GameEngineLevel*> AllLevels;
 	static GameEngineLevel* CurrentLevel;
 	static GameEngineLevel* NextLevel;
+
+	static void EngineResourcesInitialize();
+	static void EngineResourcesDestroy();
 
 	static void WindowCreate(const std::string& _Name, GameEngineCore* _UserCore);
 	static void CoreStart(GameEngineCore* _UserCore); // 프로그램 시작
