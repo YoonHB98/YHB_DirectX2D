@@ -1,4 +1,5 @@
 #include "ContentsCore.h"
+#include "GameEngineContents/TitleLevel.h"
 //#include "GameEngineContents/TitleLevel.h"
 
 #pragma comment(lib, "GameEngineBase.lib")
@@ -17,7 +18,7 @@ void ContentsCore::Start()
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션
-	//CreateLevel<TitleLevel>("Title");
+	CreateLevel<TitleLevel>("Title");
 
 	ChangeLevel("Title");
 

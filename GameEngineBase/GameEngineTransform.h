@@ -15,7 +15,10 @@ public:
 	GameEngineTransform& operator=(const GameEngineTransform& _Other) = delete;
 	GameEngineTransform& operator=(GameEngineTransform&& _Other) noexcept = delete;
 
-	// 로컬과 월드의 차이가 뭐냐
+protected:
+
+private:
+	// 로컬과 월드의 차이가 뭐냐 개념을 확실히 잡아야합니다..
 
 	// 1의 크기를 가졌다.
 
@@ -40,17 +43,26 @@ public:
 		Position = _Value;
 	}
 
-	inline float4 GetScale()
+	inline void SetMove(const float4& _Value)
+	{
+		Position += _Value;
+	}
+
+
+
+	inline float4 GetScale() const
 	{
 		return Scale;
 	}
-	inline float4 GetRotation()
+	inline float4 GetRotation() const
 	{
 		return Rotation;
 	}
-	inline float4 GetPosition()
+	inline float4 GetPosition() const
 	{
 		return Position;
 	}
+
+
 };
 
