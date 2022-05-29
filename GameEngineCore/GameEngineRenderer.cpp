@@ -24,8 +24,6 @@ void GameEngineRenderer::Start()
 
 void GameEngineRenderer::Render(float _DeltaTime)
 {
-
-
 	// 랜더링
 	GameEngineVertexBuffer* Vertex = GameEngineVertexBuffer::Find("Box");
 	GameEngineIndexBuffer* Index = GameEngineIndexBuffer::Find("Box");
@@ -35,16 +33,6 @@ void GameEngineRenderer::Render(float _DeltaTime)
 
 	std::vector<float4> CopyBuffer;
 	CopyBuffer.resize(Index->Indexs.size());
-
-	float4x4 Scale;
-	float4x4 Position;
-	float4x4 Rotate;
-	float4x4 World;
-
-	Scale.Scale(GetActor()->GetTransform().GetScale());
-	Position.Postion(GetActor()->GetTransform().GetPosition());
-
-	World = Scale * Rotate * Position;
 
 
 
@@ -56,15 +44,7 @@ void GameEngineRenderer::Render(float _DeltaTime)
 		// 최초에 원본 매쉬의 점을 복사합니다.
 		CopyBuffer[i] = Vertex->Vertexs[TriIndex];
 
-		CopyBuffer[i] = CopyBuffer[i] * World;
-
-		// 자전
-		//CopyBuffer[i] = float4::VectorRotationToDegreeXAxis(CopyBuffer[i], Angle);
-		//CopyBuffer[i] = float4::VectorRotationToDegreeYAxis(CopyBuffer[i], Angle);
-		//CopyBuffer[i] = float4::VectorRotationToDegreeZAxis(CopyBuffer[i], Angle);
-
-
-
+		CopyBuffer[i] = CopyBuffer[i] * GetTransform().GetWorldWorld();
 
 		DrawVertex[i] = CopyBuffer[i].GetConvertWindowPOINT();
 	}

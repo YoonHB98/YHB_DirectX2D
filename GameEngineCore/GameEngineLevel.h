@@ -7,7 +7,7 @@
 // 설명 : 화면(타이틀 화면, 플레이 화면, 인벤토리 화면)
 class GameEngineActor;
 class GameEngineLevel :
-	public GameEngineNameObject , 
+	public GameEngineNameObject,
 	public GameEngineUpdateObject
 {
 	friend class GameEngineRenderer;
@@ -27,10 +27,10 @@ public:
 
 protected:
 	//template<typename ReturnType, typename ActorType, typename GroupIndexType>
-		//ReturnType* CreateActor(GroupIndexType _ObjectGroupIndex)
-		//{
-		//	return CreateActor<ActorType>(static_cast<int>(_ObjectGroupIndex));
-		//}
+	//ReturnType* CreateActor(GroupIndexType _ObjectGroupIndex)
+	//{
+	//	return CreateActor<ActorType>(static_cast<int>(_ObjectGroupIndex));
+	//}
 
 	template<typename ActorType, typename GroupIndexType>
 	GameEngineActor* CreateActor(GroupIndexType _ObjectGroupIndex)
@@ -66,6 +66,8 @@ private:
 
 	void ActorUpdate(float _DelataTime);
 
+	void LevelUpdate(float DeltaTime);
+
 private:
 	// 0번 백그라운드
 	// 1번 플레이어
@@ -75,7 +77,5 @@ private:
 	void PushRenderer(GameEngineRenderer* _Renderer);
 
 	void Render(float _DelataTime);
-
-
 };
 
