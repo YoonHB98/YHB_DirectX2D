@@ -7,27 +7,26 @@
 #include "GameEngineVertexBuffer.h"
 #include "GameEngineIndexBuffer.h"
 
-GameEngineRenderer::GameEngineRenderer()
+GameEngineRenderer::GameEngineRenderer() 
 {
 }
 
-GameEngineRenderer::~GameEngineRenderer()
+GameEngineRenderer::~GameEngineRenderer() 
 {
 }
 
 
-void GameEngineRenderer::Start()
+void GameEngineRenderer::Start() 
 {
 	GetActor()->GetLevel()->PushRenderer(this);
 }
-
 
 void GameEngineRenderer::Render(float _DeltaTime)
 {
 	// ·£´õ¸µ
 	GameEngineVertexBuffer* Vertex = GameEngineVertexBuffer::Find("Box");
 	GameEngineIndexBuffer* Index = GameEngineIndexBuffer::Find("Box");
-
+	
 	std::vector<POINT> DrawVertex;
 	DrawVertex.resize(Index->Indexs.size());
 
@@ -49,12 +48,12 @@ void GameEngineRenderer::Render(float _DeltaTime)
 		DrawVertex[i] = CopyBuffer[i].GetConvertWindowPOINT();
 	}
 
-
+	
 	for (size_t i = 0; i < DrawVertex.size(); i += 3)
 	{
 		Polygon(GameEngineWindow::GetHDC(), &DrawVertex[i], 3);
 	}
-
+	
 
 	// Rectangle(GameEngineWindow::GetHDC(), LeftTop.ix(), LeftTop.iy(), RightBot.ix(), RightBot.iy());
 }

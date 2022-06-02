@@ -24,15 +24,15 @@ public:
 	GameEngineActor& operator=(const GameEngineActor& _Other) = delete;
 	GameEngineActor& operator=(GameEngineActor&& _Other) noexcept = delete;
 
-	inline GameEngineLevel* GetLevel()
-	{
-		return ParentLevel;
+	inline GameEngineLevel* GetLevel() 	
+	{		
+		return ParentLevel;	
 	}
 
-	template<typename Componenttype>
-	Componenttype* CreateComponent()
+	template<typename ComponentType>
+	ComponentType* CreateComponent()
 	{
-		GameEngineComponent* NewComponent = new Componenttype();
+		GameEngineComponent* NewComponent = new ComponentType();
 		NewComponent->ParentActor = this;
 		NewComponent->Start();
 
@@ -41,12 +41,12 @@ public:
 		{
 			AllComList.push_back(NewComponent);
 		}
-		else
+		else 
 		{
 			SettingTransformComponent(TransCom);
 			AllTransComList.push_back(TransCom);
 		}
-		return dynamic_cast<Componenttype*>(NewComponent);
+		return dynamic_cast<ComponentType*>(NewComponent);
 	}
 
 	void SettingTransformComponent(GameEngineTransformComponent* TransCom);
@@ -65,17 +65,17 @@ private:
 
 	class GameEngineLevel* ParentLevel;
 
-	void SetLevel(GameEngineLevel* _ParentLevel)
+	void SetLevel(GameEngineLevel* _ParentLevel) 
 	{
 		ParentLevel = _ParentLevel;
 	}
 
-	/////////////////////////////////////////////////// 기하관련
+/////////////////////////////////////////////////// 기하관련
 private:
 	GameEngineTransform Transform;
 
 public:
-	GameEngineTransform& GetTransform()
+	GameEngineTransform& GetTransform() 
 	{
 		return Transform;
 	}
