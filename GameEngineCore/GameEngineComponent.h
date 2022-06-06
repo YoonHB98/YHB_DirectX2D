@@ -8,6 +8,7 @@ class GameEngineComponent :
 	public GameEngineUpdateObject
 {
 	friend class GameEngineActor;
+
 public:
 	// constrcuter destructer
 	GameEngineComponent();
@@ -25,8 +26,12 @@ public:
 	}
 
 protected:
+	virtual void Start() {}
+	virtual void Update(float _DeltaTime) {}
+	virtual void End() {}
 
 private:
 	class GameEngineActor* ParentActor;
+
 };
 

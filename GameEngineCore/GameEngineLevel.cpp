@@ -3,13 +3,13 @@
 #include "GameEngineRenderer.h"
 #include "GameEngineCamera.h"
 
-GameEngineLevel::GameEngineLevel() 
+GameEngineLevel::GameEngineLevel()
 	: MainCamera(nullptr)
 	, UIMainCamera(nullptr)
 {
 }
 
-GameEngineLevel::~GameEngineLevel() 
+GameEngineLevel::~GameEngineLevel()
 {
 	for (const std::pair<int, std::list<GameEngineActor*>>& Group : AllActors)
 	{
@@ -59,6 +59,11 @@ void GameEngineLevel::PushRenderer(GameEngineRenderer* _Renderer)
 void GameEngineLevel::PushCamera(GameEngineCamera* _Camera)
 {
 	MainCamera = _Camera;
+}
+
+GameEngineTransform& GameEngineLevel::GetMainCameraActorTransform()
+{
+	return MainCamera->GetActor()->GetTransform();
 }
 
 void GameEngineLevel::Render(float _DelataTime)
