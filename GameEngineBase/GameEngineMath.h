@@ -652,6 +652,61 @@ public:
 		*this = XRot * YRot * ZRot;
 	}
 
+	void ViewPort(float _Width, float _Height, float _Left, float _Right, float _ZMin, float _ZMax)
+	{
+
+		Arr2D[0][0] = _Width / 2.0f;
+		Arr2D[0][1] = 0.0f;
+		Arr2D[0][2] = 0.0f;
+		Arr2D[0][3] = 0.0f;
+
+		Arr2D[1][0] = 0.0f;
+		Arr2D[1][1] = -_Height / 2.0f;
+		Arr2D[1][2] = 0.0f;
+		Arr2D[1][3] = 0.0f;
+
+		Arr2D[2][0] = 0.0f;
+		Arr2D[2][1] = 0.0f;
+		Arr2D[2][2] = 1.0f / 2.0f;
+		Arr2D[2][3] = 0.0f;
+
+		Arr2D[3][0] = _Width * 0.5f + _Left;
+		Arr2D[3][1] = _Height * 0.5f + _Right;
+		Arr2D[3][2] = 1.0f / 2.0f;
+		Arr2D[3][3] = 1.0f;
+	}
+
+	void OrthographicLH(float _Width, float _Height, float _Near, float _Far)
+	{
+		// DirectX::XMMatrixOrthographicLH(_Width, _Height, _Near, _Far);
+
+	   //assert(!XMScalarNearEqual(ViewWidth, 0.0f, 0.00001f));
+	   //assert(!XMScalarNearEqual(ViewHeight, 0.0f, 0.00001f));
+	   //assert(!XMScalarNearEqual(FarZ, NearZ, 0.00001f));
+
+		float fRange = 1.0f / (_Far - _Near);
+
+		Arr2D[0][0] = 2.0f / _Width;
+		Arr2D[0][1] = 0.0f;
+		Arr2D[0][2] = 0.0f;
+		Arr2D[0][3] = 0.0f;
+
+		Arr2D[1][0] = 0.0f;
+		Arr2D[1][1] = 2.0f / _Height;
+		Arr2D[1][2] = 0.0f;
+		Arr2D[1][3] = 0.0f;
+
+		Arr2D[2][0] = 0.0f;
+		Arr2D[2][1] = 0.0f;
+		Arr2D[2][2] = fRange;
+		Arr2D[2][3] = 0.0f;
+
+		Arr2D[3][0] = 0.0f;
+		Arr2D[3][1] = 0.0f;
+		Arr2D[3][2] = -fRange * _Near;
+		Arr2D[3][3] = 1.0f;
+	}
+
 	//               바라보고 있는 위치
 	void ViewPostion(const float4& _EyePostion, const float4& _EyeFocus, const float4& _Up)
 	{
@@ -660,11 +715,13 @@ public:
 		// float4 EyeDir = (_EyeFocus - _EyePostion);
 		// EyeDir.Normalize();
 
-		View(_EyePostion, (_EyeFocus - _EyePostion), _Up);
+		LookAtLH(_EyePostion, (_EyeFocus - _EyePostion), _Up);
 	}
 
-	void View(const float4& _EyePostion, const float4& _EyeDir, const float4& _Up)
+	void LookAtLH(const float4& _EyePostion, const float4& _EyeDir, const float4& _Up)
 	{
+
+		// DirectX::XMMatrixLookAtLH
 		// View
 
 		//assert(!XMVector3Equal(EyeDirection, XMVectorZero()));

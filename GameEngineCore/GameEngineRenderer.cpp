@@ -45,6 +45,8 @@ void GameEngineRenderer::Render(float _DeltaTime)
 
 		CopyBuffer[i] = CopyBuffer[i] * GetTransform().GetWorldViewProjection();
 
+		CopyBuffer[i] = CopyBuffer[i] * ViewPort;
+
 		DrawVertex[i] = CopyBuffer[i].GetConvertWindowPOINT();
 	}
 
