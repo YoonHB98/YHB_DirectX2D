@@ -1,10 +1,11 @@
 #include "Player.h"
-#include <GameEngineCore/GameEngineRenderer.h>
-Player::Player() 
+#include <iostream>
+
+Player::Player()
 {
 }
 
-Player::~Player() 
+Player::~Player()
 {
 }
 
@@ -16,4 +17,9 @@ void Player::Start()
 	}
 }
 
-
+void Player::Update(float _DeltaTime)
+{
+	//std::string Text = std::to_string(_DeltaTime);
+	//GameEngineDebug::OutPutString(Text);
+	//std::cout << "hhhh" << std::endl;
+}
