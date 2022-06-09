@@ -40,6 +40,9 @@ private:
 	float Near;
 	float Far;
 
+	// Perspective
+	float Fov;
+
 	std::map<int, std::list<class GameEngineRenderer*>> AllRenderer_;
 
 	void Render(float _DeltaTime);

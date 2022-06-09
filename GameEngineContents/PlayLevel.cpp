@@ -4,15 +4,15 @@
 #include "Player.h"
 #include "Monster.h"
 
-PlayLevel::PlayLevel() 
+PlayLevel::PlayLevel()
 {
 }
 
-PlayLevel::~PlayLevel() 
+PlayLevel::~PlayLevel()
 {
 }
 
-void PlayLevel::Start() 
+void PlayLevel::Start()
 {
 	if (false == GameEngineInput::GetInst()->IsKey("CamLeft"))
 	{
@@ -29,47 +29,53 @@ void PlayLevel::Start()
 	}
 
 
+
 	{
 		GameEngineCameraActor* actor = CreateActor<GameEngineCameraActor>();
-		actor->GetTransform().SetLocalPosition({ 0.0f, 0.0f, -100.0f });
+		actor->GetTransform().SetLocalPosition({ 0.0f, 0.0f, -500.0f });
 	}
+
+	GetMainCameraActorTransform().SetLocalPosition({ 0, 0, 100 });
+	GetMainCameraActorTransform().SetLocalRotation({ 0, -90, 0 });
+
 
 	{
 		Player* actor = CreateActor<Player>();
+		actor->GetTransform().SetLocalPosition({ 0.0, 0.0f, 0.0f });
 	}
 
 	{
 		Monster* actor = CreateActor<Monster>();
-		actor->GetTransform().SetLocalPosition({ 100.0f, 0.0f, 500.0f });
+		actor->GetTransform().SetLocalPosition({ 100.0f, 0.0f, 0.0f });
 	}
 
 
 }
-void PlayLevel::Update(float _DeltaTime) 
+void PlayLevel::Update(float _DeltaTime)
 {
-	if(true == GameEngineInput::GetInst()->IsPress("CamLeft"))
+	if (true == GameEngineInput::GetInst()->IsPress("CamLeft"))
 	{
 		GetMainCameraActorTransform().SetLocalMove(float4::LEFT * 100 * _DeltaTime);
 	}
 
-	if(true == GameEngineInput::GetInst()->IsPress("CamRight"))
+	if (true == GameEngineInput::GetInst()->IsPress("CamRight"))
 	{
 		GetMainCameraActorTransform().SetLocalMove(float4::RIGHT * 100 * _DeltaTime);
 	}
-	if(true == GameEngineInput::GetInst()->IsPress("CamUp"))
+	if (true == GameEngineInput::GetInst()->IsPress("CamUp"))
 	{
 		GetMainCameraActorTransform().SetLocalMove(float4::UP * 100 * _DeltaTime);
 	}
-	if(true == GameEngineInput::GetInst()->IsPress("CamDown"))
+	if (true == GameEngineInput::GetInst()->IsPress("CamDown"))
 	{
 		GetMainCameraActorTransform().SetLocalMove(float4::DOWN * 100 * _DeltaTime);
 	}
 
-	if(true == GameEngineInput::GetInst()->IsPress("CamForward"))
+	if (true == GameEngineInput::GetInst()->IsPress("CamForward"))
 	{
 		GetMainCameraActorTransform().SetLocalMove(float4::FORWARD * 100 * _DeltaTime);
 	}
-	if(true == GameEngineInput::GetInst()->IsPress("CamBack")) 
+	if (true == GameEngineInput::GetInst()->IsPress("CamBack"))
 	{
 		GetMainCameraActorTransform().SetLocalMove(float4::BACK * 100 * _DeltaTime);
 	}
