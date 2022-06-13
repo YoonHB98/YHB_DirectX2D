@@ -257,6 +257,8 @@ public:
 		float Arr1D[4];
 
 		int Arr1DInt[4];
+
+		DirectX::XMVECTOR DirectVector;
 	};
 
 public:
@@ -564,39 +566,64 @@ public:
 		float Arr1D[16];
 		float Arr2D[4][4];
 		float4 ArrV[4];
+		DirectX::XMMATRIX DirectMatrix;
 	};
 
 public:
-	float4x4() {
+	float4x4(const DirectX::XMMATRIX& _DirectMatrix)
+		: DirectMatrix(_DirectMatrix)
+	{
+	}
+
+	float4x4()
+	{
 		Identity();
 	}
 
 public:
+	void ZeroCheck()
+	{
+		for (size_t i = 0; i < 16; i++)
+		{
+			if (Arr1D[i] <= FLT_EPSILON)
+			{
+				Arr1D[i] = 0.0f;
+			}
+		}
+	}
+
 	void Identity()
 	{
-		memset(Arr1D, 0, sizeof(float) * 16);
-		Arr2D[0][0] = 1.0f;
-		Arr2D[1][1] = 1.0f;
-		Arr2D[2][2] = 1.0f;
-		Arr2D[3][3] = 1.0f;
+		DirectMatrix = DirectX::XMMatrixIdentity();
+
+		//memset(Arr1D, 0, sizeof(float) * 16);
+		//Arr2D[0][0] = 1.0f;
+		//Arr2D[1][1] = 1.0f;
+		//Arr2D[2][2] = 1.0f;
+		//Arr2D[3][3] = 1.0f;
 	}
 
 	void Scale(const float4& _Value)
 	{
-		Identity();
-		Arr2D[0][0] = _Value.x;
-		Arr2D[1][1] = _Value.y;
-		Arr2D[2][2] = _Value.z;
-		Arr2D[3][3] = 1.0f;
+		// Identity();
+
+		DirectMatrix = DirectX::XMMatrixScaling(_Value.x, _Value.y, _Value.z);
+
+		//Arr2D[0][0] = _Value.x;
+		//Arr2D[1][1] = _Value.y;
+		//Arr2D[2][2] = _Value.z;
+		//Arr2D[3][3] = 1.0f;
 	}
 
-	void Postion(const float4& _Value)
+	void Position(const float4& _Value)
 	{
-		Identity();
-		Arr2D[3][0] = _Value.x;
-		Arr2D[3][1] = _Value.y;
-		Arr2D[3][2] = _Value.z;
-		Arr2D[3][3] = 1.0f;
+		DirectMatrix = DirectX::XMMatrixTranslationFromVector(_Value.DirectVector);
+
+		// Identity();
+		//Arr2D[3][0] = _Value.x;
+		//Arr2D[3][1] = _Value.y;
+		//Arr2D[3][2] = _Value.z;
+		//Arr2D[3][3] = 1.0f;
 	}
 
 	void RotationXDegree(const float _Value)
@@ -645,14 +672,16 @@ public:
 
 	void RotationRadian(const float4& _Value)
 	{
-		float4x4 XRot;
-		float4x4 YRot;
-		float4x4 ZRot;
-		XRot.RotationXRadian(_Value.x);
-		YRot.RotationYRadian(_Value.y);
-		ZRot.RotationZRadian(_Value.z);
+		DirectMatrix = DirectX::XMMatrixRotationRollPitchYawFromVector(_Value.DirectVector);
 
-		*this = XRot * YRot * ZRot;
+		//float4x4 XRot;
+		//float4x4 YRot;
+		//float4x4 ZRot;
+		//XRot.RotationXRadian(_Value.x);
+		//YRot.RotationYRadian(_Value.y);
+		//ZRot.RotationZRadian(_Value.z);
+
+		//*this = XRot * YRot * ZRot;
 	}
 
 	void ViewPort(float _Width, float _Height, float _Left, float _Right, float _ZMin, float _ZMax)
@@ -847,6 +876,17 @@ public:
 		// DirectX::XMMatrixLookAtLH()
 	}
 
+	void Inverse()
+	{
+		DirectMatrix = DirectX::XMMatrixInverse(nullptr, DirectMatrix);
+	}
+
+	float4x4 InverseReturn()
+	{
+		DirectX::XMMATRIX Result = DirectX::XMMatrixInverse(nullptr, DirectMatrix);
+		return Result;
+	}
+
 	void Transpose()
 	{
 		float4x4 This = *this;
@@ -865,45 +905,10 @@ public:
 public: // ¿¬»êÀÚ
 	float4x4 operator*(const float4x4& _Value)
 	{
-		float4x4 Result;
+		DirectMatrix = DirectX::XMMatrixMultiply(DirectMatrix, _Value.DirectMatrix);
 
-		float x = Arr2D[0][0];
-		float y = Arr2D[0][1];
-		float z = Arr2D[0][2];
-		float w = Arr2D[0][3];
-		// Perform the operation on the first row
-		Result.Arr2D[0][0] = (_Value.Arr2D[0][0] * x) + (_Value.Arr2D[1][0] * y) + (_Value.Arr2D[2][0] * z) + (_Value.Arr2D[3][0] * w);
-		Result.Arr2D[0][1] = (_Value.Arr2D[0][1] * x) + (_Value.Arr2D[1][1] * y) + (_Value.Arr2D[2][1] * z) + (_Value.Arr2D[3][1] * w);
-		Result.Arr2D[0][2] = (_Value.Arr2D[0][2] * x) + (_Value.Arr2D[1][2] * y) + (_Value.Arr2D[2][2] * z) + (_Value.Arr2D[3][2] * w);
-		Result.Arr2D[0][3] = (_Value.Arr2D[0][3] * x) + (_Value.Arr2D[1][3] * y) + (_Value.Arr2D[2][3] * z) + (_Value.Arr2D[3][3] * w);
-		// Repeat for all the other rows
-		x = Arr2D[1][0];
-		y = Arr2D[1][1];
-		z = Arr2D[1][2];
-		w = Arr2D[1][3];
-		Result.Arr2D[1][0] = (_Value.Arr2D[0][0] * x) + (_Value.Arr2D[1][0] * y) + (_Value.Arr2D[2][0] * z) + (_Value.Arr2D[3][0] * w);
-		Result.Arr2D[1][1] = (_Value.Arr2D[0][1] * x) + (_Value.Arr2D[1][1] * y) + (_Value.Arr2D[2][1] * z) + (_Value.Arr2D[3][1] * w);
-		Result.Arr2D[1][2] = (_Value.Arr2D[0][2] * x) + (_Value.Arr2D[1][2] * y) + (_Value.Arr2D[2][2] * z) + (_Value.Arr2D[3][2] * w);
-		Result.Arr2D[1][3] = (_Value.Arr2D[0][3] * x) + (_Value.Arr2D[1][3] * y) + (_Value.Arr2D[2][3] * z) + (_Value.Arr2D[3][3] * w);
-		x = Arr2D[2][0];
-		y = Arr2D[2][1];
-		z = Arr2D[2][2];
-		w = Arr2D[2][3];
-		Result.Arr2D[2][0] = (_Value.Arr2D[0][0] * x) + (_Value.Arr2D[1][0] * y) + (_Value.Arr2D[2][0] * z) + (_Value.Arr2D[3][0] * w);
-		Result.Arr2D[2][1] = (_Value.Arr2D[0][1] * x) + (_Value.Arr2D[1][1] * y) + (_Value.Arr2D[2][1] * z) + (_Value.Arr2D[3][1] * w);
-		Result.Arr2D[2][2] = (_Value.Arr2D[0][2] * x) + (_Value.Arr2D[1][2] * y) + (_Value.Arr2D[2][2] * z) + (_Value.Arr2D[3][2] * w);
-		Result.Arr2D[2][3] = (_Value.Arr2D[0][3] * x) + (_Value.Arr2D[1][3] * y) + (_Value.Arr2D[2][3] * z) + (_Value.Arr2D[3][3] * w);
-		x = Arr2D[3][0];
-		y = Arr2D[3][1];
-		z = Arr2D[3][2];
-		w = Arr2D[3][3];
-		Result.Arr2D[3][0] = (_Value.Arr2D[0][0] * x) + (_Value.Arr2D[1][0] * y) + (_Value.Arr2D[2][0] * z) + (_Value.Arr2D[3][0] * w);
-		Result.Arr2D[3][1] = (_Value.Arr2D[0][1] * x) + (_Value.Arr2D[1][1] * y) + (_Value.Arr2D[2][1] * z) + (_Value.Arr2D[3][1] * w);
-		Result.Arr2D[3][2] = (_Value.Arr2D[0][2] * x) + (_Value.Arr2D[1][2] * y) + (_Value.Arr2D[2][2] * z) + (_Value.Arr2D[3][2] * w);
-		Result.Arr2D[3][3] = (_Value.Arr2D[0][3] * x) + (_Value.Arr2D[1][3] * y) + (_Value.Arr2D[2][3] * z) + (_Value.Arr2D[3][3] * w);
-
-		return Result;
-
+		// ZeroCheck();
+		return DirectMatrix;
 	}
 };
 
