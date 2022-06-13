@@ -15,7 +15,7 @@ ContentsCore::~ContentsCore()
 
 void ContentsCore::Start()
 {
-	GameEngineDebug::ConsoleOpen();
+	// GameEngineDebug::ConsoleOpen();
 
 	// 리소스를 로드하는데.
 

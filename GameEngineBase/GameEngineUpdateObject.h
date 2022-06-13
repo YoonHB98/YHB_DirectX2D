@@ -1,9 +1,10 @@
 #pragma once
 #include <string>
 #include "GameEngineTime.h"
+#include "GameEngineDebugObject.h"
 
 
-class GameEngineUpdateObject
+class GameEngineUpdateObject : public GameEngineDebugObject
 {
 public:
 	// constrcuter destructer
@@ -37,7 +38,7 @@ public:
 		return IsDeath_;
 	}
 
-	void AddAccTime(float _DeltaTime) 
+	void AddAccTime(float _DeltaTime)
 	{
 		AccTime_ += _DeltaTime;
 	}
@@ -88,12 +89,14 @@ public:
 		Order_ = _Order;
 	}
 
+
 protected:
 	// 이 오브젝트가 동작을 하기 시작했다.
 	virtual void OnEvent() {}
 
 	// 이 오브젝트가 꺼졌다.
 	virtual void OffEvent() {}
+
 	// 이 오브젝트가 만들어졌다.
 	virtual void Start() = 0;
 

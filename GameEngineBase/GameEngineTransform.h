@@ -1,9 +1,10 @@
 #pragma once
 #include "GameEngineMath.h"
+#include <GameEngineBase/GameEngineDebugObject.h>
 #include <list>
 
 // 설명 :
-class GameEngineTransform
+class GameEngineTransform : public GameEngineDebugObject
 {
 public:
 	// constrcuter destructer
@@ -20,31 +21,44 @@ public:
 public:
 	inline void SetLocalScale(const float4& _Value)
 	{
-		LocalScale = _Value;
+		CalculateWorldScale(_Value);
 
-		if (nullptr != Parent)
+		for (GameEngineTransform* Child : Childs)
 		{
-			WorldScale = _Value * Parent->WorldWorldMat;
-		}
-		else
-		{
-			WorldScale = LocalScale;
+			Child->CalculateWorldScale(Child->LocalScale);
+			Child->CalculateWorldPosition(Child->LocalPosition);
 		}
 
 		CalculateWorld();
 	}
 
-	// 아무리 편의성 함수가 많아져도
-	void SetLocalRotation(const float4& _Value)
+	inline void SetLocalRotation(const float4& _Value)
 	{
-		LocalRotation = _Value;
-		LocalRotateMat.RotationRadian(LocalRotation * GameEngineMath::DegreeToRadian);
+		CalculateWorldRotation(_Value);
+
+		for (GameEngineTransform* Child : Childs)
+		{
+			Child->CalculateWorldRotation(Child->LocalRotation);
+			Child->CalculateWorldPosition(Child->LocalPosition);
+		}
+		CalculateWorld();
 	}
 
 	inline void SetLocalPosition(const float4& _Value)
 	{
-		LocalPosition = _Value;
-		LocalPositionMat.Position(LocalPosition);
+		CalculateWorldPosition(_Value);
+
+		for (GameEngineTransform* Child : Childs)
+		{
+			Child->CalculateWorldPosition(Child->LocalPosition);
+		}
+
+		CalculateWorld();
+	}
+
+	inline void SetLocalRotate(const float4& _Value)
+	{
+		SetLocalRotation(LocalRotation + _Value);
 	}
 
 	inline void SetLocalMove(const float4& _Value)
@@ -82,13 +96,6 @@ public:
 
 	inline float4 GetForwardVector() const
 	{
-		// 기저벡터라고 하는데.
-		// 기저벡터는 행렬의 축을 이루는 3개의 벡터를 기저백터라고 합니다.
-		// 0[1][0][0][0] 내 오른쪽
-		// 1[0][1][0][0] 내 위
-		// 2[0][0][1][0] 내 앞
-		// 3[0][0][0][1]
-		// 길이 1짜리 방향벡터를 리턴한다.
 		return WorldWorldMat.ArrV[2].NormalizeReturn();
 	}
 
@@ -102,12 +109,13 @@ public:
 		return WorldWorldMat.ArrV[0].NormalizeReturn();
 	}
 
-
 	void CalculateWorld();
 
 	void CalculateWorldViewProjection();
 
-	void PushChild(GameEngineTransform* _Child);
+	void SetParent(GameEngineTransform& _Child);
+
+	// void PushChild(GameEngineTransform* _Child);
 
 	void SetView(const float4x4& _Mat)
 	{
@@ -137,15 +145,66 @@ private:
 	// WorldPosition.w 1
 	float4 WorldPosition;
 
-	float4x4 LocalScaleMat;
-	float4x4 LocalPositionMat;
-	float4x4 LocalRotateMat;
+	float4x4 LocalScaleMat; // 크
+	float4x4 LocalRotateMat; // 자
+	float4x4 LocalPositionMat; // 이
 	float4x4 LocalWorldMat;
 
 	float4x4 View;
 	float4x4 Projection;
 
-	float4x4 WorldWorldMat;
+	float4x4 WorldWorldMat; // 나의 로컬 world * 부모의 world
 	float4x4 WorldViewMat;
 	float4x4 WorldViewProjectMat;
+
+
+	void CalculateWorldScale(const float4& _Local)
+	{
+		LocalScale = _Local;
+
+		if (nullptr != Parent)
+		{
+			WorldScale = LocalScale * Parent->WorldScale;
+		}
+		else
+		{
+			WorldScale = LocalScale;
+		}
+
+		LocalScaleMat.Scale(LocalScale);
+	}
+	void CalculateWorldRotation(const float4& _Local)
+	{
+		LocalRotation = _Local;
+
+		if (nullptr != Parent)
+		{
+			WorldRotation = LocalRotation + Parent->WorldRotation;
+		}
+		else
+		{
+			WorldRotation = LocalRotation;
+		}
+
+		LocalRotateMat.RotationDegree(LocalRotation);
+
+	}
+
+	void CalculateWorldPosition(const float4& _Local)
+	{
+		LocalPosition = _Local;
+
+		if (nullptr != Parent)
+		{
+			WorldPosition = LocalPosition * Parent->WorldWorldMat;
+		}
+		else
+		{
+			WorldPosition = LocalPosition;
+		}
+
+		LocalPositionMat.Position(LocalPosition);
+	}
+
+
 };

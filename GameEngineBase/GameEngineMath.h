@@ -375,12 +375,22 @@ public:
 
 	float4 operator*(const float _Value) const
 	{
-		return { x * _Value, y * _Value, z * _Value, 1.0f };
+		return DirectX::XMVectorMultiply(DirectVector, float4(_Value).DirectVector);
+	}
+
+	float4 operator*(const float4& _Value) const
+	{
+		return DirectX::XMVectorMultiply(DirectVector, _Value.DirectVector);
 	}
 
 	float4 operator/(const float _Value) const
 	{
-		return { x / _Value, y / _Value, z / _Value, 1.0f };
+		return DirectX::XMVectorDivide(DirectVector, float4(_Value).DirectVector);
+	}
+
+	float4 operator/(const float4& _Value) const
+	{
+		return DirectX::XMVectorDivide(DirectVector, _Value.DirectVector);
 	}
 
 	float4& operator+=(const float4& _Other)
@@ -458,6 +468,13 @@ public:
 	{
 
 	}
+	float4(float _Value)
+		: x(_Value), y(_Value), z(_Value), w(_Value)
+	{
+
+	}
+
+
 	float4(float _x, float _y)
 		: x(_x), y(_y), z(1.0f), w(1.0f)
 	{
@@ -473,6 +490,13 @@ public:
 	{
 
 	}
+
+	float4(const DirectX::XMVECTOR& _Vector)
+		: DirectVector(_Vector)
+	{
+
+	}
+
 
 
 };
@@ -905,10 +929,7 @@ public:
 public: // ¿¬»êÀÚ
 	float4x4 operator*(const float4x4& _Value)
 	{
-		DirectMatrix = DirectX::XMMatrixMultiply(DirectMatrix, _Value.DirectMatrix);
-
-		// ZeroCheck();
-		return DirectMatrix;
+		return DirectX::XMMatrixMultiply(DirectMatrix, _Value.DirectMatrix);
 	}
 };
 
