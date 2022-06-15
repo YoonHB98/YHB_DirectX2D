@@ -1,7 +1,16 @@
 #pragma once
 #include "GameEngineMath.h"
+#include <DirectXCollision.h>
 #include <GameEngineBase/GameEngineDebugObject.h>
 #include <list>
+
+enum CollisionType
+{
+	CT_POINT,
+	CT_SPHERE, // 정방원
+	CT_AABB, // 회전하지 않은 박스
+	CT_OBB, // 회전한 박스
+};
 
 // 설명 :
 class GameEngineTransform : public GameEngineDebugObject
@@ -56,6 +65,63 @@ public:
 		CalculateWorld();
 	}
 
+	inline void SetWorldScale(const float4& _World)
+	{
+		float4 Local = _World;
+		if (nullptr != Parent)
+		{
+			Local = _World / Parent->WorldScale;
+		}
+
+		CalculateWorldScale(Local);
+
+		for (GameEngineTransform* Child : Childs)
+		{
+			Child->CalculateWorldScale(Child->LocalScale);
+			Child->CalculateWorldPosition(Child->LocalPosition);
+		}
+
+		CalculateWorld();
+	}
+
+	inline void SetWorldRotation(const float4& _World)
+	{
+		float4 Local = _World;
+		if (nullptr != Parent)
+		{
+			Local = _World - Parent->WorldRotation;
+		}
+
+		CalculateWorldRotation(Local);
+
+		for (GameEngineTransform* Child : Childs)
+		{
+			Child->CalculateWorldRotation(Child->LocalRotation);
+			Child->CalculateWorldPosition(Child->LocalPosition);
+		}
+		CalculateWorld();
+	}
+
+	inline void SetWorldPosition(const float4& _World)
+	{
+		float4 Local = _World;
+		if (nullptr != Parent)
+		{
+			// 부모의 역행렬을 곱해서 
+			Local = _World * Parent->WorldWorldMat.InverseReturn();
+		}
+
+
+		CalculateWorldPosition(Local);
+
+		for (GameEngineTransform* Child : Childs)
+		{
+			Child->CalculateWorldPosition(Child->LocalPosition);
+		}
+
+		CalculateWorld();
+	}
+
 	inline void SetLocalRotate(const float4& _Value)
 	{
 		SetLocalRotation(LocalRotation + _Value);
@@ -64,6 +130,11 @@ public:
 	inline void SetLocalMove(const float4& _Value)
 	{
 		SetLocalPosition(LocalPosition + _Value);
+	}
+
+	inline void SetWorldMove(const float4& _Value)
+	{
+		SetLocalPosition(WorldPosition + _Value);
 	}
 
 	inline float4 GetLocalScale() const
@@ -99,14 +170,29 @@ public:
 		return WorldWorldMat.ArrV[2].NormalizeReturn();
 	}
 
+	inline float4 GetBackVector() const
+	{
+		return -(WorldWorldMat.ArrV[2].NormalizeReturn());
+	}
+
 	inline float4 GetUpVector() const
 	{
 		return WorldWorldMat.ArrV[1].NormalizeReturn();
 	}
 
+	inline float4 GetDownVector() const
+	{
+		return -(WorldWorldMat.ArrV[1].NormalizeReturn());
+	}
+
 	inline float4 GetRightVector() const
 	{
 		return WorldWorldMat.ArrV[0].NormalizeReturn();
+	}
+
+	inline float4 GetLeftVector() const
+	{
+		return -(WorldWorldMat.ArrV[0].NormalizeReturn());
 	}
 
 	void CalculateWorld();
@@ -207,4 +293,13 @@ private:
 	}
 
 
+
+	/////////////////////////// 충돌관련
+public:
+	static bool SphereToSphere(const GameEngineTransform& _Left, const GameEngineTransform& _Right);
+
+	static bool AABBToAABB(const GameEngineTransform& _Left, const GameEngineTransform& _Right);
+
+	static bool OBBToOBB(const GameEngineTransform& _Left, const GameEngineTransform& _Right);
 };
+
