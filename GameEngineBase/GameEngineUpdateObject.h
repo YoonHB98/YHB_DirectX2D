@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <list>
 #include "GameEngineTime.h"
 #include "GameEngineDebugObject.h"
 
@@ -28,14 +29,14 @@ public:
 		IsUpdate_ = false;
 	}
 
-	inline virtual bool IsUpdate()
+	inline bool IsUpdate()
 	{
-		return IsUpdate_ && false == IsDeath_;
+		return IsUpdate_ && false == IsDeath_ && true == Parent->IsUpdate();
 	}
 
-	inline virtual bool IsDeath()
+	inline bool IsDeath()
 	{
-		return IsDeath_;
+		return IsDeath_ || true == Parent->IsDeath();
 	}
 
 	void AddAccTime(float _DeltaTime)
@@ -58,7 +59,7 @@ public:
 		IsDeath_ = true;
 	}
 
-	void ReleaseUpdate()
+	void ReleaseUpdate(float _DeltaTime)
 	{
 		if (false == IsReleaseUpdate_)
 		{
@@ -89,6 +90,13 @@ public:
 		Order_ = _Order;
 	}
 
+	template<typename ParentType>
+	ParentType* GetParent()
+	{
+		return dynamic_cast<ParentType*>(Parent);
+	}
+
+	virtual void SetParent(GameEngineUpdateObject* _Parent);
 
 protected:
 	// 이 오브젝트가 동작을 하기 시작했다.
@@ -114,5 +122,8 @@ private:
 
 	bool IsUpdate_;
 	bool IsDeath_;
+
+	GameEngineUpdateObject* Parent;
+	std::list<GameEngineUpdateObject*> Childs;
 };
 

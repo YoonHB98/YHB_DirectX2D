@@ -2,6 +2,7 @@
 #include "GameEngineMath.h"
 #include <DirectXCollision.h>
 #include <GameEngineBase/GameEngineDebugObject.h>
+#include <GameEngineBase/GameEngineUpdateObject.h>
 #include <list>
 
 enum CollisionType
@@ -31,7 +32,7 @@ class CollisionData
 };
 
 // 설명 :
-class GameEngineTransform : public GameEngineDebugObject
+class GameEngineTransform : public GameEngineUpdateObject
 {
 public:
 	// constrcuter destructer
@@ -314,6 +315,11 @@ private:
 	void CollisionRotationSetting();
 	void CollisionPositionSetting();
 	void CollisionDataSetting();
+
+	virtual void Start() {}
+	virtual void Update(float _DeltaTime) {}
+	virtual void End() {}
+
 
 	/////////////////////////// 충돌관련
 public:

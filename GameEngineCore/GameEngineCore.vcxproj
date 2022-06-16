@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CoreMinimal.h" />
     <ClInclude Include="GameEngineActor.h">
       <SubType>
       </SubType>
@@ -40,6 +41,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="GameEngineCore.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="GameEngineDevice.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -110,6 +115,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="GameEngineCore_Resources.cpp" />
+    <ClCompile Include="GameEngineDevice.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="GameEngineIndexBuffer.cpp">
       <SubType>
       </SubType>

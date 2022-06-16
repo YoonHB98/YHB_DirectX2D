@@ -9,3 +9,8 @@ GameEngineComponent::~GameEngineComponent()
 {
 }
 
+void GameEngineComponent::SetParent(GameEngineUpdateObject* _Parent)
+{
+
+
+}

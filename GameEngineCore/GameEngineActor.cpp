@@ -1,3 +1,4 @@
+#include "PreCompile.h"
 #include "GameEngineActor.h"
 #include "GameEngineComponent.h"
 #include "GameEngineTransformComponent.h"
@@ -5,6 +6,7 @@
 GameEngineActor::GameEngineActor()
 	:ParentLevel(nullptr)
 {
+	Transform.GameEngineUpdateObject::SetParent(this);
 }
 
 GameEngineActor::~GameEngineActor()
@@ -22,7 +24,6 @@ GameEngineActor::~GameEngineActor()
 
 void GameEngineActor::Start() {}
 void GameEngineActor::Update(float _DeltaTime) {}
-void GameEngineActor::End() {}
 
 void GameEngineActor::ComponentUpdate(float _ScaleDeltaTime, float _DeltaTime)
 {

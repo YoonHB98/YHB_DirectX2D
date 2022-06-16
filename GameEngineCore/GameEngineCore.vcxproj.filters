@@ -47,6 +47,10 @@
     <ClInclude Include="PreCompile.h">
       <Filter>PreCompile</Filter>
     </ClInclude>
+    <ClInclude Include="CoreMinimal.h" />
+    <ClInclude Include="GameEngineDevice.h">
+      <Filter>Device</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineActor.cpp">
@@ -98,6 +102,9 @@
     <ClCompile Include="PreCompile.cpp">
       <Filter>PreCompile</Filter>
     </ClCompile>
+    <ClCompile Include="GameEngineDevice.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -123,6 +130,9 @@
     </Filter>
     <Filter Include="PreCompile">
       <UniqueIdentifier>{41d0e96d-8251-40aa-a870-e7474b1f3b3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Device">
+      <UniqueIdentifier>{e93e010e-96ec-4930-81e2-ef51f7354609}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

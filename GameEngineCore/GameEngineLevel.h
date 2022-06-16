@@ -135,5 +135,7 @@ private:
 	void PushRenderer(GameEngineRenderer* _Renderer);
 
 	void Render(float _DelataTime);
+
+	void Release(float _DelataTime);
 };
 
