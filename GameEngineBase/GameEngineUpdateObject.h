@@ -10,7 +10,7 @@ class GameEngineUpdateObject : public GameEngineDebugObject
 public:
 	// constrcuter destructer
 	GameEngineUpdateObject();
-	~GameEngineUpdateObject();
+	virtual ~GameEngineUpdateObject();
 
 	// delete Function
 	GameEngineUpdateObject(const GameEngineUpdateObject& _Other) = delete;
@@ -31,15 +31,29 @@ public:
 
 	inline bool IsUpdate()
 	{
-		return IsUpdate_ && false == IsDeath_ && true == Parent->IsUpdate();
+		if (nullptr != Parent)
+		{
+			return IsUpdate_ && false == IsDeath_ && true == Parent->IsUpdate();
+		}
+		else 
+		{
+			return IsUpdate_ && false == IsDeath_;
+		}
+
 	}
 
 	inline bool IsDeath()
 	{
-		return IsDeath_ || true == Parent->IsDeath();
+		if (nullptr != Parent)
+		{
+			return IsDeath_ || true == Parent->IsDeath();
+		}
+		else {
+			return IsDeath_;
+		}
 	}
 
-	void AddAccTime(float _DeltaTime)
+	void AddAccTime(float _DeltaTime) 
 	{
 		AccTime_ += _DeltaTime;
 	}
@@ -98,6 +112,8 @@ public:
 
 	virtual void SetParent(GameEngineUpdateObject* _Parent);
 
+	virtual void DeleteChild();
+
 protected:
 	// 이 오브젝트가 동작을 하기 시작했다.
 	virtual void OnEvent() {}
@@ -113,6 +129,12 @@ protected:
 
 	// 이 오브젝트가 메모리가 삭제된다.
 	virtual void End() = 0;
+
+	virtual void ReleaseObject(std::list<GameEngineUpdateObject*>& _RelaseList);
+
+	void RemoveToParentChildList();
+
+	virtual void DetachObject() {};
 
 private:
 	int Order_;

@@ -17,14 +17,14 @@ class CollisionData
 {
 	friend class GameEngineTransform;
 
-	union
+	union 
 	{
 		DirectX::BoundingSphere SPHERE;
 		DirectX::BoundingBox AABB;
 		DirectX::BoundingOrientedBox OBB;
 	};
 
-	CollisionData()
+	CollisionData() 
 		: OBB()
 	{
 
@@ -32,7 +32,7 @@ class CollisionData
 };
 
 // 설명 :
-class GameEngineTransform : public GameEngineUpdateObject
+class GameEngineTransform : public GameEngineDebugObject
 {
 public:
 	// constrcuter destructer
@@ -188,7 +188,9 @@ public:
 
 	void CalculateWorldViewProjection();
 
-	void SetParent(GameEngineTransform& _Child);
+	void DetachTransform();
+
+	void SetParentTransform(GameEngineTransform& _Child);
 
 	// void PushChild(GameEngineTransform* _Child);
 
@@ -321,7 +323,7 @@ private:
 	virtual void End() {}
 
 
-	/////////////////////////// 충돌관련
+/////////////////////////// 충돌관련
 public:
 	static bool SphereToSphere(const GameEngineTransform& _Left, const GameEngineTransform& _Right);
 

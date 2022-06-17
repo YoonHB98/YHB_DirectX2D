@@ -3,27 +3,30 @@
 #include "GameEngineComponent.h"
 #include "GameEngineTransformComponent.h"
 
-GameEngineActor::GameEngineActor()
+GameEngineActor::GameEngineActor() 
 	:ParentLevel(nullptr)
 {
-	Transform.GameEngineUpdateObject::SetParent(this);
+
 }
 
-GameEngineActor::~GameEngineActor()
+GameEngineActor::~GameEngineActor() 
 {
-	for (GameEngineComponent* Com : AllComList)
-	{
-		delete Com;
-	}
+	// DeleteChild();
 
-	for (GameEngineTransformComponent* Com : AllTransComList)
-	{
-		delete Com;
-	}
+	//for (GameEngineComponent* Com : AllComList)
+	//{
+	//	delete Com;
+	//}
+
+	//for (GameEngineTransformComponent* Com : AllTransComList)
+	//{
+	//	delete Com;
+	//}
 }
 
 void GameEngineActor::Start() {}
 void GameEngineActor::Update(float _DeltaTime) {}
+void GameEngineActor::End() {}
 
 void GameEngineActor::ComponentUpdate(float _ScaleDeltaTime, float _DeltaTime)
 {
@@ -36,13 +39,17 @@ void GameEngineActor::ComponentUpdate(float _ScaleDeltaTime, float _DeltaTime)
 
 void GameEngineActor::SettingTransformComponent(GameEngineTransformComponent* TransCom)
 {
-	TransCom->GetTransform().SetParent(GetTransform());
+	TransCom->GetTransform().SetParentTransform(GetTransform());
 }
 
 void GameEngineActor::ComponentCalculateTransform()
 {
-	for (GameEngineTransformComponent* Com : AllTransComList)
-	{
-		Com->GetTransform().CalculateWorld();
-	}
+	GetTransform().CalculateWorld();
+
+
+	//for (GameEngineTransformComponent* Com : AllTransComList)
+	//{
+	//	Com->GetTransform().CalculateWorld();
+	//}
 }
+

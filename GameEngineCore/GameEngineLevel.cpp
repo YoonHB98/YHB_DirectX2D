@@ -4,13 +4,13 @@
 #include "GameEngineRenderer.h"
 #include "GameEngineCamera.h"
 
-GameEngineLevel::GameEngineLevel()
+GameEngineLevel::GameEngineLevel() 
 	: MainCamera(nullptr)
 	, UIMainCamera(nullptr)
 {
 }
 
-GameEngineLevel::~GameEngineLevel()
+GameEngineLevel::~GameEngineLevel() 
 {
 	for (const std::pair<int, std::list<GameEngineActor*>>& Group : AllActors)
 	{
@@ -21,7 +21,9 @@ GameEngineLevel::~GameEngineLevel()
 				continue;
 			}
 
-			delete Actor;
+			Actor->DeleteChild();
+
+			// delete Actor;
 		}
 	}
 }
@@ -35,6 +37,7 @@ void GameEngineLevel::ActorUpdate(float _DelataTime)
 		for (GameEngineActor* const Actor : Group.second)
 		{
 			Actor->AddAccTime(_DelataTime);
+			Actor->ReleaseUpdate(_DelataTime);
 			Actor->ComponentUpdate(ScaleTime, _DelataTime);
 			Actor->Update(ScaleTime);
 		}
@@ -74,7 +77,14 @@ void GameEngineLevel::Render(float _DelataTime)
 
 void GameEngineLevel::Release(float _DelataTime)
 {
-	MainCamera->Relase(_DelataTime);
+	for (GameEngineUpdateObject* Object : DeleteObject)
+	{
+		Object->DeleteChild();
+	}
+
+	DeleteObject.clear();
+
+	MainCamera->Release(_DelataTime);
 
 	std::map<int, std::list<GameEngineActor*>>::iterator StartGroupIter = AllActors.begin();
 	std::map<int, std::list<GameEngineActor*>>::iterator EndGroupIter = AllActors.end();
@@ -88,17 +98,18 @@ void GameEngineLevel::Release(float _DelataTime)
 
 		for (; GroupStart != GroupEnd; )
 		{
-			(*GroupStart)->ReleaseUpdate(_DelataTime);
+			(*GroupStart)->ReleaseObject(DeleteObject);
+
 			if (true == (*GroupStart)->IsDeath())
 			{
-				delete (*GroupStart);
+				// DeleteObject.push_back((*GroupStart));
 				GroupStart = Group.erase(GroupStart);
 			}
-			else
+			else 
 			{
 				++GroupStart;
 			}
-
+			
 		}
 	}
 
