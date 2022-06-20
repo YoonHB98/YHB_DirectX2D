@@ -19,7 +19,6 @@ GameEngineRenderer::~GameEngineRenderer()
 
 void GameEngineRenderer::Start()
 {
-	GetActor
 	GetActor()->GetLevel()->PushRenderer(this);
 }
 
