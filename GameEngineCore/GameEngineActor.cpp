@@ -45,11 +45,5 @@ void GameEngineActor::SettingTransformComponent(GameEngineTransformComponent* Tr
 void GameEngineActor::ComponentCalculateTransform()
 {
 	GetTransform().CalculateWorld();
-
-
-	//for (GameEngineTransformComponent* Com : AllTransComList)
-	//{
-	//	Com->GetTransform().CalculateWorld();
-	//}
 }
 

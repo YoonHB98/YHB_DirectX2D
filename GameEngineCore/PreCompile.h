@@ -1,6 +1,5 @@
 #pragma once
 
-
 // std
 #include <string>
 
@@ -23,3 +22,5 @@
 #pragma comment(lib, "dxguid")
 
 #include <GameEngineBase/GameEngineDebug.h>
+
+#include "GameEngineDevice.h"

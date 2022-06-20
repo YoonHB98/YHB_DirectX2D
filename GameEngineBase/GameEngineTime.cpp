@@ -1,6 +1,6 @@
 #include "PreCompile.h"
 #include "GameEngineTime.h"
-#include <Windows.h>
+
 
 GameEngineTime* GameEngineTime::Inst_ = new GameEngineTime();
 
@@ -30,4 +30,5 @@ void GameEngineTime::Update()
 	Prev = Current;
 	// 값을 다른 값형으로 바꿀때 사용
 	DeltaTimef = static_cast<float>(DeltaTimed);
+
 }

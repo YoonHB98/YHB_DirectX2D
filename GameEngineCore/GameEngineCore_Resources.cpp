@@ -10,6 +10,7 @@
 #include "GameEngineVertexBuffer.h"
 #include "GameEngineIndexBuffer.h"
 
+
 void GameEngineCore::EngineResourcesInitialize()
 {
 	// 사각형 박스 에러용 텍스처 등등
@@ -20,7 +21,7 @@ void GameEngineCore::EngineResourcesInitialize()
 		// 0       1
 
 		//    원점
-
+		
 		// 3       2
 
 		std::vector<float4> Vertex;
@@ -130,4 +131,6 @@ void GameEngineCore::EngineResourcesDestroy()
 {
 	GameEngineVertexBuffer::ResourcesDestroy();
 	GameEngineIndexBuffer::ResourcesDestroy();
+
+	GameEngineDevice::Destroy();
 }

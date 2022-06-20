@@ -3,6 +3,7 @@
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineBase/GameEngineTime.h>
+#include <GameEngineCore/GameEngineDevice.h>
 #include "GameEngineLevel.h"
 
 #pragma comment(lib, "GameEngineBase.lib")
@@ -116,6 +117,8 @@ void GameEngineCore::CoreEnd(GameEngineCore* _UserCore)
 	}
 
 	EngineResourcesDestroy();
+
+	
 
 	GameEngineWindow::Destroy();
 	GameEngineInput::Destroy();

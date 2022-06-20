@@ -2,14 +2,16 @@
 #include <GameEngineBase/GameEngineNameObject.h>
 #include <GameEngineBase/GameEngineUpdateObject.h>
 #include <list>
-#include <GameEngineBase/GameEngineTransform.h>
+#include "GameEngineTransformBase.h"
+
 
 // 설명 : 화면에 등장하는 모든것을 표현하기 위한 클래스
 class GameEngineComponent;
 class GameEngineTransformComponent;
 class GameEngineActor :
 	public GameEngineNameObject,
-	public GameEngineUpdateObject
+	public GameEngineUpdateObject,
+	public GameEngineTransformBase
 {
 	friend class GameEngineLevel;
 
@@ -24,9 +26,9 @@ public:
 	GameEngineActor& operator=(const GameEngineActor& _Other) = delete;
 	GameEngineActor& operator=(GameEngineActor&& _Other) noexcept = delete;
 
-	inline GameEngineLevel* GetLevel()
-	{
-		return ParentLevel;
+	inline GameEngineLevel* GetLevel() 	
+	{		
+		return ParentLevel;	
 	}
 
 	template<typename ComponentType>
@@ -41,7 +43,7 @@ public:
 		{
 			AllComList.push_back(NewComponent);
 		}
-		else
+		else 
 		{
 			SettingTransformComponent(TransCom);
 			AllTransComList.push_back(TransCom);
@@ -50,6 +52,8 @@ public:
 	}
 
 	void SettingTransformComponent(GameEngineTransformComponent* TransCom);
+
+	void ComponentCalculateTransform();
 
 protected:
 	virtual void Start() override;
@@ -65,22 +69,12 @@ private:
 
 	class GameEngineLevel* ParentLevel;
 
-	void SetLevel(GameEngineLevel* _ParentLevel)
+	void SetLevel(GameEngineLevel* _ParentLevel) 
 	{
 		ParentLevel = _ParentLevel;
 	}
 
-	/////////////////////////////////////////////////// 기하관련
-private:
-	GameEngineTransform Transform;
 
-public:
-	GameEngineTransform& GetTransform()
-	{
-		return Transform;
-	}
-
-public:
-	void ComponentCalculateTransform();
+	
 };
 
