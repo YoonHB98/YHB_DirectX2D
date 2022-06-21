@@ -115,6 +115,9 @@ public:
 
 	virtual void DeleteChild();
 
+	// 이 오브젝트가 프레임구조안에서 돌고 있다.
+	virtual void Update(float _DeltaTime) = 0;
+
 protected:
 	// 이 오브젝트가 동작을 하기 시작했다.
 	virtual void OnEvent() {}
@@ -125,13 +128,12 @@ protected:
 	// 이 오브젝트가 만들어졌다.
 	virtual void Start() = 0;
 
-	// 이 오브젝트가 프레임구조안에서 돌고 있다.
-	virtual void Update(float _DeltaTime) = 0;
-
 	// 이 오브젝트가 메모리가 삭제된다.
 	virtual void End() = 0;
 
 	virtual void ReleaseObject(std::list<GameEngineUpdateObject*>& _RelaseList);
+
+	std::list<GameEngineUpdateObject*> Childs;
 
 private:
 	int Order_;
@@ -143,6 +145,5 @@ private:
 	bool IsDeath_;
 
 	GameEngineUpdateObject* Parent;
-	std::list<GameEngineUpdateObject*> Childs;
 };
 

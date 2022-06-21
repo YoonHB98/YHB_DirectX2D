@@ -38,8 +38,6 @@ public:
 		NewComponent->SetParent(this);
 		NewComponent->Start();
 
-		AllComList.push_back(NewComponent);
-
 		return dynamic_cast<ComponentType*>(NewComponent);
 	}
 
@@ -55,8 +53,6 @@ protected:
 private:
 	void ComponentUpdate(float _ScaleDeltaTime, float _DeltaTime);
 
-	std::list<class GameEngineComponent*> AllComList;
-
 	class GameEngineLevel* ParentLevel;
 
 	void SetLevel(GameEngineLevel* _ParentLevel)
@@ -64,6 +60,7 @@ private:
 		ParentLevel = _ParentLevel;
 	}
 
+	void ReleaseObject(std::list<GameEngineUpdateObject*>& _RelaseList) override;
 
 };
 

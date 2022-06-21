@@ -1,5 +1,6 @@
 #pragma once
 #include <GameEngineBase/GameEngineMath.h>
+#include <GameEngineBase/GameEngineWindow.h>
 
 // 그래픽카드에 연결
 
@@ -10,7 +11,7 @@ private:
 	static GameEngineDevice* Inst;
 
 public:
-	static GameEngineDevice& GetInst() 
+	static GameEngineDevice& GetInst()
 	{
 		return *Inst;
 	}
@@ -25,8 +26,6 @@ public:
 	}
 
 public:
-	// constrcuter destructer
-	GameEngineDevice();
 	~GameEngineDevice();
 
 	// delete Function
@@ -35,11 +34,13 @@ public:
 	GameEngineDevice& operator=(const GameEngineDevice& _Other) = delete;
 	GameEngineDevice& operator=(GameEngineDevice&& _Other) noexcept = delete;
 
+	static void Initialize();
+
 protected:
 
 private:
 	// 다이렉트 11로 오면서 업무분담을 하게 인터페이스를 변경했다.
-	
+
 	// 다이렉트 9때는 디바이스밖에 없었는데.
 	// 리소스와 메모리 분야를 맡습니다.
 	// 그래픽카드에 저장될 텍스처
@@ -51,5 +52,7 @@ private:
 
 	// api의 백버퍼
 	static IDXGISwapChain* SwapChain_;
+
+	GameEngineDevice();
 };
 

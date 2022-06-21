@@ -62,8 +62,10 @@ void GameEngineUpdateObject::ReleaseObject(std::list<GameEngineUpdateObject*>& _
 		if (true == (*StartIter)->IsDeath())
 		{
 			_RelaseList.push_back((*StartIter));
-			(*StartIter)->DetachObject();
-			StartIter = Childs.erase(StartIter);
+
+			GameEngineUpdateObject* DeleteObject = (*StartIter);
+			++StartIter;
+			DeleteObject->DetachObject();
 			continue;
 		}
 
