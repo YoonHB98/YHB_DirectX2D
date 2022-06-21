@@ -26,9 +26,9 @@ public:
 	GameEngineActor& operator=(const GameEngineActor& _Other) = delete;
 	GameEngineActor& operator=(GameEngineActor&& _Other) noexcept = delete;
 
-	inline GameEngineLevel* GetLevel() 	
-	{		
-		return ParentLevel;	
+	inline GameEngineLevel* GetLevel()
+	{
+		return ParentLevel;
 	}
 
 	template<typename ComponentType>
@@ -38,22 +38,14 @@ public:
 		NewComponent->SetParent(this);
 		NewComponent->Start();
 
-		GameEngineTransformComponent* TransCom = dynamic_cast<GameEngineTransformComponent*>(NewComponent);
-		if (nullptr == TransCom)
-		{
-			AllComList.push_back(NewComponent);
-		}
-		else 
-		{
-			SettingTransformComponent(TransCom);
-			AllTransComList.push_back(TransCom);
-		}
+		AllComList.push_back(NewComponent);
+
 		return dynamic_cast<ComponentType*>(NewComponent);
 	}
 
-	void SettingTransformComponent(GameEngineTransformComponent* TransCom);
+	void DetachObject() override;
 
-	void ComponentCalculateTransform();
+	void SetParent(GameEngineUpdateObject*) override;
 
 protected:
 	virtual void Start() override;
@@ -65,16 +57,13 @@ private:
 
 	std::list<class GameEngineComponent*> AllComList;
 
-	std::list<class GameEngineTransformComponent*> AllTransComList;
-
 	class GameEngineLevel* ParentLevel;
 
-	void SetLevel(GameEngineLevel* _ParentLevel) 
+	void SetLevel(GameEngineLevel* _ParentLevel)
 	{
 		ParentLevel = _ParentLevel;
 	}
 
 
-	
 };
 

@@ -4,13 +4,13 @@
 #include "GameEngineRenderer.h"
 #include "GameEngineCamera.h"
 
-GameEngineLevel::GameEngineLevel() 
+GameEngineLevel::GameEngineLevel()
 	: MainCamera(nullptr)
 	, UIMainCamera(nullptr)
 {
 }
 
-GameEngineLevel::~GameEngineLevel() 
+GameEngineLevel::~GameEngineLevel()
 {
 	for (const std::pair<int, std::list<GameEngineActor*>>& Group : AllActors)
 	{
@@ -22,8 +22,6 @@ GameEngineLevel::~GameEngineLevel()
 			}
 
 			Actor->DeleteChild();
-
-			// delete Actor;
 		}
 	}
 }
@@ -40,16 +38,6 @@ void GameEngineLevel::ActorUpdate(float _DelataTime)
 			Actor->ReleaseUpdate(_DelataTime);
 			Actor->ComponentUpdate(ScaleTime, _DelataTime);
 			Actor->Update(ScaleTime);
-		}
-	}
-
-	for (const std::pair<int, std::list<GameEngineActor*>>& Group : AllActors)
-	{
-		float ScaleTime = GameEngineTime::GetInst()->GetDeltaTime(Group.first);
-		for (GameEngineActor* const Actor : Group.second)
-		{
-			Actor->GetTransform().CalculateWorld();
-			Actor->ComponentCalculateTransform();
 		}
 	}
 
@@ -105,11 +93,11 @@ void GameEngineLevel::Release(float _DelataTime)
 				// DeleteObject.push_back((*GroupStart));
 				GroupStart = Group.erase(GroupStart);
 			}
-			else 
+			else
 			{
 				++GroupStart;
 			}
-			
+
 		}
 	}
 

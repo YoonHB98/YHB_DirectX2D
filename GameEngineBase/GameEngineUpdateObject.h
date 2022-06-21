@@ -35,7 +35,7 @@ public:
 		{
 			return IsUpdate_ && false == IsDeath_ && true == Parent->IsUpdate();
 		}
-		else 
+		else
 		{
 			return IsUpdate_ && false == IsDeath_;
 		}
@@ -53,7 +53,7 @@ public:
 		}
 	}
 
-	void AddAccTime(float _DeltaTime) 
+	void AddAccTime(float _DeltaTime)
 	{
 		AccTime_ += _DeltaTime;
 	}
@@ -111,6 +111,7 @@ public:
 	}
 
 	virtual void SetParent(GameEngineUpdateObject* _Parent);
+	virtual void DetachObject();
 
 	virtual void DeleteChild();
 
@@ -131,10 +132,6 @@ protected:
 	virtual void End() = 0;
 
 	virtual void ReleaseObject(std::list<GameEngineUpdateObject*>& _RelaseList);
-
-	void RemoveToParentChildList();
-
-	virtual void DetachObject() {};
 
 private:
 	int Order_;

@@ -3,25 +3,14 @@
 #include "GameEngineComponent.h"
 #include "GameEngineTransformComponent.h"
 
-GameEngineActor::GameEngineActor() 
+GameEngineActor::GameEngineActor()
 	:ParentLevel(nullptr)
 {
 
 }
 
-GameEngineActor::~GameEngineActor() 
+GameEngineActor::~GameEngineActor()
 {
-	// DeleteChild();
-
-	//for (GameEngineComponent* Com : AllComList)
-	//{
-	//	delete Com;
-	//}
-
-	//for (GameEngineTransformComponent* Com : AllTransComList)
-	//{
-	//	delete Com;
-	//}
 }
 
 void GameEngineActor::Start() {}
@@ -36,14 +25,25 @@ void GameEngineActor::ComponentUpdate(float _ScaleDeltaTime, float _DeltaTime)
 		Com->Update(_ScaleDeltaTime);
 	}
 }
-
-void GameEngineActor::SettingTransformComponent(GameEngineTransformComponent* TransCom)
+void GameEngineActor::DetachObject()
 {
-	TransCom->GetTransform().SetParentTransform(GetTransform());
+	GameEngineUpdateObject::DetachObject();
+
+	GetTransform().DetachTransform();
 }
 
-void GameEngineActor::ComponentCalculateTransform()
+void GameEngineActor::SetParent(GameEngineUpdateObject* _Object)
 {
-	GetTransform().CalculateWorld();
-}
+	GameEngineUpdateObject::SetParent(_Object);
 
+	{
+		GameEngineTransformBase* Actor = nullptr;
+		if (Actor = dynamic_cast<GameEngineTransformBase*>(_Object))
+		{
+			GetTransform().SetParentTransform(Actor->GetTransform());
+			return;
+		}
+	}
+
+	MsgBoxAssert("트랜스폼이 없는 컴포넌트에 트랜스폼이 있는 부모를 붙이려고 했습니다.");
+}

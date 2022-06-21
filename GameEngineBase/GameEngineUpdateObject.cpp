@@ -1,7 +1,7 @@
 #include "PreCompile.h"
 #include "GameEngineUpdateObject.h"
 
-GameEngineUpdateObject::GameEngineUpdateObject() 
+GameEngineUpdateObject::GameEngineUpdateObject()
 	: IsUpdate_(true)
 	, IsDeath_(false)
 	, IsReleaseUpdate_(false)
@@ -12,11 +12,11 @@ GameEngineUpdateObject::GameEngineUpdateObject()
 {
 }
 
-GameEngineUpdateObject::~GameEngineUpdateObject() 
+GameEngineUpdateObject::~GameEngineUpdateObject()
 {
 }
 
-void GameEngineUpdateObject::DeleteChild() 
+void GameEngineUpdateObject::DeleteChild()
 {
 	std::list<GameEngineUpdateObject*>::iterator StartIter = Childs.begin();
 	std::list<GameEngineUpdateObject*>::iterator EndIter = Childs.end();
@@ -29,7 +29,15 @@ void GameEngineUpdateObject::DeleteChild()
 	delete this;
 }
 
-void GameEngineUpdateObject::RemoveToParentChildList()
+void GameEngineUpdateObject::SetParent(GameEngineUpdateObject* _Parent)
+{
+	DetachObject();
+
+	Parent = _Parent;
+	Parent->Childs.push_back(this);
+}
+
+void GameEngineUpdateObject::DetachObject()
 {
 	if (nullptr != Parent)
 	{
@@ -37,19 +45,10 @@ void GameEngineUpdateObject::RemoveToParentChildList()
 	}
 }
 
-void GameEngineUpdateObject::SetParent(GameEngineUpdateObject* _Parent) 
-{
-	RemoveToParentChildList();
-
-	Parent = _Parent;
-	Parent->Childs.push_back(this);
-}
-
 void GameEngineUpdateObject::ReleaseObject(std::list<GameEngineUpdateObject*>& _RelaseList)
 {
 	if (true == IsDeath())
 	{
-		RemoveToParentChildList();
 		DetachObject();
 		_RelaseList.push_back(this);
 		return;
@@ -58,7 +57,7 @@ void GameEngineUpdateObject::ReleaseObject(std::list<GameEngineUpdateObject*>& _
 	std::list<GameEngineUpdateObject*>::iterator StartIter = Childs.begin();
 	std::list<GameEngineUpdateObject*>::iterator EndIter = Childs.end();
 
-	for ( ; StartIter != EndIter;)
+	for (; StartIter != EndIter;)
 	{
 		if (true == (*StartIter)->IsDeath())
 		{
