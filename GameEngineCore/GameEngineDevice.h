@@ -35,6 +35,8 @@ public:
 	GameEngineDevice& operator=(GameEngineDevice&& _Other) noexcept = delete;
 
 	static void Initialize();
+	static void DeviceCreate();
+	static void CreateSwapChain();
 
 protected:
 

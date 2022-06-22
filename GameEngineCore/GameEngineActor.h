@@ -51,7 +51,7 @@ protected:
 	virtual void End() override;
 
 private:
-	void ComponentUpdate(float _ScaleDeltaTime, float _DeltaTime);
+	void AllUpdate(float _ScaleDeltaTime, float _DeltaTime);
 
 	class GameEngineLevel* ParentLevel;
 
@@ -59,8 +59,5 @@ private:
 	{
 		ParentLevel = _ParentLevel;
 	}
-
-	void ReleaseObject(std::list<GameEngineUpdateObject*>& _RelaseList) override;
-
 };
 

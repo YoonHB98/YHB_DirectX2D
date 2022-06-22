@@ -16,14 +16,14 @@ GameEngineUpdateObject::~GameEngineUpdateObject()
 {
 }
 
-void GameEngineUpdateObject::DeleteChild()
+void GameEngineUpdateObject::ReleaseHierarchy()
 {
 	std::list<GameEngineUpdateObject*>::iterator StartIter = Childs.begin();
 	std::list<GameEngineUpdateObject*>::iterator EndIter = Childs.end();
 
 	for (; StartIter != EndIter; ++StartIter)
 	{
-		(*StartIter)->DeleteChild();
+		(*StartIter)->ReleaseHierarchy();
 	}
 
 	delete this;
