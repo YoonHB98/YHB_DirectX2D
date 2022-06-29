@@ -96,6 +96,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GameEngineVertexs.h" />
     <ClInclude Include="GameEngineVertexShader.h" />
     <ClInclude Include="GEngine.h">
       <SubType>
@@ -184,6 +185,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="GameEngineVertexs.cpp" />
     <ClCompile Include="GameEngineVertexShader.cpp" />
     <ClCompile Include="GEngine.cpp">
       <SubType>

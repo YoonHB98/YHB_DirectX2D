@@ -84,6 +84,9 @@
     <ClInclude Include="GameEngineDefaultRenderer.h">
       <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngineVertexs.h">
+      <Filter>Resources\InputAssembler</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineActor.cpp">
@@ -170,6 +173,9 @@
     </ClCompile>
     <ClCompile Include="GameEngineDefaultRenderer.cpp">
       <Filter>Object\Component\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineVertexs.cpp">
+      <Filter>Resources\InputAssembler</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
