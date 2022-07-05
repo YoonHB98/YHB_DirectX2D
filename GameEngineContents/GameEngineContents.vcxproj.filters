@@ -22,6 +22,9 @@
     <Filter Include="PreCompile">
       <UniqueIdentifier>{891d634d-8550-43e7-9d8d-c44f56ab4bfb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Play\Com">
+      <UniqueIdentifier>{15f887e4-d5b6-413f-b7bf-0d4d48246df1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -48,6 +51,10 @@
     <ClInclude Include="PreCompile.h">
       <Filter>PreCompile</Filter>
     </ClInclude>
+    <ClInclude Include="GlobalContentsValue.h" />
+    <ClInclude Include="..\..\AR40\DIRECTX\GameEngineContents\ScoreTestComponent.h">
+      <Filter>Actor\Play\Com</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -70,6 +77,10 @@
     </ClCompile>
     <ClCompile Include="PreCompile.cpp">
       <Filter>PreCompile</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalContentsValue.cpp" />
+    <ClCompile Include="..\..\AR40\DIRECTX\GameEngineContents\ScoreTestComponent.cpp">
+      <Filter>Actor\Play\Com</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

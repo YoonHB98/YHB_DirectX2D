@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\AR40\DIRECTX\GameEngineContents\ScoreTestComponent.h" />
     <ClInclude Include="ContentsCore.h">
       <SubType>
       </SubType>
@@ -192,6 +193,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\AR40\DIRECTX\GameEngineContents\ScoreTestComponent.cpp" />
     <ClCompile Include="ContentsCore.cpp">
       <SubType>
       </SubType>

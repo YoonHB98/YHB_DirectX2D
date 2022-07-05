@@ -4,6 +4,7 @@
 #include <iostream>
 #include <GameEngineCore/GameEngineLevel.h>
 #include <GameEngineContents/GlobalContentsValue.h>
+#include "ScoreTestComponent.h"
 #include <GameEngineCore/GameEngineDefaultRenderer.h>
 
 Player::Player()
@@ -36,6 +37,17 @@ void Player::Start()
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 
+	ScoreTestComponent* ScoreCom = CreateComponent<ScoreTestComponent>();
+	{
+		Renderer = CreateComponent<GameEngineDefaultRenderer>();
+		Renderer->GetTransform().SetLocalScale({ 100, 100, 100 });
+		Renderer->SetPipeLine("Color");
+
+		// 버텍스쉐이더와
+		// 픽셀스쉐이더가
+		// Renderer->상수버퍼세팅("mycolor", float4::RED);
+		// Renderer->상수버퍼세팅("mycolor", float4::RED);
+	}
 
 	//ScoreCom->SetParent(CurRenderer);
 
