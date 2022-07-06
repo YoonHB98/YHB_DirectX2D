@@ -87,6 +87,9 @@
     <ClInclude Include="GameEngineVertexs.h">
       <Filter>Resources\InputAssembler</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngineConstantBuffer.h">
+      <Filter>Resources\ShaderResources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineActor.cpp">
@@ -177,6 +180,9 @@
     <ClCompile Include="GameEngineVertexs.cpp">
       <Filter>Resources\InputAssembler</Filter>
     </ClCompile>
+    <ClCompile Include="GameEngineConstantBuffer.cpp">
+      <Filter>Resources\ShaderResources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -220,6 +226,9 @@
     </Filter>
     <Filter Include="Resources\Texture">
       <UniqueIdentifier>{2744ff56-531a-4c22-9745-fc78af28a9b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\ShaderResources">
+      <UniqueIdentifier>{e16e0b14-058f-4dd3-9805-198800523247}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
