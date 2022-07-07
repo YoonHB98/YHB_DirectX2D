@@ -13,10 +13,10 @@
     <ClInclude Include="GameEngineStateManager.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="GEngine.h" />
     <ClInclude Include="GameEngineComponent.h">
       <Filter>Object\Component</Filter>
     </ClInclude>
-    <ClInclude Include="GEngine.h" />
     <ClInclude Include="GameEngineRenderer.h">
       <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
@@ -32,51 +32,15 @@
     <ClInclude Include="GameEngineCameraActor.h">
       <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="CoreMinimal.h" />
     <ClInclude Include="GameEngineCollision.h">
       <Filter>Object\Component\Collision</Filter>
     </ClInclude>
     <ClInclude Include="PreCompile.h">
       <Filter>PreCompile</Filter>
     </ClInclude>
-    <ClInclude Include="CoreMinimal.h" />
     <ClInclude Include="GameEngineDevice.h">
       <Filter>Device</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineIndexBuffer.h">
-      <Filter>Resources\InputAssembler</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineVertexBuffer.h">
-      <Filter>Resources\InputAssembler</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineInputLayOut.h">
-      <Filter>Resources\InputAssembler</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineDepthStencil.h">
-      <Filter>Resources\OutputMerger</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineBlend.h">
-      <Filter>Resources\OutputMerger</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineRenderTarget.h">
-      <Filter>Resources\OutputMerger</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineRasterizer.h">
-      <Filter>Resources\Rasterizer</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineVertexShader.h">
-      <Filter>Resources\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEnginePixelShader.h">
-      <Filter>Resources\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineShader.h">
-      <Filter>Resources\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineTexture.h">
-      <Filter>Resources\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineRenderingPipeLine.h">
-      <Filter>Resources</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineTransformBase.h">
       <Filter>Object\Component</Filter>
@@ -84,11 +48,50 @@
     <ClInclude Include="GameEngineDefaultRenderer.h">
       <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngineRenderingPipeLine.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineIndexBuffer.h">
+      <Filter>Resources\InputAssembler</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineVertexBuffer.h">
+      <Filter>Resources\InputAssembler</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineTexture.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineShader.h">
+      <Filter>Resources\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineVertexShader.h">
+      <Filter>Resources\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEnginePixelShader.h">
+      <Filter>Resources\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineRasterizer.h">
+      <Filter>Resources\Rasterizer</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineRenderTarget.h">
+      <Filter>Resources\OutputMerger</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineDepthStencil.h">
+      <Filter>Resources\OutputMerger</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineBlend.h">
+      <Filter>Resources\OutputMerger</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineInputLayOut.h">
+      <Filter>Resources\InputAssembler</Filter>
+    </ClInclude>
     <ClInclude Include="GameEngineVertexs.h">
       <Filter>Resources\InputAssembler</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineConstantBuffer.h">
       <Filter>Resources\ShaderResources</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineShaderResourcesHelper.h">
+      <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,10 +107,10 @@
     <ClCompile Include="GameEngineStateManager.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
+    <ClCompile Include="GEngine.cpp" />
     <ClCompile Include="GameEngineComponent.cpp">
       <Filter>Object\Component</Filter>
     </ClCompile>
-    <ClCompile Include="GEngine.cpp" />
     <ClCompile Include="GameEngineRenderer.cpp">
       <Filter>Object\Component\Rendering</Filter>
     </ClCompile>
@@ -135,26 +138,26 @@
     <ClCompile Include="GameEngineDevice.cpp">
       <Filter>Device</Filter>
     </ClCompile>
+    <ClCompile Include="GameEngineTransformBase.cpp">
+      <Filter>Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineDefaultRenderer.cpp">
+      <Filter>Object\Component\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineRenderingPipeLine.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
     <ClCompile Include="GameEngineIndexBuffer.cpp">
       <Filter>Resources\InputAssembler</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineVertexBuffer.cpp">
       <Filter>Resources\InputAssembler</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineInputLayOut.cpp">
-      <Filter>Resources\InputAssembler</Filter>
+    <ClCompile Include="GameEngineTexture.cpp">
+      <Filter>Resources\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineBlend.cpp">
-      <Filter>Resources\OutputMerger</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEngineDepthStencil.cpp">
-      <Filter>Resources\OutputMerger</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEngineRenderTarget.cpp">
-      <Filter>Resources\OutputMerger</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEngineRasterizer.cpp">
-      <Filter>Resources\Rasterizer</Filter>
+    <ClCompile Include="GameEngineShader.cpp">
+      <Filter>Resources\Shader</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineVertexShader.cpp">
       <Filter>Resources\Shader</Filter>
@@ -162,26 +165,29 @@
     <ClCompile Include="GameEnginePixelShader.cpp">
       <Filter>Resources\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineShader.cpp">
-      <Filter>Resources\Shader</Filter>
+    <ClCompile Include="GameEngineRasterizer.cpp">
+      <Filter>Resources\Rasterizer</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineTexture.cpp">
-      <Filter>Resources\Texture</Filter>
+    <ClCompile Include="GameEngineRenderTarget.cpp">
+      <Filter>Resources\OutputMerger</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineRenderingPipeLine.cpp">
-      <Filter>Resources</Filter>
+    <ClCompile Include="GameEngineDepthStencil.cpp">
+      <Filter>Resources\OutputMerger</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineTransformBase.cpp">
-      <Filter>Object\Component</Filter>
+    <ClCompile Include="GameEngineBlend.cpp">
+      <Filter>Resources\OutputMerger</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineDefaultRenderer.cpp">
-      <Filter>Object\Component\Rendering</Filter>
+    <ClCompile Include="GameEngineInputLayOut.cpp">
+      <Filter>Resources\InputAssembler</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineVertexs.cpp">
       <Filter>Resources\InputAssembler</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineConstantBuffer.cpp">
       <Filter>Resources\ShaderResources</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineShaderResourcesHelper.cpp">
+      <Filter>Object\Component\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -198,7 +204,7 @@
       <UniqueIdentifier>{0f1a8369-7658-4e5c-9bfe-7868e9ffee8e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\Component">
-      <UniqueIdentifier>{018f8a6f-7517-438c-886d-7e4c24ee68de}</UniqueIdentifier>
+      <UniqueIdentifier>{e7912e52-0386-45b4-bf50-049ebcedb9a4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\Component\Rendering">
       <UniqueIdentifier>{159c3bb7-6922-43be-8efe-4497bb9d7c47}</UniqueIdentifier>
@@ -207,28 +213,28 @@
       <UniqueIdentifier>{419faf34-473f-447d-a811-d5ec4dcb7149}</UniqueIdentifier>
     </Filter>
     <Filter Include="PreCompile">
-      <UniqueIdentifier>{41d0e96d-8251-40aa-a870-e7474b1f3b3f}</UniqueIdentifier>
+      <UniqueIdentifier>{d46787de-918a-4696-9fbe-d892a479d89f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Device">
-      <UniqueIdentifier>{e93e010e-96ec-4930-81e2-ef51f7354609}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources\InputAssembler">
-      <UniqueIdentifier>{77654ec2-978b-453d-9460-7b6e860e6783}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources\OutputMerger">
-      <UniqueIdentifier>{d2308e56-b96a-403a-a2b1-0e8731a5c028}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources\Rasterizer">
-      <UniqueIdentifier>{59c698d8-9e77-446b-a2b6-de34f920aae4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources\Shader">
-      <UniqueIdentifier>{9973ca82-69ed-4046-a924-b8e5dbba403d}</UniqueIdentifier>
+      <UniqueIdentifier>{ac8a4ff0-3f71-4a8a-b75f-ae035701be9a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\Texture">
-      <UniqueIdentifier>{2744ff56-531a-4c22-9745-fc78af28a9b7}</UniqueIdentifier>
+      <UniqueIdentifier>{be2af8f7-7b15-4d69-9afc-a729749d7d71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Shader">
+      <UniqueIdentifier>{0079353a-618c-49a1-aba3-f4f554aedc2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Rasterizer">
+      <UniqueIdentifier>{fe5f8dac-dfe1-497b-8350-faafa48fa329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\OutputMerger">
+      <UniqueIdentifier>{36d2ec93-0456-45af-9091-66a982aed964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\InputAssembler">
+      <UniqueIdentifier>{314ea644-9b22-418b-8318-bd85faafdc2c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\ShaderResources">
-      <UniqueIdentifier>{e16e0b14-058f-4dd3-9805-198800523247}</UniqueIdentifier>
+      <UniqueIdentifier>{f899ac69-4ac6-4282-98ea-1d17623e8b55}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
