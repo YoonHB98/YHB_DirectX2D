@@ -2,11 +2,13 @@
 #include <GameEngineBase/GameEngineMath.h>
 #include "GameEngineRes.h"
 
-// 설명 :
+#include "../GameEngineCore/ThirdParty/inc/DirectXTex.h"
+
+#pragma comment(lib, "DirectXTex.lib")
+
+// 설명 : 
 class GameEngineTexture : public GameEngineRes<GameEngineTexture>
 {
-
-
 public:
 	// constrcuter destructer
 	GameEngineTexture();
