@@ -44,7 +44,18 @@ Output Texture_VS(Input _Input)
 
 Texture2D Tex : register(t0);
 SamplerState Sam : register(s0);
+Texture2D Tex2 : register(t1);
+
 float4 Texture_PS(Output _Input) : SV_Target0
 {
-    return Tex.Sample(Sam, _Input.Tex.xy);
+    float4 TextureColor = Tex.Sample(Sam, _Input.Tex.xy);
+    
+    float4 TextureColor2 = Tex2.Sample(Sam, _Input.Tex.xy);
+    
+    TextureColor.y += TextureColor2.y;
+    TextureColor.x += TextureColor2.x;
+    
+    // return Color;
+    return TextureColor;
+
 }

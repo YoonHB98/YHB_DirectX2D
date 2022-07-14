@@ -67,5 +67,12 @@ Texture2D Tex : register(t0);
 SamplerState Sam : register(s0);
 float4 TextureAtlas_PS(Output _Input) : SV_Target0
 {
-    return Tex.Sample(Sam, _Input.Tex.xy);
+    float4 TextureColor = Tex.Sample(Sam, _Input.Tex.xy);
+    
+    
+    TextureColor.rgb = TextureColor.rgb - 
+    float3(0.8, 0.8, 0.8);
+    
+    // return Color;
+    return TextureColor;
 }
