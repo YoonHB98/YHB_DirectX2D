@@ -16,7 +16,25 @@ ContentsCore::~ContentsCore()
 
 void ContentsCore::Start()
 {
-	// GameEngineDebug::ConsoleOpen();
+
+	GameEngineDirectory Dir;
+
+	Dir.MoveParentToExitsChildDirectory("Resources");
+	Dir.Move("Resources");
+	Dir.Move("Texture");
+
+	std::vector<GameEngineFile> Shaders = Dir.GetAllFile();
+
+	for (size_t i = 0; i < Shaders.size(); i++)
+	{
+		GameEngineTexture::Load(Shaders[i].GetFullPath());
+	}
+	GameEngineTexture::Cut("ame_handspinner.png", 11, 1);
+
+	// 이걸 해줘야 합니다.
+
+
+
 
 	// 리소스를 로드하는데.
 
