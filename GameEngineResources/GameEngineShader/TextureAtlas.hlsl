@@ -73,9 +73,9 @@ float4 TextureAtlas_PS(Output _Input) : SV_Target0
     float4 Position = _Input.Pos;
     
     // return Color;
-    if (_Input.Pos.x >= 600.0f)
-    {
-        clip(-1);
-    }
+    //if (_Input.Pos.x >= 600.0f)
+    //{
+    //    clip(-1);
+    //}
     return TextureColor;
 }

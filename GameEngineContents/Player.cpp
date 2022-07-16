@@ -44,29 +44,14 @@ void Player::Start()
 		Renderer->ShaderResources.SetTexture("Tex", "ffff.png");
 		Renderer->SetTexture("ame_handspinner.png", 0);
 
+
+		Renderer->CreateFrameAnimation("Test", FrameAnimation_DESC("ame_handspinner.png", 0, 10, 0.1f));
+		Renderer->ChangeFrameAnimation("Test");
 	}
 }
 
 void Player::Update(float _DeltaTime)
 {
-	static int Frame = 0;
-	static float Time = 0.0f;
-	Color = float4(0, 0, 0);
-	Time += _DeltaTime;
-
-	if (0.1f <= Time)
-	{
-		++Frame;
-		Renderer->SetFrame(Frame);
-
-		if (Frame == 5)
-		{
-			Frame = 0;
-		}
-
-		Time -= 0.1f;
-	}
-
 
 
 	if (true == GameEngineInput::GetInst()->IsPress("PlayerLeft"))
