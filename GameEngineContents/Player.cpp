@@ -41,7 +41,7 @@ void Player::Start()
 	{
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
 		Renderer->GetTransform().SetLocalScale({ 348, 227, 0 });
-		Renderer->ShaderResources.SetTexture("Tex", "ffff.png");
+		//Renderer->ShaderResources.SetTexture("Tex", "ffff.png");
 		Renderer->SetTexture("ame_handspinner.png", 0);
 
 
