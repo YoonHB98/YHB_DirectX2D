@@ -2,7 +2,6 @@
 #include "GameEngineTextureRenderer.h"
 #include "GameEngineTexture.h"
 #include "GameEngineFolderTexture.h"
-#include "GameEngineContents/GlobalContentsValue.h"
 
 void FrameAnimation::Reset()
 {
@@ -93,6 +92,16 @@ void GameEngineTextureRenderer::Start()
 	FrameData.SizeY = 1.0f;
 
 	ShaderResources.SetConstantBufferLink("AtlasData", FrameData);
+}
+
+void GameEngineTextureRenderer::SetSamplingModePoint()
+{
+	ShaderResources.SetSampler("Smp", "EngineSamplerPoint");
+}
+
+void GameEngineTextureRenderer::SetSamplingModeLiner()
+{
+	ShaderResources.SetSampler("Smp", "EngineSamplerLinear");
 }
 
 void GameEngineTextureRenderer::SetTexture(GameEngineTexture* _Texture)
