@@ -2,7 +2,6 @@
 
 enum class GameObjectGroup 
 {
-	Player,
-	Monster,
-	UI,
+	BackGround,
+	UI
 };

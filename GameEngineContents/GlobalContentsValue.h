@@ -17,15 +17,13 @@ public:
 	{
 	};
 
-	class Actors 
-	{
-	public:
-		static Monster* TestMonster;
 
-	private:
-		Actors() {		}
-		~Actors() {		}
-	};
+
+	static int Mental;
+	static int Stress;
+	static int Affection;
+	static int Followers;
+	static bool boot;
 
 private:
 	GlobalContentsValue()	{	}

@@ -55,6 +55,9 @@
     <ClInclude Include="..\..\AR40\DIRECTX\GameEngineContents\ScoreTestComponent.h">
       <Filter>Actor\Play\Com</Filter>
     </ClInclude>
+    <ClInclude Include="LoadingLevel.h">
+      <Filter>Level</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -81,6 +84,9 @@
     <ClCompile Include="GlobalContentsValue.cpp" />
     <ClCompile Include="..\..\AR40\DIRECTX\GameEngineContents\ScoreTestComponent.cpp">
       <Filter>Actor\Play\Com</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingLevel.cpp">
+      <Filter>Level</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,7 +1,8 @@
 #pragma once
-#include <GameEngineCore/GameEngineActor.h>
+#include <GameEngineCore/CoreMinimal.h>
 
 // Ό³Έν :
+class GameEngineTextureRenderer;
 class TitleLogo : public GameEngineActor
 {
 public:
@@ -14,6 +15,8 @@ public:
 	TitleLogo(TitleLogo&& _Other) noexcept = delete;
 	TitleLogo& operator=(const TitleLogo& _Other) = delete;
 	TitleLogo& operator=(TitleLogo&& _Other) noexcept = delete;
+	GameEngineTextureRenderer* Renderer;
+	GameEngineSoundPlayer BgmPlayer;
 
 protected:
 	void Start() override;
@@ -22,6 +25,6 @@ protected:
 
 private:
 
-	float TimeAngle;
+
 };
 

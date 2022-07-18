@@ -2,9 +2,9 @@
 #include "TitleLogo.h"
 #include <GameEngineCore/GEngine.h>
 #include <GameEngineCore/GameEngineDefaultRenderer.h>
+#include <GameEngineCore/GameEngineTextureRenderer.h>
 
 TitleLogo::TitleLogo() 
-	: TimeAngle(0.0f)
 {
 }
 
@@ -12,27 +12,41 @@ TitleLogo::~TitleLogo()
 {
 }
 
-GameEngineDefaultRenderer* RendererTest = nullptr;
+
+void BootEnd(const FrameAnimation_DESC& _Info)
+{
+	GlobalContentsValue::boot = true;
+}
 
 void TitleLogo::Start() 
 {
 	// 1280 720
-	GetTransform().SetLocalPosition({ 0, 200, 0 });
 
-	{
-		GameEngineDefaultRenderer* RendererTest = CreateComponent<GameEngineDefaultRenderer>();
-		RendererTest->GetTransform().SetLocalScale({ 800, 400, 0 });
+
+	{	
+	 Renderer = CreateComponent<GameEngineTextureRenderer>();
+		Renderer->SetTexture("boot.png", 0);
+		Renderer->GetTransform().SetLocalScale({ 960, 540, 0 });
+
+		Renderer->CreateFrameAnimation("Boot", FrameAnimation_DESC("boot.png", 0, 68, 0.1f,false));
+		Renderer->CreateFrameAnimation("Windose", FrameAnimation_DESC("Windose.png", 0, 20, 0.1f, false));
+		Renderer->ChangeFrameAnimation("Boot");
+		GameEngineSound::SoundPlayOneShot("BIOS_piko.wav", 0);
+		GameEngineSound::SoundPlayOneShot("BIOS_HDD.wav", 0);
 	}
 
-	TimeAngle = 0.0f;
 }
 
 void TitleLogo::Update(float _DeltaTime) 
 {
-	//TimeAngle += _DeltaTime * 20.0f;
 
-	//GetTransform().SetLocalRotation({ 0.0f , 0.0f, TimeAngle });
-	//RendererTest->GetTransform().SetLocalRotation({ TimeAngle , TimeAngle, TimeAngle });
+	Renderer->AnimationBindEnd("Boot", BootEnd);
+	if (GlobalContentsValue::boot == true)
+	{
+		GlobalContentsValue::boot = false;
+		Renderer->ChangeFrameAnimation("Windose");
+		GameEngineSound::SoundPlayOneShot("Boot.wav", 0);
+	}
 }
 
 void TitleLogo::End() 

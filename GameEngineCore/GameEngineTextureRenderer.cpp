@@ -2,6 +2,7 @@
 #include "GameEngineTextureRenderer.h"
 #include "GameEngineTexture.h"
 #include "GameEngineFolderTexture.h"
+#include "GameEngineContents/GlobalContentsValue.h"
 
 void FrameAnimation::Reset()
 {

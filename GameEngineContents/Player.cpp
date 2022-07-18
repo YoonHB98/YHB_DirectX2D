@@ -37,17 +37,15 @@ void Player::Start()
 
 	GetTransform().SetLocalScale({ 1, 1, 1 });
 
-	ScoreTestComponent* ScoreCom = CreateComponent<ScoreTestComponent>();
-	{
+
 		Renderer = CreateComponent<GameEngineTextureRenderer>();
 		Renderer->GetTransform().SetLocalScale({ 348, 227, 0 });
 		//Renderer->ShaderResources.SetTexture("Tex", "ffff.png");
 		Renderer->SetTexture("ame_handspinner.png", 0);
 
-
 		Renderer->CreateFrameAnimation("Test", FrameAnimation_DESC("ame_handspinner.png", 0, 10, 0.1f));
 		Renderer->ChangeFrameAnimation("Test");
-	}
+
 }
 
 void Player::Update(float _DeltaTime)
