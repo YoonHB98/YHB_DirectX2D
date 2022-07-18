@@ -6,6 +6,7 @@ int GlobalContentsValue::Stress = 0;
 int GlobalContentsValue::Affection = 0;
 int GlobalContentsValue::Followers = 0;
 bool GlobalContentsValue::boot = false;
+bool GlobalContentsValue::Title = false;
 
 
 

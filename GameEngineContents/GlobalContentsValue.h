@@ -24,6 +24,7 @@ public:
 	static int Affection;
 	static int Followers;
 	static bool boot;
+	static bool Title;
 
 private:
 	GlobalContentsValue()	{	}

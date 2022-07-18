@@ -25,11 +25,12 @@ void TitleLogo::Start()
 
 	{	
 	 Renderer = CreateComponent<GameEngineTextureRenderer>();
-		Renderer->SetTexture("boot.png", 0);
-		Renderer->GetTransform().SetLocalScale({ 960, 540, 0 });
+	 Renderer->GetTransform().SetLocalScale({ 960, 540, 0 });
+		Renderer->SetTexture("Blank.png");
+
 
 		Renderer->CreateFrameAnimation("Boot", FrameAnimation_DESC("boot.png", 0, 68, 0.1f,false));
-		Renderer->CreateFrameAnimation("Windose", FrameAnimation_DESC("Windose.png", 0, 20, 0.1f, false));
+		Renderer->CreateFrameAnimation("Windose", FrameAnimation_DESC("Windose.png", 0, 20, 0.12f, false));
 		Renderer->ChangeFrameAnimation("Boot");
 		GameEngineSound::SoundPlayOneShot("BIOS_piko.wav", 0);
 		GameEngineSound::SoundPlayOneShot("BIOS_HDD.wav", 0);

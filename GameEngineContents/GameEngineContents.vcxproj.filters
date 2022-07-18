@@ -25,6 +25,9 @@
     <Filter Include="Actor\Play\Com">
       <UniqueIdentifier>{15f887e4-d5b6-413f-b7bf-0d4d48246df1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Loading">
+      <UniqueIdentifier>{ef751b17-2ed7-4ff3-ae63-d4d4c1a4a2b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -33,17 +36,11 @@
     <ClInclude Include="Enums.h">
       <Filter>Global</Filter>
     </ClInclude>
-    <ClInclude Include="TitleLevel.h">
+    <ClInclude Include="LoadingLevel.h">
       <Filter>Level</Filter>
     </ClInclude>
     <ClInclude Include="PlayLevel.h">
       <Filter>Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Actor\Play</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>Actor\Play</Filter>
     </ClInclude>
     <ClInclude Include="TitleLogo.h">
       <Filter>Actor\Title</Filter>
@@ -52,28 +49,22 @@
       <Filter>PreCompile</Filter>
     </ClInclude>
     <ClInclude Include="GlobalContentsValue.h" />
-    <ClInclude Include="..\..\AR40\DIRECTX\GameEngineContents\ScoreTestComponent.h">
-      <Filter>Actor\Play\Com</Filter>
-    </ClInclude>
-    <ClInclude Include="LoadingLevel.h">
+    <ClInclude Include="TitleLevel.h">
       <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Caution.h">
+      <Filter>Actor\Loading</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
-    <ClCompile Include="TitleLevel.cpp">
+    <ClCompile Include="LoadingLevel.cpp">
       <Filter>Level</Filter>
     </ClCompile>
     <ClCompile Include="PlayLevel.cpp">
       <Filter>Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Actor\Play</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>Actor\Play</Filter>
     </ClCompile>
     <ClCompile Include="TitleLogo.cpp">
       <Filter>Actor\Title</Filter>
@@ -82,11 +73,11 @@
       <Filter>PreCompile</Filter>
     </ClCompile>
     <ClCompile Include="GlobalContentsValue.cpp" />
-    <ClCompile Include="..\..\AR40\DIRECTX\GameEngineContents\ScoreTestComponent.cpp">
-      <Filter>Actor\Play\Com</Filter>
-    </ClCompile>
-    <ClCompile Include="LoadingLevel.cpp">
+    <ClCompile Include="TitleLevel.cpp">
       <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Caution.cpp">
+      <Filter>Actor\Loading</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
