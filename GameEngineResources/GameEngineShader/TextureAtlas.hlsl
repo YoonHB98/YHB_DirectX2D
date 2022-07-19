@@ -69,12 +69,11 @@ Texture2D Tex : register(t0);
 SamplerState Sam : register(s0);
 float4 TextureAtlas_PS(Output _Input) : SV_Target0
 {
-    float4 TextureColor = Tex.Sample(Sam, _Input.Tex.xy);
-    float4 Position = _Input.Pos;
-    // return Color;
-    //if (_Input.Pos.x >= 600.0f)
-    //{
-    //    clip(-1);
-    //}
-    return TextureColor;
+    float4 Color = Tex.Sample(Sam, _Input.Tex.xy);
+    
+    if (Color.a <= 0.0f)
+    {
+        clip(-1);
+    }
+    return Color;
 }

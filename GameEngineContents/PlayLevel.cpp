@@ -3,8 +3,6 @@
 #include "GlobalContentsValue.h"
 #include <GameEngineCore/GameEngineCameraActor.h>
 #include <GameEngineBase/GameEngineInput.h>
-#include "Player.h"
-#include "Monster.h"
 
 PlayLevel::PlayLevel()
 {

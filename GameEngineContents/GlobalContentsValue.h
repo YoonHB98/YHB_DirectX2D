@@ -1,12 +1,5 @@
 #pragma once
-#include "Player.h"
-#include "Monster.h"
 
-enum class OBJECTORDER
-{
-	Player,
-	Monster,
-};
 
 
 // Ό³Έν :

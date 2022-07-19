@@ -12,16 +12,35 @@ Caution::~Caution()
 {
 }
 
+void Caution::ChangeState(LoginState _State)
+{
+	if (CurState_ != _State)
+	{
+
+		switch (_State)
+		{
+		case Login:
+			LoginStart();
+			break;
+		case Data1:
+			Data1Start();
+			break;
+		case Max:
+			break;
+		default:
+			break;
+		}
+	}
+
+	CurState_ = _State;
+}
+
+
 
 
 void Caution::Start()
 {
 	// 1280 720
-
-
-	{
-
-	}
 
 }
 
@@ -32,11 +51,14 @@ void Caution::Update(float _DeltaTime)
 		Renderer->SetTexture("SetUp.png");
 		if (GlobalContentsValue::Title == false)
 		{
-
-			GameEngineSound::SoundPlayOneShot("OP_PV.wav", 0);
+			BgmPlayer = GameEngineSound::SoundPlayControl("OP_PV.wav");
+			GameEngineSound::SoundPlayOneShot("Boot_Caution.wav", 0);
 			GlobalContentsValue::Title = true;
 		}
-
+		if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
+		{
+			Renderer->SetTexture("login.png");
+		}
 }
 
 void Caution::End()

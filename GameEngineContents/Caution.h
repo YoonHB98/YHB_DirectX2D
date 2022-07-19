@@ -2,6 +2,13 @@
 #include <GameEngineCore/CoreMinimal.h>
 
 // Ό³Έν :
+enum LoginState
+{
+	Login,
+	Data1,
+	Max,
+};
+
 class GameEngineTextureRenderer;
 class Caution : public GameEngineActor
 {
@@ -24,7 +31,13 @@ protected:
 	void End() override;
 
 private:
+	LoginState CurState_;
+	void ChangeState(LoginState _State);
+	void StateUpdate();
 
+private:
+	void LoginStart();
+	void Data1Start();
 
 };
 

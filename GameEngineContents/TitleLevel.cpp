@@ -36,11 +36,6 @@ void TitleLevel::Start()
 
 void TitleLevel::Update(float _DeltaTime)
 {
-	if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
-	{
-		GEngine::ChangeLevel("Play");
-	}
-
 	// 레벨 바뀌어서 오면 초기화
 	// GetAccTime();
 

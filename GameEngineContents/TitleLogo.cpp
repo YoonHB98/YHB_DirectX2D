@@ -2,7 +2,7 @@
 #include "TitleLogo.h"
 #include <GameEngineCore/GEngine.h>
 #include <GameEngineCore/GameEngineDefaultRenderer.h>
-#include <GameEngineCore/GameEngineTextureRenderer.h>
+
 
 TitleLogo::TitleLogo() 
 {
@@ -20,7 +20,7 @@ void BootEnd(const FrameAnimation_DESC& _Info)
 
 void TitleLogo::Start() 
 {
-	// 1280 720
+	// 960 540
 
 
 	{	
@@ -29,7 +29,7 @@ void TitleLogo::Start()
 		Renderer->SetTexture("Blank.png");
 
 
-		Renderer->CreateFrameAnimation("Boot", FrameAnimation_DESC("boot.png", 0, 68, 0.1f,false));
+		Renderer->CreateFrameAnimation("Boot", FrameAnimation_DESC("Boot.png", 0, 68, 0.1f,false));
 		Renderer->CreateFrameAnimation("Windose", FrameAnimation_DESC("Windose.png", 0, 20, 0.12f, false));
 		Renderer->ChangeFrameAnimation("Boot");
 		GameEngineSound::SoundPlayOneShot("BIOS_piko.wav", 0);
