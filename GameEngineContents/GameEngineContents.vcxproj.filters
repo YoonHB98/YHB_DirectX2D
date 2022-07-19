@@ -22,9 +22,6 @@
     <Filter Include="PreCompile">
       <UniqueIdentifier>{891d634d-8550-43e7-9d8d-c44f56ab4bfb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Actor\Play\Com">
-      <UniqueIdentifier>{15f887e4-d5b6-413f-b7bf-0d4d48246df1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Actor\Loading">
       <UniqueIdentifier>{ef751b17-2ed7-4ff3-ae63-d4d4c1a4a2b6}</UniqueIdentifier>
     </Filter>
@@ -55,6 +52,12 @@
     <ClInclude Include="Caution.h">
       <Filter>Actor\Loading</Filter>
     </ClInclude>
+    <ClInclude Include="MainBG.h">
+      <Filter>Actor\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="SideBG.h">
+      <Filter>Actor\Play</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -81,6 +84,12 @@
     </ClCompile>
     <ClCompile Include="TitleState.cpp">
       <Filter>Actor\Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="MainBG.cpp">
+      <Filter>Actor\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="SideBG.cpp">
+      <Filter>Actor\Play</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -170,6 +170,14 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="MainBG.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="SideBG.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="TitleLevel.h">
       <SubType>
       </SubType>
@@ -201,6 +209,14 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="GlobalContentsValue.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="MainBG.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="SideBG.cpp">
       <SubType>
       </SubType>
     </ClCompile>

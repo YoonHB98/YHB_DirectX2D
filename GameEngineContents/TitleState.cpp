@@ -53,5 +53,6 @@ void Caution::UpdateWelcome()
 		Time = Time - 99999;
 		GameEngineSound::SoundPlayOneShot("Notification.wav", 1);
 		BgmPlayer.Stop();
+		GEngine::ChangeLevel("Play");
 	}
 }

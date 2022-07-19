@@ -3,6 +3,9 @@
 #include "GlobalContentsValue.h"
 #include <GameEngineCore/GameEngineCameraActor.h>
 #include <GameEngineBase/GameEngineInput.h>
+#include "Enums.h"
+#include "MainBG.h"
+#include "SideBG.h"
 
 PlayLevel::PlayLevel()
 {
@@ -21,7 +24,8 @@ void PlayLevel::Start()
 		actor->GetCameraComponent()->SetProjectionMode(CAMERAPROJECTIONMODE::Orthographic);
 		actor->GetTransform().SetLocalPosition({ 0.0f, 0.0f, -500.0f });
 	}
-
+	CreateActor<MainBG>(GameObjectGroup::BackGround);
+	CreateActor<SideBG>(GameObjectGroup::BackGround);
 
 
 
