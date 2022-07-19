@@ -82,8 +82,5 @@
     <ClCompile Include="TitleState.cpp">
       <Filter>Actor\Loading</Filter>
     </ClCompile>
-    <ClCompile Include="Caution_State.cpp">
-      <Filter>Actor\Loading</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

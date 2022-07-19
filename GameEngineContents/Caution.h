@@ -4,8 +4,10 @@
 // Ό³Έν :
 enum LoginState
 {
+	Idle,
 	Login,
 	Data1,
+	Welcome,
 	Max,
 };
 
@@ -31,13 +33,21 @@ protected:
 	void End() override;
 
 private:
+	float Time = 0;
 	LoginState CurState_;
 	void ChangeState(LoginState _State);
 	void StateUpdate();
 
 private:
+	void IdleStart();
 	void LoginStart();
 	void Data1Start();
+	void WelcomeStart();
+
+	void UpdateIdle();
+	void UpdateLogin();
+	void UpdateData1();
+	void UpdateWelcome();
 
 };
 

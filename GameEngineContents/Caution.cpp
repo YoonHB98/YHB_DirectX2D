@@ -25,6 +25,8 @@ void Caution::ChangeState(LoginState _State)
 		case Data1:
 			Data1Start();
 			break;
+		case Welcome:
+			WelcomeStart();
 		case Max:
 			break;
 		default:
@@ -35,30 +37,51 @@ void Caution::ChangeState(LoginState _State)
 	CurState_ = _State;
 }
 
+void Caution::StateUpdate()
+{
+		switch (CurState_)
+		{
+		case Idle:
+			UpdateIdle();
+				break;
+		case Login:
+			UpdateLogin();
+			break;
+		case Data1:
+			UpdateData1();
+			break;
+		case Welcome:
+			UpdateWelcome();
+		case Max:
+			break;
+		default:
+			break;
+		}
+}
+
+
 
 
 
 void Caution::Start()
 {
-	// 1280 720
+	Renderer = CreateComponent<GameEngineTextureRenderer>();
+	Renderer->SetTexture("SetUp.png");
+	Renderer->ScaleToTexture();
 
 }
 
 void Caution::Update(float _DeltaTime)
 {
-			Renderer = CreateComponent<GameEngineTextureRenderer>();
-		Renderer->GetTransform().SetLocalScale({ 960, 540, 0 });
-		Renderer->SetTexture("SetUp.png");
+
 		if (GlobalContentsValue::Title == false)
 		{
 			BgmPlayer = GameEngineSound::SoundPlayControl("OP_PV.wav");
 			GameEngineSound::SoundPlayOneShot("Boot_Caution.wav", 0);
 			GlobalContentsValue::Title = true;
 		}
-		if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
-		{
-			Renderer->SetTexture("login.png");
-		}
+
+		StateUpdate();
 }
 
 void Caution::End()
