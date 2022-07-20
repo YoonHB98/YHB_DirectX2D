@@ -58,7 +58,7 @@ void ContentsCore::Start()
 	CreateLevel<LoadingLevel>("Loading");
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-	ChangeLevel("Loading");
+	ChangeLevel("Play");
 
 	// 게임컨텐츠 정의
 	// 이 게임에는 타이틀화면
@@ -70,7 +70,7 @@ void ContentsCore::Update(float _DeltaTime)
 {
 	// 서버가 종료되었어.
 	// 무조건 경고 메세지창을 띄워줘야한다.
-
+	GlobalContentsValue::LineNum = 1;
 
 }
 

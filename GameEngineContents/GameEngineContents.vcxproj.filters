@@ -25,6 +25,15 @@
     <Filter Include="Actor\Loading">
       <UniqueIdentifier>{ef751b17-2ed7-4ff3-ae63-d4d4c1a4a2b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Play\Stream">
+      <UniqueIdentifier>{aee5c16c-5e2a-41e5-97ac-209c36ed73da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Play\Line">
+      <UniqueIdentifier>{05cfe7e9-637b-4491-bd56-6a523d74669c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Play\tweet">
+      <UniqueIdentifier>{bc96840d-2c2e-4fde-8106-b3c67b82489c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -61,6 +70,12 @@
     <ClInclude Include="WindowIcon.h">
       <Filter>Actor\Play</Filter>
     </ClInclude>
+    <ClInclude Include="Notification.h">
+      <Filter>Actor\Play\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="NumUpdate.h">
+      <Filter>Actor\Play\Line</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -96,6 +111,12 @@
     </ClCompile>
     <ClCompile Include="WindowIcon.cpp">
       <Filter>Actor\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Notification.cpp">
+      <Filter>Actor\Play\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="NumUpdate.cpp">
+      <Filter>Actor\Play\Line</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

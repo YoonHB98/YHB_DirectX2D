@@ -21,6 +21,7 @@ protected:
 	void End() override;
 
 private:
-
+	int a = 0;
+	float time = 0;
 };
 
