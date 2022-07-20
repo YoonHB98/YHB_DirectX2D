@@ -5,8 +5,8 @@
 enum DayState
 {
 	night,
-	evening,
 	noon,
+	evening,
 	Max,
 };
 
@@ -28,11 +28,15 @@ public:
 	GameEngineTextureRenderer* RightBG;
 	GameEngineTextureRenderer* LeftBG;
 	GameEngineSoundPlayer BgmPlayer;
+	DayState CurState_;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-
+	void ChangeState(DayState);
+	void StartNight();
+	void StartNoon();
+	void StartEvening();
 };
 

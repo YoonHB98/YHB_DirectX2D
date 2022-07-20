@@ -58,6 +58,9 @@
     <ClInclude Include="SideBG.h">
       <Filter>Actor\Play</Filter>
     </ClInclude>
+    <ClInclude Include="WindowIcon.h">
+      <Filter>Actor\Play</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -89,6 +92,9 @@
       <Filter>Actor\Play</Filter>
     </ClCompile>
     <ClCompile Include="SideBG.cpp">
+      <Filter>Actor\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowIcon.cpp">
       <Filter>Actor\Play</Filter>
     </ClCompile>
   </ItemGroup>

@@ -6,6 +6,7 @@
 #include "Enums.h"
 #include "MainBG.h"
 #include "SideBG.h"
+#include "WindowIcon.h"
 
 PlayLevel::PlayLevel()
 {
@@ -26,6 +27,7 @@ void PlayLevel::Start()
 	}
 	CreateActor<MainBG>(GameObjectGroup::BackGround);
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
+	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
 
 
 

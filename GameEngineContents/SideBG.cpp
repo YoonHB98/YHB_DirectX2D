@@ -9,6 +9,52 @@ SideBG::~SideBG()
 {
 }
 
+void SideBG::ChangeState(DayState _State)
+{
+	if (CurState_ != _State)
+	{
+
+		switch (_State)
+		{
+		case night:
+			StartNight();
+			break;
+		case noon:
+			StartNoon();
+			break;
+		case evening:
+			StartEvening();
+		case Max:
+			break;
+		default:
+			break;
+		}
+	}
+
+	CurState_ = _State;
+}
+
+void SideBG::StartNight()
+{
+	RightBG->SetTexture("bg_side_bar_night.png");
+	RightBG->GetTransform().PixLocalNegativeX();
+	LeftBG->SetTexture("bg_side_bar_night.png");
+}
+
+void SideBG::StartNoon()
+{
+	RightBG->SetTexture("bg_side_bar_noon.png");
+	RightBG->GetTransform().PixLocalNegativeX();
+	LeftBG->SetTexture("bg_side_bar_noon.png");
+}
+
+void SideBG::StartEvening()
+{
+	RightBG->SetTexture("bg_side_bar_evening.png");
+	RightBG->GetTransform().PixLocalNegativeX();
+	LeftBG->SetTexture("bg_side_bar_evening.png");
+}
+
 void SideBG::Start()
 {
 	{
@@ -28,6 +74,7 @@ void SideBG::Start()
 
 void SideBG::Update(float _DeltaTime)
 {
+	ChangeState(noon);
 }
 
 void SideBG::End()

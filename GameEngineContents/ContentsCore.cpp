@@ -52,7 +52,6 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("ame_handspinner.png", 11, 1);
 	GameEngineTexture::Cut("boot.png", 10, 7);
 	GameEngineTexture::Cut("Windose.png", 10, 3);
-	GameEngineTexture::Cut("image1.png", 12, 1);
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션
