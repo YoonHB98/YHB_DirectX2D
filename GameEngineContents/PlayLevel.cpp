@@ -8,7 +8,6 @@
 #include "SideBG.h"
 #include "WindowIcon.h"
 #include "Notification.h"
-#include "NumUpdate.h"
 
 PlayLevel::PlayLevel()
 {

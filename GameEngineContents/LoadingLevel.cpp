@@ -30,7 +30,7 @@ void LoadingLevel::Start()
 
 
 	// 세상에 보일 오브젝트들을 만들어서
-	CreateActor<TitleLogo>(GameObjectGroup::BackGround);
+	//CreateActor<TitleLogo>(GameObjectGroup::BackGround);
 
 }
 
