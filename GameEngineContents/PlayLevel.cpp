@@ -8,6 +8,7 @@
 #include "SideBG.h"
 #include "WindowIcon.h"
 #include "Notification.h"
+#include "LineMain.h"
 
 PlayLevel::PlayLevel()
 {
@@ -29,8 +30,8 @@ void PlayLevel::Start()
 	CreateActor<MainBG>(GameObjectGroup::BackGround);
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
-	//CreateActor<NumUpdate>(GameObjectGroup::WindowIcon);
-	//CreateActor<Notification>(GameObjectGroup::WindowIcon);
+	CreateActor<LineMain>(GameObjectGroup::WindowIcon);
+
 
 
 
@@ -38,12 +39,12 @@ void PlayLevel::Start()
 }
 void PlayLevel::Update(float _DeltaTime)
 {
-	time = time + GameEngineTime::GetDeltaTime();
-	if (time > 1.0f)
-	{
-		time = 0;
-		CreateActor<Notification>(GameObjectGroup::WindowIcon);
-	}
+	//time = time + GameEngineTime::GetDeltaTime();
+	//if (time > 1.0f)
+	//{
+	//	time = 0;
+	//	CreateActor<Notification>(GameObjectGroup::WindowIcon);
+	//}
 
 
 

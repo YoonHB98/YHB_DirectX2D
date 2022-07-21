@@ -73,6 +73,9 @@
     <ClInclude Include="Notification.h">
       <Filter>Actor\Play\Line</Filter>
     </ClInclude>
+    <ClInclude Include="LineMain.h">
+      <Filter>Actor\Play\Line</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -110,6 +113,9 @@
       <Filter>Actor\Play</Filter>
     </ClCompile>
     <ClCompile Include="Notification.cpp">
+      <Filter>Actor\Play\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="LineMain.cpp">
       <Filter>Actor\Play\Line</Filter>
     </ClCompile>
   </ItemGroup>

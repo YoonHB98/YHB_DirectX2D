@@ -35,6 +35,11 @@ void Notification::Update(float _DeltaTime)
 		Line->GetTransform().SetLocalMove(float4(0, 25));
 
 	}
+	if (GlobalContentsValue::LineNum == 0)
+	{
+		Death();
+	}
+
 }
 
 void Notification::End()
