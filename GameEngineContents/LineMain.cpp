@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "LineMain.h"
+#include "LineDate.h"
 
 LineMain::LineMain()
 {
@@ -27,10 +28,4 @@ void LineMain::End()
 {
 }
 
-void LineMain::LineDate()
-{
-	/*if (CurDayState != )
-	{
 
-	}*/
-}

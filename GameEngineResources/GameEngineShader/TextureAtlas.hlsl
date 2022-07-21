@@ -42,7 +42,6 @@ Output TextureAtlas_VS(Input _Input)
 {
     Output NewOutPut = (Output)0;
     NewOutPut.Pos = mul(_Input.Pos, WorldViewProjection);
-    NewOutPut.Pos.w = 1.0f;
     NewOutPut.PosLocal = _Input.Pos;
     
     // 버텍스가 몇번째 버텍스 인지 알수가 없다.
@@ -51,29 +50,15 @@ Output TextureAtlas_VS(Input _Input)
     
     // 10    11
     
-    // 0.5 0.5    1 0.5
-    
-    // 1 0.5    1 1
-    
-    // 0.5 0.5 
-
     NewOutPut.Tex.x = (_Input.Tex.x * TextureFrameSize.x) + TextureFramePos.x;
     NewOutPut.Tex.y = (_Input.Tex.y * TextureFrameSize.y) + TextureFramePos.y;
-
-
-        
-        return NewOutPut;
+    
+    return NewOutPut;
 }
 
 Texture2D Tex : register(t0);
 SamplerState Sam : register(s0);
 float4 TextureAtlas_PS(Output _Input) : SV_Target0
 {
-    float4 Color = Tex.Sample(Sam, _Input.Tex.xy);
-    
-    if (Color.a <= 0.0f)
-    {
-        clip(-1);
-    }
-    return Color;
+    return Tex.Sample(Sam, _Input.Tex.xy);
 }

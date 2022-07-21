@@ -1,11 +1,11 @@
 #pragma once
 #include <GameEngineCore/CoreMinimal.h>
+#include <GameEngineCore/GameEngineComponent.h>
 
 // Ό³Έν :
 
 
-class GameEngineTextureRenderer;
-class LineDate : public GameEngineActor
+class LineDate :  public GameEngineActor
 {
 public:
 	// constrcuter destructer
@@ -19,8 +19,9 @@ public:
 	LineDate& operator=(LineDate&& _Other) noexcept = delete;
 
 	GameEngineTextureRenderer* Renderer;
-protected:
 	void Start() override;
+protected:
+
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
