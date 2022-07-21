@@ -11,11 +11,9 @@ WebCamWindow::~WebCamWindow()
 
 void WebCamWindow::Start()
 {
-	// 25 ¿Ã¸®¸é µÊ
-	GlobalContentsValue::LineNum = GlobalContentsValue::LineNum + 1;
 	Renderer = CreateComponent<GameEngineTextureRenderer>();
-	Renderer->SetTexture("WebCamWindow.png");
-	Renderer->GetTransform().SetLocalPosition(float4(202, -74));
+	Renderer->SetTexture("WebCam.png");
+	Renderer->GetTransform().SetLocalPosition(float4(-90, 120));
 	Renderer->ScaleToTexture();
 }
 

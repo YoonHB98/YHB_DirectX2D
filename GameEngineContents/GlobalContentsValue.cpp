@@ -10,6 +10,4 @@ int GlobalContentsValue::LineNum = 0;
 bool GlobalContentsValue::boot = false;
 bool GlobalContentsValue::Title = false;
 
-
-
-
+int GlobalContentsValue::DayTime = 3;

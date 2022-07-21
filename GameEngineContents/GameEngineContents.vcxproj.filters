@@ -37,6 +37,12 @@
     <Filter Include="Actor\Play\WebCam">
       <UniqueIdentifier>{bcec1406-b044-4dcb-b098-72ae6a6b2c11}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Play\TaskManager">
+      <UniqueIdentifier>{31dab514-f306-4b83-a5a0-c976c43c5fcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Play\Line\Text">
+      <UniqueIdentifier>{ff98aa35-e4d5-4715-942c-f6998fc8c5cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -82,6 +88,12 @@
     <ClInclude Include="WebCamWindow.h">
       <Filter>Actor\Play\WebCam</Filter>
     </ClInclude>
+    <ClInclude Include="TaskManager.h">
+      <Filter>Actor\Play\TaskManager</Filter>
+    </ClInclude>
+    <ClInclude Include="LineDate.h">
+      <Filter>Actor\Play\Line\Text</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -126,6 +138,12 @@
     </ClCompile>
     <ClCompile Include="WebCamWindow.cpp">
       <Filter>Actor\Play\WebCam</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskManager.cpp">
+      <Filter>Actor\Play\TaskManager</Filter>
+    </ClCompile>
+    <ClCompile Include="LineDate.cpp">
+      <Filter>Actor\Play\Line\Text</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

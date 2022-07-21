@@ -11,7 +11,6 @@ LineMain::~LineMain()
 
 void LineMain::Start()
 {
-	GlobalContentsValue::LineNum = GlobalContentsValue::LineNum + 1;
 	Renderer = CreateComponent<GameEngineTextureRenderer>();
 	Renderer->SetTexture("LineMain.png");
 	Renderer->GetTransform().SetLocalPosition(float4(202, -74));
@@ -26,4 +25,12 @@ void LineMain::Update(float _DeltaTime)
 
 void LineMain::End()
 {
+}
+
+void LineMain::LineDate()
+{
+	/*if (CurDayState != )
+	{
+
+	}*/
 }

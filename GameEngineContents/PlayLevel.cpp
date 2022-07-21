@@ -9,6 +9,8 @@
 #include "WindowIcon.h"
 #include "Notification.h"
 #include "LineMain.h"
+#include "WebCamWindow.h"
+#include "TaskManager.h"
 
 PlayLevel::PlayLevel()
 {
@@ -31,6 +33,8 @@ void PlayLevel::Start()
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
 	CreateActor<LineMain>(GameObjectGroup::WindowIcon);
+	CreateActor<WebCamWindow>(GameObjectGroup::WindowIcon);
+	CreateActor<TaskManager>(GameObjectGroup::WindowIcon);
 
 
 

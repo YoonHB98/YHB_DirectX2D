@@ -13,25 +13,23 @@ void SideBG::ChangeState(DayState _State)
 {
 	if (CurState_ != _State)
 	{
-
+		CurState_ = _State;
 		switch (_State)
 		{
-		case night:
+		case DayState::night :
 			StartNight();
 			break;
-		case noon:
+		case DayState::noon:
 			StartNoon();
 			break;
-		case evening:
+		case DayState::evening:
 			StartEvening();
-		case Max:
+		case DayState::Max:
 			break;
 		default:
 			break;
 		}
 	}
-
-	CurState_ = _State;
 }
 
 void SideBG::StartNight()
@@ -74,7 +72,8 @@ void SideBG::Start()
 
 void SideBG::Update(float _DeltaTime)
 {
-	ChangeState(noon);
+	DayState GlobalValue = (DayState)GlobalContentsValue::DayTime;
+	ChangeState(GlobalValue);
 }
 
 void SideBG::End()

@@ -2,13 +2,14 @@
 #include <GameEngineCore/CoreMinimal.h>
 
 // Ό³Έν :
-enum DayState
+enum class DayState
 {
 	night,
 	noon,
 	evening,
 	Max,
 };
+
 
 
 class GameEngineTextureRenderer;
@@ -28,7 +29,6 @@ public:
 	GameEngineTextureRenderer* RightBG;
 	GameEngineTextureRenderer* LeftBG;
 	GameEngineSoundPlayer BgmPlayer;
-	DayState CurState_;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -38,5 +38,9 @@ private:
 	void StartNight();
 	void StartNoon();
 	void StartEvening();
+
+private:
+	DayState CurState_;
+
 };
 

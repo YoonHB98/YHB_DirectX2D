@@ -5,18 +5,18 @@
 
 
 class GameEngineTextureRenderer;
-class LineMain : public GameEngineActor
+class TaskManager : public GameEngineActor
 {
 public:
 	// constrcuter destructer
-	LineMain();
-	~LineMain();
+	TaskManager();
+	~TaskManager();
 
 	// delete Function
-	LineMain(const LineMain& _Other) = delete;
-	LineMain(LineMain&& _Other) noexcept = delete;
-	LineMain& operator=(const LineMain& _Other) = delete;
-	LineMain& operator=(LineMain&& _Other) noexcept = delete;
+	TaskManager(const TaskManager& _Other) = delete;
+	TaskManager(TaskManager&& _Other) noexcept = delete;
+	TaskManager& operator=(const TaskManager& _Other) = delete;
+	TaskManager& operator=(TaskManager&& _Other) noexcept = delete;
 
 	GameEngineTextureRenderer* Renderer;
 protected:
@@ -24,6 +24,6 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-	void LineDate();
+
 };
 

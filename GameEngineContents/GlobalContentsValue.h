@@ -6,9 +6,6 @@
 class GlobalContentsValue
 {
 public:
-	class Enums 
-	{
-	};
 
 
 
@@ -20,6 +17,7 @@ public:
 	static int LineNum;
 	static bool boot;
 	static bool Title;
+	static int DayTime;
 
 private:
 	GlobalContentsValue()	{	}

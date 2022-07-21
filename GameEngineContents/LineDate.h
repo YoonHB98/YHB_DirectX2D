@@ -5,18 +5,18 @@
 
 
 class GameEngineTextureRenderer;
-class LineMain : public GameEngineActor
+class LineDate : public GameEngineActor
 {
 public:
 	// constrcuter destructer
-	LineMain();
-	~LineMain();
+	LineDate();
+	~LineDate();
 
 	// delete Function
-	LineMain(const LineMain& _Other) = delete;
-	LineMain(LineMain&& _Other) noexcept = delete;
-	LineMain& operator=(const LineMain& _Other) = delete;
-	LineMain& operator=(LineMain&& _Other) noexcept = delete;
+	LineDate(const LineDate& _Other) = delete;
+	LineDate(LineDate&& _Other) noexcept = delete;
+	LineDate& operator=(const LineDate& _Other) = delete;
+	LineDate& operator=(LineDate&& _Other) noexcept = delete;
 
 	GameEngineTextureRenderer* Renderer;
 protected:
@@ -24,6 +24,6 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-	void LineDate();
+
 };
 
