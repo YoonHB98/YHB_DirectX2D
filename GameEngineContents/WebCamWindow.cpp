@@ -1,29 +1,30 @@
 #include "PreCompile.h"
-#include "LineMain.h"
+#include "WebCamWindow.h"
 
-LineMain::LineMain()
+WebCamWindow::WebCamWindow()
 {
 }
 
-LineMain::~LineMain()
+WebCamWindow::~WebCamWindow()
 {
 }
 
-void LineMain::Start()
+void WebCamWindow::Start()
 {
+	// 25 ¿Ã¸®¸é µÊ
 	GlobalContentsValue::LineNum = GlobalContentsValue::LineNum + 1;
 	Renderer = CreateComponent<GameEngineTextureRenderer>();
-	Renderer->SetTexture("LineMain.png");
+	Renderer->SetTexture("WebCamWindow.png");
 	Renderer->GetTransform().SetLocalPosition(float4(202, -74));
 	Renderer->ScaleToTexture();
 }
 
-void LineMain::Update(float _DeltaTime)
+void WebCamWindow::Update(float _DeltaTime)
 {
 
 
 }
 
-void LineMain::End()
+void WebCamWindow::End()
 {
 }
