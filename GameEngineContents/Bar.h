@@ -27,5 +27,7 @@ protected:
 	void End() override;
 private:
 	float time;
+	float time2;
+	int count = 0;
 };
 

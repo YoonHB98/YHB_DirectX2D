@@ -25,18 +25,28 @@ void Bar::Start()
 	Affection->SetTexture("Color.png");
 	Affection->GetTransform().SetLocalPosition(float4(343.5, 97.5 + 27 * (GlobalContentsValue::Affection) * 0.01 * 0.5));
 	Affection->GetTransform().SetLocalScale(float4(3, 27 * (GlobalContentsValue::Affection) * 0.01));
-	Death(21.0f);
 }
 
 void Bar::Update(float _DeltaTime)
 {
 	time = time + GameEngineTime::GetDeltaTime();
-	if (time > 1.0f)
+	if (count == 20)
+	{ 
+		time2 = time2 + GameEngineTime::GetDeltaTime();
+		if (time2 > 1.0f)
+		{
+			Death();
+		}
+	
+	}
+	if (time > 1.0f
+		&& count != 20)
 	{
 		Mental->GetTransform().SetLocalMove(float4(-3, 0));
 		Stress->GetTransform().SetLocalMove(float4(-3, 0));
 		Affection->GetTransform().SetLocalMove(float4(-3, 0));
 		time = time - 1.0f;
+		count++;
 	}
 
 }
