@@ -11,6 +11,7 @@
 #include "LineMain.h"
 #include "WebCamWindow.h"
 #include "TaskManager.h"
+#include "Bar.h"
 
 PlayLevel::PlayLevel()
 {
@@ -35,6 +36,7 @@ void PlayLevel::Start()
 	CreateActor<LineMain>(GameObjectGroup::WindowIcon);
 	CreateActor<WebCamWindow>(GameObjectGroup::WindowIcon);
 	CreateActor<TaskManager>(GameObjectGroup::WindowIcon);
+	CreateActor<Bar>(GameObjectGroup::WindowIcon);
 
 
 
@@ -43,12 +45,12 @@ void PlayLevel::Start()
 }
 void PlayLevel::Update(float _DeltaTime)
 {
-	//time = time + GameEngineTime::GetDeltaTime();
-	//if (time > 1.0f)
-	//{
-	//	time = 0;
-	//	CreateActor<Notification>(GameObjectGroup::WindowIcon);
-	//}
+	time = time + GameEngineTime::GetDeltaTime();
+	if (time > 1.0f)
+	{
+		time = time - 1.0f;
+		CreateActor<Bar>(GameObjectGroup::WindowIcon);
+	}
 
 
 

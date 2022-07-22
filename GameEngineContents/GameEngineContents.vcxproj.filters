@@ -94,6 +94,9 @@
     <ClInclude Include="LineDate.h">
       <Filter>Actor\Play\Line\Text</Filter>
     </ClInclude>
+    <ClInclude Include="Bar.h">
+      <Filter>Actor\Play\TaskManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -144,6 +147,9 @@
     </ClCompile>
     <ClCompile Include="LineDate.cpp">
       <Filter>Actor\Play\Line\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Bar.cpp">
+      <Filter>Actor\Play\TaskManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -91,7 +91,7 @@ void GameEngineDevice::CreateSwapChain()
 	ScInfo.OutputWindow = GameEngineWindow::GetHWND();
 
 	ScInfo.BufferDesc.RefreshRate.Denominator = 1;
-	ScInfo.BufferDesc.RefreshRate.Numerator = 60;
+	ScInfo.BufferDesc.RefreshRate.Numerator = 30;
 
 	ScInfo.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	ScInfo.BufferDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED;
