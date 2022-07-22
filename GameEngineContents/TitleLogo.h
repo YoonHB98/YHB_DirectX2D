@@ -16,7 +16,8 @@ public:
 	TitleLogo& operator=(const TitleLogo& _Other) = delete;
 	TitleLogo& operator=(TitleLogo&& _Other) noexcept = delete;
 	GameEngineTextureRenderer* Renderer;
-	GameEngineSoundPlayer BgmPlayer;
+	GameEngineSoundPlayer BgmPlayer1;
+	GameEngineSoundPlayer BgmPlayer2;
 
 protected:
 	void Start() override;

@@ -32,8 +32,8 @@ void TitleLogo::Start()
 		Renderer->CreateFrameAnimation("Boot", FrameAnimation_DESC("Boot.png", 0, 68, 0.1f,false));
 		Renderer->CreateFrameAnimation("Windose", FrameAnimation_DESC("Windose.png", 0, 20, 0.12f, false));
 		Renderer->ChangeFrameAnimation("Boot");
-		GameEngineSound::SoundPlayOneShot("BIOS_piko.wav", 0);
-		GameEngineSound::SoundPlayOneShot("BIOS_HDD.wav", 0);
+		BgmPlayer1 =	GameEngineSound::SoundPlayControl("BIOS_piko.wav", 0);
+		BgmPlayer2 =    GameEngineSound::SoundPlayControl("BIOS_HDD.wav", 0);
 	}
 
 }
@@ -47,6 +47,12 @@ void TitleLogo::Update(float _DeltaTime)
 		GlobalContentsValue::boot = false;
 		Renderer->ChangeFrameAnimation("Windose");
 		GameEngineSound::SoundPlayOneShot("Boot.wav", 0);
+	}
+	if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
+	{
+		BgmPlayer1.Stop();
+		BgmPlayer2.Stop();
+		GEngine::ChangeLevel("Title");
 	}
 }
 
