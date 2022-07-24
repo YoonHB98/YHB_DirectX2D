@@ -13,7 +13,8 @@ void MainBG::Start()
 {
 	MiddleBG = CreateComponent<GameEngineTextureRenderer>();
 	MiddleBG->SetTexture("bg_main.png");
-	MiddleBG->ScaleToTexture();
+	MiddleBG->GetTransform().SetLocalScale(float4(718,540,0));
+	//MiddleBG->GetTransform().SetLocalPosition(float4);
 }
 
 void MainBG::Update(float _DeltaTime)

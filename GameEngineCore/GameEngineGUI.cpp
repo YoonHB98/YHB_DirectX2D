@@ -59,11 +59,11 @@ void GameEngineGUI::GUIRender()
     std::string Text = GameEngineString::AnsiToUTF8Return("윈도우창 하나");
     std::string Button = GameEngineString::AnsiToUTF8Return("버튼");
 
-    ImGui::Begin(Text.c_str());
+    //ImGui::Begin(Text.c_str());
 
-    ImGui::Button(Button.c_str());
+    //ImGui::Button(Button.c_str());
 
-    ImGui::End();
+    //ImGui::End();
 
     // 여기사이에
 

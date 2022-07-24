@@ -52,7 +52,10 @@ void PlayLevel::Update(float _DeltaTime)
 		CreateActor<Bar>(GameObjectGroup::WindowIcon);
 	}
 
-
+	if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))
+	{
+		GetMainCameraActor()->FreeCameraModeOnOff();
+	}
 
 
 

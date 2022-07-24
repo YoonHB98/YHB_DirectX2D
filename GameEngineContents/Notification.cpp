@@ -16,11 +16,11 @@ void Notification::Start()
 	Tuuti = CreateComponent<GameEngineTextureRenderer>();
 	Tuuti->SetTexture("tuuti.png");
 	Tuuti->GetTransform().SetLocalScale(float4(140, 20));
-	Tuuti->GetTransform().SetLocalPosition(float4(280, -255));
+	Tuuti->GetTransform().SetLocalPosition(float4(280, -255, -1));
 
 	Line = CreateComponent<GameEngineTextureRenderer>();
 	Line->SetTexture("Line.png");
-	Line->GetTransform().SetLocalPosition(float4(220, -255));
+	Line->GetTransform().SetLocalPosition(float4(220, -255, -1));
 	Line->ScaleToTexture();
 
 	GameEngineSound().SoundPlayOneShot("jine_recieve.wav");
