@@ -14,7 +14,7 @@ void LineMain::Start()
 {
 	Renderer = CreateComponent<GameEngineTextureRenderer>();
 	Renderer->SetTexture("LineMain.png");
-	Renderer->GetTransform().SetLocalPosition(float4(202, -74,-1));
+	Renderer->GetTransform().SetLocalPosition(float4(202, -74,-30));
 	Renderer->ScaleToTexture();
 }
 

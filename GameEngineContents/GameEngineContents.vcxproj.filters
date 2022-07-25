@@ -43,6 +43,12 @@
     <Filter Include="Actor\Play\Line\Text">
       <UniqueIdentifier>{ff98aa35-e4d5-4715-942c-f6998fc8c5cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Window">
+      <UniqueIdentifier>{c3014027-a1be-4250-8db2-956f17499ef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Window\WindowIcon">
+      <UniqueIdentifier>{9b9540dc-4102-4edc-acce-f13f74103c46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -76,9 +82,6 @@
     <ClInclude Include="SideBG.h">
       <Filter>Actor\Play</Filter>
     </ClInclude>
-    <ClInclude Include="WindowIcon.h">
-      <Filter>Actor\Play</Filter>
-    </ClInclude>
     <ClInclude Include="Notification.h">
       <Filter>Actor\Play\Line</Filter>
     </ClInclude>
@@ -96,6 +99,12 @@
     </ClInclude>
     <ClInclude Include="Bar.h">
       <Filter>Actor\Play\TaskManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultSetTex.h">
+      <Filter>Actor\Window\WindowIcon</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowIcon.h">
+      <Filter>Actor\Window\WindowIcon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -130,9 +139,6 @@
     <ClCompile Include="SideBG.cpp">
       <Filter>Actor\Play</Filter>
     </ClCompile>
-    <ClCompile Include="WindowIcon.cpp">
-      <Filter>Actor\Play</Filter>
-    </ClCompile>
     <ClCompile Include="Notification.cpp">
       <Filter>Actor\Play\Line</Filter>
     </ClCompile>
@@ -150,6 +156,12 @@
     </ClCompile>
     <ClCompile Include="Bar.cpp">
       <Filter>Actor\Play\TaskManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultSetTex.cpp">
+      <Filter>Actor\Window\WindowIcon</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowIcon.cpp">
+      <Filter>Actor\Window\WindowIcon</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

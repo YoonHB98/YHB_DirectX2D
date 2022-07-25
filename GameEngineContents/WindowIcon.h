@@ -24,7 +24,6 @@ public:
 	GameEngineTextureRenderer* Internet;
 	GameEngineTextureRenderer* Odekake;
 	GameEngineTextureRenderer* Tex;
-	GameEngineSoundPlayer BgmPlayer;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

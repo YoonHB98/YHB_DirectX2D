@@ -30,13 +30,16 @@ void PlayLevel::Start()
 		actor->GetCameraComponent()->SetProjectionMode(CAMERAPROJECTIONMODE::Orthographic);
 		actor->GetTransform().SetLocalPosition({ 0.0f, 0.0f, -500.0f });
 	}
+	//BG
 	CreateActor<MainBG>(GameObjectGroup::BackGround);
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
-	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
 	CreateActor<LineMain>(GameObjectGroup::WindowIcon);
 	CreateActor<WebCamWindow>(GameObjectGroup::WindowIcon);
 	CreateActor<TaskManager>(GameObjectGroup::WindowIcon);
 	CreateActor<Bar>(GameObjectGroup::WindowIcon);
+
+	//Icon
+	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
 
 
 
