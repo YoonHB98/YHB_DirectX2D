@@ -5,7 +5,7 @@
 // Ό³Έν :
 
 
-class LineDate :  public GameEngineActor
+class LineDate :  public DefaultSetTex
 {
 public:
 	// constrcuter destructer

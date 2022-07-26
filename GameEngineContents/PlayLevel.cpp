@@ -12,6 +12,7 @@
 #include "WebCamWindow.h"
 #include "TaskManager.h"
 #include "Bar.h"
+#include "Mouse.h"
 
 PlayLevel::PlayLevel()
 {
@@ -37,9 +38,13 @@ void PlayLevel::Start()
 	CreateActor<WebCamWindow>(GameObjectGroup::WindowIcon);
 	CreateActor<TaskManager>(GameObjectGroup::WindowIcon);
 	CreateActor<Bar>(GameObjectGroup::WindowIcon);
+	CreateActor<Mouse>();
 
 	//Icon
 	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
+
+	//ingame
+
 
 
 
@@ -53,6 +58,7 @@ void PlayLevel::Update(float _DeltaTime)
 	{
 		time = time - 1.0f;
 		CreateActor<Bar>(GameObjectGroup::WindowIcon);
+		CreateActor<Notification>(GameObjectGroup::WindowIcon);
 	}
 
 	if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))

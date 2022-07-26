@@ -12,10 +12,6 @@ TitleLogo::~TitleLogo()
 {
 }
 
-void a(const FrameAnimation_DESC& _Info)
-{
-
-}
 void TitleLogo::BootEnd(const FrameAnimation_DESC& _Info)
 {
 	Renderer->ChangeFrameAnimation("Windose");

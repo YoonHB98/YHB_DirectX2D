@@ -21,6 +21,7 @@ public:
 	void SetTexture(std::string Name);
 	void SetLocalPosition(float4 Pos);
 	void SetLocalScale(float4 Scale);
+	void ChangeForward(GameEngineTextureRenderer* Renderer, float z);
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

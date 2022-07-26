@@ -25,6 +25,13 @@ void DefaultSetTex::SetLocalScale(float4 Scale)
 	Renderer->GetTransform().SetLocalScale(Scale);
 }
 
+void DefaultSetTex::ChangeForward(GameEngineTextureRenderer* Renderer, const float z)
+{
+	float x = Renderer->GetTransformData().LocalPosition.x;
+	float y =Renderer->GetTransformData().LocalPosition.y;
+	Renderer->GetTransform().SetLocalScale(float4(x,y,z));
+}
+
 void DefaultSetTex::Start()
 {
 }

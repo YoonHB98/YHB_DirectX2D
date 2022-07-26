@@ -5,7 +5,7 @@
 
 
 class GameEngineTextureRenderer;
-class Bar : public GameEngineActor
+class Bar : public DefaultSetTex
 {
 public:
 	// constrcuter destructer

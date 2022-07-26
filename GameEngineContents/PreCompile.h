@@ -21,10 +21,13 @@
 #pragma comment(lib, "d3dcompiler")
 #pragma comment(lib, "dxguid")
 
+//contents
 #include "GlobalContentsValue.h"
+#include "DefaultSetTex.h"
 // base
 #include <GameEngineBase/GameEngineDebug.h>
 
 // core
 #include <GameEngineCore/CoreMinimal.h>
+
 

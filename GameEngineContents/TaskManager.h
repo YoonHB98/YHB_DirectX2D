@@ -5,7 +5,7 @@
 
 
 class GameEngineTextureRenderer;
-class TaskManager : public GameEngineActor
+class TaskManager : public DefaultSetTex
 {
 public:
 	// constrcuter destructer

@@ -7,6 +7,4 @@ int GlobalContentsValue::Affection = 40;
 int GlobalContentsValue::Followers = 0;
 int GlobalContentsValue::Day = 1;
 int GlobalContentsValue::LineNum = 0;
-bool GlobalContentsValue::Title = false;
-
 int GlobalContentsValue::DayTime = 3;

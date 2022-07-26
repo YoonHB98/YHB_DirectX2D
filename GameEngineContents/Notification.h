@@ -5,7 +5,7 @@
 
 
 class GameEngineTextureRenderer;
-class Notification : public GameEngineActor
+class Notification : public DefaultSetTex
 {
 public:
 	// constrcuter destructer

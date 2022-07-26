@@ -4,13 +4,13 @@
 // Ό³Έν :
 
 class GameEngineTextureRenderer;
-class WindowIcon : public GameEngineActor
+class WindowIcon : public DefaultSetTex
 {
 public:
 	// constrcuter destructer
 	WindowIcon();
 	~WindowIcon();
-
+	
 	// delete Function
 	WindowIcon(const WindowIcon& _Other) = delete;
 	WindowIcon(WindowIcon&& _Other) noexcept = delete;

@@ -74,11 +74,11 @@ void Caution::Start()
 void Caution::Update(float _DeltaTime)
 {
 
-		if (GlobalContentsValue::Title == false)
+		if (A == 0)
 		{
 			BgmPlayer = GameEngineSound::SoundPlayControl("OP_PV.wav");
 			GameEngineSound::SoundPlayOneShot("Boot_Caution.wav", 0);
-			GlobalContentsValue::Title = true;
+			A = 1;
 		}
 
 		StateUpdate();

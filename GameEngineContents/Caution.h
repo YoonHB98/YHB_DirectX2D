@@ -39,6 +39,7 @@ private:
 	void StateUpdate();
 
 private:
+	int A = 0;
 	void IdleStart();
 	void LoginStart();
 	void Data1Start();

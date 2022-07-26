@@ -5,7 +5,7 @@
 
 
 class GameEngineTextureRenderer;
-class WebCamWindow : public GameEngineActor
+class WebCamWindow : public DefaultSetTex
 {
 public:
 	// constrcuter destructer
