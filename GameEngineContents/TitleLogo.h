@@ -18,12 +18,13 @@ public:
 	GameEngineTextureRenderer* Renderer;
 	GameEngineSoundPlayer BgmPlayer1;
 	GameEngineSoundPlayer BgmPlayer2;
+	GameEngineSoundPlayer BgmPlayer3;
 
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
-
+	void BootEnd(const FrameAnimation_DESC&);
 private:
 
 

@@ -12,10 +12,14 @@ TitleLogo::~TitleLogo()
 {
 }
 
-
-void BootEnd(const FrameAnimation_DESC& _Info)
+void a(const FrameAnimation_DESC& _Info)
 {
-	GlobalContentsValue::boot = true;
+
+}
+void TitleLogo::BootEnd(const FrameAnimation_DESC& _Info)
+{
+	Renderer->ChangeFrameAnimation("Windose");
+	BgmPlayer3 = GameEngineSound::SoundPlayControl("Boot.wav", 0);
 }
 
 void TitleLogo::Start() 
@@ -40,18 +44,12 @@ void TitleLogo::Start()
 
 void TitleLogo::Update(float _DeltaTime) 
 {
-	
-	Renderer->AnimationBindEnd("Boot", BootEnd);
-	if (GlobalContentsValue::boot == true)
-	{
-		GlobalContentsValue::boot = false;
-		Renderer->ChangeFrameAnimation("Windose");
-		GameEngineSound::SoundPlayOneShot("Boot.wav", 0);
-	}
+	Renderer->AnimationBindEnd("Boot", &TitleLogo::BootEnd,this	);
 	if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
 	{
 		BgmPlayer1.Stop();
 		BgmPlayer2.Stop();
+		BgmPlayer3.Stop();
 		GEngine::ChangeLevel("Title");
 	}
 }

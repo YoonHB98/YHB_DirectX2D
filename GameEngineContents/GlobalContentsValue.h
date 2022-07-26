@@ -15,7 +15,6 @@ public:
 	static int Followers;
 	static int Day;
 	static int LineNum;
-	static bool boot;
 	static bool Title;
 	static int DayTime;
 
