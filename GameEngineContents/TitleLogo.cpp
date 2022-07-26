@@ -40,7 +40,7 @@ void TitleLogo::Start()
 
 void TitleLogo::Update(float _DeltaTime) 
 {
-
+	
 	Renderer->AnimationBindEnd("Boot", BootEnd);
 	if (GlobalContentsValue::boot == true)
 	{

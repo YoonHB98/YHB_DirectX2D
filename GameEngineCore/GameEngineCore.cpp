@@ -7,6 +7,7 @@
 #include "GameEngineLevel.h"
 #include "GameEngineDevice.h"
 #include "GameEngineGUI.h"
+#include <GameEngineBase/GameEngineSound.h>
 
 #pragma comment(lib, "GameEngineBase.lib")
 
@@ -125,7 +126,8 @@ void GameEngineCore::CoreEnd(GameEngineCore* _UserCore)
 	GameEngineGUI::GUIDestroy();
 
 	EngineResourcesDestroy();
-
+	
+	GameEngineSound::AllResourcesDestroy();
 	GameEngineWindow::Destroy();
 	GameEngineInput::Destroy();
 	GameEngineDebug::Destroy();
