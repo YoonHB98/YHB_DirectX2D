@@ -26,11 +26,7 @@ void PlayLevel::Start()
 {
 
 
-	{
-		GameEngineCameraActor* actor = CreateActor<GameEngineCameraActor>();
-		actor->GetCameraComponent()->SetProjectionMode(CAMERAPROJECTIONMODE::Orthographic);
-		actor->GetTransform().SetLocalPosition({ 0.0f, 0.0f, -500.0f });
-	}
+
 	//BG
 	CreateActor<MainBG>(GameObjectGroup::BackGround);
 	CreateActor<SideBG>(GameObjectGroup::BackGround);

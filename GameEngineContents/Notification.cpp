@@ -28,11 +28,12 @@ void Notification::Start()
 
 void Notification::Update(float _DeltaTime)
 {
-
+	
 	if (GlobalContentsValue::LineNum != 1)
 	{
-		Tuuti->GetTransform().SetLocalMove(float4(0,25));
-		Line->GetTransform().SetLocalMove(float4(0, 25));
+		GetTransform().SetLocalMove(float4(0, 25));
+		//Tuuti->GetTransform().SetLocalMove(float4(0,25));
+		//Line->GetTransform().SetLocalMove(float4(0, 25));
 
 	}
 	if (GlobalContentsValue::LineNum == 0)

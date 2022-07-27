@@ -8,6 +8,8 @@
 #include "GameEngineDevice.h"
 #include "GameEngineGUI.h"
 #include <GameEngineBase/GameEngineSound.h>
+#include "GameEngineCamera.h"
+#include "GameEngineCameraActor.h"
 
 #pragma comment(lib, "GameEngineBase.lib")
 
@@ -57,7 +59,7 @@ void GameEngineCore::CoreStart(GameEngineCore* _UserCore)
 	// 엔진 리소스는 완성되어야 합니다.
 	EngineResourcesInitialize();
 
-	// 엔진이 뭔가를 할겁니다.
+// 엔진이 뭔가를 할겁니다.
 	// 준비를 먼저하고.
 	_UserCore->Start();
 }
@@ -126,7 +128,7 @@ void GameEngineCore::CoreEnd(GameEngineCore* _UserCore)
 	GameEngineGUI::GUIDestroy();
 
 	EngineResourcesDestroy();
-	
+
 	GameEngineSound::AllResourcesDestroy();
 	GameEngineWindow::Destroy();
 	GameEngineInput::Destroy();
@@ -138,7 +140,7 @@ void GameEngineCore::CoreEnd(GameEngineCore* _UserCore)
 void GameEngineCore::WindowCreate(const std::string& _Name, GameEngineCore* _UserCore)
 {
 	GameEngineWindow::GetInst()->CreateGameWindow(nullptr, _Name.c_str());
-	GameEngineWindow::GetInst()->SetWindowScaleAndPosition({ 0,0 }, {960, 540});
+	GameEngineWindow::GetInst()->SetWindowScaleAndPosition({ 0,0 }, { 960, 540 });
 	GameEngineWindow::GetInst()->ShowGameWindow();
 	GameEngineDevice::Initialize();
 
@@ -157,6 +159,18 @@ void GameEngineCore::WindowCreate(const std::string& _Name, GameEngineCore* _Use
 
 void GameEngineCore::InitializeLevel(GameEngineLevel* _Level, const std::string _Name)
 {
+	{
+		GameEngineCameraActor* actor = _Level->CreateActor<GameEngineCameraActor>();
+		actor->GetCameraComponent()->SetProjectionMode(CAMERAPROJECTIONMODE::Orthographic);
+		actor->GetTransform().SetLocalPosition({ 0.0f, 0.0f, -100.0f });
+	}
+
+	{
+		GameEngineCameraActor* actor = _Level->CreateActor<GameEngineCameraActor>();
+		actor->GetCameraComponent()->SetProjectionMode(CAMERAPROJECTIONMODE::Orthographic);
+		actor->GetTransform().SetLocalPosition({ 0.0f, 0.0f, -100.0f });
+	}
+
 	_Level->Start();
 	_Level->SetName(_Name);
 	
