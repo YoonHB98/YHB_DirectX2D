@@ -44,8 +44,35 @@ void ContentsCore::Start()
 		{
 			GameEngineSound::LoadRessource(Shaders[i].GetFullPath());
 		}
+		{
+			GameEngineDirectory Dir;
+
+			Dir.MoveParentToExitsChildDirectory("Resources");
+			Dir.Move("Resources");
+			Dir.Move("Ame");
+
+			std::vector<GameEngineFile> Shaders = Dir.GetAllFile();
+
+			for (size_t i = 0; i < Shaders.size(); i++)
+			{
+				GameEngineTexture::Load(Shaders[i].GetFullPath());
+			}
+		}
+		{
+			GameEngineDirectory Dir;
+
+			Dir.MoveParentToExitsChildDirectory("Resources");
+			Dir.Move("Resources");
+			Dir.Move("Cho");
+
+			std::vector<GameEngineFile> Shaders = Dir.GetAllFile();
+
+			for (size_t i = 0; i < Shaders.size(); i++)
+			{
+				GameEngineTexture::Load(Shaders[i].GetFullPath());
+			}
+		}
 	}
-	// 이걸 해줘야 합니다.
 
 
 
@@ -53,6 +80,9 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("boot.png", 10, 7);
 	GameEngineTexture::Cut("Windose.png", 10, 3);
 	GameEngineTexture::Cut("Bank.png", 10, 19);
+	GameEngineTexture::Cut("ame_egosearching_ura.png", 5, 1);
+	GameEngineTexture::Cut("ame_idle_normal1.png", 11, 1);
+	GameEngineTexture::Cut("ame_talk1.png", 5, 2);
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션

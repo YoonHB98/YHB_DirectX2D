@@ -18,12 +18,19 @@ public:
 	WebCamWindow& operator=(const WebCamWindow& _Other) = delete;
 	WebCamWindow& operator=(WebCamWindow&& _Other) noexcept = delete;
 
-	GameEngineTextureRenderer* Renderer;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
-private:
 
+	void IdleStart(const StateInfo& _Info);
+	void IdleUpdate(float _DeltaTime, const StateInfo& _Info);
+
+	void ActiveStart(const StateInfo& _Info);
+	void ActiveUpdate(float _DeltaTime, const StateInfo& _Info);
+private:
+	GameEngineTextureRenderer* Ame;
+	GameEngineTextureRenderer* BG;
+	GameEngineTextureRenderer* BGNC;
 };
 

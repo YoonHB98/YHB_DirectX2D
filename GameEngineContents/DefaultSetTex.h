@@ -18,6 +18,7 @@ public:
 	DefaultSetTex& operator=(DefaultSetTex&& _Other) noexcept = delete;
 
 	GameEngineTextureRenderer* Renderer;
+	GameEngineStateManager StateManager;
 	void SetTexture(std::string Name);
 	void SetLocalPosition(float4 Pos);
 	void SetLocalScale(float4 Scale);
