@@ -7,7 +7,6 @@
 #include "GameEngineLevel.h"
 #include "GameEngineDevice.h"
 #include "GameEngineGUI.h"
-#include <GameEngineBase/GameEngineSound.h>
 #include "GameEngineCamera.h"
 #include "GameEngineCameraActor.h"
 
@@ -78,6 +77,9 @@ void GameEngineCore::CoreUpdate(GameEngineCore* _UserCore)
 		if (nullptr != CurrentLevel)
 		{
 			CurrentLevel->OffEvent();
+			// 넘어가려는 액터가 이때 존재해야 겠죠?
+
+			CurrentLevel->OverChildMove(NextLevel);
 		}
 
 		CurrentLevel = NextLevel;
@@ -129,7 +131,6 @@ void GameEngineCore::CoreEnd(GameEngineCore* _UserCore)
 
 	EngineResourcesDestroy();
 
-	GameEngineSound::AllResourcesDestroy();
 	GameEngineWindow::Destroy();
 	GameEngineInput::Destroy();
 	GameEngineDebug::Destroy();
@@ -140,7 +141,7 @@ void GameEngineCore::CoreEnd(GameEngineCore* _UserCore)
 void GameEngineCore::WindowCreate(const std::string& _Name, GameEngineCore* _UserCore)
 {
 	GameEngineWindow::GetInst()->CreateGameWindow(nullptr, _Name.c_str());
-	GameEngineWindow::GetInst()->SetWindowScaleAndPosition({ 0,0 }, { 960, 540 });
+	GameEngineWindow::GetInst()->SetWindowScaleAndPosition({ -2000,0 }, {1280, 720});
 	GameEngineWindow::GetInst()->ShowGameWindow();
 	GameEngineDevice::Initialize();
 
