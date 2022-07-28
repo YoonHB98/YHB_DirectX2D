@@ -19,7 +19,7 @@ void LoadingLevel::Start()
 {
 	if (false == GameEngineInput::GetInst()->IsKey("LevelChange"))
 	{
-		GameEngineInput::GetInst()->CreateKey("LevelChange", 'P');
+		GameEngineInput::GetInst()->CreateKey("LevelChange", VK_LBUTTON);
 	}
 
 	if (false == GameEngineInput::GetInst()->IsKey("FreeCameaOnOff"))
@@ -30,6 +30,7 @@ void LoadingLevel::Start()
 
 
 	CreateActor<TitleLogo>(GameObjectGroup::BackGround);
+	ShowCursor(0);
 
 }
 

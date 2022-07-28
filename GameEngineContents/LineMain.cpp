@@ -14,14 +14,20 @@ void LineMain::Start()
 {
 	Renderer = CreateComponent<GameEngineTextureRenderer>();
 	Renderer->SetTexture("LineMain.png");
-	Renderer->GetTransform().SetLocalPosition(float4(202, -74,-30));
+	Renderer->GetTransform().SetLocalPosition(float4(202, -74));
 	Renderer->ScaleToTexture();
 }
 
 void LineMain::Update(float _DeltaTime)
 {
-
-
+	if (GlobalContentsValue::Line)
+	{
+		ChangeZPos(-30);
+	}
+	else
+	{
+		ChangeZPos(500);
+	}
 }
 
 void LineMain::End()

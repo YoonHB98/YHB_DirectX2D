@@ -41,6 +41,15 @@ void WebCamWindow::Start()
 
 void WebCamWindow::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::WebCamWindow == false)
+	{
+		ChangeZPos(500);
+	}
+	else
+	{
+		ChangeZPos(-50);
+	}
+
 	if (GlobalContentsValue::Stream ==true)
 	{
 		if (Stop == false)

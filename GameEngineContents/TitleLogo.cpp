@@ -16,6 +16,7 @@ void TitleLogo::BootEnd(const FrameAnimation_DESC& _Info)
 {
 	Renderer->ChangeFrameAnimation("Windose");
 	BgmPlayer3 = GameEngineSound::SoundPlayControl("Boot.wav", 0);
+	CountStart = true;
 }
 
 void TitleLogo::Start() 
@@ -40,8 +41,14 @@ void TitleLogo::Start()
 
 void TitleLogo::Update(float _DeltaTime) 
 {
+	if (CountStart)
+	{
+		Time = Time + _DeltaTime;
+	}
+
 	Renderer->AnimationBindEnd("Boot", &TitleLogo::BootEnd,this	);
-	if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
+	if (true == GameEngineInput::GetInst()->IsDown("LevelChange")
+		|| Time > 7.8f)
 	{
 		BgmPlayer1.Stop();
 		BgmPlayer2.Stop();

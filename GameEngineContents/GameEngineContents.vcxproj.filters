@@ -109,6 +109,18 @@
     <ClInclude Include="Mouse.h">
       <Filter>Global</Filter>
     </ClInclude>
+    <ClInclude Include="LineText.h">
+      <Filter>Actor\Play\Line\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Change.h">
+      <Filter>Actor\Play\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Stream.h">
+      <Filter>Actor\Play\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamAnimation.h">
+      <Filter>Actor\Play\Stream</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -168,6 +180,18 @@
     </ClCompile>
     <ClCompile Include="Mouse.cpp">
       <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="LineText.cpp">
+      <Filter>Actor\Play\Line\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Change.cpp">
+      <Filter>Actor\Play\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Stream.cpp">
+      <Filter>Actor\Play\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamAnimation.cpp">
+      <Filter>Actor\Play\Stream</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

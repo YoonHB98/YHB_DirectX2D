@@ -19,6 +19,7 @@ public:
 	LineMain& operator=(LineMain&& _Other) noexcept = delete;
 
 	GameEngineTextureRenderer* Renderer;
+	GameEngineSoundPlayer BgmPlayer;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

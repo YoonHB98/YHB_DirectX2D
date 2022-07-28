@@ -11,6 +11,10 @@ int GlobalContentsValue::RemainLinenum = 2;
 int GlobalContentsValue::DayTime = 3;
 bool GlobalContentsValue::Out = false;
 bool GlobalContentsValue::Message =true;
-bool GlobalContentsValue::Stream = true;
+bool GlobalContentsValue::Stream = false;
+float4 GlobalContentsValue::MousePos = float4(0,0,0);
+bool GlobalContentsValue::WebCamWindow = false;
+bool GlobalContentsValue::Line = false;
+bool GlobalContentsValue::Change = false;
 
 

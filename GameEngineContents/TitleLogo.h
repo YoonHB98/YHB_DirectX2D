@@ -20,6 +20,8 @@ public:
 	GameEngineSoundPlayer BgmPlayer2;
 	GameEngineSoundPlayer BgmPlayer3;
 
+	float Time = 0;
+	bool CountStart = false;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

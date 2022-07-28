@@ -20,8 +20,11 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 
+	void StateCheck();
+
 private:
 	int a = 0;
 	float time = 0;
+	bool first = true;
 };
 

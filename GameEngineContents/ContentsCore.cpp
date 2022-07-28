@@ -84,13 +84,14 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("ame_idle_normal1.png", 11, 1);
 	GameEngineTexture::Cut("ame_talk1.png", 5, 2);
 	GameEngineTexture::Cut("ame_out0.png", 5, 3);
+	GameEngineTexture::Cut("cho_kashikoma.png", 8, 1);
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션
 	CreateLevel<LoadingLevel>("Loading");
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-	ChangeLevel("Play");
+	ChangeLevel("Loading");
 
 	// 게임컨텐츠 정의
 	// 이 게임에는 타이틀화면

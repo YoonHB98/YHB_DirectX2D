@@ -20,6 +20,7 @@ void Mouse::Update(float _DeltaTime)
 {
 	ShowCursor(0);
 	float4 Pos = GetLevel()->GetMainCamera()->GetMouseWorldPosition();
+	GlobalContentsValue::MousePos = Pos;
 	Renderer->GetTransform().SetWorldPosition(float4(Pos.x, Pos.y, -500));
 }
 

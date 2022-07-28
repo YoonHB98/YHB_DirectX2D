@@ -6,8 +6,11 @@
 class GlobalContentsValue
 {
 public:
-
-
+	//켜있는지 확인
+	static float4 MousePos;
+	static bool WebCamWindow;
+	static bool Line;
+	static bool Change;
 	//스테이터스
 	static int Mental;
 	static int Stress;

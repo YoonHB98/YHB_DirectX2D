@@ -18,12 +18,6 @@ TitleLevel::~TitleLevel()
 
 void TitleLevel::Start()
 {
-	if (false == GameEngineInput::GetInst()->IsKey("LevelChange"))
-	{
-		GameEngineInput::GetInst()->CreateKey("LevelChange", 'P');
-	}
-
-
 	CreateActor<Caution>(GameObjectGroup::BackGround);
 	CreateActor<Mouse>();
 }

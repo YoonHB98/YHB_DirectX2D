@@ -165,6 +165,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Change.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="ContentsCore.h">
       <SubType>
       </SubType>
@@ -182,6 +186,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="LineText.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="MainBG.h">
       <SubType>
       </SubType>
@@ -195,6 +203,14 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="SideBG.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Stream.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="StreamAnimation.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -244,6 +260,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Change.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="ContentsCore.cpp">
       <SubType>
       </SubType>
@@ -260,6 +280,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="LineText.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="MainBG.cpp">
       <SubType>
       </SubType>
@@ -273,6 +297,14 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="SideBG.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Stream.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="StreamAnimation.cpp">
       <SubType>
       </SubType>
     </ClCompile>

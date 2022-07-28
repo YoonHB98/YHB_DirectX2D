@@ -13,6 +13,11 @@
 #include "TaskManager.h"
 #include "Bar.h"
 #include "Mouse.h"
+#include "LineText.h"
+#include "Change.h"
+#include "Stream.h"
+#include "StreamAnimation.h"
+
 
 PlayLevel::PlayLevel()
 {
@@ -35,12 +40,15 @@ void PlayLevel::Start()
 	CreateActor<TaskManager>(GameObjectGroup::WindowIcon);
 	CreateActor<Bar>(GameObjectGroup::WindowIcon);
 	CreateActor<Mouse>();
+	CreateActor<Stream>(GameObjectGroup::WindowIcon);
 
 	//Icon
 	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
 
 	//ingame
-
+	CreateActor<LineText>();
+	CreateActor<Change>();
+	CreateActor<StreamAnimation>();
 
 
 
@@ -75,7 +83,21 @@ void PlayLevel::Update(float _DeltaTime)
 		GetMainCameraActor()->FreeCameraModeOnOff();
 	}
 
+	StateCheck();
 
 
 }
 void PlayLevel::End() {}
+
+void PlayLevel::StateCheck()
+{
+	if (true == GameEngineInput::GetInst()->IsDown("LevelChange")
+		&& GlobalContentsValue::Line == false
+		&& first)
+	{
+		GlobalContentsValue::RemainLinenum = 5;
+		GlobalContentsValue::Line = true;
+		GlobalContentsValue::WebCamWindow = true;
+		first = false;
+	}
+}
