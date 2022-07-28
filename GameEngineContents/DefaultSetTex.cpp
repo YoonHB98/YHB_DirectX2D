@@ -32,6 +32,13 @@ void DefaultSetTex::ChangeForward(GameEngineTextureRenderer* Renderer, const flo
 	Renderer->GetTransform().SetLocalScale(float4(x,y,z));
 }
 
+void DefaultSetTex::ChangeZPos(float Z)
+{
+	float4 CurPos = GetTransform().GetLocalPosition();
+	CurPos.z = Z;
+	GetTransform().SetWorldPosition(CurPos);
+}
+
 void DefaultSetTex::Start()
 {
 }

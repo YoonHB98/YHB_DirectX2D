@@ -19,7 +19,7 @@ void WebCamWindow::Start()
 
 void WebCamWindow::Update(float _DeltaTime)
 {
-
+	
 
 }
 

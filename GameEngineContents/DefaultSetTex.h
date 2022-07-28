@@ -22,6 +22,7 @@ public:
 	void SetLocalPosition(float4 Pos);
 	void SetLocalScale(float4 Scale);
 	void ChangeForward(GameEngineTextureRenderer* Renderer, float z);
+	void ChangeZPos(float Z);
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

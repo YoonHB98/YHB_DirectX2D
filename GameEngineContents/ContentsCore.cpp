@@ -59,7 +59,7 @@ void ContentsCore::Start()
 	CreateLevel<LoadingLevel>("Loading");
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-	ChangeLevel("Loading");
+	ChangeLevel("Play");
 
 	// 게임컨텐츠 정의
 	// 이 게임에는 타이틀화면
