@@ -17,8 +17,13 @@ public:
 	static int Day;
 	//라인
 	static int LineNum;
+	static int RemainLinenum;
+	static bool Message;
+	static bool Stream;
 	//시간
 	static int DayTime;
+	//행동
+	static bool Out;
 
 private:
 	GlobalContentsValue()	{	}

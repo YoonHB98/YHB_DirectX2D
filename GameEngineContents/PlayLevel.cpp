@@ -52,11 +52,24 @@ void PlayLevel::Update(float _DeltaTime)
 	time = time + GameEngineTime::GetDeltaTime();
 	if (time > 1.0f)
 	{
+
 		time = time - 1.0f;
 		CreateActor<Bar>(GameObjectGroup::WindowIcon);
-		CreateActor<Notification>(GameObjectGroup::WindowIcon);
-	}
 
+		if ( GlobalContentsValue::Message)
+		{
+			GlobalContentsValue::RemainLinenum = GlobalContentsValue::RemainLinenum - 1;
+			CreateActor<Notification>(GameObjectGroup::WindowIcon);
+		}
+	}
+	if (GlobalContentsValue::RemainLinenum <= 0)
+	{
+		GlobalContentsValue::Message = false;
+	}
+	if (GlobalContentsValue::RemainLinenum > 0)
+	{
+		GlobalContentsValue::Message = true;
+	}
 	if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))
 	{
 		GetMainCameraActor()->FreeCameraModeOnOff();

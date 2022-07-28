@@ -19,6 +19,7 @@ public:
 
 	GameEngineTextureRenderer* Renderer;
 	GameEngineStateManager StateManager;
+	bool Stop = false;
 	void SetTexture(std::string Name);
 	void SetLocalPosition(float4 Pos);
 	void SetLocalScale(float4 Scale);

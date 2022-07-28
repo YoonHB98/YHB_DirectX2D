@@ -13,7 +13,7 @@ void Mouse::Start()
 {
 	SetTexture("Cursor.png");
 	SetLocalPosition(float4(0, 0, 0));
-	SetLocalScale(float4(16, 16));
+	SetLocalScale(float4(32, 32));
 }
 
 void Mouse::Update(float _DeltaTime)
