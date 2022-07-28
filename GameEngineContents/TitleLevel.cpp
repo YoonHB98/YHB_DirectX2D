@@ -2,6 +2,7 @@
 #include "TitleLevel.h"
 #include "Caution.h"
 #include "Enums.h"
+#include "Mouse.h"
 #include <GameEngineCore/GEngine.h>
 #include <GameEngineCore/GameEngineCameraActor.h>
 #include <GameEngineBase/GameEngineInput.h>
@@ -24,7 +25,7 @@ void TitleLevel::Start()
 
 
 	CreateActor<Caution>(GameObjectGroup::BackGround);
-
+	CreateActor<Mouse>();
 }
 
 void TitleLevel::Update(float _DeltaTime)
