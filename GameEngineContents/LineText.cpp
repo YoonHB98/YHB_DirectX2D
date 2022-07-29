@@ -71,7 +71,7 @@ void LineText::Update(float _DeltaTime)
 					Renderer5->GetTransform().SetLocalPosition(float4(200, -115));
 				}
 	}
-	if (GlobalContentsValue::WebCamWindow == false)
+	if (GlobalContentsValue::Line == false)
 	{
 		ChangeZPos(500);
 	}
