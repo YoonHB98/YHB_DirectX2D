@@ -19,7 +19,7 @@ void LoadingLevel::Start()
 {
 	if (false == GameEngineInput::GetInst()->IsKey("LevelChange"))
 	{
-		GameEngineInput::GetInst()->CreateKey("LevelChange", VK_LBUTTON);
+		GameEngineInput::GetInst()->CreateKey("MouseClick", VK_LBUTTON);
 	}
 
 	if (false == GameEngineInput::GetInst()->IsKey("FreeCameaOnOff"))

@@ -11,8 +11,9 @@ enum class PIVOTMODE
 
 enum class SCALEMODE
 {
-	IMAGE,
 	CUSTOM,
+	IMAGE,
+	
 };
 
 class FrameAnimation_DESC 
@@ -111,10 +112,7 @@ public:
 	void SetSamplingModePoint();
 	void SetSamplingModeLiner();
 
-	void SetScaleModeImage()
-	{
-		ScaleMode = SCALEMODE::IMAGE;
-	}
+
 
 	void SetScaleRatio(float _Scale) 
 	{

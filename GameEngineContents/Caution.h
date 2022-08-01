@@ -12,7 +12,7 @@ enum LoginState
 };
 
 class GameEngineTextureRenderer;
-class Caution : public GameEngineActor
+class Caution : public DefaultSetTex
 {
 public:
 	// constrcuter destructer
@@ -27,6 +27,8 @@ public:
 	GameEngineTextureRenderer* Renderer;
 	GameEngineSoundPlayer BgmPlayer;
 
+	GameEngineTextureRenderer* Test;
+
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -40,6 +42,7 @@ private:
 
 private:
 	int A = 0;
+
 	void IdleStart();
 	void LoginStart();
 	void Data1Start();
@@ -50,5 +53,8 @@ private:
 	void UpdateData1();
 	void UpdateWelcome();
 
+	bool MouseCheck = false;
+	bool MouseCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
+	GameEngineCollision* Collision;
 };
 

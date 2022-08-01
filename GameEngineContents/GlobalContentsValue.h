@@ -34,3 +34,8 @@ private:
 	~GlobalContentsValue()	{	}
 };
 
+enum class OBJECTORDER
+{
+	Mouse,
+	UI
+};

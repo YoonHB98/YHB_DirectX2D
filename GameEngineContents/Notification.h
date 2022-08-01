@@ -27,6 +27,6 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-
+	GameEngineCollision* Collision;
 };
 

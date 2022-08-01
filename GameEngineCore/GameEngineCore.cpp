@@ -7,6 +7,7 @@
 #include "GameEngineLevel.h"
 #include "GameEngineDevice.h"
 #include "GameEngineGUI.h"
+#include <GameEngineBase/GameEngineSound.h>
 #include "GameEngineCamera.h"
 #include "GameEngineCameraActor.h"
 
@@ -18,11 +19,11 @@ GameEngineLevel* GameEngineCore::NextLevel = nullptr;
 std::map<std::string, class GameEngineLevel*> GameEngineCore::AllLevels;
 
 
-GameEngineCore::GameEngineCore() 
+GameEngineCore::GameEngineCore()
 {
 }
 
-GameEngineCore::~GameEngineCore() 
+GameEngineCore::~GameEngineCore()
 {
 }
 
@@ -58,8 +59,8 @@ void GameEngineCore::CoreStart(GameEngineCore* _UserCore)
 	// 엔진 리소스는 완성되어야 합니다.
 	EngineResourcesInitialize();
 
-// 엔진이 뭔가를 할겁니다.
-	// 준비를 먼저하고.
+	// 엔진이 뭔가를 할겁니다.
+		// 준비를 먼저하고.
 	_UserCore->Start();
 }
 
@@ -67,6 +68,8 @@ void GameEngineCore::CoreUpdate(GameEngineCore* _UserCore)
 {
 	if (nullptr != NextLevel)
 	{
+
+
 		Rectangle(GameEngineWindow::GetInst()->GetHDC()
 			, 0
 			, 0
@@ -75,7 +78,6 @@ void GameEngineCore::CoreUpdate(GameEngineCore* _UserCore)
 		if (nullptr != CurrentLevel)
 		{
 			CurrentLevel->OffEvent();
-			// 넘어가려는 액터가 이때 존재해야 겠죠?
 
 			CurrentLevel->OverChildMove(NextLevel);
 		}
@@ -109,7 +111,7 @@ void GameEngineCore::CoreUpdate(GameEngineCore* _UserCore)
 
 }
 
-void GameEngineCore::CoreEnd(GameEngineCore* _UserCore) 
+void GameEngineCore::CoreEnd(GameEngineCore* _UserCore)
 {
 	_UserCore->End();
 
@@ -129,6 +131,7 @@ void GameEngineCore::CoreEnd(GameEngineCore* _UserCore)
 
 	EngineResourcesDestroy();
 
+	GameEngineSound::AllResourcesDestroy();
 	GameEngineWindow::Destroy();
 	GameEngineInput::Destroy();
 	GameEngineDebug::Destroy();
@@ -139,7 +142,7 @@ void GameEngineCore::CoreEnd(GameEngineCore* _UserCore)
 void GameEngineCore::WindowCreate(const std::string& _Name, GameEngineCore* _UserCore)
 {
 	GameEngineWindow::GetInst()->CreateGameWindow(nullptr, _Name.c_str());
-	GameEngineWindow::GetInst()->SetWindowScaleAndPosition({ -2000,0 }, {1280, 720});
+	GameEngineWindow::GetInst()->SetWindowScaleAndPosition({ 0,0 }, { 960, 540 });
 	GameEngineWindow::GetInst()->ShowGameWindow();
 	GameEngineDevice::Initialize();
 
@@ -172,7 +175,7 @@ void GameEngineCore::InitializeLevel(GameEngineLevel* _Level, const std::string 
 
 	_Level->Start();
 	_Level->SetName(_Name);
-	
+
 	// AllLevels.insert(std::map<std::string, GameEngineLevel*>::value_type(_Name, NewLevel));
 	AllLevels.insert(std::make_pair(_Name, _Level));
 }

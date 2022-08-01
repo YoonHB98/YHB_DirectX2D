@@ -39,6 +39,14 @@ void DefaultSetTex::ChangeZPos(float Z)
 	GetTransform().SetWorldPosition(CurPos);
 }
 
+bool DefaultSetTex::MouseCheck(GameEngineCollision* _Col)
+{
+	bool Check = _Col->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Mouse, CollisionType::CT_OBB2D,
+		std::bind(&DefaultSetTex::MouseCollision, this, std::placeholders::_1, std::placeholders::_2));
+
+	return Check;
+}
+
 void DefaultSetTex::Start()
 {
 }

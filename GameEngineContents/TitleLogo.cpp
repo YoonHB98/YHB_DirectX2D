@@ -47,7 +47,7 @@ void TitleLogo::Update(float _DeltaTime)
 	}
 
 	Renderer->AnimationBindEnd("Boot", &TitleLogo::BootEnd,this	);
-	if (true == GameEngineInput::GetInst()->IsDown("LevelChange")
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 		|| Time > 7.8f)
 	{
 		BgmPlayer1.Stop();

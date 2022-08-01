@@ -13,18 +13,18 @@ void Bar::Start()
 {
 	Mental = CreateComponent<GameEngineTextureRenderer>();
 	Mental->SetTexture("Color.png");
-	Mental->GetTransform().SetLocalPosition(float4(343.5, 168.5 + 27 * (GlobalContentsValue::Mental) * 0.01 *0.5,-50));
-	Mental->GetTransform().SetLocalScale(float4(3, 27 * (GlobalContentsValue::Mental) * 0.01));
+	Mental->GetTransform().SetLocalPosition(float4(343.5f, 168.5f+ 27 * (GlobalContentsValue::Mental) * 0.01f *0.5,-50));
+	Mental->GetTransform().SetLocalScale(float4(3.0f, 27.0f * (GlobalContentsValue::Mental) * 0.01f));
 	
 	Stress = CreateComponent<GameEngineTextureRenderer>();
 	Stress->SetTexture("Color.png");
-	Stress->GetTransform().SetLocalPosition(float4(343.5, 132.5 + 27 * (GlobalContentsValue::Stress) * 0.01 * 0.5, -50));
-	Stress->GetTransform().SetLocalScale(float4(3, 27 * (GlobalContentsValue::Stress) * 0.01));
+	Stress->GetTransform().SetLocalPosition(float4(343.5f, 132.5f+ 27 * (GlobalContentsValue::Stress) * 0.01f * 0.5f, -50.0f));
+	Stress->GetTransform().SetLocalScale(float4(3, 27 * (GlobalContentsValue::Stress) * 0.01f));
 
 	Affection = CreateComponent<GameEngineTextureRenderer>();
 	Affection->SetTexture("Color.png");
-	Affection->GetTransform().SetLocalPosition(float4(343.5, 97.5 + 27 * (GlobalContentsValue::Affection) * 0.01 * 0.5, -50));
-	Affection->GetTransform().SetLocalScale(float4(3, 27 * (GlobalContentsValue::Affection) * 0.01));
+	Affection->GetTransform().SetLocalPosition(float4(343.5f, 97.5f + 27 * (GlobalContentsValue::Affection) * 0.01f * 0.5f, -50));
+	Affection->GetTransform().SetLocalScale(float4(3, 27 * (GlobalContentsValue::Affection) * 0.01f));
 }
 
 void Bar::Update(float _DeltaTime)

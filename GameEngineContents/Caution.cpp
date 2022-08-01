@@ -69,18 +69,26 @@ void Caution::Start()
 	Renderer->SetTexture("SetUp.png");
 	Renderer->ScaleToTexture();
 
+	Collision = CreateComponent<GameEngineCollision>();
+	Collision->GetTransform().SetLocalPosition(float4{ 167,-115,0 });
+	Collision->GetTransform().SetLocalScale({ 98.0f, 20.0f, -200.0f });
+	Collision->ChangeOrder(OBJECTORDER::UI);
+
+
+
 }
 
 void Caution::Update(float _DeltaTime)
 {
-
+	MouseCheck =  Collision->IsCollision(CollisionType::CT_OBB2D, OBJECTORDER::Mouse, CollisionType::CT_OBB2D,
+		std::bind(&Caution::MouseCollision, this, std::placeholders::_1, std::placeholders::_2)
+	);
 		if (A == 0)
 		{
 			BgmPlayer = GameEngineSound::SoundPlayControl("OP_PV.wav");
 			GameEngineSound::SoundPlayOneShot("Boot_Caution.wav", 0);
 			A = 1;
 		}
-
 		StateUpdate();
 }
 

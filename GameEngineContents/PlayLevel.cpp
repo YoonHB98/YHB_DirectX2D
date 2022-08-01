@@ -83,21 +83,8 @@ void PlayLevel::Update(float _DeltaTime)
 		GetMainCameraActor()->FreeCameraModeOnOff();
 	}
 
-	StateCheck();
 
 
 }
 void PlayLevel::End() {}
 
-void PlayLevel::StateCheck()
-{
-	if (true == GameEngineInput::GetInst()->IsDown("LevelChange")
-		&& GlobalContentsValue::Line == false
-		&& first)
-	{
-		GlobalContentsValue::RemainLinenum = 5;
-		GlobalContentsValue::Line = true;
-		GlobalContentsValue::WebCamWindow = true;
-		first = false;
-	}
-}

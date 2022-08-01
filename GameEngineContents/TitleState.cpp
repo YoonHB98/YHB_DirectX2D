@@ -21,7 +21,8 @@ void Caution::WelcomeStart()
 
 void Caution::UpdateIdle()
 {
-	if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+		&&MouseCheck)
 	{
 		ChangeState(LoginState::Login);
 	}
@@ -29,7 +30,10 @@ void Caution::UpdateIdle()
 
 void Caution::UpdateData1()
 {
-	if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
+	Collision->GetTransform().SetLocalPosition(float4{ 0,-62.5f,0 });
+	Collision->GetTransform().SetLocalScale({ 98.0f, 19.0f, -200.0f });
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+		&&MouseCheck)
 	{
 		ChangeState(LoginState::Welcome);
 	}
@@ -37,7 +41,10 @@ void Caution::UpdateData1()
 
 void Caution::UpdateLogin()
 {
-	if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
+	Collision->GetTransform().SetLocalPosition(float4{ -140,16,0 });
+	Collision->GetTransform().SetLocalScale({ 52.0f, 52.0f, -200.0f });
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+		&&MouseCheck)
 	{
 		GameEngineSound::SoundPlayOneShot("command_execute.wav");
 		ChangeState(LoginState::Data1);
@@ -55,4 +62,9 @@ void Caution::UpdateWelcome()
 		BgmPlayer.Stop();
 		GEngine::ChangeLevel("Play");
 	}
+}
+
+bool Caution::MouseCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
+{
+	return true;
 }

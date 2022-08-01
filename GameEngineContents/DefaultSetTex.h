@@ -25,6 +25,13 @@ public:
 	void SetLocalScale(float4 Scale);
 	void ChangeForward(GameEngineTextureRenderer* Renderer, float z);
 	void ChangeZPos(float Z);
+
+	bool MouseCheck(GameEngineCollision* _Col);
+	inline bool MouseCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
+	{
+		return true;
+	}
+	GameEngineCollision* Collision;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

@@ -35,7 +35,7 @@ void Change::Update(float _DeltaTime)
 			Sound = GameEngineSound::SoundPlayControl("Bank.wav");
 			first = false;
 		}
-		if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
+		if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		{
 			Sound.Stop();
 			GlobalContentsValue::Change = false;

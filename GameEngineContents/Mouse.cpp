@@ -14,6 +14,10 @@ void Mouse::Start()
 	SetTexture("Cursor.png");
 	SetLocalPosition(float4(0, 0, 0));
 	SetLocalScale(float4(32, 32));
+
+	GameEngineCollision* Collision = CreateComponent<GameEngineCollision>();
+	Collision->GetTransform().SetLocalScale({ 32.0f,32.0f,2000.0f });
+	Collision->ChangeOrder(OBJECTORDER::Mouse);
 }
 
 void Mouse::Update(float _DeltaTime)
@@ -21,7 +25,7 @@ void Mouse::Update(float _DeltaTime)
 	ShowCursor(0);
 	float4 Pos = GetLevel()->GetMainCamera()->GetMouseWorldPosition();
 	GlobalContentsValue::MousePos = Pos;
-	Renderer->GetTransform().SetWorldPosition(float4(Pos.x, Pos.y, -500));
+	GetTransform().SetWorldPosition(float4(Pos.x, Pos.y, -500));
 }
 
 void Mouse::End()

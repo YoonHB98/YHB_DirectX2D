@@ -73,6 +73,8 @@ void WebCamWindow::End()
 void WebCamWindow::IdleStart(const StateInfo& _Info)
 {
 	Ame->ChangeFrameAnimation("ame_talk1");
+	Ame->GetTransform().SetLocalPosition(float4(-90, 115));
+	Ame->GetTransform().SetLocalScale(float4(348, 222));
 }
 
 void WebCamWindow::IdleUpdate(float _DeltaTime, const StateInfo& _Info)
