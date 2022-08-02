@@ -13,7 +13,7 @@ void Bar::Start()
 {
 	Mental = CreateComponent<GameEngineTextureRenderer>();
 	Mental->SetTexture("Color.png");
-	Mental->GetTransform().SetLocalPosition(float4(343.5f, 168.5f+ 27 * (GlobalContentsValue::Mental) * 0.01f *0.5,-50));
+	Mental->GetTransform().SetLocalPosition(float4(343.5f, 168.5f+ 27 * (GlobalContentsValue::Mental) * 0.01f *0.5f,-50));
 	Mental->GetTransform().SetLocalScale(float4(3.0f, 27.0f * (GlobalContentsValue::Mental) * 0.01f));
 	
 	Stress = CreateComponent<GameEngineTextureRenderer>();
