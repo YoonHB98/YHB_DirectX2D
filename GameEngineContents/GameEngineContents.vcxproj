@@ -252,6 +252,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationUpdate.cpp" />
     <ClCompile Include="Bar.cpp">
       <SubType>
       </SubType>

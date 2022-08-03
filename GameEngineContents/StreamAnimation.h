@@ -1,7 +1,13 @@
 #pragma once
 #include "DefaultSetTex.h"
 
+
 // Ό³Έν :
+enum class StreamContents
+{
+	Tutorial,
+};
+
 class StreamAnimation : public DefaultSetTex
 {
 public:
@@ -15,6 +21,8 @@ public:
 	StreamAnimation& operator=(const StreamAnimation& _Other) = delete;
 	StreamAnimation& operator=(StreamAnimation&& _Other) noexcept = delete;
 
+	StreamContents Contents;
+
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -22,6 +30,9 @@ protected:
 
 	bool first = true;
 private:
-
+	void ContentsUpdate(StreamContents Contents);
+	void Tutorial();
+	float Time;
+	std::map<std::string, StreamContents> ContentsMap;
 };
 

@@ -16,5 +16,6 @@ float4 GlobalContentsValue::MousePos = float4(0,0,0);
 bool GlobalContentsValue::WebCamWindow = false;
 bool GlobalContentsValue::Line = false;
 bool GlobalContentsValue::Change = false;
+std::string GlobalContentsValue::Contents = "Tutorial";
 
 

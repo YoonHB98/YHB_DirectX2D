@@ -27,6 +27,8 @@ public:
 	static int DayTime;
 	//행동
 	static bool Out;
+	//뭔 방송임
+	static std::string Contents;
 
 private:
 	GlobalContentsValue()	{	}

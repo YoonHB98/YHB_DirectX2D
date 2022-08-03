@@ -49,6 +49,9 @@
     <Filter Include="Actor\Window\WindowIcon">
       <UniqueIdentifier>{9b9540dc-4102-4edc-acce-f13f74103c46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Play\Stream\StreamAnimation">
+      <UniqueIdentifier>{a93b36ee-84ba-4adc-bfe0-558486b3f541}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -119,7 +122,7 @@
       <Filter>Actor\Play\Stream</Filter>
     </ClInclude>
     <ClInclude Include="StreamAnimation.h">
-      <Filter>Actor\Play\Stream</Filter>
+      <Filter>Actor\Play\Stream\StreamAnimation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -191,7 +194,10 @@
       <Filter>Actor\Play\Stream</Filter>
     </ClCompile>
     <ClCompile Include="StreamAnimation.cpp">
-      <Filter>Actor\Play\Stream</Filter>
+      <Filter>Actor\Play\Stream\StreamAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationUpdate.cpp">
+      <Filter>Actor\Play\Stream\StreamAnimation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
