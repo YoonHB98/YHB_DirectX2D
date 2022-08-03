@@ -93,10 +93,7 @@ void ContentsCore::Start()
 	CreateLevel<PlayLevel>("Play");
 	ChangeLevel("Loading");
 
-	// 게임컨텐츠 정의
-	// 이 게임에는 타이틀화면
-	//            스테이지1
-	//            스테이지2
+	//GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 }
 
 void ContentsCore::Update(float _DeltaTime)

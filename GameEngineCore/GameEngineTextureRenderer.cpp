@@ -71,7 +71,7 @@ void FrameAnimation::Update(float _Delta)
 					ParentRenderer->ScaleToCutTexture(Info.CurFrame);
 				}
 			}
-		else 
+			else 
 			{
 				if (ParentRenderer->ScaleMode == SCALEMODE::IMAGE)
 				{
@@ -125,6 +125,8 @@ void GameEngineTextureRenderer::SetTextureRendererSetting()
 	FrameData.SizeY = 1.0f;
 
 	ShaderResources.SetConstantBufferLink("AtlasData", FrameData);
+	ShaderResources.SetConstantBufferLink("ColorData", ColorData);
+	
 }
 
 void GameEngineTextureRenderer::Start() 
@@ -307,12 +309,12 @@ void GameEngineTextureRenderer::ScaleToCutTexture(int _Index)
 	// 이거는 봐야합니다.
 	if (0 > GetTransform().GetLocalScale().x)
 	{
-		Scale = -Scale.x;
+		Scale.x = -Scale.x;
 	}
 
 	if (0 > GetTransform().GetLocalScale().y)
 	{
-		Scale = -Scale.y;
+		Scale.y = -Scale.y;
 	}
 
 	GetTransform().SetLocalScale(Scale * ScaleRatio);
@@ -325,12 +327,12 @@ void GameEngineTextureRenderer::ScaleToTexture()
 	// 이거는 봐야합니다.
 	if (0 > GetTransform().GetLocalScale().x)
 	{
-		Scale = -Scale.x;
+		Scale.x = -Scale.x;
 	}
 
 	if (0 > GetTransform().GetLocalScale().y)
 	{
-		Scale = -Scale.y;
+		Scale.y = -Scale.y;
 	}
 
 	GetTransform().SetLocalScale(Scale * ScaleRatio);

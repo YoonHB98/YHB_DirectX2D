@@ -11,9 +11,21 @@ enum class PIVOTMODE
 
 enum class SCALEMODE
 {
-	CUSTOM,
 	IMAGE,
-	
+	CUSTOM,
+};
+
+struct ColorData
+{
+	float4 MulColor;
+	float4 PlusColor;
+
+	ColorData()
+		: MulColor(float4::WHITE)
+		, PlusColor(float4::ZERO)
+	{
+
+	}
 };
 
 class FrameAnimation_DESC 
@@ -112,7 +124,10 @@ public:
 	void SetSamplingModePoint();
 	void SetSamplingModeLiner();
 
-
+	void SetScaleModeImage()
+	{
+		ScaleMode = SCALEMODE::IMAGE;
+	}
 
 	void SetScaleRatio(float _Scale) 
 	{
@@ -154,6 +169,11 @@ public:
 	void CurAnimationReset();
 
 	void CurAnimationSetStartPivotFrame(int SetFrame);
+
+	ColorData& GetColorData() 
+	{
+		return ColorData;
+	}
 
 
 	// 애니메이션 바인드
@@ -281,6 +301,8 @@ private:
 
 	GameEngineTexture* CurTex;
 	float4 FrameData;
+
+	ColorData ColorData;
 
 	std::map<std::string, FrameAnimation> FrameAni;
 	FrameAnimation* CurAni;
