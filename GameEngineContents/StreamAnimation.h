@@ -32,7 +32,7 @@ protected:
 private:
 	void ContentsUpdate(StreamContents Contents);
 	void Tutorial();
-	float Time;
+	float Time = 0;
 	std::map<std::string, StreamContents> ContentsMap;
 };
 
