@@ -124,6 +124,9 @@
     <ClInclude Include="StreamAnimation.h">
       <Filter>Actor\Play\Stream\StreamAnimation</Filter>
     </ClInclude>
+    <ClInclude Include="Myfont.h">
+      <Filter>Actor\Window\WindowIcon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -198,6 +201,9 @@
     </ClCompile>
     <ClCompile Include="AnimationUpdate.cpp">
       <Filter>Actor\Play\Stream\StreamAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="Myfont.cpp">
+      <Filter>Actor\Window\WindowIcon</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

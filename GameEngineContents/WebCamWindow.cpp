@@ -29,8 +29,8 @@ void WebCamWindow::Start()
 	Ame = CreateComponent<GameEngineTextureRenderer>();
 	Ame->GetTransform().SetLocalPosition(float4(-90, 115));
 	Ame->GetTransform().SetLocalScale(float4(348, 222));
-	Ame->CreateFrameAnimation("ame_talk1", FrameAnimation_DESC("ame_talk1.png", 0, 4, 0.4f,true));
-	Ame->CreateFrameAnimation("ame_out0", FrameAnimation_DESC("ame_out0.png", 0, 13, 0.15f, false));
+	Ame->CreateFrameAnimationCutTexture("ame_talk1", FrameAnimation_DESC("ame_talk1.png", 0, 4, 0.4f,true));
+	Ame->CreateFrameAnimationCutTexture("ame_out0", FrameAnimation_DESC("ame_out0.png", 0, 13, 0.15f, false));
 
 	StateManager.CreateStateMember("Idle", this, &WebCamWindow::IdleUpdate, &WebCamWindow::IdleStart);
 	StateManager.CreateStateMember("Active", this, &WebCamWindow::ActiveUpdate, &WebCamWindow::ActiveStart);

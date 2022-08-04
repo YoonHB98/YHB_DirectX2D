@@ -18,7 +18,7 @@ void Change::Start()
 	Bank = CreateComponent<GameEngineTextureRenderer>();
 	Bank->GetTransform().SetLocalPosition(float4(-1, -4,0));
 	Bank->GetTransform().SetLocalScale(float4(362, 238));
-	Bank->CreateFrameAnimation("Bank", FrameAnimation_DESC("Bank.png", 0, 184, 0.08f, false));
+	Bank->CreateFrameAnimationCutTexture("Bank", FrameAnimation_DESC("Bank.png", 0, 184, 0.08f, false));
 	ChangeZPos(500);
 
 }

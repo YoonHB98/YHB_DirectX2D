@@ -14,13 +14,12 @@ void StreamAnimation::Start()
 	Renderer = CreateComponent<GameEngineTextureRenderer>();
 	Renderer->GetTransform().SetLocalPosition(float4(-120, 40, 0));
 	Renderer->GetTransform().SetLocalScale(float4(348, 227));
-	Renderer->CreateFrameAnimation("cho_kashikoma", FrameAnimation_DESC("cho_kashikoma.png", 0, 7, 0.15f, false));
-	Renderer->CreateFrameAnimation("cho_idle", FrameAnimation_DESC("cho_idle.png", 0, 2, 0.5f, false));
-	Renderer->CreateFrameAnimation("cho_idleEnd", FrameAnimation_DESC("cho_idle.png", 0, 0, 0.5f, false));
-	Renderer->CreateFrameAnimation("cho_kawaiku", FrameAnimation_DESC("cho_kawaiku.png", 0, 2, 0.5f, true));
-	Renderer->CreateFrameAnimation("cho_kawaikuEnd", FrameAnimation_DESC("cho_kawaiku.png", 2, 2, 0.5f, false));
-	Renderer->CreateFrameAnimation("cho_pointing", FrameAnimation_DESC("cho_pointing.png", 0, 4, 0.5f, true));
-	Renderer->CreateFrameAnimation("cho_pointingEnd", FrameAnimation_DESC("cho_pointing.png", 4, 4, 0.5f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_kashikoma", FrameAnimation_DESC("cho_kashikoma.png", 0, 7, 0.15f, false));
+	std::vector<unsigned int> End { 0, 2 };
+	Renderer->CreateFrameAnimationCutTexture("cho_idle", FrameAnimation_DESC("cho_idle.png", 0, 2, 0.5f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_idleEnd", FrameAnimation_DESC("cho_idle.png", End, 0.5f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_kawaiku", FrameAnimation_DESC("cho_kawaiku.png", 0, 2, 0.5f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_pointing", FrameAnimation_DESC("cho_pointing.png", 0, 4, 0.5f, false));
 
 	ContentsMap["Tutorial"] = StreamContents::Tutorial;
 }
@@ -44,6 +43,8 @@ void StreamAnimation::Update(float _DeltaTime)
 		Contents = ContentsMap[GlobalContentsValue::Contents];
 		ContentsUpdate(Contents);
 	}
+	Myfont* Font = CreateComponent<Myfont>();
+	Font->TextDraw("¾È³ç", "Galmuri11",float4(100,100),float4(1,1,1,1), 80.0f);
 
 }
 

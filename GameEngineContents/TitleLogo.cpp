@@ -30,8 +30,8 @@ void TitleLogo::Start()
 		Renderer->SetTexture("Blank.png");
 
 
-		Renderer->CreateFrameAnimation("Boot", FrameAnimation_DESC("Boot.png", 0, 68, 0.1f,false));
-		Renderer->CreateFrameAnimation("Windose", FrameAnimation_DESC("Windose.png", 0, 20, 0.12f, false));
+		Renderer->CreateFrameAnimationCutTexture("Boot", FrameAnimation_DESC("Boot.png", 0, 68, 0.1f,false));
+		Renderer->CreateFrameAnimationCutTexture("Windose", FrameAnimation_DESC("Windose.png", 0, 20, 0.12f, false));
 		Renderer->ChangeFrameAnimation("Boot");
 		BgmPlayer1 =	GameEngineSound::SoundPlayControl("BIOS_piko.wav", 0);
 		BgmPlayer2 =    GameEngineSound::SoundPlayControl("BIOS_HDD.wav", 0);

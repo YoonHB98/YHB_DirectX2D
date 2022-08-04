@@ -73,8 +73,7 @@ void ContentsCore::Start()
 			}
 		}
 	}
-
-
+	GameEngineFont::Load("Galmuri11");
 
 	GameEngineTexture::Cut("ame_handspinner.png", 11, 1);
 	GameEngineTexture::Cut("boot.png", 10, 7);

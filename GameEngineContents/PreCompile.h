@@ -24,6 +24,7 @@
 //contents
 #include "GlobalContentsValue.h"
 #include "DefaultSetTex.h"
+#include "Myfont.h"
 // base
 #include <GameEngineBase/GameEngineDebug.h>
 #include <GameEngineBase/GameEngineInput.h>
@@ -39,5 +40,7 @@
 #include <GameEngineCore/GameEngineTextureRenderer.h>
 #include <GameEngineCore/GameEngineLevel.h>
 #include <GameEngineCore/GameEngineCollision.h>
+#include <GameEngineCore/GameEngineFont.h>
+#include <GameEngineCore/GameEngineFontRenderer.h>
 
 
