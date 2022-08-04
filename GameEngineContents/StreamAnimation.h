@@ -62,8 +62,15 @@ private:
 	Animation CurAnim;
 	AnimationType CurType  = AnimationType::A1;
 	std::map<std::string, StreamContents> ContentsMap;
-
+	float TempTime = 0;
+   int TempCount = 0;
 private:
+ int Count = 0;
+	bool FirstText = true;
+	float CountTime = 0;
+	std::string Text;
+ Myfont* Font;
+	void TextDrawTime(const std::string& Text_, const std::string& Font_, float4 Pos_, float4 Color_, float Size_, float Time);
 	void UpdateA1();
 	void UpdateA2();
 	void UpdateA3();

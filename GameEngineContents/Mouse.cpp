@@ -25,7 +25,7 @@ void Mouse::Update(float _DeltaTime)
 	ShowCursor(0);
 	float4 Pos = GetLevel()->GetMainCamera()->GetMouseWorldPosition();
 	GlobalContentsValue::MousePos = Pos;
-	GetTransform().SetWorldPosition(float4(Pos.x, Pos.y, -500));
+	GetTransform().SetWorldPosition(float4(Pos.x, Pos.y, -5000));
 }
 
 void Mouse::End()

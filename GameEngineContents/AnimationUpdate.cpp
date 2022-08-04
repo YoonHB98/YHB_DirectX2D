@@ -32,6 +32,51 @@ void StreamAnimation::StateUpdate(AnimationType Type)
 	}
 }
 
+void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& Font_, float4 Pos_, float4 Color_, float Size_, float Time)
+{
+	if (Count > Text_.length())
+	{
+		return;
+	}
+	CountTime = CountTime + GameEngineTime::GetDeltaTime();
+	float AA = Time / Text_.length();
+	if (Text_[Count] < 0)
+	{
+		if (FirstText)
+		{
+			Text = "" + Text + Text_[0] + Text_[1];
+			Count = Count + 2;
+			FirstText = false;
+		}
+
+		if (CountTime >= AA)
+		{
+			Text = "" + Text + Text_[Count] + Text_[Count + 1];
+			Count = Count + 2;
+			CountTime = CountTime - AA;
+		}
+	}
+	else
+	{
+		if (FirstText)
+		{
+			Text = "" + Text + Text_[0];
+			Count = Count + 1;
+			FirstText = false;
+		}
+
+		if (CountTime >= AA)
+		{
+			Text = "" + Text + Text_[Count];
+			Count = Count + 1;
+			CountTime = CountTime - AA;
+		}
+	}
+
+	Font->TextDraw(Text,  Font_,  Pos_, Color_, Size_);
+
+}
+
 void StreamAnimation::UpdateA1()
 {
 	if (AnimationStart == false)
