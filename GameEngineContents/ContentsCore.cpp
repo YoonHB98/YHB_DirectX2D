@@ -85,7 +85,7 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("ame_talk1.png", 5, 2);
 	GameEngineTexture::Cut("ame_out0.png", 5, 3);
 	GameEngineTexture::Cut("cho_kashikoma.png", 8, 1);
-	GameEngineTexture::Cut("cho_idle.png", 2, 1);
+	GameEngineTexture::Cut("cho_idle.png", 3, 1);
 	GameEngineTexture::Cut("cho_kawaiku.png", 3, 1);
 	GameEngineTexture::Cut("cho_pointing.png", 5, 1);
 	// 리소스를 로드하는데.
@@ -94,7 +94,7 @@ void ContentsCore::Start()
 	CreateLevel<LoadingLevel>("Loading");
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-	ChangeLevel("Loading");
+	ChangeLevel("Play");
 
 	//GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 }
