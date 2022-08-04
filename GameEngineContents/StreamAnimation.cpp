@@ -44,7 +44,7 @@ void StreamAnimation::Update(float _DeltaTime)
 		ContentsUpdate(Contents);
 	}
 	Myfont* Font = CreateComponent<Myfont>();
-	Font->TextDraw("안녕", "Galmuri11",float4(100,100),float4(1,1,1,1), 80.0f);
+	Font->TextDrawTime("안녕하세요요요요요", "Galmuri11",float4(100,100),float4(1,1,1,1), 80.0f, 2.0f);
 
 }
 
