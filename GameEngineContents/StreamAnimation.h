@@ -53,6 +53,7 @@ protected:
 	bool first = true;
 	bool AnimationStart = false;
 private:
+	GameEngineTextureRenderer* BG;
 	void ContentsUpdate(StreamContents Contents);
 	void Tutorial();
 	float Time = 0;
@@ -76,5 +77,10 @@ private:
 	void UpdateA3();
 	void UpdateA4();
 	void UpdateA5();
+	int EnterCount = 0;
+
+	float BlankXSize = 0;
+	AnimationType TextType;
+	GameEngineTextureRenderer* Blank;
 };
 

@@ -34,12 +34,27 @@ void StreamAnimation::StateUpdate(AnimationType Type)
 
 void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& Font_, float4 Pos_, float4 Color_, float Size_, float Time)
 {
-	if (Count > Text_.length())
+
+	if (CurType !=  TextType)
 	{
+		TextType = CurType;
+		CountTime = 0;
+		Count = 0;
+		EnterCount = 0;
+		Text = " ";
+	}
+	if (Count > Text_.length())
+	{ 
+	
 		return;
 	}
 	CountTime = CountTime + GameEngineTime::GetDeltaTime();
 	float AA = Time / Text_.length();
+	if (Text_[Count] == 10
+		&& CountTime >= AA)
+	{
+		EnterCount++;
+	}
 	if (Text_[Count] < 0)
 	{
 		if (FirstText)
@@ -47,6 +62,10 @@ void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& 
 			Text = "" + Text + Text_[0] + Text_[1];
 			Count = Count + 2;
 			FirstText = false;
+			if (EnterCount == 0)
+			{
+				BlankXSize++;
+			}
 		}
 
 		if (CountTime >= AA)
@@ -54,6 +73,10 @@ void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& 
 			Text = "" + Text + Text_[Count] + Text_[Count + 1];
 			Count = Count + 2;
 			CountTime = CountTime - AA;
+			if (EnterCount == 0)
+			{
+				BlankXSize++;
+			}
 		}
 	}
 	else
@@ -63,6 +86,10 @@ void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& 
 			Text = "" + Text + Text_[0];
 			Count = Count + 1;
 			FirstText = false;
+			if (EnterCount == 0)
+			{
+				BlankXSize++;
+			}
 		}
 
 		if (CountTime >= AA)
@@ -70,15 +97,23 @@ void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& 
 			Text = "" + Text + Text_[Count];
 			Count = Count + 1;
 			CountTime = CountTime - AA;
+			if (EnterCount == 0)
+			{
+				BlankXSize++;
+			}
 		}
 	}
-
-	Font->TextDraw(Text,  Font_,  Pos_, Color_, Size_);
+	Blank->GetColorData().MulColor.a = 0.5f;
+	Blank->GetTransform().SetWorldPosition(float4(-140, -35 , -520));
+	Blank->GetTransform().SetLocalScale(float4(200, 60));
+	float4 CurPos = Pos_ - float4(BlankXSize * 5, EnterCount * 20);
+	Font->TextDraw(Text,  Font_, CurPos, Color_, Size_);
 
 }
 
 void StreamAnimation::UpdateA1()
 {
+
 	if (AnimationStart == false)
 	{
 		Renderer->ChangeFrameAnimation("cho_idleEnd");
@@ -113,6 +148,7 @@ void StreamAnimation::UpdateA1()
 
 void StreamAnimation::UpdateA2()
 {
+	TextDrawTime("ÅÙÇÏ!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 0.5f);
 	Renderer->ChangeFrameAnimation("cho_kashikoma");
 
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
@@ -128,6 +164,7 @@ void StreamAnimation::UpdateA2()
 
 void StreamAnimation::UpdateA3()
 {
+	TextDrawTime("ÃÊÀýÁ¤ ±Í¿ä¹Ì Ãµ»ç Â» ÁÙ¿©¼­\n'ÃÊÅÙ Â»'ÀÌ¾ß", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
 	if (AnimationStart == false)
 	{
 		Renderer->ChangeFrameAnimation("cho_idleEnd");
