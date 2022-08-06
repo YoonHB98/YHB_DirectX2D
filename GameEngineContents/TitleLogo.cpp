@@ -46,7 +46,7 @@ void TitleLogo::Update(float _DeltaTime)
 		Time = Time + _DeltaTime;
 	}
 
-	Renderer->AnimationBindEnd("Boot", &TitleLogo::BootEnd,this	);
+	Renderer->AnimationBindEnd("Boot", std::bind(&TitleLogo::BootEnd, this, std::placeholders::_1));
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 		|| Time > 7.8f)
 	{

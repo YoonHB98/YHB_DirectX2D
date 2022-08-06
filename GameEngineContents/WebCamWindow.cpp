@@ -32,8 +32,8 @@ void WebCamWindow::Start()
 	Ame->CreateFrameAnimationCutTexture("ame_talk1", FrameAnimation_DESC("ame_talk1.png", 0, 4, 0.4f,true));
 	Ame->CreateFrameAnimationCutTexture("ame_out0", FrameAnimation_DESC("ame_out0.png", 0, 13, 0.15f, false));
 
-	StateManager.CreateStateMember("Idle", this, &WebCamWindow::IdleUpdate, &WebCamWindow::IdleStart);
-	StateManager.CreateStateMember("Active", this, &WebCamWindow::ActiveUpdate, &WebCamWindow::ActiveStart);
+	StateManager.CreateStateMember("Idle", std::bind(&WebCamWindow::IdleUpdate, this, std::placeholders::_1, std::placeholders::_2), std::bind(&WebCamWindow::IdleStart, this, std::placeholders::_1));
+	StateManager.CreateStateMember("Active", std::bind(&WebCamWindow::ActiveUpdate, this, std::placeholders::_1, std::placeholders::_2), std::bind(&WebCamWindow::ActiveStart, this, std::placeholders::_1));
 	StateManager.ChangeState("Idle");
 
 	ChangeZPos(-50);

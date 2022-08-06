@@ -164,7 +164,7 @@ void StreamAnimation::UpdateA2()
 
 void StreamAnimation::UpdateA3()
 {
-	TextDrawTime("ÃÊÀýÁ¤ ±Í¿ä¹Ì Ãµ»ç Â» ÁÙ¿©¼­\n'ÃÊÅÙ Â»'ÀÌ¾ß", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+	TextDrawTime("ÃÊÀýÁ¤ ±Í¿ä¹Ì Ãµ»ç Â» ÁÙ¿©¼­\n          'ÃÊÅÙ Â»'ÀÌ¾ß", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
 	if (AnimationStart == false)
 	{
 		Renderer->ChangeFrameAnimation("cho_idleEnd");
