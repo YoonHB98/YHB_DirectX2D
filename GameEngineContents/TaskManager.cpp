@@ -13,7 +13,7 @@ void TaskManager::Start()
 {
 	Renderer = CreateComponent<GameEngineTextureRenderer>();
 	Renderer->SetTexture("TaskManager.png");
-	Renderer->GetTransform().SetLocalPosition(float4(257, 170, -30));
+	Renderer->GetTransform().SetLocalPosition(float4(257, 170, 50));
 	Renderer->GetTransform().SetLocalScale(float4(199, 178));
 }
 

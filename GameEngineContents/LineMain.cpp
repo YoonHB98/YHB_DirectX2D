@@ -22,7 +22,7 @@ void LineMain::Update(float _DeltaTime)
 {
 	if (GlobalContentsValue::Line)
 	{
-		ChangeZPos(-30);
+		ChangeZPos(50);
 	}
 	else
 	{

@@ -17,6 +17,8 @@
 #include "Change.h"
 #include "Stream.h"
 #include "StreamAnimation.h"
+#include "ToolTip.h"
+#include "NotificationText.h"
 
 
 PlayLevel::PlayLevel()
@@ -40,6 +42,7 @@ void PlayLevel::Start()
 	CreateActor<TaskManager>(GameObjectGroup::WindowIcon);
 	CreateActor<Bar>(GameObjectGroup::WindowIcon);
 	CreateActor<Mouse>();
+	CreateActor<ToolTip>();
 	CreateActor<Stream>(GameObjectGroup::WindowIcon);
 
 	//Icon
@@ -67,7 +70,8 @@ void PlayLevel::Update(float _DeltaTime)
 		if ( GlobalContentsValue::Message)
 		{
 			GlobalContentsValue::RemainLinenum = GlobalContentsValue::RemainLinenum - 1;
-			CreateActor<Notification>(GameObjectGroup::WindowIcon);
+			CreateActor<Notification>(GameObjectGroup::BackGround);
+			CreateActor<NotificationText>(GameObjectGroup::WindowIcon);
 		}
 	}
 	if (GlobalContentsValue::RemainLinenum <= 0)

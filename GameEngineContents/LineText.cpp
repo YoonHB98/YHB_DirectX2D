@@ -77,7 +77,7 @@ void LineText::Update(float _DeltaTime)
 	}
 	else
 	{
-		ChangeZPos(-50);
+		ChangeZPos(40);
 	}
 
 }

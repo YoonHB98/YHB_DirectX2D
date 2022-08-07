@@ -11,6 +11,7 @@ public:
 	static bool WebCamWindow;
 	static bool Line;
 	static bool Change;
+	static bool Tooltip;
 	//스테이터스
 	static int Mental;
 	static int Stress;
@@ -23,6 +24,7 @@ public:
 	static int RemainLinenum;
 	static bool Message;
 	static bool Stream;
+	static int TextConNum;
 	//시간
 	static int DayTime;
 	//행동

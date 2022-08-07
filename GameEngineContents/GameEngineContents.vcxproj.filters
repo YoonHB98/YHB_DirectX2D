@@ -52,6 +52,12 @@
     <Filter Include="Actor\Play\Stream\StreamAnimation">
       <UniqueIdentifier>{a93b36ee-84ba-4adc-bfe0-558486b3f541}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Play\Tooltip">
+      <UniqueIdentifier>{f58c6ea5-728e-4a54-bab4-34ef13d7db57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Play\Line\Notification">
+      <UniqueIdentifier>{3da40f01-79f5-463c-9666-f0b9a032c329}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -84,9 +90,6 @@
     </ClInclude>
     <ClInclude Include="SideBG.h">
       <Filter>Actor\Play</Filter>
-    </ClInclude>
-    <ClInclude Include="Notification.h">
-      <Filter>Actor\Play\Line</Filter>
     </ClInclude>
     <ClInclude Include="LineMain.h">
       <Filter>Actor\Play\Line</Filter>
@@ -127,6 +130,15 @@
     <ClInclude Include="Myfont.h">
       <Filter>Actor\Window\WindowIcon</Filter>
     </ClInclude>
+    <ClInclude Include="ToolTip.h">
+      <Filter>Actor\Play\Tooltip</Filter>
+    </ClInclude>
+    <ClInclude Include="Notification.h">
+      <Filter>Actor\Play\Line\Notification</Filter>
+    </ClInclude>
+    <ClInclude Include="NotificationText.h">
+      <Filter>Actor\Play\Line\Notification</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -159,9 +171,6 @@
     </ClCompile>
     <ClCompile Include="SideBG.cpp">
       <Filter>Actor\Play</Filter>
-    </ClCompile>
-    <ClCompile Include="Notification.cpp">
-      <Filter>Actor\Play\Line</Filter>
     </ClCompile>
     <ClCompile Include="LineMain.cpp">
       <Filter>Actor\Play\Line</Filter>
@@ -204,6 +213,15 @@
     </ClCompile>
     <ClCompile Include="Myfont.cpp">
       <Filter>Actor\Window\WindowIcon</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolTip.cpp">
+      <Filter>Actor\Play\Tooltip</Filter>
+    </ClCompile>
+    <ClCompile Include="Notification.cpp">
+      <Filter>Actor\Play\Line\Notification</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificationText.cpp">
+      <Filter>Actor\Play\Line\Notification</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

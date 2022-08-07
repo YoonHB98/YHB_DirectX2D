@@ -37,7 +37,7 @@ void StreamAnimation::Start()
 
 void StreamAnimation::Update(float _DeltaTime)
 {
-	GlobalContentsValue::Stream = true;
+
 	if (GlobalContentsValue::Stream == false)
 	{
 		ChangeZPos(500);
@@ -49,7 +49,7 @@ void StreamAnimation::Update(float _DeltaTime)
 		if (first == true)
 		{
 			first = false;
-			ChangeZPos(-510);
+			ChangeZPos(40);
 		}
 		Contents = ContentsMap[GlobalContentsValue::Contents];
 		ContentsUpdate(Contents);

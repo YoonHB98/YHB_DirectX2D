@@ -16,16 +16,16 @@ void Notification::Start()
 	Tuuti = CreateComponent<GameEngineTextureRenderer>();
 	Tuuti->SetTexture("tuuti.png");
 	Tuuti->GetTransform().SetLocalScale(float4(140, 20));
-	Tuuti->GetTransform().SetLocalPosition(float4(280, -255, -500));
+	Tuuti->GetTransform().SetLocalPosition(float4(280, -255, 0));
 
 	Collision = CreateComponent<GameEngineCollision>();
 	Collision->GetTransform().SetLocalScale(float4(140, 20));
-	Collision->GetTransform().SetLocalPosition(float4(280, -255, -500));
+	Collision->GetTransform().SetLocalPosition(float4(280, -255, 0));
 	Collision->ChangeOrder(OBJECTORDER::UI);
 
 	Line = CreateComponent<GameEngineTextureRenderer>();
 	Line->SetTexture("Line.png");
-	Line->GetTransform().SetLocalPosition(float4(220, -255, -500));
+	Line->GetTransform().SetLocalPosition(float4(220, -255, 0));
 	Line->ScaleToTexture();
 
 	GameEngineSound().SoundPlayOneShot("jine_recieve.wav");
@@ -33,29 +33,25 @@ void Notification::Start()
 
 void Notification::Update(float _DeltaTime)
 {
-
+	
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 		&& MouseCheck(Collision))
 	{
-		GlobalContentsValue::RemainLinenum = 5;
 		GlobalContentsValue::Line = true;
 		GlobalContentsValue::WebCamWindow = true;
 	}
 	if (GlobalContentsValue::LineNum != 1)
 	{
-		GetTransform().SetLocalMove(float4(0, 25));
-		//Tuuti->GetTransform().SetLocalMove(float4(0,25));
-		//Line->GetTransform().SetLocalMove(float4(0, 25));
-
+		GetTransform().SetWorldMove(float4(0, 25));
 	}
 	if (GlobalContentsValue::Line)
 	{
 		Death();
 	}
-
 }
 
 void Notification::End()
 {
 }
+
 
