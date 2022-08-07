@@ -34,12 +34,12 @@ void NotificationText::TextDraw()
 		switch (GlobalContentsValue::TextConNum)
 		{
 		case 0:
-			Font->TextDraw("방송용 계정을 만들었어...", "Galmuri9", float4(710, 492), float4(0, 0, 0, 1), 10.0f);
+			Font->TextDraw("방송용 계정을 만들었어...", "Galmuri9", float4(710, 492), float4(0.271f, 0.3294f, 0.56862f, 1), 10.0f);
 			GlobalContentsValue::TextConNum++;
 			first = false;
 			break;
 		case 1:
-			Font->TextDraw("비밀번호는 angelkawaii...", "Galmuri9", float4(710, 492), float4(0, 0, 0, 1), 10.0f);
+			Font->TextDraw("비밀번호는 angelkawaii...", "Galmuri9", float4(710, 492), float4(0.271f, 0.3294f, 0.56862f, 1), 10.0f);
 			GlobalContentsValue::TextConNum++;
 			first = false;
 			break;

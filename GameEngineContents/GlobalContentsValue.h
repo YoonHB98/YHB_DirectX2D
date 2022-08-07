@@ -19,6 +19,7 @@ public:
 	static int Followers;
 	//날짜
 	static int Day;
+	static bool Tutorial;
 	//라인
 	static int LineNum;
 	static int RemainLinenum;

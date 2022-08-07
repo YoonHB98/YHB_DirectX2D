@@ -36,7 +36,6 @@ void TitleLogo::Start()
 		BgmPlayer1 =	GameEngineSound::SoundPlayControl("BIOS_piko.wav", 0);
 		BgmPlayer2 =    GameEngineSound::SoundPlayControl("BIOS_HDD.wav", 0);
 	}
-	
 }
 
 void TitleLogo::Update(float _DeltaTime) 

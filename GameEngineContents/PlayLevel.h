@@ -24,5 +24,6 @@ private:
 	int a = 0;
 	float time = 0;
 	bool first = true;
+	bool TutorialFirst = true;
 };
 

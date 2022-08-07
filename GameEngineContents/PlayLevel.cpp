@@ -39,8 +39,6 @@ void PlayLevel::Start()
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	CreateActor<LineMain>(GameObjectGroup::WindowIcon);
 	CreateActor<WebCamWindow>(GameObjectGroup::WindowIcon);
-	CreateActor<TaskManager>(GameObjectGroup::WindowIcon);
-	CreateActor<Bar>(GameObjectGroup::WindowIcon);
 	CreateActor<Mouse>();
 	CreateActor<ToolTip>();
 	CreateActor<Stream>(GameObjectGroup::WindowIcon);
@@ -65,7 +63,11 @@ void PlayLevel::Update(float _DeltaTime)
 	{
 
 		time = time - 1.0f;
-		CreateActor<Bar>(GameObjectGroup::WindowIcon);
+		if (GlobalContentsValue::Tutorial == false)
+		{
+			CreateActor<Bar>(GameObjectGroup::WindowIcon);
+		}
+
 
 		if ( GlobalContentsValue::Message)
 		{
@@ -87,7 +89,14 @@ void PlayLevel::Update(float _DeltaTime)
 		GetMainCameraActor()->FreeCameraModeOnOff();
 	}
 
-
+	//듀토리얼이 끝나면 작업관리자 생성
+	if (GlobalContentsValue::Tutorial == false
+		&& TutorialFirst)
+	{
+		CreateActor<TaskManager>(GameObjectGroup::WindowIcon);
+		CreateActor<Bar>(GameObjectGroup::WindowIcon);
+		TutorialFirst = false;
+	}
 
 }
 void PlayLevel::End() {}
