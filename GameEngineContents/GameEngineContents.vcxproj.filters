@@ -139,6 +139,9 @@
     <ClInclude Include="NotificationText.h">
       <Filter>Actor\Play\Line\Notification</Filter>
     </ClInclude>
+    <ClInclude Include="MyTextureRenderer.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -222,6 +225,9 @@
     </ClCompile>
     <ClCompile Include="NotificationText.cpp">
       <Filter>Actor\Play\Line\Notification</Filter>
+    </ClCompile>
+    <ClCompile Include="MyTextureRenderer.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

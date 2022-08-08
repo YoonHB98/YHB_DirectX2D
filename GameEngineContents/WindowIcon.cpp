@@ -37,9 +37,10 @@ void WindowIcon::Start()
 	}
 	{
 		Internet = CreateComponent<GameEngineTextureRenderer>();
-		Internet->SetTexture("icon_desktop_internet.png");
-		Internet->GetTransform().SetLocalPosition(float4(-305, -30, 0));
+		Internet->GetTransform().SetLocalPosition(float4(-305, -30,0));
 		Internet->GetTransform().SetLocalScale(float4(32, 32));
+		Internet->CreateFrameAnimationCutTexture("Internet", FrameAnimation_DESC("icon_desktop_internet.png", 0, 0, 0.1f, false));
+		Internet->ChangeFrameAnimation("Internet");
 	}
 	{
 		Odekake = CreateComponent<GameEngineTextureRenderer>();
@@ -60,10 +61,10 @@ void WindowIcon::Update(float _DeltaTime)
 	if (GlobalContentsValue::Tutorial)
 	{
 		Youtube->GetColorData().MulColor.a = 1.0f;
+		Internet->GetColorData().MulColor.a = 0.2f;
 		Asobu->GetColorData().MulColor.a = 0.2f;
 		Neru->GetColorData().MulColor.a = 0.2f;
 		Okusuri->GetColorData().MulColor.a = 0.2f;
-		Internet->GetColorData().MulColor.a = 0.2f;
 		Odekake->GetColorData().MulColor.a = 0.2f;
 		Tex->GetColorData().MulColor.a = 0.2f;
 	}

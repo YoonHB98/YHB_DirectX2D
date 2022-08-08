@@ -17,6 +17,20 @@ ContentsCore::~ContentsCore()
 
 void ContentsCore::Start()
 {
+
+	{
+		GameEngineDirectory Dir;
+
+		Dir.MoveParentToExitsChildDirectory("MyShader");
+		Dir.Move("MyShader");
+
+		std::vector<GameEngineFile> Shaders = Dir.GetAllFile("hlsl");
+
+		for (size_t i = 0; i < Shaders.size(); i++)
+		{
+			GameEngineShader::AutoCompile(Shaders[i].GetFullPath());
+		}
+	}
 	{
 		GameEngineDirectory Dir;
 
@@ -73,6 +87,11 @@ void ContentsCore::Start()
 			}
 		}
 	}
+	{
+		GameEngineRenderingPipeLine* NewPipe = GameEngineRenderingPipeLine::Create("MyTexture");
+		NewPipe->SetVertexShader("MyTexture.hlsl");
+		NewPipe->SetPixelShader("MyTexture.hlsl");
+	}
 	GameEngineFont::Load("Galmuri11");
 	GameEngineFont::Load("Galmuri9");
 	GameEngineFont::Load("Galmuri7");
@@ -91,6 +110,8 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("cho_idle.png", 3, 1);
 	GameEngineTexture::Cut("cho_kawaiku.png", 3, 1);
 	GameEngineTexture::Cut("cho_pointing.png", 5, 1);
+	GameEngineTexture::Cut("badge.png",1, 1);
+	GameEngineTexture::Cut("icon_desktop_internet.png", 1, 2);
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션
