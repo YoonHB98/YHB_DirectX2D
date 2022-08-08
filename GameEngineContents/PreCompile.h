@@ -25,6 +25,7 @@
 #include "GlobalContentsValue.h"
 #include "DefaultSetTex.h"
 #include "Myfont.h"
+#include "MyTextureRenderer.h"
 // base
 #include <GameEngineBase/GameEngineDebug.h>
 #include <GameEngineBase/GameEngineInput.h>

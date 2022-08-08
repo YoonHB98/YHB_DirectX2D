@@ -19,6 +19,7 @@
 #include "StreamAnimation.h"
 #include "ToolTip.h"
 #include "NotificationText.h"
+#include "TutorialLogin.h"
 
 
 PlayLevel::PlayLevel()
@@ -42,6 +43,7 @@ void PlayLevel::Start()
 	CreateActor<Mouse>();
 	CreateActor<ToolTip>();
 	CreateActor<Stream>(GameObjectGroup::WindowIcon);
+	CreateActor<TutorialLogin>(GameObjectGroup::WindowIcon);
 
 	//Icon
 	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);

@@ -56,7 +56,7 @@ Output MyTexture_VS(Input _Input)
     return NewOutPut;
 }
 
-cbuffer ColorData : register(b0)
+cbuffer MyColorData : register(b0)
 {
     float4 MulColor;
     float4 PlusColor;
@@ -68,13 +68,17 @@ float4 MyTexture_PS(Output _Input) : SV_Target0
 {
     float4 Color = Tex.Sample(Smp, _Input.Tex.xy);
     
-    if (Color.r ==1
-        &&Color.b ==1)
+
+    if (Color.r == 1
+        && Color.b == 1)
     {
         clip(-1);
     }
     
+    
     Color = Tex.Sample(Smp, _Input.Tex.xy) * MulColor+PlusColor;
+    
+
     return Color;
 
 }

@@ -23,6 +23,7 @@ public:
 	void SetTexture(std::string Name);
 	void SetLocalPosition(float4 Pos);
 	void SetLocalScale(float4 Scale);
+	void ChangeTexture(std::string Name);
 	void ChangeForward(GameEngineTextureRenderer* Renderer, float z);
 	void ChangeZPos(float Z);
 

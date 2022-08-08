@@ -27,7 +27,12 @@ void LoadingLevel::Start()
 		GameEngineInput::GetInst()->CreateKey("FreeCameaOnOff", 'O');
 	}
 
-
+		GameEngineInput::GetInst()->CreateKey("A", 'A');
+		GameEngineInput::GetInst()->CreateKey("S", 'S');
+		GameEngineInput::GetInst()->CreateKey("Q", 'Q');
+		GameEngineInput::GetInst()->CreateKey("W", 'W');
+		GameEngineInput::GetInst()->CreateKey("E", 'E');
+		GameEngineInput::GetInst()->CreateKey("BACKSPACE", VK_BACK);
 
 	CreateActor<TitleLogo>(GameObjectGroup::BackGround);
 	ShowCursor(0);

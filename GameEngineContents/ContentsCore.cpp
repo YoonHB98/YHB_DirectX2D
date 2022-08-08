@@ -86,6 +86,20 @@ void ContentsCore::Start()
 				GameEngineTexture::Load(Shaders[i].GetFullPath());
 			}
 		}
+		{
+			GameEngineDirectory Dir;
+
+			Dir.MoveParentToExitsChildDirectory("Resources");
+			Dir.Move("Resources");
+			Dir.Move("LineText");
+
+			std::vector<GameEngineFile> Shaders = Dir.GetAllFile();
+
+			for (size_t i = 0; i < Shaders.size(); i++)
+			{
+				GameEngineTexture::Load(Shaders[i].GetFullPath());
+			}
+		}
 	}
 	{
 		GameEngineRenderingPipeLine* NewPipe = GameEngineRenderingPipeLine::Create("MyTexture");

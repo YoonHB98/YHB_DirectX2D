@@ -29,47 +29,18 @@ void LineText::Update(float _DeltaTime)
 		}
 
 	}
-	if (GlobalContentsValue::LineNum != 1
-		&& GlobalContentsValue::WebCamWindow == true)
+	if (GlobalContentsValue::LineNum != 1)
 	{
 		Count = Count + 1;
-		if (Count == 1)
+		for (int i = 0; i < 10; i++)
 		{
-			Renderer1 = CreateComponent<GameEngineTextureRenderer>();
-			Renderer1->SetTexture("Sample1.png");
-			Renderer1->ScaleToTexture();
-			Renderer1->GetTransform().SetLocalPosition(float4(200, 30));
-		}else
-		if (Count == 2)
+			if (Count == i)
 			{
-				Renderer2 = CreateComponent<GameEngineTextureRenderer>();
-				Renderer2->SetTexture("Sample2.png");
-				Renderer2->ScaleToTexture();
-				Renderer2->GetTransform().SetLocalPosition(float4(200, -25));
-		}else
-		if (Count == 3)
-			{
-			Renderer3 = CreateComponent<GameEngineTextureRenderer>();
-			Renderer3->SetTexture("Sample3.png");
-			Renderer3->ScaleToTexture();
-			Renderer3->GetTransform().SetLocalPosition(float4(200, -55));
+				CreateText(GlobalContentsValue::TextContents + std::to_string(i) + ".png");
 			}
-			else
-			if (Count == 4)
-			{
-				Renderer4 = CreateComponent<GameEngineTextureRenderer>();
-				Renderer4->SetTexture("Sample4.png");
-				Renderer4->ScaleToTexture();
-				Renderer4->GetTransform().SetLocalPosition(float4(200, -85));
-			}
-				else
-				if (Count == 5)
-				{
-					Renderer5 = CreateComponent<GameEngineTextureRenderer>();
-					Renderer5->SetTexture("Sample5.png");
-					Renderer5->ScaleToTexture();
-					Renderer5->GetTransform().SetLocalPosition(float4(200, -115));
-				}
+		}
+
+
 	}
 	if (GlobalContentsValue::Line == false)
 	{
@@ -86,11 +57,17 @@ void LineText::End()
 {
 }
 
-void LineText::CreateText(std::string)
+void LineText::CreateText(std::string _Text)
 {
+
 	GameEngineTextureRenderer* TextRend = CreateComponent<GameEngineTextureRenderer>();
-	TextRend->SetTexture("Sample1.png");
+	TextRend->SetTexture( _Text);
 	TextRend->ScaleToTexture();
-	TextRend->GetTransform().SetLocalPosition(float4(200, 30));
+	if (TextRend->GetTransform().GetLocalScale().y > 30)
+	{
+		TextNum = TextNum + 50;
+	}
+	TextNum = TextNum + 35;
+	TextRend->GetTransform().SetLocalPosition(float4(185, 85 - TextNum));
 	Text.push_back(TextRend);
 }

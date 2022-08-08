@@ -25,7 +25,8 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 
-	void CreateText(std::string);
+	void CreateText(std::string _Text);
+	int TextNum = 0;
 	int Count = 0;
 	float time = 0;
 private:

@@ -142,6 +142,9 @@
     <ClInclude Include="MyTextureRenderer.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="TutorialLogin.h">
+      <Filter>Actor\Play\Tooltip</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -228,6 +231,9 @@
     </ClCompile>
     <ClCompile Include="MyTextureRenderer.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialLogin.cpp">
+      <Filter>Actor\Play\Tooltip</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

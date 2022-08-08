@@ -26,6 +26,7 @@ public:
 	static bool Message;
 	static bool Stream;
 	static int TextConNum;
+	static std::string TextContents;
 	//시간
 	static int DayTime;
 	//행동

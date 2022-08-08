@@ -35,7 +35,10 @@ public:
 		return ColorData;
 	}
 protected:
+	void Start() override;
+
 	void SetTextureRendererSetting();
+
 private:
 	float4 FrameData;
     MyColorData ColorData;

@@ -20,5 +20,6 @@ bool GlobalContentsValue::Change = false;
 bool GlobalContentsValue::Tutorial = true;
 bool GlobalContentsValue::Tooltip = false;
 std::string GlobalContentsValue::Contents = "Tutorial";
+std::string GlobalContentsValue::TextContents = "Tutorial";
 
 

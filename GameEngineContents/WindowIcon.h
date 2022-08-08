@@ -24,6 +24,15 @@ public:
 	GameEngineTextureRenderer* Internet;
 	GameEngineTextureRenderer* Odekake;
 	GameEngineTextureRenderer* Tex;
+
+	GameEngineCollision* YoutubeCol;
+	GameEngineCollision* AsobuCol;
+	GameEngineCollision* NeruCol;
+	GameEngineCollision* OkusuriCol;
+	GameEngineCollision* InternetCol;
+	GameEngineCollision* OdekakeCol;
+	GameEngineCollision* TexCol;
+
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
