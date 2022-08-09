@@ -32,12 +32,11 @@ void Stream::Update(float _DeltaTime)
 		ChangeZPos(40);
 		first = false;
 		BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_kenjo.wav");
-
 	}
-	else
+	if (GlobalContentsValue::Stream == false)
 	{
-		first = true;
 		ChangeZPos(500);
+
 	}
 }
 

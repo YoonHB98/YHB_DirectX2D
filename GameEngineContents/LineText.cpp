@@ -80,6 +80,12 @@ void LineText::CreateText(std::string _Text)
 	{
 		ChoiceTimeStart = true;
 	}
+	if (_Text == "Tutorial17.png")
+	{
+		GlobalContentsValue::WebCamWindow = false;
+		GlobalContentsValue::Line = false;
+		GlobalContentsValue::Change = true;
+	}
 	MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
 	TextRend->SetTexture( _Text);
 	TextRend->ScaleToTexture();
