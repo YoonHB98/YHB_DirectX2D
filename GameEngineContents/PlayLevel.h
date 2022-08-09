@@ -25,5 +25,6 @@ private:
 	float time = 0;
 	bool first = true;
 	bool TutorialFirst = true;
+	bool TutorialLoginFirst = true;
 };
 

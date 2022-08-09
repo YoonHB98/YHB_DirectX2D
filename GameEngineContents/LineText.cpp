@@ -17,6 +17,18 @@ void LineText::Start()
 
 void LineText::Update(float _DeltaTime)
 {
+	if (Tutorial == false
+		&&Count == 2
+		&&GlobalContentsValue::Line)
+	{
+		time = time + GameEngineTime::GetDeltaTime();
+		if (time >= 1.0f)
+		{
+			GlobalContentsValue::Tooltip = true;
+			Tutorial = true;
+			time = 0;
+		}
+	}
 	if (Count >= 5)
 	{
 		time = time + _DeltaTime;

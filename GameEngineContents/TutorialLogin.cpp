@@ -15,10 +15,17 @@ void TutorialLogin::Start()
 	SetTexture("loginwindow.png");
 	SetLocalPosition(float4(-50,50));
 	SetLocalScale(float4(420, 280));
+
 	Collision = CreateComponent<GameEngineCollision>();
 	Collision->GetTransform().SetLocalPosition(float4(-50, 27));
 	Collision->GetTransform().SetLocalScale(float4(180, 25));
 	Collision->ChangeOrder(OBJECTORDER::UI);
+
+	Collision2 = CreateComponent<GameEngineCollision>();
+	Collision2->GetTransform().SetLocalPosition(float4(-50, -10));
+	Collision2->GetTransform().SetLocalScale(float4(125, 22));
+	Collision2->ChangeOrder(OBJECTORDER::UI);
+
 	Font = CreateComponent<Myfont>();
 }
 
@@ -29,6 +36,15 @@ void TutorialLogin::Update(float _DeltaTime)
 	{
 		ChangeTexture("loginwindow2.png");
 		PassWord = true;
+	}
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+		&& MouseCheck(Collision2)
+		&&(Text == "angelkawaii2"|| Text == " angelkawaii2"))
+	{
+		GlobalContentsValue::TutorialLogin = false;
+		GlobalContentsValue::WebCamWindow = true;
+		GlobalContentsValue::Tutorial = false;
+		Death();
 	}
 	if (PassWord)
 	{

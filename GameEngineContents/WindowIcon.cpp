@@ -78,25 +78,30 @@ void WindowIcon::Start()
 	//	Tex->GetTransform().SetLocalPosition(float4(0, 135, 0));
 	//	Tex->GetTransform().SetLocalScale(float4(32, 32));
 	//}
+	Youtube->GetColorData().MulColor.a = 0.2f;
+	Internet->GetColorData().MulColor.a = 0.2f;
+	Asobu->GetColorData().MulColor.a = 0.2f;
+	Neru->GetColorData().MulColor.a = 0.2f;
+	Okusuri->GetColorData().MulColor.a = 0.2f;
+	Odekake->GetColorData().MulColor.a = 0.2f;
 }
 
 void WindowIcon::Update(float _DeltaTime)
 {
-	if (MouseCheck(YoutubeCol))
+	if (MouseCheck(YoutubeCol)
+		&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
-
+		if (GlobalContentsValue::Tooltip)
+		{
+			Youtube->GetColorData().MulColor.a = 1.0f;
+			GlobalContentsValue::TutorialLogin = true;
+		}
 	}
-
-	if (GlobalContentsValue::Tutorial)
+	if (GlobalContentsValue::Tooltip)
 	{
 		Youtube->GetColorData().MulColor.a = 1.0f;
-		Internet->GetColorData().MulColor.a = 0.2f;
-		Asobu->GetColorData().MulColor.a = 0.2f;
-		Neru->GetColorData().MulColor.a = 0.2f;
-		Okusuri->GetColorData().MulColor.a = 0.2f;
-		Odekake->GetColorData().MulColor.a = 0.2f;
-		//Tex->GetColorData().MulColor.a = 0.2f;
 	}
+
 
 }
 

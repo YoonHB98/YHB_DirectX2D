@@ -12,6 +12,7 @@ public:
 	static bool Line;
 	static bool Change;
 	static bool Tooltip;
+	static bool TutorialLogin;
 	//스테이터스
 	static int Mental;
 	static int Stress;

@@ -145,6 +145,9 @@
     <ClInclude Include="TutorialLogin.h">
       <Filter>Actor\Play\Tooltip</Filter>
     </ClInclude>
+    <ClInclude Include="ToolTipText.h">
+      <Filter>Actor\Play\Tooltip</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -233,6 +236,9 @@
       <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="TutorialLogin.cpp">
+      <Filter>Actor\Play\Tooltip</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolTipText.cpp">
       <Filter>Actor\Play\Tooltip</Filter>
     </ClCompile>
   </ItemGroup>

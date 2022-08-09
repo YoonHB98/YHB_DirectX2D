@@ -20,6 +20,7 @@
 #include "ToolTip.h"
 #include "NotificationText.h"
 #include "TutorialLogin.h"
+#include "ToolTipText.h"
 
 
 PlayLevel::PlayLevel()
@@ -42,8 +43,8 @@ void PlayLevel::Start()
 	CreateActor<WebCamWindow>(GameObjectGroup::WindowIcon);
 	CreateActor<Mouse>();
 	CreateActor<ToolTip>();
+	CreateActor<ToolTipText>();
 	CreateActor<Stream>(GameObjectGroup::WindowIcon);
-	CreateActor<TutorialLogin>(GameObjectGroup::WindowIcon);
 
 	//Icon
 	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
@@ -89,6 +90,12 @@ void PlayLevel::Update(float _DeltaTime)
 	if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))
 	{
 		GetMainCameraActor()->FreeCameraModeOnOff();
+	}
+	if (GlobalContentsValue::TutorialLogin
+		&&TutorialLoginFirst)
+	{
+		TutorialLoginFirst = false;
+		CreateActor<TutorialLogin>(GameObjectGroup::WindowIcon);
 	}
 
 	//듀토리얼이 끝나면 작업관리자 생성

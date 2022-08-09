@@ -21,6 +21,8 @@ protected:
 	void End() override;
 private:
 	GameEngineCollision* Collision;
+	GameEngineCollision* Collision2;
+	GameEngineTextureRenderer* Tex;
 	Myfont* Font;
 	std::string Text = " ";
 	bool first;

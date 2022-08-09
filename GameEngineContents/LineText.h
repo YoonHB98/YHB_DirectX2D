@@ -29,6 +29,7 @@ protected:
 	int TextNum = 0;
 	int Count = 0;
 	float time = 0;
+	bool Tutorial = false;
 private:
 	std::vector<GameEngineTextureRenderer*> Text;
 };
