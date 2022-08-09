@@ -15,22 +15,29 @@ public:
 	LineText& operator=(const LineText& _Other) = delete;
 	LineText& operator=(LineText&& _Other) noexcept = delete;
 
-	GameEngineTextureRenderer* Renderer1;
-	GameEngineTextureRenderer* Renderer2;
-	GameEngineTextureRenderer* Renderer3;
-	GameEngineTextureRenderer* Renderer4;
-	GameEngineTextureRenderer* Renderer5;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
+	int ChoiceNum = 0;
+	float ChoiceTime = 0;
+	bool ChoiceTimeStart = false;
 
 	void CreateText(std::string _Text);
+	void TextMove(float Y_, float last);
+	void CreateChoice();
+	void Check();
+	bool CheckStart = false;
+	int Move = 0;
 	int TextNum = 0;
 	int Count = 0;
 	float time = 0;
 	bool Tutorial = false;
+	int MoveStart = 0;
 private:
-	std::vector<GameEngineTextureRenderer*> Text;
+	MyTextureRenderer* ChoiceText;
+	GameEngineCollision* Collision;
+	GameEngineCollision* Collision2;
+	std::vector<MyTextureRenderer*> Text;
 };
 

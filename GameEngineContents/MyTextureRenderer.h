@@ -39,6 +39,7 @@ protected:
 
 	void SetTextureRendererSetting();
 
+
 private:
 	float4 FrameData;
     MyColorData ColorData;

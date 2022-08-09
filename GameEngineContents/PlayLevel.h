@@ -14,7 +14,7 @@ public:
 	PlayLevel(PlayLevel&& _Other) noexcept = delete;
 	PlayLevel& operator=(const PlayLevel& _Other) = delete;
 	PlayLevel& operator=(PlayLevel&& _Other) noexcept = delete;
-
+	static float time;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -22,7 +22,7 @@ protected:
 
 private:
 	int a = 0;
-	float time = 0;
+	float bartime = 0;
 	bool first = true;
 	bool TutorialFirst = true;
 	bool TutorialLoginFirst = true;

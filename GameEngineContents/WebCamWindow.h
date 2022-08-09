@@ -32,5 +32,8 @@ private:
 	GameEngineTextureRenderer* Ame;
 	GameEngineTextureRenderer* BG;
 	GameEngineTextureRenderer* BGNC;
+
+	GameEngineSoundPlayer BgmPlayer;
+	bool BgmOn = true;
 };
 

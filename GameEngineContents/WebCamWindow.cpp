@@ -41,6 +41,13 @@ void WebCamWindow::Start()
 
 void WebCamWindow::Update(float _DeltaTime)
 {
+	if (BgmOn
+		&& GlobalContentsValue::WebCamWindow == true)
+	{
+		BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_normal.wav");
+		BgmOn = false;
+	}
+
 	if (GlobalContentsValue::WebCamWindow == false)
 	{
 		ChangeZPos(500);
@@ -55,6 +62,7 @@ void WebCamWindow::Update(float _DeltaTime)
 		if (Stop == false)
 		{
 			ChangeZPos(500);
+			BgmPlayer.Stop();
 		}
 
 		Stop = true;
@@ -75,6 +83,7 @@ void WebCamWindow::IdleStart(const StateInfo& _Info)
 	Ame->ChangeFrameAnimation("ame_talk1");
 	Ame->GetTransform().SetLocalPosition(float4(-90, 115));
 	Ame->GetTransform().SetLocalScale(float4(348, 222));
+	
 }
 
 void WebCamWindow::IdleUpdate(float _DeltaTime, const StateInfo& _Info)

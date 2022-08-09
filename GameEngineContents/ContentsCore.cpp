@@ -134,7 +134,7 @@ void ContentsCore::Start()
 	CreateLevel<PlayLevel>("Play");
 	ChangeLevel("Play");
 
-	//GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
+	GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 }
 
 void ContentsCore::Update(float _DeltaTime)

@@ -36,6 +36,7 @@ void Stream::Update(float _DeltaTime)
 	}
 	else
 	{
+		first = true;
 		ChangeZPos(500);
 	}
 }

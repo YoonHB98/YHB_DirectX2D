@@ -23,6 +23,8 @@
 #include "ToolTipText.h"
 
 
+float PlayLevel::time = 0;
+
 PlayLevel::PlayLevel()
 {
 }
@@ -62,17 +64,24 @@ void PlayLevel::Start()
 void PlayLevel::Update(float _DeltaTime)
 {
 	time = time + GameEngineTime::GetDeltaTime();
-	if (time > 1.0f)
+	bartime = bartime + GameEngineTime::GetDeltaTime();
+	if (time < -0.01f)
 	{
-
-		time = time - 1.0f;
+		time = 0.0f;
+	}
+	if (bartime > 1.0f)
+	{
+		bartime = bartime - 1.0f;
 		if (GlobalContentsValue::Tutorial == false)
 		{
 			CreateActor<Bar>(GameObjectGroup::WindowIcon);
 		}
-
-
-		if ( GlobalContentsValue::Message)
+	}
+	if (time > 2.5f
+		|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		time = time - 2.5f;
+		if (GlobalContentsValue::Message)
 		{
 			GlobalContentsValue::RemainLinenum = GlobalContentsValue::RemainLinenum - 1;
 			CreateActor<Notification>(GameObjectGroup::BackGround);

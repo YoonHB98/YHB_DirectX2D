@@ -34,3 +34,4 @@ void MyTextureRenderer::SetTextureRendererSetting()
 	ShaderResources.SetConstantBufferLink("MyColorData", ColorData);
 
 }
+
