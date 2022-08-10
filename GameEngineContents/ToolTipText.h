@@ -15,6 +15,8 @@ public:
 	ToolTipText& operator=(const ToolTipText& _Other) = delete;
 	ToolTipText& operator=(ToolTipText&& _Other) noexcept = delete;
 
+	static int Count;
+	float4 Size;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

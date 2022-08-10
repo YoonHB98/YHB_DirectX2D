@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "LineText.h"
+#include "ToolTipText.h"
 
 LineText::LineText() 
 {
@@ -88,6 +89,8 @@ void LineText::CreateText(std::string _Text)
 {
 	if (_Text == "Tutorial9.png")
 	{
+		GlobalContentsValue::Tooltip = true;
+		ToolTipText::Count = ToolTipText::Count + 1;
 		ChoiceTimeStart = true;
 	}
 	if (_Text == "Tutorial17.png")
@@ -215,6 +218,7 @@ void LineText::Check()
 		GlobalContentsValue::RemainLinenum = 8;
 		Collision->Off();
 		Collision2->Off();
+		GlobalContentsValue::Tooltip = false;
 	}else
 		if (MouseCheck(Collision2)
 			&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
@@ -232,5 +236,6 @@ void LineText::Check()
 			GlobalContentsValue::RemainLinenum = 8;
 			Collision->Off();
 			Collision2->Off();
+			GlobalContentsValue::Tooltip = false;
 		}
 }

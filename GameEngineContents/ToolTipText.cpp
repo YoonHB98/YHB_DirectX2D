@@ -11,13 +11,17 @@ ToolTipText::~ToolTipText()
 
 void ToolTipText::Start()
 {
-	SetTexture("TutorialTooltip_login.png");
-	SetLocalPosition(float4(0, 42, 500));
-	SetLocalScale(float4(203, 53));
+	SetTexture("TutorialTooltip_1.png");
+	SetLocalPosition(float4(-36.5, 42, 500));
+
 }
 
 void ToolTipText::Update(float _DeltaTime)
 {
+	SetTexture("TutorialTooltip_" + std::to_string(Count) + ".png");
+	Renderer->ScaleToTexture();
+	Size = Renderer->GetTransform().GetLocalScale();
+	SetLocalPosition(float4(100 - (Size.x / 2), 42, 500));
 	if (GlobalContentsValue::Tooltip)
 	{
 		Pos = GlobalContentsValue::MousePos;
@@ -36,3 +40,5 @@ void ToolTipText::Update(float _DeltaTime)
 void ToolTipText::End()
 {
 }
+
+int ToolTipText::Count = 1;
