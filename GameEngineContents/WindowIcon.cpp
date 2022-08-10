@@ -88,6 +88,11 @@ void WindowIcon::Start()
 
 void WindowIcon::Update(float _DeltaTime)
 {
+	ChangeZPos(0);
+	if (GlobalContentsValue::Stream)
+	{
+		ChangeZPos(500);
+	}
 	if (MouseCheck(YoutubeCol)
 		&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{

@@ -57,7 +57,7 @@ void WebCamWindow::Update(float _DeltaTime)
 		ChangeZPos(10);
 	}
 
-	if (GlobalContentsValue::Stream ==true)
+	if (GlobalContentsValue::Change ==true)
 	{
 		if (Stop == false)
 		{

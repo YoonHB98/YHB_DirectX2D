@@ -34,6 +34,8 @@ protected:
 	float time = 0;
 	bool Tutorial = false;
 	int MoveStart = 0;
+	float ChangeTime = 0;
+	bool ChangeStart = false;
 private:
 	MyTextureRenderer* ChoiceText;
 	GameEngineCollision* Collision;

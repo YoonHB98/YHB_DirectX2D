@@ -68,6 +68,16 @@ void LineText::Update(float _DeltaTime)
 	{
 		Check();
 	}
+	if (ChangeStart == true)
+	{
+		ChangeTime = ChangeTime + GameEngineTime::GetDeltaTime();
+		if (ChangeTime > 2.5f)
+		{
+			GlobalContentsValue::WebCamWindow = false;
+			GlobalContentsValue::Line = false;
+			GlobalContentsValue::Change = true;
+		}
+	}
 }
 
 void LineText::End()
@@ -82,9 +92,7 @@ void LineText::CreateText(std::string _Text)
 	}
 	if (_Text == "Tutorial17.png")
 	{
-		GlobalContentsValue::WebCamWindow = false;
-		GlobalContentsValue::Line = false;
-		GlobalContentsValue::Change = true;
+		ChangeStart = true;
 	}
 	MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
 	TextRend->SetTexture( _Text);
@@ -95,6 +103,10 @@ void LineText::CreateText(std::string _Text)
 		TextNum = TextNum + 41;
 	}
 	else
+		if (TextRend->GetTransform().GetLocalScale().y > 59)
+		{
+			TextNum = TextNum + 33;
+		}else
 		if (TextRend->GetTransform().GetLocalScale().y > 30)
 		{
 			TextNum = TextNum + 25;
@@ -110,6 +122,11 @@ void LineText::CreateText(std::string _Text)
 		TextNum = TextNum + 41;
 	}
 	else
+		if (TextRend->GetTransform().GetLocalScale().y > 59)
+		{
+			TextNum = TextNum + 33;
+		}
+		else
 		if (TextRend->GetTransform().GetLocalScale().y > 30)
 		{
 			TextNum = TextNum + 25;
@@ -128,6 +145,11 @@ void LineText::CreateText(std::string _Text)
 			TextMove(82,Move);
 		}
 		else
+			if (TextRend->GetTransform().GetLocalScale().y > 59)
+			{
+				Move = Move + 66;
+				TextMove(66, Move);
+			}else
 			if (TextRend->GetTransform().GetLocalScale().y > 30)
 			{
 				Move = Move + 50;
