@@ -2,6 +2,7 @@
 #include "TitleLogo.h"
 #include <GameEngineCore/GEngine.h>
 #include <GameEngineCore/GameEngineDefaultRenderer.h>
+#include "WindowIcon.h"
 
 
 TitleLogo::TitleLogo() 
@@ -23,7 +24,7 @@ void TitleLogo::Start()
 {
 	// 960 540
 
-
+	WindowIcon* ScoreCom = CreateComponent<WindowIcon>();
 	{	
 	 Renderer = CreateComponent<GameEngineTextureRenderer>();
 	 Renderer->GetTransform().SetLocalScale({ 960, 540, 0 });

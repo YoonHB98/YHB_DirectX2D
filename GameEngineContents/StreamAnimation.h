@@ -29,6 +29,10 @@ enum class AnimationType
 	A3,
 	A4,
 	A5,
+	A6,
+	A7,
+	A8,
+	A9,
 };
 
 class StreamAnimation : public DefaultSetTex
@@ -77,6 +81,10 @@ private:
 	void UpdateA3();
 	void UpdateA4();
 	void UpdateA5();
+	void UpdateA6();
+	void UpdateA7();
+	void UpdateA8();
+	void UpdateA9();
 	int EnterCount = 0;
 
 	float BlankXSize = 0;

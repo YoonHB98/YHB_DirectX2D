@@ -25,6 +25,11 @@ void Change::Start()
 
 void Change::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::Change == false)
+	{
+		first = true;
+		return;
+	}
 	Bank->AnimationBindEnd("Bank", std::bind(&Change::BootEnd, this, std::placeholders::_1));
 	if (GlobalContentsValue::Change)
 	{

@@ -148,7 +148,7 @@ void StreamAnimation::UpdateA1()
 
 void StreamAnimation::UpdateA2()
 {
-	TextDrawTime("텐하!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 0.5f);
+	TextDrawTime("젤하!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 0.5f);
 	Renderer->ChangeFrameAnimation("cho_kashikoma");
 
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
@@ -199,10 +199,28 @@ void StreamAnimation::UpdateA3()
 
 void StreamAnimation::UpdateA4()
 {
-
+	TextDrawTime("혼돈에 휩싸인 레이와 시대의\n  인터넷을 비출 한 줄기 빛...", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+	TextDrawTime("전자의 바다 위를 떠도는 오타쿠에게 미소를!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+	TextDrawTime("미래의 평화를 약속할게!\n 조울증도 있지만 그래도 맡겨 줘!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+	TextDrawTime("인터넷 엔젤, 지금 여기에 강림!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
 }
 
 void StreamAnimation::UpdateA5()
 {
+	TextDrawTime("앞으로 인터넷에 머무르는 덕후에게\n 천사의 애정을 듬뿍 담아 치유해 줄게", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+}
 
+void StreamAnimation::UpdateA6()
+{
+	TextDrawTime("그리고 기왕 시작한 김에\n    스트리머계의 정점도 찍을 거야!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+}
+
+void StreamAnimation::UpdateA7()
+{
+	TextDrawTime("꿈은 크게, 팔로워 100만명!!!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+}
+
+void StreamAnimation::UpdateA8()
+{
+	TextDrawTime("아직 모르는 것들도 많지만 잘 부탁해♪", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
 }
