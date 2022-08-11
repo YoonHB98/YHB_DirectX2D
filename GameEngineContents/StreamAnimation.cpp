@@ -26,8 +26,13 @@ void StreamAnimation::Start()
 	std::vector<unsigned int> End { 0, 2 };
 	Renderer->CreateFrameAnimationCutTexture("cho_idle", FrameAnimation_DESC("cho_idle.png", 0, 2, 0.5f, false));
 	Renderer->CreateFrameAnimationCutTexture("cho_idleEnd", FrameAnimation_DESC("cho_idle.png", End, 0.5f, false));
-	Renderer->CreateFrameAnimationCutTexture("cho_kawaiku", FrameAnimation_DESC("cho_kawaiku.png", 0, 2, 0.5f, false));
-	Renderer->CreateFrameAnimationCutTexture("cho_pointing", FrameAnimation_DESC("cho_pointing.png", 0, 4, 0.5f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_kawaiku", FrameAnimation_DESC("cho_kawaiku.png", 0, 2, 0.25f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_kawaiku2", FrameAnimation_DESC("cho_kawaiku.png", 1, 2, 0.5f, true));
+	Renderer->CreateFrameAnimationCutTexture("cho_angel", FrameAnimation_DESC("cho_angel.png", 0, 1, 0.2f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_angelEnd", FrameAnimation_DESC("cho_angel.png", 0, 0, 0.5f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_teach", FrameAnimation_DESC("cho_teach.png", 0, 1, 0.5f, true));
+	Renderer->CreateFrameAnimationCutTexture("cho_teachEnd", FrameAnimation_DESC("cho_teach.png", 0, 0, 0.5f, false));
+	Renderer->CreateFrameAnimationCutTexture("pointing", FrameAnimation_DESC("cho_pointing.png", 0, 4, 0.5f,false));
 
 
 	
@@ -37,6 +42,7 @@ void StreamAnimation::Start()
 
 void StreamAnimation::Update(float _DeltaTime)
 {
+	GlobalContentsValue::Stream = true;
 	if (GlobalContentsValue::Stream == false)
 	{
 		ChangeZPos(500);

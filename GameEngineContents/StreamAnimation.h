@@ -66,6 +66,7 @@ private:
 	StreamContents Contents;
 	Animation CurAnim;
 	AnimationType CurType  = AnimationType::A1;
+    std::string  CurText = "а╘го!";
 	std::map<std::string, StreamContents> ContentsMap;
 	float TempTime = 0;
    int TempCount = 0;

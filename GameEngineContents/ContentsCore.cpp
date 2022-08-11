@@ -126,6 +126,8 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("cho_pointing.png", 5, 1);
 	GameEngineTexture::Cut("badge.png",1, 1);
 	GameEngineTexture::Cut("icon_desktop_internet.png", 1, 2);
+	GameEngineTexture::Cut("cho_angel.png", 2, 1);
+	GameEngineTexture::Cut("cho_teach.png", 2, 1);
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션

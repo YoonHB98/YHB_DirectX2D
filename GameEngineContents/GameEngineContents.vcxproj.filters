@@ -58,6 +58,9 @@
     <Filter Include="Actor\Play\Line\Notification">
       <UniqueIdentifier>{3da40f01-79f5-463c-9666-f0b9a032c329}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Play\Stream\StreamComment">
+      <UniqueIdentifier>{b9a54f02-32b5-4803-915d-78b99deed68c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">

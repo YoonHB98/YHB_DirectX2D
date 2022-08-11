@@ -24,8 +24,7 @@ void TitleLogo::Start()
 {
 	// 960 540
 
-	WindowIcon* ScoreCom = CreateComponent<WindowIcon>();
-	{	
+
 	 Renderer = CreateComponent<GameEngineTextureRenderer>();
 	 Renderer->GetTransform().SetLocalScale({ 960, 540, 0 });
 		Renderer->SetTexture("Blank.png");
@@ -36,7 +35,7 @@ void TitleLogo::Start()
 		Renderer->ChangeFrameAnimation("Boot");
 		BgmPlayer1 =	GameEngineSound::SoundPlayControl("BIOS_piko.wav", 0);
 		BgmPlayer2 =    GameEngineSound::SoundPlayControl("BIOS_HDD.wav", 0);
-	}
+
 }
 
 void TitleLogo::Update(float _DeltaTime) 

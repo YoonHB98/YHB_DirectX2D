@@ -24,8 +24,18 @@ void StreamAnimation::StateUpdate(AnimationType Type)
 		break;
 	case AnimationType::A4:
 		UpdateA4();
+		break;
 	case AnimationType::A5:
 		UpdateA5();
+		break;
+	case AnimationType::A6:
+		UpdateA6();
+		break;
+	case AnimationType::A7:
+		UpdateA7();
+		break;
+	case AnimationType::A8:
+		UpdateA8();
 		break;
 	default:
 		break;
@@ -35,13 +45,14 @@ void StreamAnimation::StateUpdate(AnimationType Type)
 void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& Font_, float4 Pos_, float4 Color_, float Size_, float Time)
 {
 
-	if (CurType !=  TextType)
+	if (CurText != Text_)
 	{
-		TextType = CurType;
+		CurText = Text_;
 		CountTime = 0;
 		Count = 0;
 		EnterCount = 0;
 		Text = " ";
+		BlankXSize = 0;
 	}
 	if (Count > Text_.length())
 	{ 
@@ -148,7 +159,7 @@ void StreamAnimation::UpdateA1()
 
 void StreamAnimation::UpdateA2()
 {
-	TextDrawTime("젤하!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 0.5f);
+	TextDrawTime("젤하!", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 0.5f);
 	Renderer->ChangeFrameAnimation("cho_kashikoma");
 
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
@@ -164,7 +175,7 @@ void StreamAnimation::UpdateA2()
 
 void StreamAnimation::UpdateA3()
 {
-	TextDrawTime("초절정 귀요미 천사 쨩 줄여서\n          '초텐 쨩'이야", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+	TextDrawTime("초절정 귀요미 천사 쨩 줄여서\n          '초텐 쨩'이야", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
 	if (AnimationStart == false)
 	{
 		Renderer->ChangeFrameAnimation("cho_idleEnd");
@@ -199,28 +210,182 @@ void StreamAnimation::UpdateA3()
 
 void StreamAnimation::UpdateA4()
 {
-	TextDrawTime("혼돈에 휩싸인 레이와 시대의\n  인터넷을 비출 한 줄기 빛...", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
-	TextDrawTime("전자의 바다 위를 떠도는 오타쿠에게 미소를!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
-	TextDrawTime("미래의 평화를 약속할게!\n 조울증도 있지만 그래도 맡겨 줘!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
-	TextDrawTime("인터넷 엔젤, 지금 여기에 강림!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+	if (AnimationStart == false)
+	{
+		Renderer->ChangeFrameAnimation("cho_angelEnd");
+		AnimationStart = true;
+	}
+	if (Time > 2.0f
+		&& CurAnim == Animation::End1)
+	{
+		Renderer->ChangeFrameAnimation("cho_angel");
+		CurAnim = Animation::Idle1;
+		Time = Time - 2.0f;
+	}
+	else
+		if (Time > 1.0f
+			&& CurAnim == Animation::Idle1)
+		{
+			Renderer->ChangeFrameAnimation("cho_angelEnd");
+			Time = Time - 1.0f;
+			CurAnim = Animation::End1;
+		}
+
+	if ( ChangeTime > 32.0f)
+	{
+		CurType = AnimationType::A5;
+		Time = 0;
+		ChangeTime = 0;
+		AnimationStart = false;
+	}
+	if (ChangeTime < 8.0f)
+	{
+		if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+		{
+			ChangeTime = 8.1f;
+		}
+		TextDrawTime("혼돈에 휩싸인 레이와 시대의\n  인터넷을 비출 한 줄기 빛...", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+	}
+	else
+		if(ChangeTime < 16.0f)
+		{
+			if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+			{
+				ChangeTime = 16.1f;
+			}
+			TextDrawTime("전자의 바다 위를 떠도는 오타쿠에게 미소를!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+		}
+		else
+		if (ChangeTime < 24.0f)
+			{
+			if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+			{
+				ChangeTime =24.2f;
+			}
+				TextDrawTime("     미래의 평화를 약속할게!\n 조울증도 있지만 그래도 맡겨 줘!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+			}
+		else
+		if (ChangeTime < 32.0f)
+			{
+			if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+			{
+				ChangeTime = 32.1f;
+			}
+			TextDrawTime("인터넷 엔젤, 지금 여기에 강림!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+			}
 }
 
 void StreamAnimation::UpdateA5()
 {
-	TextDrawTime("앞으로 인터넷에 머무르는 덕후에게\n 천사의 애정을 듬뿍 담아 치유해 줄게", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+	if (Time > 4.0f
+		&& CurAnim == Animation::End1)
+	{
+		Renderer->ChangeFrameAnimation("cho_kawaiku");
+		CurAnim = Animation::Idle1;
+		Time = Time - 4.0f;
+	}
+	else
+		if (Time > 1.0f
+			&& CurAnim == Animation::Idle1)
+		{
+			Renderer->ChangeFrameAnimation("cho_kawaiku2");
+			Time = Time - 1.0f;
+			CurAnim = Animation::End1;
+		}
+	TextDrawTime(" 앞으로 인터넷에 머무르는 덕후에게\n 천사의 애정을 듬뿍 담아 치유해 줄게", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		ChangeTime = 32.1f;
+	}
+	if (ChangeTime > 10.0f)
+	{
+		CurType = AnimationType::A6;
+		Time = 0;
+		ChangeTime = 0;
+		AnimationStart = false;
+	}
+
 }
 
 void StreamAnimation::UpdateA6()
 {
-	TextDrawTime("그리고 기왕 시작한 김에\n    스트리머계의 정점도 찍을 거야!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+	if (Time > 3.0f
+		&& CurAnim == Animation::End1)
+	{
+		Renderer->ChangeFrameAnimation("cho_teachEnd");
+		CurAnim = Animation::Idle1;
+		Time = Time - 3.0f;
+	}
+	else
+		if (Time > 1.0f
+			&& CurAnim == Animation::Idle1)
+		{
+			Renderer->ChangeFrameAnimation("cho_teach");
+			Time = Time - 1.0f;
+			CurAnim = Animation::End1;
+		}
+	TextDrawTime("      그리고 기왕 시작한 김에\n스트리머계의 정점도 찍을 거야!", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		ChangeTime = 32.1f;
+	}
+	if (ChangeTime > 8.0f)
+	{
+		CurType = AnimationType::A7;
+		Time = 0;
+		ChangeTime = 0;
+		AnimationStart = false;
+	}
 }
 
 void StreamAnimation::UpdateA7()
 {
-	TextDrawTime("꿈은 크게, 팔로워 100만명!!!", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+	Renderer->ChangeFrameAnimation("pointing");
+	TextDrawTime("꿈은 크게, 팔로워 100만명!!!", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		ChangeTime = 32.1f;
+	}
+	if (ChangeTime > 8.0f)
+	{
+		CurType = AnimationType::A8;
+		Time = 0;
+		ChangeTime = 0;
+		AnimationStart = false;
+	}
 }
 
 void StreamAnimation::UpdateA8()
 {
-	TextDrawTime("아직 모르는 것들도 많지만 잘 부탁해♪", "Galmuri9", float4(332, 306), float4(1, 1, 1, 1), 15.0f, 1.5f);
+	TextDrawTime("아직 모르는 것들도 많지만 잘 부탁해♪", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
+	if (AnimationStart == false)
+	{
+		Renderer->ChangeFrameAnimation("cho_idleEnd");
+		AnimationStart = true;
+	}
+
+	if (Time > 2.0f
+		&& CurAnim == Animation::End1)
+	{
+		Renderer->ChangeFrameAnimation("cho_idleEnd");
+		CurAnim = Animation::Idle1;
+		Time = Time - 2.0f;
+	}
+	else
+		if (Time > 0.8f
+			&& CurAnim == Animation::Idle1)
+		{
+			Renderer->ChangeFrameAnimation("cho_idle");
+			Time = Time - 1.0f;
+			CurAnim = Animation::End1;
+		}
+
+	//if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && ChangeTime > 1.0f)
+	//	|| ChangeTime > 9.0f)
+	//{
+	//	CurType = AnimationType::A2;
+	//	Time = 0;
+	//	ChangeTime = 0;
+	//	AnimationStart = false;
+	//}
 }
