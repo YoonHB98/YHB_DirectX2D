@@ -45,7 +45,7 @@ void TutorialLogin::Update(float _DeltaTime)
 		GlobalContentsValue::WebCamWindow = true;
 		GlobalContentsValue::Tutorial = false;
 		GlobalContentsValue::RemainLinenum = 7;
-		Death();
+		Off();
 	}
 	if (PassWord)
 	{

@@ -18,7 +18,7 @@ void NotificationText::Update(float _DeltaTime)
 	TextDraw();
 	if (GlobalContentsValue::Line)
 	{
-		Death();
+		Off();
 	}
 }
 

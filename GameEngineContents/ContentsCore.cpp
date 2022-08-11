@@ -100,11 +100,30 @@ void ContentsCore::Start()
 				GameEngineTexture::Load(Shaders[i].GetFullPath());
 			}
 		}
+		{
+			GameEngineDirectory Dir;
+
+			Dir.MoveParentToExitsChildDirectory("Resources");
+			Dir.Move("Resources");
+			Dir.Move("CommentText");
+
+			std::vector<GameEngineFile> Shaders = Dir.GetAllFile();
+
+			for (size_t i = 0; i < Shaders.size(); i++)
+			{
+				GameEngineTexture::Load(Shaders[i].GetFullPath());
+			}
+		}
 	}
 	{
 		GameEngineRenderingPipeLine* NewPipe = GameEngineRenderingPipeLine::Create("MyTexture");
 		NewPipe->SetVertexShader("MyTexture.hlsl");
 		NewPipe->SetPixelShader("MyTexture.hlsl");
+	}
+	{
+		GameEngineRenderingPipeLine* NewPipe = GameEngineRenderingPipeLine::Create("CommentTexture");
+		NewPipe->SetVertexShader("CommentTexture.hlsl");
+		NewPipe->SetPixelShader("CommentTexture.hlsl");
 	}
 	GameEngineFont::Load("Galmuri11");
 	GameEngineFont::Load("Galmuri9");
@@ -134,7 +153,7 @@ void ContentsCore::Start()
 	CreateLevel<LoadingLevel>("Loading");
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-	ChangeLevel("Loading");
+	ChangeLevel("Play");
 
 	//GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 }

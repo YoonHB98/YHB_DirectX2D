@@ -3,5 +3,6 @@
   <ItemGroup>
     <FxCompile Include="MyTexture.hlsl" />
     <FxCompile Include="TransformHeader.fx" />
+    <FxCompile Include="CommentTexture.hlsl" />
   </ItemGroup>
 </Project>

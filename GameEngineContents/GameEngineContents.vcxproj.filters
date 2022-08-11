@@ -61,6 +61,9 @@
     <Filter Include="Actor\Play\Stream\StreamComment">
       <UniqueIdentifier>{b9a54f02-32b5-4803-915d-78b99deed68c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TextureRenderer">
+      <UniqueIdentifier>{f5ea2cfe-d773-4b75-9ac1-64cbe2f487ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -142,14 +145,20 @@
     <ClInclude Include="NotificationText.h">
       <Filter>Actor\Play\Line\Notification</Filter>
     </ClInclude>
-    <ClInclude Include="MyTextureRenderer.h">
-      <Filter>Contents</Filter>
-    </ClInclude>
     <ClInclude Include="TutorialLogin.h">
       <Filter>Actor\Play\Tooltip</Filter>
     </ClInclude>
     <ClInclude Include="ToolTipText.h">
       <Filter>Actor\Play\Tooltip</Filter>
+    </ClInclude>
+    <ClInclude Include="Comment.h">
+      <Filter>Actor\Play\Stream\StreamComment</Filter>
+    </ClInclude>
+    <ClInclude Include="MyTextureRenderer.h">
+      <Filter>TextureRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="CommentTextureRenderer.h">
+      <Filter>TextureRenderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -235,14 +244,20 @@
     <ClCompile Include="NotificationText.cpp">
       <Filter>Actor\Play\Line\Notification</Filter>
     </ClCompile>
-    <ClCompile Include="MyTextureRenderer.cpp">
-      <Filter>Contents</Filter>
-    </ClCompile>
     <ClCompile Include="TutorialLogin.cpp">
       <Filter>Actor\Play\Tooltip</Filter>
     </ClCompile>
     <ClCompile Include="ToolTipText.cpp">
       <Filter>Actor\Play\Tooltip</Filter>
+    </ClCompile>
+    <ClCompile Include="Comment.cpp">
+      <Filter>Actor\Play\Stream\StreamComment</Filter>
+    </ClCompile>
+    <ClCompile Include="MyTextureRenderer.cpp">
+      <Filter>TextureRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="CommentTextureRenderer.cpp">
+      <Filter>TextureRenderer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

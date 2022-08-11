@@ -169,6 +169,14 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Comment.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="CommentTextureRenderer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="ContentsCore.h">
       <SubType>
       </SubType>
@@ -286,6 +294,14 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Change.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Comment.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="CommentTextureRenderer.cpp">
       <SubType>
       </SubType>
     </ClCompile>

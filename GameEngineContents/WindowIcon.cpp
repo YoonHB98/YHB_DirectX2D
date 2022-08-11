@@ -54,9 +54,9 @@ void WindowIcon::Start()
 	{
 		Internet = CreateComponent<GameEngineTextureRenderer>();
 		Internet->GetTransform().SetLocalPosition(float4(-305, -30,0));
-		Internet->GetTransform().SetLocalScale(float4(32, 32));
 		Internet->CreateFrameAnimationCutTexture("Internet", FrameAnimation_DESC("icon_desktop_internet.png", 0, 0, 0.1f, false));
 		Internet->ChangeFrameAnimation("Internet");
+		Internet->GetTransform().SetLocalScale(float4(32, 32));
 		InternetCol = CreateComponent<GameEngineCollision>();
 		InternetCol->GetTransform().SetLocalPosition(float4(-305, -30, 0));
 		InternetCol->GetTransform().SetLocalScale(float4(32, 32));

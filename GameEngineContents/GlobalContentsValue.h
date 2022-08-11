@@ -34,6 +34,7 @@ public:
 	static bool Out;
 	//π∫ πÊº€¿”
 	static std::string Contents;
+	static float ChangeTime;
 
 private:
 	GlobalContentsValue()	{	}

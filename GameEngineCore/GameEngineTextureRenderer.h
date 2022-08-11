@@ -97,7 +97,7 @@ class FrameAnimation : public GameEngineNameObject
 
 	FrameAnimation_DESC Info;
 
-	GameEngineTextureRenderer* ParentRenderer;
+
 	GameEngineTexture* Texture;
 	GameEngineFolderTexture* FolderTexture;
 
@@ -113,6 +113,7 @@ class FrameAnimation : public GameEngineNameObject
 	void Update(float _DeltaTime);
 
 public:
+	GameEngineTextureRenderer* ParentRenderer;
 	FrameAnimation() 
 		: bOnceStart(true)
 		, bOnceEnd(false)

@@ -35,7 +35,7 @@ void Bar::Update(float _DeltaTime)
 		time2 = time2 + GameEngineTime::GetDeltaTime();
 		if (time2 > 1.0f)
 		{
-			Death();
+			Off();
 		}
 	
 	}

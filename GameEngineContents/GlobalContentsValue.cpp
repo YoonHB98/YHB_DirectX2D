@@ -22,5 +22,6 @@ bool GlobalContentsValue::Tooltip = false;
 bool GlobalContentsValue::TutorialLogin = false;
 std::string GlobalContentsValue::Contents = "Tutorial";
 std::string GlobalContentsValue::TextContents = "Tutorial";
+float GlobalContentsValue::ChangeTime = 0;
 
 

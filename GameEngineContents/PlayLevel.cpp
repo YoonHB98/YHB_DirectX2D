@@ -21,6 +21,7 @@
 #include "NotificationText.h"
 #include "TutorialLogin.h"
 #include "ToolTipText.h"
+#include "Comment.h"
 
 
 float PlayLevel::time = 0;
@@ -43,9 +44,9 @@ void PlayLevel::Start()
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	CreateActor<LineMain>(GameObjectGroup::WindowIcon);
 	CreateActor<WebCamWindow>(GameObjectGroup::WindowIcon);
-	CreateActor<Mouse>();
-	CreateActor<ToolTip>();
-	CreateActor<ToolTipText>();
+	CreateActor<Mouse>(GameObjectGroup::WindowIcon);
+	CreateActor<ToolTip>(GameObjectGroup::WindowIcon);
+	CreateActor<ToolTipText>(GameObjectGroup::WindowIcon);
 	CreateActor<Stream>(GameObjectGroup::WindowIcon);
 
 	//Icon
@@ -53,9 +54,9 @@ void PlayLevel::Start()
 
 	//ingame
 	CreateActor<LineText>();
-	CreateActor<Change>();
-	CreateActor<StreamAnimation>();
-
+	CreateActor<Change>(GameObjectGroup::WindowIcon);
+	CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
+	CreateActor<Comment>(GameObjectGroup::WindowIcon);
 
 
 
@@ -64,19 +65,19 @@ void PlayLevel::Start()
 void PlayLevel::Update(float _DeltaTime)
 {
 	time = time + GameEngineTime::GetDeltaTime();
-	bartime = bartime + GameEngineTime::GetDeltaTime();
-	if (time < -0.01f)
-	{
-		time = 0.0f;
-	}
-	if (bartime > 1.0f)
-	{
-		bartime = bartime - 1.0f;
-		if (GlobalContentsValue::Tutorial == false)
-		{
-			CreateActor<Bar>(GameObjectGroup::WindowIcon);
-		}
-	}
+	//bartime = bartime + GameEngineTime::GetDeltaTime();
+	//if (time < -0.01f)
+	//{
+	//	time = 0.0f;
+	//}
+	//if (bartime > 1.0f)
+	//{
+	//	bartime = bartime - 1.0f;
+	//	if (GlobalContentsValue::Tutorial == false)
+	//	{
+	//		CreateActor<Bar>(GameObjectGroup::WindowIcon);
+	//	}
+	//}
 	if (time > 2.5f
 		|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{

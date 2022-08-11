@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <FxCompile Include="CommentTexture.hlsl" />
     <FxCompile Include="MyTexture.hlsl" />
     <FxCompile Include="TransformHeader.fx" />
   </ItemGroup>
