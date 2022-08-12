@@ -209,7 +209,7 @@ void LineText::Check()
 		MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
 		TextRend->SetTexture("Choice1_1.png");
 		TextRend->ScaleToTexture();
-		TextRend->GetTransform().SetLocalPosition(float4(320, 75 - TextNum));
+		TextRend->GetTransform().SetLocalPosition(float4(320, 80 - TextNum));
 		ChoiceText->GetTransform().SetLocalMove(float4(0, 0, 600));
 		Text.push_back(TextRend);
 		MoveStart++;
@@ -227,7 +227,7 @@ void LineText::Check()
 			MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
 			TextRend->SetTexture("Choice1_2.png");
 			TextRend->ScaleToTexture();
-			TextRend->GetTransform().SetLocalPosition(float4(320, 75 - TextNum));
+			TextRend->GetTransform().SetLocalPosition(float4(320, 80 - TextNum));
 			ChoiceText->GetTransform().SetLocalMove(float4(0, 0, 600));
 			Text.push_back(TextRend);
 			MoveStart++;

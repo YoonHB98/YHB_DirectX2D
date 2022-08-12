@@ -17,7 +17,7 @@ void Comment::Update(float _DeltaTime)
 {
 	if (GlobalContentsValue::Stream)
 	{
-		if (i <(GlobalContentsValue::ChangeTime/3.38))
+		if (i <((GlobalContentsValue::ChangeTime - 9)/3.115))
 		{
 			if	(i < 27)
 			{
