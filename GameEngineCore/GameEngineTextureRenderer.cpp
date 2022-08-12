@@ -283,7 +283,6 @@ void GameEngineTextureRenderer::ChangeFrameAnimation(const std::string& _Animati
 			{
 				ScaleToCutTexture(CurAni->Info.CurFrame);
 			}
-;
 		}
 		else if(nullptr != CurAni->FolderTexture)
 		{
@@ -292,8 +291,6 @@ void GameEngineTextureRenderer::ChangeFrameAnimation(const std::string& _Animati
 			{
 				ScaleToTexture();
 			}
-
-			
 		}
 	}
 }
