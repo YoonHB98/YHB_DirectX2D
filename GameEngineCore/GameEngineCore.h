@@ -28,9 +28,9 @@ public:
 
 
 protected:
-	virtual std::string GetWindowTitle() { return "MainWindow"; }
-	virtual float4 StartWindowSize() { return { 1280.0f, 720.0f }; };
-	virtual float4 StartWindowPosition() { return { -2000,0 }; };
+	virtual std::string GetWindowTitle() { return "Windose"; }
+	virtual float4 StartWindowSize() { return { 960.0f, 540.0f }; };
+	virtual float4 StartWindowPosition() { return { 0,0 }; };
 
 	// 너희들이 간섭할수 있는 내용.
 	virtual void Start() = 0;

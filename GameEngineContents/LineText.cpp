@@ -101,68 +101,19 @@ void LineText::CreateText(std::string _Text)
 	TextRend->SetTexture( _Text);
 	TextRend->ScaleToTexture();
 
-	if (TextRend->GetTransform().GetLocalScale().y > 75)
-	{
-		TextNum = TextNum + 41;
-	}
-	else
-		if (TextRend->GetTransform().GetLocalScale().y > 59)
-		{
-			TextNum = TextNum + 33;
-		}else
-		if (TextRend->GetTransform().GetLocalScale().y > 30)
-		{
-			TextNum = TextNum + 25;
-		}
-		else
-		{
-			TextNum = TextNum + 17;
-		}
+	float SizeY = 0;
+	SizeY = TextRend->GetTransform().GetLocalScale().y;
 
-	TextRend->GetTransform().SetLocalPosition(float4(185,75 - TextNum));
-	if (TextRend->GetTransform().GetLocalScale().y > 75)
-	{
-		TextNum = TextNum + 41;
-	}
-	else
-		if (TextRend->GetTransform().GetLocalScale().y > 59)
-		{
-			TextNum = TextNum + 33;
-		}
-		else
-		if (TextRend->GetTransform().GetLocalScale().y > 30)
-		{
-			TextNum = TextNum + 25;
-		}
-		else
-		{
-			TextNum = TextNum + 17;
-		}
+	TextRend->GetTransform().SetLocalPosition(float4(185,(75 - TextNum) - SizeY/2 ));
 	Text.push_back(TextRend);
 	MoveStart++;
 	if (MoveStart >= 5)
 	{
-		if (TextRend->GetTransform().GetLocalScale().y > 75)
-		{
-			Move = Move + 82;
-			TextMove(82,Move);
-		}
-		else
-			if (TextRend->GetTransform().GetLocalScale().y > 59)
-			{
-				Move = Move + 66;
-				TextMove(66, Move);
-			}else
-			if (TextRend->GetTransform().GetLocalScale().y > 30)
-			{
-				Move = Move + 50;
-				TextMove(50,Move);
-			}
-			else
-			{
-				Move = Move + 34;
-				TextMove(34,Move);
-			}
+		TextMove(SizeY + 3, 0);
+	}
+	else
+	{
+		TextNum = TextNum + SizeY + 3;
 	}
 }
 
@@ -172,12 +123,11 @@ void LineText::TextMove(float Y_, float last)
 		std::vector<MyTextureRenderer*>::iterator StartIter = Text.begin();
 		std::vector<MyTextureRenderer*>::iterator EndIter = Text.end();
 
-		for (; StartIter != EndIter - 1; ++StartIter)
+		for (; StartIter != EndIter ; ++StartIter)
 		{
 			(*StartIter)->GetTransform().SetLocalMove(float4(0, Y_));
 		}
-		(StartIter) = EndIter - 1; 
-		(*StartIter)->GetTransform().SetLocalMove(float4(0, last));
+
 }
 
 void LineText::CreateChoice()
@@ -205,16 +155,19 @@ void LineText::Check()
 	if (MouseCheck(Collision)
 		&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
+
 		TextNum = TextNum + 17;
 		MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
+		float SizeY = 0;
+		SizeY = TextRend->GetTransform().GetLocalScale().y;
 		TextRend->SetTexture("Choice1_1.png");
 		TextRend->ScaleToTexture();
-		TextRend->GetTransform().SetLocalPosition(float4(320, 80 - TextNum));
+		TextRend->GetTransform().SetLocalPosition(float4(320, 75 - TextNum - SizeY / 2));
 		ChoiceText->GetTransform().SetLocalMove(float4(0, 0, 600));
 		Text.push_back(TextRend);
 		MoveStart++;
 		Move = Move + 34;
-		TextMove(34, Move);
+		TextMove(32, Move);
 		GlobalContentsValue::RemainLinenum = 8;
 		Collision->Off();
 		Collision2->Off();
@@ -225,9 +178,11 @@ void LineText::Check()
 		{
 			TextNum = TextNum + 17;
 			MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
+			float SizeY = 0;
+			SizeY = TextRend->GetTransform().GetLocalScale().y;
 			TextRend->SetTexture("Choice1_2.png");
 			TextRend->ScaleToTexture();
-			TextRend->GetTransform().SetLocalPosition(float4(320, 80 - TextNum));
+			TextRend->GetTransform().SetLocalPosition(float4(320, 75 - TextNum - SizeY / 2));
 			ChoiceText->GetTransform().SetLocalMove(float4(0, 0, 600));
 			Text.push_back(TextRend);
 			MoveStart++;
