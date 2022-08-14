@@ -29,6 +29,7 @@ private:
 	int TextNum = 0;
 	float time = 0;
 	std::vector<CommentTextureRenderer*> Text;
+	std::vector<GameEngineCollision*> Col;
 	int MoveStart = 0;
 };
 
