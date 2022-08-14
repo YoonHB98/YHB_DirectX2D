@@ -16,7 +16,7 @@ public:
 	Comment& operator=(const Comment& _Other) = delete;
 	Comment& operator=(Comment&& _Other) noexcept = delete;
 
-	void CreateText(std::string _Text);
+	void CreateText(const std::string& _Text);
 	void TextMove(float Y_, float last);
 protected:
 	void Start() override;

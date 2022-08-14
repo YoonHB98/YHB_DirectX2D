@@ -45,5 +45,6 @@ private:
 enum class OBJECTORDER
 {
 	Mouse,
-	UI
+	UI,
+	SuperChat
 };
