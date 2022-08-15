@@ -19,6 +19,8 @@ public:
 	{
 		return ColorData;
 	}
+
+	float4 Clip;
 protected:
 	void Start() override;
 

@@ -23,13 +23,18 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
+	void CommentCheckStart();
+	void CommentTrash(int YPos);
 	int i = 1;
 	int Move = 0;
 	int Count = 0;
 	int TextNum = 0;
 	float time = 0;
+	GameEngineCollision* CommentCheck;
 	std::vector<CommentTextureRenderer*> Text;
 	std::vector<GameEngineCollision*> Col;
 	int MoveStart = 0;
+	int ColName = 1;
+	CommentTextureRenderer* Trash;
 };
 

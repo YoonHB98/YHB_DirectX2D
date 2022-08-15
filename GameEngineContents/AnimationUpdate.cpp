@@ -161,7 +161,7 @@ void StreamAnimation::UpdateA2()
 	TextDrawTime("젤하!", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 0.5f);
 	Renderer->ChangeFrameAnimation("cho_kashikoma");
 
-	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") &&GlobalContentsValue::Check == false)
 		|| 	GlobalContentsValue::ChangeTime > 18.0f)
 	{
 		CurType = AnimationType::A3;
@@ -197,7 +197,7 @@ void StreamAnimation::UpdateA3()
 			CurAnim = Animation::End1;
 		}
 
-	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 		|| 	GlobalContentsValue::ChangeTime > 27.0f)
 	{
 		CurType = AnimationType::A4;
@@ -239,7 +239,7 @@ void StreamAnimation::UpdateA4()
 	}
 	if (	GlobalContentsValue::ChangeTime < 35.0f)
 	{
-		if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+		if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 		{
 				GlobalContentsValue::ChangeTime = 35.1f;
 		}
@@ -248,7 +248,7 @@ void StreamAnimation::UpdateA4()
 	else
 		if(	GlobalContentsValue::ChangeTime < 43.0f)
 		{
-			if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+			if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 			{
 					GlobalContentsValue::ChangeTime = 43.1f;
 			}
@@ -257,7 +257,7 @@ void StreamAnimation::UpdateA4()
 		else
 		if (	GlobalContentsValue::ChangeTime < 51.0f)
 			{
-			if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+			if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 			{
 					GlobalContentsValue::ChangeTime =51.2f;
 			}
@@ -266,7 +266,7 @@ void StreamAnimation::UpdateA4()
 		else
 		if (	GlobalContentsValue::ChangeTime < 59.0f)
 			{
-			if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+			if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 			{
 					GlobalContentsValue::ChangeTime = 59.1f;
 			}
@@ -292,7 +292,7 @@ void StreamAnimation::UpdateA5()
 			CurAnim = Animation::End1;
 		}
 	TextDrawTime(" 앞으로 인터넷에 머무르는 덕후에게\n 천사의 애정을 듬뿍 담아 치유해 줄게", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
-	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 	{
 			GlobalContentsValue::ChangeTime =69.1f;
 	}
@@ -324,7 +324,7 @@ void StreamAnimation::UpdateA6()
 			CurAnim = Animation::End1;
 		}
 	TextDrawTime("      그리고 기왕 시작한 김에\n스트리머계의 정점도 찍을 거야!", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
-	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 	{
 			GlobalContentsValue::ChangeTime = 77.1f;
 	}
@@ -341,7 +341,7 @@ void StreamAnimation::UpdateA7()
 {
 	Renderer->ChangeFrameAnimation("pointing");
 	TextDrawTime("꿈은 크게, 팔로워 100만명!!!", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
-	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 	{
 			GlobalContentsValue::ChangeTime = 85.1f;
 	}

@@ -35,6 +35,8 @@ public:
 	//뭔 방송임
 	static std::string Contents;
 	static float ChangeTime;
+	//체크하고 있는지
+	static bool Check;
 
 private:
 	GlobalContentsValue()	{	}

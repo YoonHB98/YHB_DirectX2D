@@ -59,18 +59,27 @@ Output CommentTexture_VS(Input _Input)
 
 Texture2D Tex : register(t0);
 SamplerState Smp : register(s0);
+
+cbuffer Clip : register(b0)
+{
+    float X;
+    float Y;
+    float2 XY;
+}
+
 float4 CommentTexture_PS(Output _Input) : SV_Target0
 {
     float4 Color = Tex.Sample(Smp, _Input.Tex.xy);
-    if (_Input.Pos.y < 126)
+
+     if (_Input.Pos.y < 126)
+        {
+            clip(-1);
+        }
+    
+    if (_Input.Pos.x > X)
     {
         clip(-1);
-
     }
-
-    
-    
-    Color = Tex.Sample(Smp, _Input.Tex.xy);
     
 
     return Color;
