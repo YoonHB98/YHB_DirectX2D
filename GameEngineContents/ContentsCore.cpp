@@ -129,7 +129,7 @@ void ContentsCore::Start()
 	GameEngineFont::Load("Galmuri9");
 	GameEngineFont::Load("Galmuri7");
 	GameEngineFont::Load("Zpix");
-	GameEngineFont::Load("궁서");
+	GameEngineFont::Load("나눔바름고딕");
 
 	GameEngineTexture::Cut("ame_handspinner.png", 11, 1);
 	GameEngineTexture::Cut("boot.png", 10, 7);
@@ -147,6 +147,9 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("icon_desktop_internet.png", 1, 2);
 	GameEngineTexture::Cut("cho_angel.png", 2, 1);
 	GameEngineTexture::Cut("cho_teach.png", 2, 1);
+	GameEngineTexture::Cut("stream_cho_end.png",1, 1);
+	GameEngineTexture::Cut("cho_dokuzetsu_superchat.png", 6, 1);
+	GameEngineTexture::Cut("cho_nyo.png", 2, 1);
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션

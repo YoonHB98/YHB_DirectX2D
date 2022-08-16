@@ -33,6 +33,10 @@ void Stream::Update(float _DeltaTime)
 		first = false;
 		BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_kenjo.wav", 999);
 	}
+	if (GlobalContentsValue::ChangeTime > 200.0f)
+	{
+		BgmPlayer.Stop();
+	}
 	if (GlobalContentsValue::Stream == false)
 	{
 		ChangeZPos(500);

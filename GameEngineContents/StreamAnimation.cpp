@@ -33,6 +33,9 @@ void StreamAnimation::Start()
 	Renderer->CreateFrameAnimationCutTexture("cho_teach", FrameAnimation_DESC("cho_teach.png", 0, 1, 0.5f, true));
 	Renderer->CreateFrameAnimationCutTexture("cho_teachEnd", FrameAnimation_DESC("cho_teach.png", 0, 0, 0.5f, false));
 	Renderer->CreateFrameAnimationCutTexture("pointing", FrameAnimation_DESC("cho_pointing.png", 0, 4, 0.5f,false));
+	Renderer->CreateFrameAnimationCutTexture("ChoEnd", FrameAnimation_DESC("stream_cho_end.png", 0, 0, 0.5f, false));
+	Renderer->CreateFrameAnimationCutTexture("ChoNyo", FrameAnimation_DESC("cho_nyo.png", 0, 0, 0.5f, false)); 
+	Renderer->CreateFrameAnimationCutTexture("ChoSuperChat", FrameAnimation_DESC("cho_dokuzetsu_superchat.png", 0, 5, 0.15f, false));
 
 
 	

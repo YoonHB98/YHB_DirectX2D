@@ -11,6 +11,16 @@ Comment::~Comment()
 
 void Comment::Start()
 {
+	GameEngineTextureRenderer* TextRend = CreateComponent<GameEngineTextureRenderer>();
+	TextRend->SetTexture("Rect.png");
+	TextRend->ScaleToTexture();
+	TextRend->GetTransform().SetLocalPosition(float4(88, -185));
+
+	GameEngineTextureRenderer* TextRend2 = CreateComponent<GameEngineTextureRenderer>();
+	TextRend2->SetTexture("Rect.png");
+	TextRend2->ScaleToTexture();
+	TextRend2->GetTransform().SetLocalPosition(float4(-102, -185));
+
 	CommentCheck = CreateComponent<GameEngineCollision>();
 	CommentCheck->GetTransform().SetLocalScale(float4(192,218));
 	CommentCheck->GetTransform().SetLocalPosition(float4(138, 35 ));
@@ -20,6 +30,7 @@ void Comment::Start()
 	Trash->SetTexture("icon_trash_can.png");
 	Trash->GetTransform().SetLocalScale(float4(11, 13));
 	Trash->GetTransform().SetLocalPosition(float4(228, 137, 500 ));
+
 }
 
 void Comment::Update(float _DeltaTime)
@@ -69,6 +80,49 @@ void Comment::CommentCheckStart()
 			int CommentPos = Pos.y;
 			if ((*StartIter).first->GetNameConstRef() != "")
 			{
+				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+					&& MouseCheck((*StartIter).first))
+				{
+					if (GlobalContentsValue::FirstComment == "")
+					{
+						if ((*StartIter).first->GetNameConstRef() == "1")
+						{
+							(*StartIter).first->SetName("End");
+							Myfont* font = CreateComponent<Myfont>();
+							font->TextDraw("¿Í Áà¼­ °í¸¶¿ö", "³ª´®¹Ù¸§°íµñ", float4(385, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
+							GlobalContentsValue::FirstComment = "¿Í Áà¼­ °í¸¶¿ö";
+						}
+						else
+						{
+							(*StartIter).first->SetName("End");
+							Myfont* font = CreateComponent<Myfont>();
+							font->TextDraw("²¨Á®", "³ª´®¹Ù¸§°íµñ", float4(385, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
+							GlobalContentsValue::FirstComment = "²¨Á®";
+						}
+					}
+					else
+					{
+						if (GlobalContentsValue::SecondComment == "")
+						{
+							if ((*StartIter).first->GetNameConstRef() == "1")
+							{
+								(*StartIter).first->SetName("End");
+								Myfont* font = CreateComponent<Myfont>();
+								font->TextDraw("¿Í Áà¼­ °í¸¶¿ö", "³ª´®¹Ù¸§°íµñ", float4(575, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
+								GlobalContentsValue::SecondComment = "¿Í Áà¼­ °í¸¶¿ö";
+							}
+							else
+							{
+								(*StartIter).first->SetName("End");
+								Myfont* font = CreateComponent<Myfont>();
+								font->TextDraw("²¨Á®", "³ª´®¹Ù¸§°íµñ", float4(575, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
+								GlobalContentsValue::SecondComment = "²¨Á®";
+							}
+						}
+					}
+				}
+
+			
 				return;
 			}
 			else
@@ -197,8 +251,6 @@ void Comment::CreateText(const std::string& _Text)
 		TrashCollision->SetName(std::to_string(ColName));
 
 		ColName = ColName + 1;
-
-
 	}
 	else 
 	{

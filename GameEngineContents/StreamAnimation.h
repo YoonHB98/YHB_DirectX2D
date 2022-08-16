@@ -86,8 +86,8 @@ private:
 	void UpdateA7();
 	void UpdateA8();
 	void UpdateA9();
+	bool StreamEnd = false;
 	int EnterCount = 0;
-
 	float BlankXSize = 0;
 	AnimationType TextType;
 	GameEngineTextureRenderer* Blank;
