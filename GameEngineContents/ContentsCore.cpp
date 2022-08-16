@@ -129,7 +129,8 @@ void ContentsCore::Start()
 	GameEngineFont::Load("Galmuri9");
 	GameEngineFont::Load("Galmuri7");
 	GameEngineFont::Load("Zpix");
-	GameEngineFont::Load("³ª´®¹Ù¸§°íµñ");
+	GameEngineFont::Load("NanumBarunGothic");
+	GameEngineFont::Load("NanumBarunGothicBold");
 
 	GameEngineTexture::Cut("ame_handspinner.png", 11, 1);
 	GameEngineTexture::Cut("boot.png", 10, 7);

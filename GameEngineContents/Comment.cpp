@@ -89,14 +89,14 @@ void Comment::CommentCheckStart()
 						{
 							(*StartIter).first->SetName("End");
 							Myfont* font = CreateComponent<Myfont>();
-							font->TextDraw("¿Í Áà¼­ °í¸¶¿ö", "³ª´®¹Ù¸§°íµñ", float4(385, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
+							font->TextDraw("¿Í Áà¼­ °í¸¶¿ö", "NanumBarunGothicBold", float4(385, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
 							GlobalContentsValue::FirstComment = "¿Í Áà¼­ °í¸¶¿ö";
 						}
 						else
 						{
 							(*StartIter).first->SetName("End");
 							Myfont* font = CreateComponent<Myfont>();
-							font->TextDraw("²¨Á®", "³ª´®¹Ù¸§°íµñ", float4(385, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
+							font->TextDraw("²¨Á®", "NanumBarunGothicBold", float4(385, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
 							GlobalContentsValue::FirstComment = "²¨Á®";
 						}
 					}
@@ -108,14 +108,14 @@ void Comment::CommentCheckStart()
 							{
 								(*StartIter).first->SetName("End");
 								Myfont* font = CreateComponent<Myfont>();
-								font->TextDraw("¿Í Áà¼­ °í¸¶¿ö", "³ª´®¹Ù¸§°íµñ", float4(575, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
+								font->TextDraw("¿Í Áà¼­ °í¸¶¿ö", "NanumBarunGothicBold", float4(575, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
 								GlobalContentsValue::SecondComment = "¿Í Áà¼­ °í¸¶¿ö";
 							}
 							else
 							{
 								(*StartIter).first->SetName("End");
 								Myfont* font = CreateComponent<Myfont>();
-								font->TextDraw("²¨Á®", "³ª´®¹Ù¸§°íµñ", float4(575, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
+								font->TextDraw("²¨Á®", "NanumBarunGothicBold", float4(575, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
 								GlobalContentsValue::SecondComment = "²¨Á®";
 							}
 						}
