@@ -52,24 +52,31 @@ void Comment::End()
 
 void Comment::CommentCheckStart()
 {
-	std::vector<GameEngineCollision*>::iterator StartIter = Col.begin();
-	std::vector<GameEngineCollision*>::iterator EndIter = Col.end();
+	std::vector<std::pair<GameEngineCollision*, GameEngineCollision*>>::iterator StartIter = Col.begin();
+	std::vector<std::pair<GameEngineCollision*, GameEngineCollision*>>::iterator EndIter = Col.end();
 
 	std::vector<CommentTextureRenderer*>::iterator StartTextIter = Text.begin();
 	std::vector<CommentTextureRenderer*>::iterator EndITexIter = Text.end();
 
-	for (; StartIter != EndIter; ++StartIter, ++StartTextIter)
+	for (; StartTextIter != EndITexIter; ++StartIter, ++StartTextIter)
 	{
-		float4 Pos = (*StartIter)->GetTransform().GetLocalPosition();
+		float4 Pos = (*StartIter).first->GetTransform().GetLocalPosition();
 		int CommentPos = Pos.y;
-		if (MouseCheck((*StartIter)))
+
+		if (MouseCheck((*StartIter).first))
 		{
-			float4 Pos = (*StartIter)->GetTransform().GetLocalPosition();
+			float4 Pos = (*StartIter).second->GetTransform().GetLocalPosition();
 			int CommentPos = Pos.y;
+			if ((*StartIter).first->GetNameConstRef() != "")
+			{
+				return;
+			}
+			else
 			if (CommentPos >= 136.9)
 			{
 				Trash->GetTransform().SetLocalPosition(float4(228, 137, 0));
-				if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+					&& MouseCheck((*StartIter).second))
 				{
 					(*StartTextIter)->Clip.PosX = 540.0f;
 				}
@@ -77,7 +84,8 @@ void Comment::CommentCheckStart()
 				if (CommentPos >= 111.9)
 				{
 					Trash->GetTransform().SetLocalPosition(float4(228, 112, 0));
-					if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+					if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+						&& MouseCheck((*StartIter).second))
 					{
 						(*StartTextIter)->Clip.PosX = 540.0f;
 					}
@@ -86,7 +94,8 @@ void Comment::CommentCheckStart()
 			if (CommentPos >= 86.9)
 			{
 				Trash->GetTransform().SetLocalPosition(float4(228, 87, 0));
-				if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+					&& MouseCheck((*StartIter).second))
 				{
 					(*StartTextIter)->Clip.PosX = 540.0f;
 				}
@@ -94,7 +103,8 @@ void Comment::CommentCheckStart()
 			if (CommentPos >= 61.9)
 			{
 				Trash->GetTransform().SetLocalPosition(float4(228, 62, 0));
-				if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+					&& MouseCheck((*StartIter).second))
 				{
 					(*StartTextIter)->Clip.PosX = 540.0f;
 				}
@@ -102,7 +112,8 @@ void Comment::CommentCheckStart()
 			if (CommentPos >= 36.9)
 			{
 				Trash->GetTransform().SetLocalPosition(float4(228, 37, 0));
-				if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+					&& MouseCheck((*StartIter).second))
 				{
 					(*StartTextIter)->Clip.PosX = 540.0f;
 				}
@@ -110,7 +121,8 @@ void Comment::CommentCheckStart()
 			if (CommentPos >= 11.9)
 			{
 				Trash->GetTransform().SetLocalPosition(float4(228, 12, 0));
-				if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+					&& MouseCheck((*StartIter).second))
 				{
 					(*StartTextIter)->Clip.PosX = 540.0f;
 				}
@@ -118,7 +130,8 @@ void Comment::CommentCheckStart()
 			if (CommentPos >= -13.1)
 			{
 				Trash->GetTransform().SetLocalPosition(float4(228, -13, 0));
-				if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+					&& MouseCheck((*StartIter).second))
 				{
 					(*StartTextIter)->Clip.PosX = 540.0f;
 				}
@@ -126,7 +139,8 @@ void Comment::CommentCheckStart()
 			if (CommentPos >= -38.1)
 			{
 				Trash->GetTransform().SetLocalPosition(float4(228, -38, 0));
-				if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+					&& MouseCheck((*StartIter).second))
 				{
 					(*StartTextIter)->Clip.PosX = 540.0f;
 				}
@@ -134,7 +148,8 @@ void Comment::CommentCheckStart()
 			if (CommentPos >= -63.1)
 			{
 				Trash->GetTransform().SetLocalPosition(float4(228,-63, 0));
-				if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+					&& MouseCheck((*StartIter).second))
 				{
 					(*StartTextIter)->Clip.PosX = 540.0f;
 				}
@@ -142,7 +157,8 @@ void Comment::CommentCheckStart()
 			if (CommentPos >= -88.1)
 			{
 				Trash->GetTransform().SetLocalPosition(float4(228,-88, 0));
-				if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+					&& MouseCheck((*StartIter).second))
 				{
 					(*StartTextIter)->Clip.PosX = 540.0f;
 				}
@@ -152,10 +168,7 @@ void Comment::CommentCheckStart()
 	}
 }
 
-void Comment::CommentTrash(int YPos)
-{
-	
-}
+
 
 void Comment::CreateText(const std::string& _Text)
 {
@@ -167,25 +180,36 @@ void Comment::CreateText(const std::string& _Text)
 	float4 Scale = TextRend->GetTransform().GetLocalScale();
 
 	
+	GameEngineCollision* TrashCollision = CreateComponent<GameEngineCollision>();
+	TrashCollision->GetTransform().SetLocalScale(float4(11,13,0));
+	TrashCollision->GetTransform().SetLocalPosition(float4(228, 137 - TextNum));
+
 	GameEngineCollision* Collision = CreateComponent<GameEngineCollision>();
-	Collision->GetTransform().SetLocalScale(float4(11,13,0));
-	Collision->GetTransform().SetLocalPosition(float4(228, 137 - TextNum));
+	Collision->GetTransform().SetLocalScale(float4(Scale.x, Scale.y, 0));
+	Collision->GetTransform().SetLocalPosition(float4(138, 137 - TextNum));
 	if (_Text == "Comment1_12.png"
 		||_Text == "Comment1_15.png")
 	{
 		Collision->ChangeOrder(OBJECTORDER::SuperChat);
 		Collision->SetName(std::to_string(ColName));
+
+		TrashCollision->ChangeOrder(OBJECTORDER::SuperChat);
+		TrashCollision->SetName(std::to_string(ColName));
+
 		ColName = ColName + 1;
+
+
 	}
 	else 
 	{
 		Collision->ChangeOrder(OBJECTORDER::UI);
+		TrashCollision->ChangeOrder(OBJECTORDER::UI);
 	}
 
 
 	TextNum = TextNum + 25;
 	Text.push_back(TextRend);
-	Col.push_back(Collision);
+	Col.push_back(std::make_pair(Collision,TrashCollision));
 
 	MoveStart++;
 	if (MoveStart >= 10)
@@ -202,18 +226,20 @@ void Comment::TextMove(float Y_, float last)
 	std::vector<CommentTextureRenderer*>::iterator EndIter = Text.end();
     std::string A =  (*StartIter)->GetNameCopy();
 
-	std::vector<GameEngineCollision*>::iterator StartColIter = Col.begin();
-	std::vector<GameEngineCollision*>::iterator EndColIter = Col.end();
+	std::vector<std::pair<GameEngineCollision*, GameEngineCollision*>>::iterator StartColIter = Col.begin();
+	std::vector<std::pair<GameEngineCollision*, GameEngineCollision*>>::iterator EndColIter = Col.end();
 
 	for (; StartIter != EndIter - 1; ++StartIter,++StartColIter )
 	{
 		(*StartIter)->GetTransform().SetLocalMove(float4(0, Y_));
-		(*StartColIter)->GetTransform().SetLocalMove(float4(0, Y_));
+		(*StartColIter).first->GetTransform().SetLocalMove(float4(0, Y_));
+		(*StartColIter).second->GetTransform().SetLocalMove(float4(0, Y_));
 	}
 
 	(StartIter) = EndIter - 1;
 	(*StartIter)->GetTransform().SetLocalMove(float4(0, last));
 
 	(StartColIter) = EndColIter - 1;
-	(*StartColIter)->GetTransform().SetLocalMove(float4(0, last));
+	(*StartColIter).first->GetTransform().SetLocalMove(float4(0, last));
+	(*StartColIter).second->GetTransform().SetLocalMove(float4(0, last));
 }
