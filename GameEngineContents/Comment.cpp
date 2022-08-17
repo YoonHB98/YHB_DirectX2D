@@ -35,7 +35,21 @@ void Comment::Start()
 
 void Comment::Update(float _DeltaTime)
 {
-	GlobalContentsValue::Stream = true;
+	if (GlobalContentsValue::Stream == false)
+	{
+		if (GetTransform().GetLocalPosition().z < 499)
+		{
+			ChangeZPos(500);
+		}
+	}
+	else
+	{
+		if (GetTransform().GetLocalPosition().z > 400)
+		{
+			ChangeZPos(0);
+		}
+
+	}
 	if (GlobalContentsValue::Stream
 		&& i < ((GlobalContentsValue::ChangeTime - 9) / 3.115)
 		&&i < 27)
