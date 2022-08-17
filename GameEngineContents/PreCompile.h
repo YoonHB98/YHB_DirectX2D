@@ -26,6 +26,7 @@
 #include "DefaultSetTex.h"
 #include "Myfont.h"
 #include "MyTextureRenderer.h"
+#include "CommentTextureRenderer.h"
 // base
 #include <GameEngineBase/GameEngineDebug.h>
 #include <GameEngineBase/GameEngineInput.h>

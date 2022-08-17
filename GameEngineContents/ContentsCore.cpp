@@ -92,6 +92,20 @@ void ContentsCore::Start()
 
 			Dir.MoveParentToExitsChildDirectory("Resources");
 			Dir.Move("Resources");
+			Dir.Move("Twitter");
+
+			std::vector<GameEngineFile> Shaders = Dir.GetAllFile();
+
+			for (size_t i = 0; i < Shaders.size(); i++)
+			{
+				GameEngineTexture::Load(Shaders[i].GetFullPath());
+			}
+		}
+		{
+			GameEngineDirectory Dir;
+
+			Dir.MoveParentToExitsChildDirectory("Resources");
+			Dir.Move("Resources");
 			Dir.Move("LineText");
 
 			std::vector<GameEngineFile> Shaders = Dir.GetAllFile();
@@ -152,6 +166,7 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("stream_cho_end.png",1, 1);
 	GameEngineTexture::Cut("cho_dokuzetsu_superchat.png", 6, 1);
 	GameEngineTexture::Cut("cho_nyo.png", 2, 1);
+	GameEngineTexture::Cut("icon_loading_poketter.png", 8, 1);
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션

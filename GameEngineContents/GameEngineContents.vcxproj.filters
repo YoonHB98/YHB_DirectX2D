@@ -160,6 +160,12 @@
     <ClInclude Include="CommentTextureRenderer.h">
       <Filter>TextureRenderer</Filter>
     </ClInclude>
+    <ClInclude Include="Twitter.h">
+      <Filter>Actor\Play\tweet</Filter>
+    </ClInclude>
+    <ClInclude Include="TweetComment.h">
+      <Filter>Actor\Play\tweet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -258,6 +264,12 @@
     </ClCompile>
     <ClCompile Include="CommentTextureRenderer.cpp">
       <Filter>TextureRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Twitter.cpp">
+      <Filter>Actor\Play\tweet</Filter>
+    </ClCompile>
+    <ClCompile Include="TweetComment.cpp">
+      <Filter>Actor\Play\tweet</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

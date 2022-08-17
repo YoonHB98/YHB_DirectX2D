@@ -21,10 +21,11 @@ public:
 	}
 
 	float4 Clip;
+
+	void SetTextureRendererSetting();
 protected:
 	void Start() override;
 
-	void SetTextureRendererSetting();
 private:
 	float4 FrameData;
 	MyColorData ColorData;

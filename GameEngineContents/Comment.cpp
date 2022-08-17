@@ -45,7 +45,6 @@ void Comment::Start()
 
 void Comment::Update(float _DeltaTime)
 {
-	GlobalContentsValue::Stream = true;
 	if (GlobalContentsValue::Stream == false)
 	{
 		if (GetTransform().GetLocalPosition().z < 499)
@@ -261,6 +260,7 @@ void Comment::CreateText(const std::string& _Text)
 	TextRend->SetTexture(_Text);
 	TextRend->ScaleToTexture();
 	TextRend->GetTransform().SetLocalPosition(float4(138, 137 - TextNum));
+	TextRend->Clip.PosY = 126.0f;
 
 	float4 Scale = TextRend->GetTransform().GetLocalScale();
 

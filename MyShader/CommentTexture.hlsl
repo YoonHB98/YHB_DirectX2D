@@ -71,13 +71,15 @@ float4 CommentTexture_PS(Output _Input) : SV_Target0
 {
     float4 Color = Tex.Sample(Smp, _Input.Tex.xy);
 
-     if (_Input.Pos.y < 126)
+     if (_Input.Pos.y < Y)
         {
+        //126
             clip(-1);
         }
     
     if (_Input.Pos.x > X)
     {
+        //1200
         clip(-1);
     }
     

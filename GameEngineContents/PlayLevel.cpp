@@ -22,6 +22,8 @@
 #include "TutorialLogin.h"
 #include "ToolTipText.h"
 #include "Comment.h"
+#include "Twitter.h"
+#include "TweetComment.h"
 
 
 float PlayLevel::time = 0;
@@ -57,7 +59,8 @@ void PlayLevel::Start()
 	CreateActor<Change>(GameObjectGroup::WindowIcon);
 	CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	CreateActor<Comment>(GameObjectGroup::WindowIcon);
-
+	CreateActor<Twitter>(GameObjectGroup::WindowIcon);
+	CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
 
 
 

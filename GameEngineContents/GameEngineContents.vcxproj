@@ -270,6 +270,14 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="TweetComment.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Twitter.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="WebCamWindow.h">
       <SubType>
       </SubType>
@@ -397,6 +405,14 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="TutorialLogin.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="TweetComment.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Twitter.cpp">
       <SubType>
       </SubType>
     </ClCompile>
