@@ -3,6 +3,7 @@
 #include "GameEngineContents/TitleLevel.h"
 #include "GameEngineContents/LoadingLevel.h"
 #include "GameEngineContents/PlayLevel.h"
+#include "Stream.h"
 
 #pragma comment(lib, "GameEngineBase.lib")
 
@@ -157,7 +158,7 @@ void ContentsCore::Start()
 	CreateLevel<LoadingLevel>("Loading");
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-	ChangeLevel("Loading");
+	ChangeLevel("Play");
 
 	GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 }
@@ -172,5 +173,5 @@ void ContentsCore::Update(float _DeltaTime)
 
 void ContentsCore::End()
 {
-	int a = 0;
+	Stream::Destroy();
 }

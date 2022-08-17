@@ -30,6 +30,7 @@ private:
 	int TextNum = 0;
 	float time = 0;
 	GameEngineCollision* CommentCheck;
+	Myfont* Font;
 	std::vector<CommentTextureRenderer*> Text;
 	std::vector<std::pair<GameEngineCollision*, GameEngineCollision*>> Col;
 	int MoveStart = 0;

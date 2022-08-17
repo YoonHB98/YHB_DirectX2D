@@ -17,6 +17,7 @@ public:
 
 	static int Count;
 	float4 Size;
+	GameEngineTextureRenderer* TextRenderer;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

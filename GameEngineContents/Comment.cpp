@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "Comment.h"
+#include "Stream.h"
 
 Comment::Comment() 
 {
@@ -21,6 +22,15 @@ void Comment::Start()
 	TextRend2->ScaleToTexture();
 	TextRend2->GetTransform().SetLocalPosition(float4(-102, -185));
 
+	GameEngineTextureRenderer* TextRend3 = CreateComponent<GameEngineTextureRenderer>();
+	TextRend3->SetTexture("Speed.png");
+	TextRend3->GetTransform().SetLocalScale(float4(183,14));
+	TextRend3->GetTransform().SetLocalPosition(float4(138, 158));
+
+	Font = CreateComponent<Myfont>();
+	Font->SetLeftAndRightSort(LeftAndRightSort::CENTER);
+	Font->TextDraw("방송 속도(보통)", "galmuri11", float4(618, 103), float4(94 / 255,60 / 255, 127/255, 1), 12);
+
 	CommentCheck = CreateComponent<GameEngineCollision>();
 	CommentCheck->GetTransform().SetLocalScale(float4(192,218));
 	CommentCheck->GetTransform().SetLocalPosition(float4(138, 35 ));
@@ -35,6 +45,7 @@ void Comment::Start()
 
 void Comment::Update(float _DeltaTime)
 {
+	GlobalContentsValue::Stream = true;
 	if (GlobalContentsValue::Stream == false)
 	{
 		if (GetTransform().GetLocalPosition().z < 499)
@@ -62,12 +73,18 @@ void Comment::Update(float _DeltaTime)
 	if (MouseCheck(CommentCheck)
 		&&i > 1)
 	{
+		Stream::Inst_->BgmPlayer.PlaySpeed(0.9f);
+		Font->TextDraw("댓글 선택 중", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
+		GameEngineTime::GetInst()->SetGlobalScale(0.5f);
 		GlobalContentsValue::Check = true;
 		CommentCheckStart();
 	}
-	else
+	else if(i > 1)
 	{
+		Stream::Inst_->BgmPlayer.PlaySpeed(1.0f);
+		Font->TextDraw("방송 속도(보통)", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
 		GlobalContentsValue::Check =false;
+		Trash->GetTransform().SetLocalPosition(float4(0, 0, 500));
 	}
 }
 

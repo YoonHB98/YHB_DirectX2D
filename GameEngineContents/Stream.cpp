@@ -2,6 +2,9 @@
 #include "Stream.h"
 #include "StreamAnimation.h"
 #include "PlayLevel.h"
+#include "ToolTipText.h"
+
+Stream* Stream::Inst_ = new Stream();
 
 Stream::Stream() 
 {
@@ -29,13 +32,19 @@ void Stream::Update(float _DeltaTime)
 	if (GlobalContentsValue::Stream
 		&&first)
 	{
+		if (Tutorial)
+		{
+			GlobalContentsValue::Tooltip = true;
+			ToolTipText::Count = ToolTipText::Count + 1;
+			Tutorial = false;
+		}
 		ChangeZPos(40);
 		first = false;
-		BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_kenjo.wav", 999);
+		Inst_->BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_kenjo.wav", 999);
 	}
 	if (GlobalContentsValue::ChangeTime > 200.0f)
 	{
-		BgmPlayer.Stop();
+		Inst_->BgmPlayer.Stop();
 	}
 	if (GlobalContentsValue::Stream == false)
 	{
@@ -46,4 +55,5 @@ void Stream::Update(float _DeltaTime)
 
 void Stream::End()
 {
+
 }

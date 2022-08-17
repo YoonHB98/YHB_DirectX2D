@@ -5,6 +5,15 @@
 class Stream : public DefaultSetTex
 {
 public:
+	static void Destroy()
+	{
+		if (nullptr != Inst_)
+		{
+			delete Inst_;
+			Inst_ = nullptr;
+		}
+	}
+public:
 	// constrcuter destructer
 	Stream();
 	~Stream();
@@ -15,6 +24,7 @@ public:
 	Stream& operator=(const Stream& _Other) = delete;
 	Stream& operator=(Stream&& _Other) noexcept = delete;
 
+	static Stream* Inst_;
 	GameEngineTextureRenderer* Haisin;
 	GameEngineSoundPlayer  BgmPlayer;
 protected:
@@ -22,6 +32,7 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-	int first =true;
+	bool first =true;
+	bool Tutorial = true;
 };
 

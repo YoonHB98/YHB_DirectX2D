@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "StreamAnimation.h"
+#include "ToolTipText.h"
 
 void StreamAnimation::Tutorial()
 {
@@ -119,7 +120,7 @@ void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& 
 	Blank->GetColorData().MulColor.a = 0.5f;
 	Blank->GetTransform().SetWorldPosition(float4(-140, -35 , -520));
 	Blank->GetTransform().SetLocalScale(float4(200, 60));
-	float4 CurPos = Pos_ - float4(0, EnterCount * 20);
+	float4 CurPos = Pos_ - float4(0, EnterCount * 20.0f);
 	Font->SetLeftAndRightSort(LeftAndRightSort::CENTER);
 	Font->TextDraw(Text,  Font_, CurPos, Color_, Size_);
 
@@ -149,10 +150,16 @@ void StreamAnimation::UpdateA1()
 			Time = Time - 1.0f;
 			CurAnim = Animation::End1;
 		}
-
+	GlobalContentsValue::Tooltip = true;
+	if (GlobalContentsValue::ChangeTime > 2.0f)
+	{
+		GlobalContentsValue::ChangeTime = 2.0f;
+	}
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") &&	GlobalContentsValue::ChangeTime > 1.0f)
 		||	GlobalContentsValue::ChangeTime >9.0f)
 	{
+		GlobalContentsValue::Tooltip = false;
+		ToolTipText::Count = ToolTipText::Count + 1;
 		CurType = AnimationType::A2;
 		Time = 0;
 			GlobalContentsValue::ChangeTime = 9.1f;
