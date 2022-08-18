@@ -47,7 +47,7 @@ void StreamAnimation::Update(float _DeltaTime)
 {
 	if (GlobalContentsValue::Stream == false)
 	{
-		ChangeZPos(500);
+		ChangeZPos(550);
 		first = true;
 		return;
 	}

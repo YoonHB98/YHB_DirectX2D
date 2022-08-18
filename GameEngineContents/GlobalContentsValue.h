@@ -38,6 +38,8 @@ public:
 	static float ChangeTime;
 	static std::string FirstComment;
 	static std::string SecondComment;
+
+	static int RemainTwitnum;
 	//체크하고 있는지
 	static bool Check;
 

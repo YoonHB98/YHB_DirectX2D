@@ -51,7 +51,7 @@ void LineText::Update(float _DeltaTime)
 	}
 	else
 	{
-		ChangeZPos(40);
+		ChangeZPos(-10);
 	}
 
 	if (ChoiceTimeStart == true)
@@ -77,6 +77,7 @@ void LineText::Update(float _DeltaTime)
 			GlobalContentsValue::WebCamWindow = false;
 			GlobalContentsValue::Line = false;
 			GlobalContentsValue::Change = true;
+			ChangeStart = false;
 		}
 	}
 }

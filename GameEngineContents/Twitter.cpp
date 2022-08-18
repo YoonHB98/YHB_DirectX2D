@@ -27,13 +27,11 @@ void Twitter::Start()
 
 void Twitter::Update(float _DeltaTime)
 {
-	GlobalContentsValue::Stream = true;
 	if (GlobalContentsValue::Twitter)
 	{
 		if (GlobalContentsValue::Contents == "Tutorial")
 		{
 			TweetComment::RemainTwit = 2;
-			GlobalContentsValue::Contents == "";
 		}
 		ChangeZPos(0);
 	}

@@ -31,6 +31,7 @@ void TutorialLogin::Start()
 
 void TutorialLogin::Update(float _DeltaTime)
 {
+	ChangeZPos(-50);
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 		&& MouseCheck(Collision))
 	{

@@ -75,6 +75,7 @@ private:
 	bool FirstText = true;
 	float CountTime = 0;
 	std::string Text;
+	float EndTimer = 0.0f;
  Myfont* Font;
 	void TextDrawTime(const std::string& Text_, const std::string& Font_, float4 Pos_, float4 Color_, float Size_, float Time);
 	void UpdateA1();

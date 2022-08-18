@@ -19,7 +19,7 @@ void TaskManager::Start()
 
 void TaskManager::Update(float _DeltaTime)
 {
-
+	ChangeZPos(0);
 
 }
 

@@ -21,16 +21,16 @@ void TweetComment::Update(float _DeltaTime)
 {
 	if (GlobalContentsValue::Twitter)
 	{
+		Time = Time + _DeltaTime;
 		if (Time > 1.0f
-			&& GlobalContentsValue::RemainLinenum != 0)
+			&& GlobalContentsValue::RemainTwitnum != 0)
 		{
 			Time = Time - 1.0f;
 			CreateText(GlobalContentsValue::Contents +"Twit" +  std::to_string(i) + ".png");
-			MoveY(YSize);
 			i = i + 1;
-			GlobalContentsValue::RemainLinenum = GlobalContentsValue::RemainLinenum - 1;
+			GlobalContentsValue::RemainTwitnum = GlobalContentsValue::RemainTwitnum - 1;
 		}
-		else if (GlobalContentsValue::RemainLinenum == 0
+		else if (GlobalContentsValue::RemainTwitnum == 0
 			&& Time > 1.0f
 			&& LoadingFirst)
 		{
@@ -38,7 +38,11 @@ void TweetComment::Update(float _DeltaTime)
 			Time = Time  - 1.0f;
 			LoadingEnd();
 		}
-		
+		if (i >2)
+		{
+			MoveY(YSize);
+		}
+
 		ChangeZPos(0);
 	}
 	else
@@ -47,7 +51,7 @@ void TweetComment::Update(float _DeltaTime)
 		ChangeZPos(500);
 		return;
 	}
-	Time = Time + _DeltaTime;
+
 }
 
 void TweetComment::End()
@@ -67,12 +71,20 @@ void TweetComment::CreateText(const std::string& _Text)
 
 void TweetComment::MoveY(float Y)
 {
+	if (YSize  > 0.0f)
+	{
+		YSize = YSize - 500 * GameEngineTime::GetDeltaTime();
+	}
+	else
+	{
+		return;
+	}
 	std::vector<GameEngineTextureRenderer*>::iterator StartIter = TextVector.begin();
 	std::vector<GameEngineTextureRenderer*>::iterator EndIter = TextVector.end();
 
 	for (; StartIter != EndIter - 1 ; ++StartIter )
 	{
-		(*StartIter)->GetTransform().SetLocalMove(float4(0, -YSize - 15));
+		(*StartIter)->GetTransform().SetLocalMove(float4(0, -500 * GameEngineTime::GetDeltaTime() ));
 	}
 }
 

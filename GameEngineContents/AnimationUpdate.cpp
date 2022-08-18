@@ -530,10 +530,41 @@ void StreamAnimation::UpdateA9()
 			{
 				Renderer->ChangeFrameAnimation("ChoEnd");
 				TextDrawTime("   ", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+				if (GlobalContentsValue::Contents == "Tutorial")
+				{
+					GlobalContentsValue::Tooltip = true;
+				}
 				if (StreamEnd == false)
 				{
+					ToolTipText::Count = ToolTipText::Count + 1;
 					StreamEnd = true;
 					GameEngineSoundPlayer BGM = GameEngineSound::SoundPlayControl("endHaishin.wav", 0);
+				}
+				if (StreamEnd == true)
+				{
+					EndTimer = EndTimer + GameEngineTime::GetDeltaTime();
+					if (EndTimer > 1.0f)
+					{
+					if (GlobalContentsValue::Contents == "Tutorial")
+						{
+						if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+							{
+							EndTimer = 0.0f;
+							GlobalContentsValue::Stream = false;
+							GlobalContentsValue::ChangeTime = 0.0f;
+							GlobalContentsValue::Twitter = true;
+							GlobalContentsValue::Tooltip = false;
+						}else
+							if (EndTimer > 3.0f
+								|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+								{
+								EndTimer = 0.0f;
+								GlobalContentsValue::Stream = false;
+								GlobalContentsValue::ChangeTime = 0.0f;
+								GlobalContentsValue::Twitter = true;
+								}
+						}
+					}
 				}
 				return;
 			}
