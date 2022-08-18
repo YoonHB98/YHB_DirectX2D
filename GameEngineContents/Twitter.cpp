@@ -27,7 +27,7 @@ void Twitter::Start()
 
 void Twitter::Update(float _DeltaTime)
 {
-	GlobalContentsValue::Twitter = true;
+	GlobalContentsValue::Stream = true;
 	if (GlobalContentsValue::Twitter)
 	{
 		if (GlobalContentsValue::Contents == "Tutorial")

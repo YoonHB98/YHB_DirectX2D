@@ -147,6 +147,17 @@ void ContentsCore::Start()
 	GameEngineFont::Load("NanumBarunGothic");
 	GameEngineFont::Load("NanumBarunGothicBold");
 
+	//cho
+	GameEngineTexture::Cut("cho_kashikoma.png", 8, 2);
+	GameEngineTexture::Cut("cho_idle.png", 3, 2);
+	GameEngineTexture::Cut("cho_kawaiku.png", 3, 2);
+	GameEngineTexture::Cut("cho_pointing.png", 5, 2);
+	GameEngineTexture::Cut("cho_angel.png", 2, 2);
+	GameEngineTexture::Cut("cho_teach.png", 2, 2);
+	GameEngineTexture::Cut("stream_cho_end.png", 1, 2);
+	GameEngineTexture::Cut("cho_dokuzetsu_superchat.png", 6, 2);
+	GameEngineTexture::Cut("cho_nyo.png", 2, 2);
+
 	GameEngineTexture::Cut("ame_handspinner.png", 11, 1);
 	GameEngineTexture::Cut("boot.png", 10, 7);
 	GameEngineTexture::Cut("Windose.png", 10, 3);
@@ -155,17 +166,10 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("ame_idle_normal1.png", 11, 1);
 	GameEngineTexture::Cut("ame_talk1.png", 5, 2);
 	GameEngineTexture::Cut("ame_out0.png", 5, 3);
-	GameEngineTexture::Cut("cho_kashikoma.png", 8, 1);
-	GameEngineTexture::Cut("cho_idle.png", 3, 1);
-	GameEngineTexture::Cut("cho_kawaiku.png", 3, 1);
-	GameEngineTexture::Cut("cho_pointing.png", 5, 1);
+
 	GameEngineTexture::Cut("badge.png",1, 1);
 	GameEngineTexture::Cut("icon_desktop_internet.png", 1, 2);
-	GameEngineTexture::Cut("cho_angel.png", 2, 1);
-	GameEngineTexture::Cut("cho_teach.png", 2, 1);
-	GameEngineTexture::Cut("stream_cho_end.png",1, 1);
-	GameEngineTexture::Cut("cho_dokuzetsu_superchat.png", 6, 1);
-	GameEngineTexture::Cut("cho_nyo.png", 2, 1);
+
 	GameEngineTexture::Cut("icon_loading_poketter.png", 8, 1);
 	// 리소스를 로드하는데.
 
