@@ -35,7 +35,7 @@ void LineText::Update(float _DeltaTime)
 	if (GlobalContentsValue::LineNum != 1)
 	{
 		Count = Count + 1;
-		for (int i = 0; i < 20; i++)
+		for (int i = 0; i < 30; i++)
 		{
 			if (Count == i)
 			{
@@ -156,19 +156,16 @@ void LineText::Check()
 	if (MouseCheck(Collision)
 		&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
-
-		TextNum = TextNum + 17;
 		MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
 		float SizeY = 0;
-		SizeY = TextRend->GetTransform().GetLocalScale().y;
 		TextRend->SetTexture("Choice1_1.png");
 		TextRend->ScaleToTexture();
+		SizeY = TextRend->GetTransform().GetLocalScale().y;
 		TextRend->GetTransform().SetLocalPosition(float4(320, 75 - TextNum - SizeY / 2));
 		ChoiceText->GetTransform().SetLocalMove(float4(0, 0, 600));
 		Text.push_back(TextRend);
 		MoveStart++;
-		Move = Move + 34;
-		TextMove(32, Move);
+		TextMove(SizeY + 3, 0);
 		GlobalContentsValue::RemainLinenum = 8;
 		Collision->Off();
 		Collision2->Off();
@@ -177,18 +174,16 @@ void LineText::Check()
 		if (MouseCheck(Collision2)
 			&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		{
-			TextNum = TextNum + 17;
 			MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
 			float SizeY = 0;
-			SizeY = TextRend->GetTransform().GetLocalScale().y;
 			TextRend->SetTexture("Choice1_2.png");
 			TextRend->ScaleToTexture();
+			SizeY = TextRend->GetTransform().GetLocalScale().y;
 			TextRend->GetTransform().SetLocalPosition(float4(320, 75 - TextNum - SizeY / 2));
 			ChoiceText->GetTransform().SetLocalMove(float4(0, 0, 600));
 			Text.push_back(TextRend);
 			MoveStart++;
-			Move = Move + 34;
-			TextMove(34, Move);
+			TextMove(SizeY + 3, 0);
 			GlobalContentsValue::RemainLinenum = 8;
 			Collision->Off();
 			Collision2->Off();
