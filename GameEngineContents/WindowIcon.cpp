@@ -98,6 +98,15 @@ void WindowIcon::Update(float _DeltaTime)
 	{
 		ChangeZPos(-10);
 	}
+	if (GlobalContentsValue::Tutorial == false)
+	{
+		Youtube->GetColorData().MulColor.a = 1.0f;
+		Internet->GetColorData().MulColor.a = 1.0f;
+		Asobu->GetColorData().MulColor.a = 1.0f;
+		Neru->GetColorData().MulColor.a = 1.0f;
+		Okusuri->GetColorData().MulColor.a = 1.0f;
+		Odekake->GetColorData().MulColor.a = 1.0f;
+	}
 	if (MouseCheck(YoutubeCol)
 		&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
