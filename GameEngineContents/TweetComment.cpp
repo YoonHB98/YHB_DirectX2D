@@ -43,7 +43,7 @@ void TweetComment::Update(float _DeltaTime)
 			MoveY(YSize);
 		}
 
-		ChangeZPos(0);
+		ChangeZPos(-300);
 	}
 	else
 	{

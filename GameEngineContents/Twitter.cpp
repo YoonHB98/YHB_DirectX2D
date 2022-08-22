@@ -33,7 +33,7 @@ void Twitter::Update(float _DeltaTime)
 		{
 			TweetComment::RemainTwit = 2;
 		}
-		ChangeZPos(0);
+		ChangeZPos(-300);
 	}
 	else
 	{

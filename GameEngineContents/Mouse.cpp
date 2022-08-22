@@ -3,6 +3,7 @@
 #include "LineMain.h"
 #include "Stream.h"
 #include "WebCamWindow.h"
+#include "TaskManager.h"
 
 Mouse* Mouse::Inst_ = new Mouse();
 Mouse::Mouse() 
@@ -66,12 +67,7 @@ void Mouse::Update(float _DeltaTime)
 	float4 Pos = GetLevel()->GetMainCamera()->GetMouseWorldPosition();
 	GlobalContentsValue::MousePos = Pos;
 	GetTransform().SetWorldPosition(float4(Pos.x, Pos.y , 0));
-	if (nullptr != Stream::Inst_->StreamMainCol)
-	{
-		std::string CurName = Stream::Inst_->StreamMainCol->GetNameConstRef();
-		CurName = CurNameChange(CurName);
-		Stream::Inst_->StreamMainCol->SetName(CurName);
-	}
+
 	if (GlobalContentsValue::Stream == true)
 	{
 		if (bool Check30 = Collision30->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Window, CollisionType::CT_OBB,
@@ -144,7 +140,10 @@ bool Mouse::ChnageName(GameEngineCollision* _This, GameEngineCollision* _Other)
 	if (GlobalContentsValue::Stream == true
 		&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
+
 		_Other->SetName("30F");
+		std::string CurName = Stream::Inst_->StreamMainCol->GetNameConstRef();
+		CurName = TaskManager::Inst_->TaskManagerMainCol->GetNameConstRef();
 	}else
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
@@ -168,6 +167,20 @@ void Mouse::ChangeNameAll()
 		CurName = CurNameChange(CurName);
 		WebCamWindow::Inst_->WebCamMainCol->SetName(CurName);
 	}
+	if (nullptr != Stream::Inst_->StreamMainCol
+		&& GlobalContentsValue::Stream == true)
+	{
+		std::string CurName = Stream::Inst_->StreamMainCol->GetNameConstRef();
+		CurName = CurNameChange(CurName);
+		Stream::Inst_->StreamMainCol->SetName(CurName);
+	}
+	if (nullptr != TaskManager::Inst_->TaskManagerMainCol)
+	{
+		std::string CurName = TaskManager::Inst_->TaskManagerMainCol->GetNameConstRef();
+		CurName = CurNameChange(CurName);
+		TaskManager::Inst_->TaskManagerMainCol->SetName(CurName);
+	}
+
 }
 
 std::string Mouse::CurNameChange(std::string string)

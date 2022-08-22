@@ -30,13 +30,14 @@ void TaskManager::Start()
 
 void TaskManager::Update(float _DeltaTime)
 {
-	GlobalContentsValue::Stream = true;
+	std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
 	if (GlobalContentsValue::Stream == true)
 	{
+		std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
 		if (Inst_->TaskManagerMainCol->GetNameConstRef() == ("40"))
 		{
-			ChangeZPos(1000);
-			Inst_->TaskManagerMainCol->GetTransform().SetLocalPosition(float4(257, 170, -960));
+			ChangeZPos(300);
+			Inst_->TaskManagerMainCol->GetTransform().SetLocalPosition(float4(257, 170, -260));
 			return;
 		}
 		else
