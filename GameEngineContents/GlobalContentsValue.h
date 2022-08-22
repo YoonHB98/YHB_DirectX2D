@@ -53,5 +53,6 @@ enum class OBJECTORDER
 {
 	Mouse,
 	UI,
-	SuperChat
+	SuperChat,
+	Window
 };

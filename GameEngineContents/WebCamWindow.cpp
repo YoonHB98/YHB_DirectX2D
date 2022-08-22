@@ -1,6 +1,8 @@
 #include "PreCompile.h"
 #include "WebCamWindow.h"
 
+WebCamWindow* WebCamWindow::Inst_ = new WebCamWindow();
+
 WebCamWindow::WebCamWindow()
 {
 }
@@ -36,7 +38,14 @@ void WebCamWindow::Start()
 	StateManager.CreateStateMember("Active", std::bind(&WebCamWindow::ActiveUpdate, this, std::placeholders::_1, std::placeholders::_2), std::bind(&WebCamWindow::ActiveStart, this, std::placeholders::_1));
 	StateManager.ChangeState("Idle");
 
-	ChangeZPos(-50);
+	Inst_->WebCamMainCol = CreateComponent<GameEngineCollision>();
+	Inst_->WebCamMainCol->GetTransform().SetLocalPosition(float4(-90, 120));
+	Inst_->WebCamMainCol->GetTransform().SetLocalScale(float4(358, 254,5));
+	Inst_->WebCamMainCol->ChangeOrder(OBJECTORDER::Window);
+	Mouse::Inst_->ChangeNameAll();
+	Inst_->WebCamMainCol->SetName("-90");
+
+	ChangeZPos(0);
 }
 
 void WebCamWindow::Update(float _DeltaTime)
@@ -54,7 +63,8 @@ void WebCamWindow::Update(float _DeltaTime)
 	}
 	else
 	{
-		ChangeZPos(10);
+		int A = std::stoi(Inst_->WebCamMainCol->GetNameConstRef());
+		ChangeZPos(std::stoi(Inst_->WebCamMainCol->GetNameConstRef()));
 	}
 
 	if (GlobalContentsValue::Change ==true)

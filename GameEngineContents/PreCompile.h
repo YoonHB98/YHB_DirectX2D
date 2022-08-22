@@ -27,6 +27,8 @@
 #include "Myfont.h"
 #include "MyTextureRenderer.h"
 #include "CommentTextureRenderer.h"
+#include "Mouse.h"
+
 // base
 #include <GameEngineBase/GameEngineDebug.h>
 #include <GameEngineBase/GameEngineInput.h>

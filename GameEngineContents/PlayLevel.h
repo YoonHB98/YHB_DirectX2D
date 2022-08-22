@@ -26,5 +26,9 @@ private:
 	bool first = true;
 	bool TutorialFirst = true;
 	bool TutorialLoginFirst = true;
+
+	GameEngineActor* A;
+
+	void ChangeZ(GameEngineActor* Actor, float Pos);
 };
 

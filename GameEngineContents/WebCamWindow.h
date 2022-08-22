@@ -8,6 +8,16 @@ class GameEngineTextureRenderer;
 class WebCamWindow : public DefaultSetTex
 {
 public:
+	static void Destroy()
+	{
+		if (nullptr != Inst_)
+		{
+			delete Inst_;
+			Inst_ = nullptr;
+		}
+	}
+
+public:
 	// constrcuter destructer
 	WebCamWindow();
 	~WebCamWindow();
@@ -17,6 +27,10 @@ public:
 	WebCamWindow(WebCamWindow&& _Other) noexcept = delete;
 	WebCamWindow& operator=(const WebCamWindow& _Other) = delete;
 	WebCamWindow& operator=(WebCamWindow&& _Other) noexcept = delete;
+
+	static WebCamWindow* Inst_;
+	GameEngineCollision* WebCamMainCol;
+
 
 protected:
 	void Start() override;

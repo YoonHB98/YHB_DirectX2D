@@ -21,7 +21,7 @@ void ToolTip::Update(float _DeltaTime)
 	if (GlobalContentsValue::Tooltip)
 	{
 		Pos = GlobalContentsValue::MousePos;
-		GetTransform().SetWorldPosition(float4(Pos.x, Pos.y, -540));
+		GetTransform().SetWorldPosition(float4(Pos.x, Pos.y, -1000));
 	}
 	else
 	{

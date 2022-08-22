@@ -25,8 +25,10 @@ public:
 	Stream& operator=(Stream&& _Other) noexcept = delete;
 
 	static Stream* Inst_;
+	GameEngineTextureRenderer* StreamRenderer;
 	GameEngineTextureRenderer* Haisin;
 	GameEngineSoundPlayer  BgmPlayer;
+	GameEngineCollision* StreamMainCol;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

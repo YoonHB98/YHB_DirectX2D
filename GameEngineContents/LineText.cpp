@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "LineText.h"
 #include "ToolTipText.h"
+#include "LineMain.h"
 
 LineText::LineText() 
 {
@@ -48,10 +49,11 @@ void LineText::Update(float _DeltaTime)
 	if (GlobalContentsValue::Line == false)
 	{
 		ChangeZPos(500);
+		return;
 	}
 	else
 	{
-		ChangeZPos(-10);
+		ChangeZPos(std::stoi(LineMain::Inst_->LineMainCol->GetNameConstRef()) - 5 );
 	}
 
 	if (ChoiceTimeStart == true)

@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "StreamAnimation.h"
+#include "Stream.h"
 
 StreamAnimation::StreamAnimation() 
 {
@@ -56,8 +57,8 @@ void StreamAnimation::Update(float _DeltaTime)
 		if (first == true)
 		{
 			first = false;
-			ChangeZPos(40);
 		}
+		ChangeZPos(std::stoi(Stream::Inst_->StreamMainCol->GetNameConstRef()) - 1);
 		Contents = ContentsMap[GlobalContentsValue::Contents];
 		ContentsUpdate(Contents);
 	}

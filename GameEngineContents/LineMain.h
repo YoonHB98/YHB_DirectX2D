@@ -8,6 +8,15 @@ class GameEngineTextureRenderer;
 class LineMain : public DefaultSetTex
 {
 public:
+	static void Destroy()
+	{
+		if (nullptr != Inst_)
+		{
+			delete Inst_;
+			Inst_ = nullptr;
+		}
+	}
+public:
 	// constrcuter destructer
 	LineMain();
 	~LineMain();
@@ -20,11 +29,12 @@ public:
 
 	GameEngineTextureRenderer* Renderer;
 	GameEngineSoundPlayer BgmPlayer;
+	static LineMain* Inst_;
+	GameEngineCollision* LineMainCol;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-
 };
 

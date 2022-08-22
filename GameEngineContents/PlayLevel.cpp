@@ -49,7 +49,7 @@ void PlayLevel::Start()
 	CreateActor<Mouse>(GameObjectGroup::WindowIcon);
 	CreateActor<ToolTip>(GameObjectGroup::WindowIcon);
 	CreateActor<ToolTipText>(GameObjectGroup::WindowIcon);
-	CreateActor<Stream>(GameObjectGroup::WindowIcon);
+	CreateActor<Stream>(GameObjectGroup::UI);
 
 	//Icon
 	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
@@ -122,4 +122,9 @@ void PlayLevel::Update(float _DeltaTime)
 
 }
 void PlayLevel::End() {  }
+
+void PlayLevel::ChangeZ(GameEngineActor* Actor, float Pos)
+{
+	
+}
 

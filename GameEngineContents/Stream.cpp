@@ -3,6 +3,7 @@
 #include "StreamAnimation.h"
 #include "PlayLevel.h"
 #include "ToolTipText.h"
+#include "TaskManager.h"
 
 Stream* Stream::Inst_ = new Stream();
 
@@ -25,10 +26,29 @@ void Stream::Start()
 	Haisin->GetTransform().SetLocalPosition(float4(0,-5));
 	Haisin->GetTransform().SetLocalScale(float4(662, 440));
 	
+	float4 Size = Renderer->GetTransform().GetLocalScale();
+	Inst_->StreamMainCol = CreateComponent<GameEngineCollision>();
+	Inst_->StreamMainCol->GetTransform().SetLocalPosition(float4(0, 0,0));
+	Inst_->StreamMainCol->GetTransform().SetLocalScale(float4(Size.x,Size.y, 2));
+	Inst_->StreamMainCol->ChangeOrder(OBJECTORDER::Window);
+	Inst_->StreamMainCol->SetName("30");
 }
 
 void Stream::Update(float _DeltaTime)
 {
+
+	MouseCheck(Inst_->StreamMainCol);
+	if (GlobalContentsValue::Stream == false)
+	{
+		ChangeZPos(500);
+		first = true;
+		return;
+	}else
+	if (GlobalContentsValue::Stream)
+	{
+		int a = std::stoi(Inst_->StreamMainCol->GetNameConstRef());
+		ChangeZPos(std::stoi(Inst_->StreamMainCol->GetNameConstRef()));
+	}
 	if (GlobalContentsValue::Stream
 		&&first)
 	{
@@ -38,19 +58,16 @@ void Stream::Update(float _DeltaTime)
 			ToolTipText::Count = ToolTipText::Count + 1;
 			Tutorial = false;
 		}
-		ChangeZPos(40);
+		TaskManager::Inst_->TaskManagerMainCol->SetName("40");
 		first = false;
 		Inst_->BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_kenjo.wav", 999);
 	}
 	if (GlobalContentsValue::ChangeTime > 200.0f)
 	{
+		TaskManager::Inst_->TaskManagerMainCol->SetName("-90");
 		Inst_->BgmPlayer.Stop();
 	}
-	if (GlobalContentsValue::Stream == false)
-	{
-		ChangeZPos(500);
 
-	}
 }
 
 void Stream::End()

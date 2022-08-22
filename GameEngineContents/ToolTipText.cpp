@@ -22,7 +22,7 @@ void ToolTipText::Update(float _DeltaTime)
 	if (GlobalContentsValue::Tooltip)
 	{
 		Pos = GlobalContentsValue::MousePos;
-		GetTransform().SetWorldPosition(float4(Pos.x - 117, Pos.y + 42, -540));
+		GetTransform().SetWorldPosition(float4(Pos.x - 117, Pos.y + 42, -1000));
 		if (GlobalContentsValue::TutorialLogin == true)
 		{
 			GlobalContentsValue::Tooltip = false;
