@@ -123,6 +123,20 @@ void ContentsCore::Start()
 
 			Dir.MoveParentToExitsChildDirectory("Resources");
 			Dir.Move("Resources");
+			Dir.Move("icon");
+
+			std::vector<GameEngineFile> Shaders = Dir.GetAllFile();
+
+			for (size_t i = 0; i < Shaders.size(); i++)
+			{
+				GameEngineTexture::Load(Shaders[i].GetFullPath());
+			}
+		}
+		{
+			GameEngineDirectory Dir;
+
+			Dir.MoveParentToExitsChildDirectory("Resources");
+			Dir.Move("Resources");
 			Dir.Move("CommentText");
 
 			std::vector<GameEngineFile> Shaders = Dir.GetAllFile();

@@ -29,6 +29,7 @@ void LineText::Update(float _DeltaTime)
 		{
 			GlobalContentsValue::Tooltip = true;
 			Tutorial = true;
+			EmoticonON();
 			time = 0;
 		}
 	}

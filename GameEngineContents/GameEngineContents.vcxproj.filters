@@ -271,5 +271,8 @@
     <ClCompile Include="TweetComment.cpp">
       <Filter>Actor\Play\tweet</Filter>
     </ClCompile>
+    <ClCompile Include="LineEmoticon.cpp">
+      <Filter>Actor\Play\Line\Text</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

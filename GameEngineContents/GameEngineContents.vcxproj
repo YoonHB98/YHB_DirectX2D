@@ -325,6 +325,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="LineEmoticon.cpp" />
     <ClCompile Include="LineMain.cpp">
       <SubType>
       </SubType>

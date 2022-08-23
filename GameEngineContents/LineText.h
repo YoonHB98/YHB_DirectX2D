@@ -41,5 +41,7 @@ private:
 	GameEngineCollision* Collision;
 	GameEngineCollision* Collision2;
 	std::vector<MyTextureRenderer*> Text;
+
+	void EmoticonON();
 };
 
