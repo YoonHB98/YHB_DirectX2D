@@ -562,6 +562,7 @@ void StreamAnimation::UpdateA9()
 								GlobalContentsValue::Stream = false;
 								GlobalContentsValue::ChangeTime = 0.0f;
 								GlobalContentsValue::Twitter = true;
+								GlobalContentsValue::Tooltip = false;
 								}
 						}
 					}

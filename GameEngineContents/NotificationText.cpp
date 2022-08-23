@@ -15,11 +15,12 @@ void NotificationText::Start()
 
 void NotificationText::Update(float _DeltaTime)
 {
-	TextDraw();
 	if (GlobalContentsValue::Line)
 	{
 		Off();
+		return;
 	}
+	TextDraw();
 }
 
 void NotificationText::End()
@@ -40,6 +41,16 @@ void NotificationText::TextDraw()
 			break;
 		case 1:
 			Font->TextDraw("비밀번호는 angelkawaii...", "Galmuri9", float4(710, 492), float4(0.271f, 0.3294f, 0.56862f, 1), 10.0f);
+			GlobalContentsValue::TextConNum++;
+			first = false;
+			break;
+		case 2:
+			Font->TextDraw("하아~ 긴장했어...", "Galmuri9", float4(710, 492), float4(0.271f, 0.3294f, 0.56862f, 1), 10.0f);
+			GlobalContentsValue::TextConNum++;
+			first = false;
+			break;
+		case 3:
+			Font->TextDraw("둘이서 열심히 만들어...", "Galmuri9", float4(710, 492), float4(0.271f, 0.3294f, 0.56862f, 1), 10.0f);
 			GlobalContentsValue::TextConNum++;
 			first = false;
 			break;

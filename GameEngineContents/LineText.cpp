@@ -109,6 +109,11 @@ void LineText::CreateText(std::string _Text)
 	TextRend->GetTransform().SetLocalPosition(float4(185,(75 - TextNum) - SizeY/2 ));
 	Text.push_back(TextRend);
 	MoveStart++;
+	if (MoveStart == 4)
+	{
+		TextMove(20, 0);
+		TextNum = TextNum + 60+ 3; 
+	}else
 	if (MoveStart >= 5)
 	{
 		if (TextNum > 180.0f)
@@ -143,16 +148,16 @@ void LineText::CreateChoice()
 	std::string Choice = "Choice" + std::to_string(ChoiceNum) + ".png";
 	ChoiceText->SetTexture(Choice);
 	ChoiceText->ScaleToTexture();
-	ChoiceText->GetTransform().SetLocalPosition(float4(300, -170));
+	ChoiceText->GetTransform().SetLocalPosition(float4(300, -140));
 
 	Collision = CreateComponent<GameEngineCollision>();
 	Collision->GetTransform().SetLocalScale(float4(40, 10));
-	Collision->GetTransform().SetLocalPosition(float4(320, -160, 0));
+	Collision->GetTransform().SetLocalPosition(float4(320, -130, 0));
 	Collision->ChangeOrder(OBJECTORDER::UI);
 
 	Collision2 = CreateComponent<GameEngineCollision>();
 	Collision2->GetTransform().SetLocalScale(float4(80, 10));
-	Collision2->GetTransform().SetLocalPosition(float4(300, -185, 0));
+	Collision2->GetTransform().SetLocalPosition(float4(300, -155, 0));
 	Collision2->ChangeOrder(OBJECTORDER::UI);
 	CheckStart = true;
 }
