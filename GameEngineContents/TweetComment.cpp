@@ -22,10 +22,10 @@ void TweetComment::Update(float _DeltaTime)
 	if (GlobalContentsValue::Twitter)
 	{
 		Time = Time + _DeltaTime;
-		if (Time > 1.0f
+		if (Time >3.0f
 			&& GlobalContentsValue::RemainTwitnum != 0)
 		{
-			Time = Time - 1.0f;
+			Time = Time - 3.0f;
 			CreateText(GlobalContentsValue::Contents +"Twit" +  std::to_string(i) + ".png");
 			i = i + 1;
 			GlobalContentsValue::RemainTwitnum = GlobalContentsValue::RemainTwitnum - 1;
@@ -64,7 +64,7 @@ void TweetComment::CreateText(const std::string& _Text)
 	TextRend->SetTexture(_Text);
 	TextRend->ScaleToTexture();
 	YSize = TextRend->GetTransform().GetLocalScale().y;
-	TextRend->GetTransform().SetLocalPosition(float4(-3, 198 - YSize /2, -500));
+	TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize /2, -500));
 	TextVector.push_back(TextRend);
 	Bot = Bot - YSize;
 }
