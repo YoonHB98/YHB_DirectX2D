@@ -13,9 +13,7 @@ LineText::~LineText()
 
 void LineText::Start()
 {
-
 	ChangeZPos(-50);
-
 }
 
 void LineText::Update(float _DeltaTime)
@@ -113,6 +111,11 @@ void LineText::CreateText(std::string _Text)
 	MoveStart++;
 	if (MoveStart >= 5)
 	{
+		if (TextNum > 180.0f)
+		{
+			TextMove(TextNum - 180,0);
+			TextNum = 180.0f;
+		}
 		TextMove(SizeY + 3, 0);
 	}
 	else

@@ -414,7 +414,7 @@ void StreamAnimation::UpdateA9()
 	}
 	if (GlobalContentsValue::ChangeTime < 96.0f)
 	{
-		TextDrawTime("댓글 읽어볼게", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+		TextDrawTime("댓글 읽어볼게", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 		if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 		{
 			GlobalContentsValue::ChangeTime = 96.1f;
@@ -422,13 +422,13 @@ void StreamAnimation::UpdateA9()
 	}else
 	if (GlobalContentsValue::ChangeTime < 102.0f)
 	{
-		TextDrawTime("「"+ GlobalContentsValue::FirstComment + " 」", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+		TextDrawTime("「"+ GlobalContentsValue::FirstComment + " 」", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 		if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 		{
 			GlobalContentsValue::ChangeTime = 102.1f;
 		}
 	}else
-		if (GlobalContentsValue::ChangeTime < 112.0f)
+		if (GlobalContentsValue::ChangeTime < 110.0f)
 		{
 			if (GlobalContentsValue::FirstComment == "꺼져")
 			{
@@ -439,18 +439,18 @@ void StreamAnimation::UpdateA9()
 				}
 				if (GlobalContentsValue::ChangeTime<106.0f)
 				{
-					TextDrawTime("너나 꺼져", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
+					TextDrawTime("너나 꺼져", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.3f);
 					if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 					{
 						GlobalContentsValue::ChangeTime = 106.1f;
 					}
 				}else	
-				if (GlobalContentsValue::ChangeTime < 112.0f)
+				if (GlobalContentsValue::ChangeTime < 110.0f)
 				{
-					TextDrawTime("훈수는 사절이야", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
+					TextDrawTime("훈수는 사절이야", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.3f);
 					if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 					{
-						GlobalContentsValue::ChangeTime = 112.1f;
+						GlobalContentsValue::ChangeTime = 110.1f;
 					}
 				}
 			}else
@@ -461,10 +461,10 @@ void StreamAnimation::UpdateA9()
 						Time = 0.0f;
 						CurAnim = Animation::Idle3;
 					}
-					TextDrawTime("에헤헤, 초텐이다냥", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.0f);
+					TextDrawTime("에헤헤, 초텐이다냥", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.6f);
 					if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 					{
-						GlobalContentsValue::ChangeTime = 112.1f;
+						GlobalContentsValue::ChangeTime = 110.1f;
 					}
 				}
 			
@@ -473,15 +473,15 @@ void StreamAnimation::UpdateA9()
 			{
 				GlobalContentsValue::ChangeTime = 130.1f;
 			}else
-			if (GlobalContentsValue::ChangeTime < 118.0f)
+			if (GlobalContentsValue::ChangeTime < 115.0f)
 			{
 				TextDrawTime("「" + GlobalContentsValue::SecondComment + " 」", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 				{
-					GlobalContentsValue::ChangeTime = 118.1f;
+					GlobalContentsValue::ChangeTime = 115.1f;
 				}
 			}else
-				if (GlobalContentsValue::ChangeTime < 130.0f)
+				if (GlobalContentsValue::ChangeTime < 123.0f)
 				{
 					if (GlobalContentsValue::SecondComment == "꺼져")
 					{
@@ -489,20 +489,20 @@ void StreamAnimation::UpdateA9()
 						{
 							Time = 0.0f;
 							CurAnim = Animation::Idle2;
-						}if (GlobalContentsValue ::ChangeTime <124.0f)
+						}if (GlobalContentsValue ::ChangeTime <119.0f)
 						{
 							TextDrawTime("너나 꺼져", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 							if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 							{
-								GlobalContentsValue::ChangeTime = 124.1f;
+								GlobalContentsValue::ChangeTime = 119.1f;
 							}
 						}else
-						if (GlobalContentsValue::ChangeTime < 130.0f)
+						if (GlobalContentsValue::ChangeTime < 123.0f)
 						{
 							TextDrawTime("훈수는 사절이야", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 							if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 							{
-								GlobalContentsValue::ChangeTime = 130.1f;
+								GlobalContentsValue::ChangeTime = 123.1f;
 							}
 						}
 					}
@@ -517,16 +517,16 @@ void StreamAnimation::UpdateA9()
 							TextDrawTime("에헤헤, 초텐이다냥", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 							if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 							{
-								GlobalContentsValue::ChangeTime =130.1f;
+								GlobalContentsValue::ChangeTime =123.1f;
 							}
 						}
 				}
 
-			if (GlobalContentsValue::ChangeTime>130.0f)
+			if (GlobalContentsValue::ChangeTime>123.0f)
 			{
 				GlobalContentsValue::ChangeTime = 250.0f;
 			}
-			if (GlobalContentsValue::ChangeTime > 130.0f)
+			if (GlobalContentsValue::ChangeTime > 123.0f)
 			{
 				Renderer->ChangeFrameAnimation("ChoEnd");
 				TextDrawTime("   ", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
