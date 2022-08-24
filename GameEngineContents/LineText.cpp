@@ -34,6 +34,11 @@ void LineText::Update(float _DeltaTime)
 
 	if (GlobalContentsValue::LineNum != 1)
 	{
+		if (CurTime != GlobalContentsValue::DayTime)
+		{
+			CurTime = GlobalContentsValue::DayTime;
+			CreateDayTime();
+		}
 		Count = Count + 1;
 		for (int i = 0; i < 30; i++)
 		{
@@ -111,7 +116,7 @@ void LineText::CreateText(std::string _Text)
 	MoveStart++;
 	if (MoveStart == 4)
 	{
-		TextMove(20, 0);
+		TextMove(-10, 0);
 		TextNum = TextNum + 60+ 3; 
 	}else
 	if (MoveStart >= 5)
@@ -199,5 +204,38 @@ void LineText::Check()
 			Collision->Off();
 			Collision2->Off();
 			GlobalContentsValue::Tooltip = false;
+		}
+}
+
+void LineText::CreateDayTime()
+{
+	MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
+	TextRend->SetTexture("Night.png");
+	TextRend->ScaleToTexture();
+
+	float SizeY = 0;
+	SizeY = TextRend->GetTransform().GetLocalScale().y;
+
+	TextRend->GetTransform().SetLocalPosition(float4(185, (75 - TextNum) - SizeY / 2));
+	Text.push_back(TextRend);
+	MoveStart++;
+	if (MoveStart == 4)
+	{
+		TextMove(20, 0);
+		TextNum = TextNum + 60 + 3;
+	}
+	else
+		if (MoveStart >= 5)
+		{
+			if (TextNum > 180.0f)
+			{
+				TextMove(TextNum - 180, 0);
+				TextNum = 180.0f;
+			}
+			TextMove(SizeY + 3, 0);
+		}
+		else
+		{
+			TextNum = TextNum + SizeY + 3;
 		}
 }

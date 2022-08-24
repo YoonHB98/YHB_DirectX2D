@@ -36,12 +36,14 @@ protected:
 	int MoveStart = 0;
 	float ChangeTime = 0;
 	bool ChangeStart = false;
+	int CurTime = 0;
 private:
 	MyTextureRenderer* ChoiceText;
 	GameEngineCollision* Collision;
 	GameEngineCollision* Collision2;
 	std::vector<MyTextureRenderer*> Text;
 
+	void CreateDayTime();
 	void EmoticonON();
 };
 
