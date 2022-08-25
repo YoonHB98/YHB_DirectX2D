@@ -24,7 +24,7 @@
 #include "Comment.h"
 #include "Twitter.h"
 #include "TweetComment.h"
-
+#include "DayChangeWindow.h"
 
 float PlayLevel::time = 0;
 
@@ -49,6 +49,7 @@ void PlayLevel::Start()
 	CreateActor<ToolTip>(GameObjectGroup::WindowIcon);
 	CreateActor<ToolTipText>(GameObjectGroup::WindowIcon);
 	CreateActor<Stream>(GameObjectGroup::UI);
+	CreateActor<DayChangeWindow>(GameObjectGroup::UI);
 
 	//Icon
 	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
@@ -67,6 +68,10 @@ void PlayLevel::Start()
 }
 void PlayLevel::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::DayChangeWindow)
+	{
+		return;
+	}
 	time = time + GameEngineTime::GetDeltaTime();
 	//bartime = bartime + GameEngineTime::GetDeltaTime();
 	//if (time < -0.01f)

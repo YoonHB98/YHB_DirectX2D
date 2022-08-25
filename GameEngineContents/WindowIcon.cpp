@@ -14,9 +14,8 @@ void WindowIcon::Start()
 	{
 		Youtube = CreateComponent<GameEngineTextureRenderer>();
 		Youtube->SetTexture("icon_desktop_youtube.png");
-		Youtube->GetTransform().SetLocalPosition(float4(-305, 230, -30));
+		Youtube->GetTransform().SetLocalPosition(float4(-305, 230, 0));
 		Youtube->GetTransform().SetLocalScale(float4(32, 32));
-		Youtube->SetRenderingOrder(1);
 		YoutubeCol = CreateComponent<GameEngineCollision>();
 		YoutubeCol->GetTransform().SetLocalPosition(float4(-305, 230, -30));
 		YoutubeCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -27,7 +26,6 @@ void WindowIcon::Start()
 		Asobu->SetTexture("icon_desktop_asobu.png");
 		Asobu->GetTransform().SetLocalPosition(float4(-305, 165, 0));
 		Asobu->GetTransform().SetLocalScale(float4(32, 32));
-		Asobu->SetRenderingOrder(1);
 		AsobuCol = CreateComponent<GameEngineCollision>();
 		AsobuCol->GetTransform().SetLocalPosition(float4(-305, 165, 0));
 		AsobuCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -38,7 +36,6 @@ void WindowIcon::Start()
 		Neru->SetTexture("icon_desktop_neru.png");
 		Neru->GetTransform().SetLocalPosition(float4(-305, 100, 0));
 		Neru->GetTransform().SetLocalScale(float4(32, 32));
-		Neru->SetRenderingOrder(1);
 		NeruCol = CreateComponent<GameEngineCollision>();
 		NeruCol->GetTransform().SetLocalPosition(float4(-305, 100, 0));
 		NeruCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -49,7 +46,6 @@ void WindowIcon::Start()
 		Okusuri->SetTexture("icon_desktop_okusuri.png");
 		Okusuri->GetTransform().SetLocalPosition(float4(-305, 35, 0));
 		Okusuri->GetTransform().SetLocalScale(float4(32, 32));
-		Okusuri->SetRenderingOrder(1);
 		OkusuriCol = CreateComponent<GameEngineCollision>();
 		OkusuriCol->GetTransform().SetLocalPosition(float4(-305, 35, 0));
 		OkusuriCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -61,7 +57,6 @@ void WindowIcon::Start()
 		Internet->CreateFrameAnimationCutTexture("Internet", FrameAnimation_DESC("icon_desktop_internet.png", 0, 0, 0.1f, false));
 		Internet->ChangeFrameAnimation("Internet");
 		Internet->GetTransform().SetLocalScale(float4(32, 32));
-		Internet->SetRenderingOrder(1);
 		InternetCol = CreateComponent<GameEngineCollision>();
 		InternetCol->GetTransform().SetLocalPosition(float4(-305, -30, 0));
 		InternetCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -72,7 +67,6 @@ void WindowIcon::Start()
 		Odekake->SetTexture("icon_desktop_odekake.png");
 		Odekake->GetTransform().SetLocalPosition(float4(-305, -95, 0));
 		Odekake->GetTransform().SetLocalScale(float4(32, 32));
-		Odekake->SetRenderingOrder(1);
 		OdekakeCol = CreateComponent<GameEngineCollision>();
 		OdekakeCol->GetTransform().SetLocalPosition(float4(-305, -95, 0));
 		OdekakeCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -102,7 +96,7 @@ void WindowIcon::Update(float _DeltaTime)
 	}
 	else
 	{
-		ChangeZPos(50);
+		ChangeZPos(-10);
 	}
 	if (GlobalContentsValue::Tutorial == false)
 	{

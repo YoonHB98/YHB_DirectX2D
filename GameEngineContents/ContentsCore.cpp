@@ -1,8 +1,9 @@
 #include "PreCompile.h"
 #include "ContentsCore.h"
-#include "GameEngineContents/TitleLevel.h"
-#include "GameEngineContents/LoadingLevel.h"
-#include "GameEngineContents/PlayLevel.h"
+#include "TitleLevel.h"
+#include "LoadingLevel.h"
+#include "PlayLevel.h"
+#include "TestLevel.h"
 #include "Stream.h"
 #include "WebCamWindow.h"
 #include "LineMain.h"
@@ -163,6 +164,7 @@ void ContentsCore::Start()
 	GameEngineFont::Load("Zpix");
 	GameEngineFont::Load("NanumBarunGothic");
 	GameEngineFont::Load("NanumBarunGothicBold");
+	GameEngineFont::Load("DinkieBitmap 7px");
 
 	//cho
 	GameEngineTexture::Cut("cho_kashikoma.png", 8, 2);
@@ -194,6 +196,7 @@ void ContentsCore::Start()
 	CreateLevel<LoadingLevel>("Loading");
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
+	CreateLevel<TestLevel>("Test");
 	ChangeLevel("Play");
 
 	GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);

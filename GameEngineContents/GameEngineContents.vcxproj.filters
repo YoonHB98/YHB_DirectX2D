@@ -64,6 +64,9 @@
     <Filter Include="TextureRenderer">
       <UniqueIdentifier>{f5ea2cfe-d773-4b75-9ac1-64cbe2f487ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Window\DayChangeWindow">
+      <UniqueIdentifier>{71db6fa7-cecc-4b09-82d6-bfdec58b328c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -165,6 +168,12 @@
     </ClInclude>
     <ClInclude Include="TweetComment.h">
       <Filter>Actor\Play\tweet</Filter>
+    </ClInclude>
+    <ClInclude Include="DayChangeWindow.h">
+      <Filter>Actor\Window\DayChangeWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="TestLevel.h">
+      <Filter>Level</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +282,12 @@
     </ClCompile>
     <ClCompile Include="LineEmoticon.cpp">
       <Filter>Actor\Play\Line\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="DayChangeWindow.cpp">
+      <Filter>Actor\Window\DayChangeWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="TestLevel.cpp">
+      <Filter>Level</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

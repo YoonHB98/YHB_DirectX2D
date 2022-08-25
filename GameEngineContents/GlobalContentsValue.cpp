@@ -14,6 +14,7 @@ int GlobalContentsValue::DayTime = 3;
 bool GlobalContentsValue::Out = false;
 bool GlobalContentsValue::Message =true;
 bool GlobalContentsValue::Stream = false;
+bool GlobalContentsValue::DayChangeWindow = true;
 float4 GlobalContentsValue::MousePos = float4(200,200,0);
 bool GlobalContentsValue::WebCamWindow = false;
 bool GlobalContentsValue::Line = false;
