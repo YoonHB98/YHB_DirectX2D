@@ -2,7 +2,7 @@
 
 enum class GameObjectGroup 
 {
-	BackGround,
 	WindowIcon,
-	UI
+	UI,
+	BackGround,
 };

@@ -14,6 +14,7 @@ void ToolTip::Start()
 	SetTexture("pien_tutorial.png");
 	SetLocalPosition(float4(0, 42, 500));
 	SetLocalScale(float4(56, 56));
+	Renderer->SetRenderingOrder(2);
 }
 
 void ToolTip::Update(float _DeltaTime)

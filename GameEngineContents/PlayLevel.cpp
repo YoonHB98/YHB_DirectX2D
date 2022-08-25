@@ -42,8 +42,7 @@ void PlayLevel::Start()
 
 
 	//BG
-	CreateActor<MainBG>(GameObjectGroup::BackGround);
-	CreateActor<SideBG>(GameObjectGroup::BackGround);
+
 	CreateActor<LineMain>(GameObjectGroup::WindowIcon);
 	CreateActor<WebCamWindow>(GameObjectGroup::WindowIcon);
 	CreateActor<Mouse>(GameObjectGroup::WindowIcon);
@@ -53,7 +52,8 @@ void PlayLevel::Start()
 
 	//Icon
 	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
-
+	CreateActor<MainBG>(GameObjectGroup::BackGround);
+	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	//ingame
 	CreateActor<LineText>();
 	CreateActor<Change>(GameObjectGroup::WindowIcon);

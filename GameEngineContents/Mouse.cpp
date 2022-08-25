@@ -19,6 +19,7 @@ void Mouse::Start()
 	SetTexture("Cursor.png");
 	SetLocalPosition(float4(0, 0, -500));
 	SetLocalScale(float4(32, 32));
+	Renderer->SetRenderingOrder(2);
 
 	Collision = CreateComponent<GameEngineCollision>();
 	Collision->GetTransform().SetLocalScale({ 32.0f,8.0f,400.0f });
