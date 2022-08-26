@@ -34,16 +34,20 @@ void DayChangeWindow::Update(float _DeltaTime)
 {
 	if (GlobalContentsValue::DayChangeWindow)
 	{
+		Time = Time + _DeltaTime;
 		if (First)
 		{
-			Time = 0.0f;
-			DayChangeTime = 0.0f;
-			Tri->GetColorData().MulColor.a = 1.0f;
-			Renderer->GetColorData().MulColor.a = 1.0f;
-			Count = 0;
-			First = false;
+			if (Time > 0.8f)
+			{
+				First = false;	
+				Time = 0.0f;
+				DayChangeTime = 0.0f;
+				Tri->GetColorData().MulColor.a = 1.0f;
+				Renderer->GetColorData().MulColor.a = 1.0f;
+				Count = 0;
+			}
+			return;
 		}
-		Time = Time + _DeltaTime;
 		DayChangeTime = DayChangeTime + _DeltaTime;
 		if (DayChangeTime < 0.08f)
 		{

@@ -29,15 +29,30 @@ void Twitter::Update(float _DeltaTime)
 {
 	if (GlobalContentsValue::Twitter)
 	{
-		if (GlobalContentsValue::Contents == "Tutorial")
+		if (GlobalContentsValue::Contents == "Tutorial"
+			&&First)
 		{
 			TweetComment::RemainTwit = 2;
+			First = false;
 		}
 		ChangeZPos(-300);
+		if (TweetComment::RemainTwit == 0)
+		{
+			Time = Time + _DeltaTime;
+			if (Time > 5.0f
+				|| GameEngineInput::GetInst()->IsDown("MouseClick") ==true)
+			{
+				GlobalContentsValue::Twitter = false;
+				GlobalContentsValue::RemainLinenum = 6;
+				First = true;
+				Time = 0;
+			}
+		}
 	}
 	else
 	{
 		ChangeZPos(500);
+		Time = 0;
 		return;
 	}
 }

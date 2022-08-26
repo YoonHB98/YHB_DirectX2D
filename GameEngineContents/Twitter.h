@@ -22,5 +22,7 @@ protected:
 private:
 	CommentTextureRenderer* TextureRenderer;
 	GameEngineTextureRenderer* Loading;
+	float Time;
+	bool First = true;
 };
 
