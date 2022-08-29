@@ -30,7 +30,7 @@ public:
 	MyTextureRenderer(MyTextureRenderer&& _Other) noexcept = delete;
 	MyTextureRenderer& operator=(const MyTextureRenderer& _Other) = delete;
 	MyTextureRenderer& operator=(MyTextureRenderer&& _Other) noexcept = delete;
-	MyColorData& GetColorData()
+	MyColorData& GetPixelData()
 	{
 		return ColorData;
 	}

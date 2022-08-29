@@ -42,8 +42,8 @@ void DayChangeWindow::Update(float _DeltaTime)
 				First = false;	
 				Time = 0.0f;
 				DayChangeTime = 0.0f;
-				Tri->GetColorData().MulColor.a = 1.0f;
-				Renderer->GetColorData().MulColor.a = 1.0f;
+				Tri->GetPixelData().MulColor.a = 1.0f;
+				Renderer->GetPixelData().MulColor.a = 1.0f;
 				Count = 0;
 			}
 			return;
@@ -68,22 +68,22 @@ void DayChangeWindow::Update(float _DeltaTime)
 			}
 		}
 		if (Time > 2.0f
-			&& Tri->GetColorData().MulColor.a > 0.0f)
+			&& Tri->GetPixelData().MulColor.a > 0.0f)
 		{
 			if (Time < 2.08f)
 			{
 				Tri->GetTransform().SetLocalMove(float4(0, 250 * _DeltaTime, 0));
 			}
 			Font->SetTexture("Day"+ std::to_string(GlobalContentsValue::Day) + ".png");
-			Tri->GetColorData().MulColor.a = Tri->GetColorData().MulColor.a - 1.0f * _DeltaTime;
-			Renderer->GetColorData().MulColor.a = Renderer->GetColorData().MulColor.a - 1.0f * _DeltaTime;
-			Font->GetColorData().MulColor.a = Font->GetColorData().MulColor.a - 1.0f * _DeltaTime;
+			Tri->GetPixelData().MulColor.a = Tri->GetPixelData().MulColor.a - 1.0f * _DeltaTime;
+			Renderer->GetPixelData().MulColor.a = Renderer->GetPixelData().MulColor.a - 1.0f * _DeltaTime;
+			Font->GetPixelData().MulColor.a = Font->GetPixelData().MulColor.a - 1.0f * _DeltaTime;
 		}
-		if (Tri->GetColorData().MulColor.a < 0.0f)
+		if (Tri->GetPixelData().MulColor.a < 0.0f)
 		{
-			Tri->GetColorData().MulColor.a = 0.0f;
-			Renderer->GetColorData().MulColor.a = 0.0f;
-			Font->GetColorData().MulColor.a = 0.0f;
+			Tri->GetPixelData().MulColor.a = 0.0f;
+			Renderer->GetPixelData().MulColor.a = 0.0f;
+			Font->GetPixelData().MulColor.a = 0.0f;
 			GlobalContentsValue::DayChangeWindow = false;
 		}
 	}

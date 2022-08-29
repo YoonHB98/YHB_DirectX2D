@@ -30,6 +30,7 @@ void Comment::Start()
 	Font = CreateComponent<Myfont>();
 	Font->SetLeftAndRightSort(LeftAndRightSort::CENTER);
 	Font->TextDraw("방송 속도(보통)", "galmuri11", float4(618, 103), float4(94 / 255,60 / 255, 127/255, 1), 12);
+	Font->SetRenderingOrder(500);
 
 	CommentCheck = CreateComponent<GameEngineCollision>();
 	CommentCheck->GetTransform().SetLocalScale(float4(192,218));
@@ -50,6 +51,7 @@ void Comment::Update(float _DeltaTime)
 		if (GetTransform().GetLocalPosition().z < 499)
 		{
 			ChangeZPos(500);
+			Font->TextDraw(" ", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
 		}
 	}
 	else
@@ -60,31 +62,34 @@ void Comment::Update(float _DeltaTime)
 		}
 
 	}
-	if (GlobalContentsValue::Stream
-		&& i < ((GlobalContentsValue::ChangeTime - 9) / 3.115)
-		&&i < 27)
+	if (GlobalContentsValue::Stream)
 	{
-		CreateText("Comment1_" + std::to_string(i) + ".png");
-		i = i + 1;
+		if (i < ((GlobalContentsValue::ChangeTime - 9) / 3.115)
+			&& i < 27)
+		{
+			CreateText("Comment1_" + std::to_string(i) + ".png");
+			i = i + 1;
+		}
 
+		if (MouseCheck(CommentCheck)
+			&& i > 1)
+		{
+			Stream::Inst_->BgmPlayer.PlaySpeed(0.9f);
+			Font->TextDraw("댓글 선택 중", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
+			GameEngineTime::GetInst()->SetGlobalScale(0.5f);
+			GlobalContentsValue::Check = true;
+			CommentCheckStart();
+		}
+		else if (i > 1)
+		{
+			Stream::Inst_->BgmPlayer.PlaySpeed(1.0f);
+			Font->TextDraw("방송 속도(보통)", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
+			GlobalContentsValue::Check = false;
+			Trash->GetTransform().SetLocalPosition(float4(0, 0, 500));
+		}
+	}
 	
-	}
-	if (MouseCheck(CommentCheck)
-		&&i > 1)
-	{
-		Stream::Inst_->BgmPlayer.PlaySpeed(0.9f);
-		Font->TextDraw("댓글 선택 중", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
-		GameEngineTime::GetInst()->SetGlobalScale(0.5f);
-		GlobalContentsValue::Check = true;
-		CommentCheckStart();
-	}
-	else if(i > 1)
-	{
-		Stream::Inst_->BgmPlayer.PlaySpeed(1.0f);
-		Font->TextDraw("방송 속도(보통)", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
-		GlobalContentsValue::Check =false;
-		Trash->GetTransform().SetLocalPosition(float4(0, 0, 500));
-	}
+	
 }
 
 void Comment::End()

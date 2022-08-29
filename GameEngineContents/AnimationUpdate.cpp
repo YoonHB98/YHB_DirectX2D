@@ -117,7 +117,7 @@ void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& 
 			}
 		}
 	}
-	Blank->GetColorData().MulColor.a = 0.5f;
+	Blank->GetPixelData().MulColor.a = 0.5f;
 	Blank->GetTransform().SetWorldPosition(float4(-140, -35 , -520));
 	Blank->GetTransform().SetLocalScale(float4(200, 60));
 	float4 CurPos = Pos_ - float4(0, EnterCount * 20.0f);
@@ -169,7 +169,7 @@ void StreamAnimation::UpdateA1()
 
 void StreamAnimation::UpdateA2()
 {
-	TextDrawTime("젤하!", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 0.5f);
+	TextDrawTime("젤하!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 0.5f);
 	Renderer->ChangeFrameAnimation("cho_kashikoma");
 
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") &&GlobalContentsValue::Check == false)
@@ -316,7 +316,6 @@ void StreamAnimation::UpdateA5()
 	}
 
 }
-
 
 
 void StreamAnimation::UpdateA6()
@@ -499,7 +498,7 @@ void StreamAnimation::UpdateA9()
 						}else
 						if (GlobalContentsValue::ChangeTime < 123.0f)
 						{
-							TextDrawTime("훈수는 사절이야", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+							TextDrawTime("훈수는 사절이야", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 							if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 							{
 								GlobalContentsValue::ChangeTime = 123.1f;
@@ -514,7 +513,7 @@ void StreamAnimation::UpdateA9()
 								Time = 0.0f;
 								CurAnim = Animation::Idle3;
 							}
-							TextDrawTime("에헤헤, 초텐이다냥", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+							TextDrawTime("에헤헤, 초텐이다냥", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 							if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 							{
 								GlobalContentsValue::ChangeTime =123.1f;
@@ -554,6 +553,7 @@ void StreamAnimation::UpdateA9()
 							GlobalContentsValue::ChangeTime = 0.0f;
 							GlobalContentsValue::Twitter = true;
 							GlobalContentsValue::Tooltip = false;
+							GlobalContentsValue::RemainTwitnum = 2;
 						}else
 							if (EndTimer > 3.0f
 								|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
@@ -563,6 +563,7 @@ void StreamAnimation::UpdateA9()
 								GlobalContentsValue::ChangeTime = 0.0f;
 								GlobalContentsValue::Twitter = true;
 								GlobalContentsValue::Tooltip = false;
+								GlobalContentsValue::RemainTwitnum = 2;
 								}
 						}
 					}
@@ -601,4 +602,13 @@ void StreamAnimation::UpdateA9()
 
 
 
+}
+
+
+void StreamAnimation::ClickTime(float Time_)
+{
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
+	{
+		GlobalContentsValue::ChangeTime = Time_;
+	}
 }

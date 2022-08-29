@@ -1,8 +1,6 @@
 #include "PreCompile.h"
 #include "TweetComment.h"
 
-int TweetComment::RemainTwit = 0;
-
 TweetComment::TweetComment() 
 {
 }
@@ -13,8 +11,6 @@ TweetComment::~TweetComment()
 
 void TweetComment::Start()
 {
-	SetTexture("Color.png");
-	SetLocalPosition(float4(0, -50, 0));
 }
 
 void TweetComment::Update(float _DeltaTime)
@@ -31,7 +27,7 @@ void TweetComment::Update(float _DeltaTime)
 			GlobalContentsValue::RemainTwitnum = GlobalContentsValue::RemainTwitnum - 1;
 		}
 		else if (GlobalContentsValue::RemainTwitnum == 0
-			&& Time > 1.0f
+			&& Time > 2.0f
 			&& LoadingFirst)
 		{
 			LoadingFirst = false;
@@ -42,11 +38,23 @@ void TweetComment::Update(float _DeltaTime)
 		{
 			MoveY(YSize);
 		}
-
 		ChangeZPos(-300);
+
+
 	}
 	else
 	{
+		if (LoadingFirst != true)
+		{
+			std::vector<GameEngineTextureRenderer*>::iterator StartIter = TextVector.begin();
+			std::vector<GameEngineTextureRenderer*>::iterator EndIter = TextVector.end();
+
+			for (; StartIter != EndIter; ++StartIter)
+			{
+				float4 Pos = (*StartIter)->GetTransform().GetLocalPosition();
+				(*StartIter)->GetTransform().SetLocalPosition(float4(Pos.x,Pos.y, 500));
+			}
+		}
 		LoadingFirst = true;
 		ChangeZPos(500);
 		return;

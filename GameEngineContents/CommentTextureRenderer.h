@@ -15,7 +15,7 @@ public:
 	CommentTextureRenderer(CommentTextureRenderer&& _Other) noexcept = delete;
 	CommentTextureRenderer& operator=(const CommentTextureRenderer& _Other) = delete;
 	CommentTextureRenderer& operator=(CommentTextureRenderer&& _Other) noexcept = delete;
-	MyColorData& GetColorData()
+	MyColorData& GetPixelData()
 	{
 		return ColorData;
 	}

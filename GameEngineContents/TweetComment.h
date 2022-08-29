@@ -14,7 +14,6 @@ public:
 	TweetComment(TweetComment&& _Other) noexcept = delete;
 	TweetComment& operator=(const TweetComment& _Other) = delete;
 	TweetComment& operator=(TweetComment&& _Other) noexcept = delete;
-	static int RemainTwit;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

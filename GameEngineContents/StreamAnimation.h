@@ -87,6 +87,7 @@ private:
 	void UpdateA7();
 	void UpdateA8();
 	void UpdateA9();
+	void ClickTime(float Time_);
 	bool StreamEnd = false;
 	int EnterCount = 0;
 	float BlankXSize = 0;
