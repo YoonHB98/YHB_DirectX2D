@@ -38,6 +38,7 @@ void Notification::Update(float _DeltaTime)
 		&& MouseCheck(Collision))
 	{
 		GlobalContentsValue::Line = true;
+		GlobalContentsValue::EomticonStatus = 2;
 		//GlobalContentsValue::WebCamWindow = true;
 	}
 	if (GlobalContentsValue::LineNum != 1)

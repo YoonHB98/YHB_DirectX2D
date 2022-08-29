@@ -29,6 +29,7 @@ public:
 	static bool Message;
 	static bool Stream;
 	static int TextConNum;
+	static int EomticonStatus;
 	static std::string TextContents;
 	//½Ã°£
 	static int DayTime;

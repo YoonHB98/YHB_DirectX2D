@@ -37,7 +37,7 @@ protected:
 	float ChangeTime = 0;
 	bool ChangeStart = false;
 	int CurTime = 0;
-
+	int CurEmoticonStatus = 2;
 	void RLineNum();
 	
 private:
@@ -48,5 +48,7 @@ private:
 
 	void CreateDayTime();
 	void EmoticonON();
+	void EmoticonOnOff();
+	std::vector<GameEngineTextureRenderer*> EmoticonRenderer;
 };
 

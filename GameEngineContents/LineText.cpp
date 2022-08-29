@@ -57,6 +57,11 @@ void LineText::Update(float _DeltaTime)
 	}
 	else
 	{
+		if (CurEmoticonStatus != GlobalContentsValue::EomticonStatus)
+		{
+			EmoticonOnOff();
+			CurEmoticonStatus = GlobalContentsValue::EomticonStatus;
+		}
 		ChangeZPos(std::stoi(LineMain::Inst_->LineMainCol->GetNameConstRef()) - 5.0f );
 	}
 
@@ -153,6 +158,7 @@ void LineText::TextMove(float Y_, float last)
 
 void LineText::CreateChoice()
 {
+	GlobalContentsValue::EomticonStatus = 1;
 	ChoiceText = CreateComponent<MyTextureRenderer>();
 	std::string Choice = "Choice" + std::to_string(ChoiceNum) + ".png";
 	ChoiceText->SetTexture(Choice);
@@ -180,6 +186,10 @@ void LineText::Check()
 		float SizeY = 0;
 		float SizeX = 0;
 		std::string Choice = "Choice" + std::to_string(ChoiceNum) + "_1.png";
+		if (Choice == "Choice2_1.png")
+		{
+			Count = Count + 1;
+		}
 		TextRend->SetTexture(Choice);
 		TextRend->ScaleToTexture();
 		SizeX = TextRend->GetTransform().GetLocalScale().x;
@@ -250,6 +260,7 @@ void LineText::CreateDayTime()
 
 void LineText::RLineNum()
 {
+	GlobalContentsValue::EomticonStatus = 1;
 	switch (ChoiceNum)
 	{
 	case 1:

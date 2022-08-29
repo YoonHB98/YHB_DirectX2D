@@ -11,6 +11,7 @@ int GlobalContentsValue::LineNum = 0;
 int GlobalContentsValue::RemainLinenum = 2;
 int GlobalContentsValue::RemainTwitnum = 0;
 int GlobalContentsValue::DayTime = 3;
+int GlobalContentsValue::EomticonStatus = 0;
 bool GlobalContentsValue::Out = false;
 bool GlobalContentsValue::Message =true;
 bool GlobalContentsValue::Stream = false;
