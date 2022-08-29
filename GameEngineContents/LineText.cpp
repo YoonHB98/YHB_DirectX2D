@@ -40,7 +40,7 @@ void LineText::Update(float _DeltaTime)
 			CreateDayTime();
 		}
 		Count = Count + 1;
-		for (int i = 0; i < 30; i++)
+		for (int i = 0; i <40; i++)
 		{
 			if (Count == i)
 			{
@@ -57,7 +57,7 @@ void LineText::Update(float _DeltaTime)
 	}
 	else
 	{
-		ChangeZPos(std::stoi(LineMain::Inst_->LineMainCol->GetNameConstRef()) - 5 );
+		ChangeZPos(std::stoi(LineMain::Inst_->LineMainCol->GetNameConstRef()) - 5.0f );
 	}
 
 	if (ChoiceTimeStart == true)
@@ -100,6 +100,10 @@ void LineText::CreateText(std::string _Text)
 		ToolTipText::Count = ToolTipText::Count + 1;
 		ChoiceTimeStart = true;
 	}
+	if (_Text == "Tutorial23.png")
+	{
+		ChoiceTimeStart = true;
+	}
 	if (_Text == "Tutorial17.png")
 	{
 		ChangeStart = true;
@@ -123,7 +127,7 @@ void LineText::CreateText(std::string _Text)
 	{
 		if (TextNum > 180.0f)
 		{
-			TextMove(TextNum - 180,0);
+			TextMove(TextNum - 180.0f,0);
 			TextNum = 180.0f;
 		}
 		TextMove(SizeY + 3, 0);
@@ -174,36 +178,40 @@ void LineText::Check()
 	{
 		MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
 		float SizeY = 0;
-		TextRend->SetTexture("Choice1_1.png");
+		float SizeX = 0;
+		std::string Choice = "Choice" + std::to_string(ChoiceNum) + "_1.png";
+		TextRend->SetTexture(Choice);
 		TextRend->ScaleToTexture();
+		SizeX = TextRend->GetTransform().GetLocalScale().x;
 		SizeY = TextRend->GetTransform().GetLocalScale().y;
-		TextRend->GetTransform().SetLocalPosition(float4(320, 75 - TextNum - SizeY / 2));
+		TextRend->GetTransform().SetLocalPosition(float4(337.5f - SizeX/2, 75 - TextNum - SizeY / 2));
 		ChoiceText->GetTransform().SetLocalMove(float4(0, 0, 600));
 		Text.push_back(TextRend);
 		MoveStart++;
 		TextMove(SizeY + 3, 0);
-		GlobalContentsValue::RemainLinenum = 8;
-		Collision->Off();
-		Collision2->Off();
+		RLineNum();
 		GlobalContentsValue::Tooltip = false;
+		CheckStart = false;
 	}else
 		if (MouseCheck(Collision2)
 			&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		{
 			MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
+			float SizeX = 0;
 			float SizeY = 0;
-			TextRend->SetTexture("Choice1_2.png");
+			std::string Choice = "Choice" + std::to_string(ChoiceNum) + "_2.png";
+			TextRend->SetTexture(Choice);
 			TextRend->ScaleToTexture();
+			SizeX = TextRend->GetTransform().GetLocalScale().x;
 			SizeY = TextRend->GetTransform().GetLocalScale().y;
-			TextRend->GetTransform().SetLocalPosition(float4(320, 75 - TextNum - SizeY / 2));
+			TextRend->GetTransform().SetLocalPosition(float4(337.5f -SizeX / 2, 75 - TextNum - SizeY / 2));
 			ChoiceText->GetTransform().SetLocalMove(float4(0, 0, 600));
 			Text.push_back(TextRend);
 			MoveStart++;
 			TextMove(SizeY + 3, 0);
-			GlobalContentsValue::RemainLinenum = 8;
-			Collision->Off();
-			Collision2->Off();
+			RLineNum();
 			GlobalContentsValue::Tooltip = false;
+			CheckStart = false;
 		}
 }
 
@@ -238,4 +246,19 @@ void LineText::CreateDayTime()
 		{
 			TextNum = TextNum + SizeY + 3;
 		}
+}
+
+void LineText::RLineNum()
+{
+	switch (ChoiceNum)
+	{
+	case 1:
+		GlobalContentsValue::RemainLinenum = 8;
+		break;
+	case 2:
+		GlobalContentsValue::RemainLinenum = 5;
+		break;
+	default:
+		break;
+	}
 }
