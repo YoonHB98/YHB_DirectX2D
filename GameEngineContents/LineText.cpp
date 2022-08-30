@@ -31,7 +31,7 @@ void LineText::Update(float _DeltaTime)
 			time = 0;
 		}
 	}
-
+	EmoticonCheck();
 	if (GlobalContentsValue::LineNum != 1)
 	{
 		if (CurTime != GlobalContentsValue::DayTime)
@@ -47,8 +47,6 @@ void LineText::Update(float _DeltaTime)
 				CreateText(GlobalContentsValue::TextContents + std::to_string(i) + ".png");
 			}
 		}
-
-
 	}
 	if (GlobalContentsValue::Line == false)
 	{

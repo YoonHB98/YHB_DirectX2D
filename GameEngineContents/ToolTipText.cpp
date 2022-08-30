@@ -38,7 +38,7 @@ void ToolTipText::Update(float _DeltaTime)
 	TextRenderer->SetTexture("TutorialTooltip_" + std::to_string(Count) + ".png");
 	TextRenderer->ScaleToTexture();
 	Size = TextRenderer->GetTransform().GetLocalScale();
-	TextRenderer->GetTransform().SetLocalPosition(float4(100 - (Size.x / 2), 15.5 + (Size.y / 2), 500));
+	TextRenderer->GetTransform().SetLocalPosition(float4(100 - (Size.x / 2), 15.5f+ (Size.y / 2), 500));
 
 }
 

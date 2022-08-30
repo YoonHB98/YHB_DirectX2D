@@ -31,6 +31,7 @@ public:
 	static int TextConNum;
 	static int EomticonStatus;
 	static std::string TextContents;
+	static std::string CurEmoticonName;
 	//시간
 	static int DayTime;
 	//행동
@@ -56,5 +57,6 @@ enum class OBJECTORDER
 	Mouse,
 	UI,
 	SuperChat,
-	Window
+	Window,
+	Emoticon
 };

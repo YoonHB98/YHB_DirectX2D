@@ -24,6 +24,9 @@
 #include "Comment.h"
 #include "Twitter.h"
 #include "TweetComment.h"
+#include "LineMain.h"
+#include "LineText.h"
+#include "Mouse.h"
 
 
 TestLevel::TestLevel() 
@@ -37,9 +40,10 @@ TestLevel::~TestLevel()
 void TestLevel::Start()
 {
 	//CreateActor<Stream>();
-	CreateActor<StreamAnimation>();
-
-//	CreateActor<LineText>();
+	//CreateActor<StreamAnimation>();
+	CreateActor<LineMain>();
+	CreateActor<Mouse>();
+	CreateActor<LineText>();
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
@@ -49,7 +53,31 @@ void TestLevel::Start()
 
 void TestLevel::Update(float _DeltaTime)
 {
-	GlobalContentsValue::Stream = true;
+	if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))
+	{
+		GetMainCameraActor()->FreeCameraModeOnOff();
+	}
+	GlobalContentsValue::Line = true;
+	GlobalContentsValue::EomticonStatus = 2;
+	if (time > 2.5f
+		|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		time = time - 2.5f;
+		if (GlobalContentsValue::Message)
+		{
+			GlobalContentsValue::RemainLinenum = GlobalContentsValue::RemainLinenum -1;
+			CreateActor<Notification>(GameObjectGroup::BackGround);
+			CreateActor<NotificationText>(GameObjectGroup::WindowIcon);
+		}
+	}
+	if (GlobalContentsValue::RemainLinenum <= 0)
+	{
+		GlobalContentsValue::Message = false;
+	}
+	if (GlobalContentsValue::RemainLinenum > 0)
+	{
+		GlobalContentsValue::Message = true;
+	}
 	// 레벨 바뀌어서 오면 초기화
 	// GetAccTime();
 

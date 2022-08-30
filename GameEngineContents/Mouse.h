@@ -32,6 +32,7 @@ protected:
 
 	bool MouseCollision(GameEngineCollision* _This, GameEngineCollision* _Other);
 	bool ChnageName(GameEngineCollision* _This, GameEngineCollision* _Other);
+	bool LineEmoticon(GameEngineCollision* _This, GameEngineCollision* _Other);
 	std::string CurNameChange(std::string string);
 private:
 	GameEngineCollision* Collision;

@@ -125,6 +125,13 @@ void Mouse::Update(float _DeltaTime)
 		}
 	
 	}
+
+	if (Collision->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Emoticon, CollisionType::CT_OBB,
+		std::bind(&Mouse::LineEmoticon, this, std::placeholders::_1, std::placeholders::_2))
+		&& true == GameEngineInput::GetInst()->IsDown("MouseClick")
+		&&GlobalContentsValue::EomticonStatus == 2)
+	{
+	}
 }
 
 void Mouse::End()
@@ -151,6 +158,18 @@ bool Mouse::ChnageName(GameEngineCollision* _This, GameEngineCollision* _Other)
 		_Other->SetName("-100F");
 	}
 
+	return true;
+}
+
+bool Mouse::LineEmoticon(GameEngineCollision* _This, GameEngineCollision* _Other)
+{
+	if (GlobalContentsValue::Line == true
+		&& GlobalContentsValue::EomticonStatus == 2
+		&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		GlobalContentsValue::CurEmoticonName = _Other->GetNameConstRef();
+	}
+	
 	return true;
 }
 

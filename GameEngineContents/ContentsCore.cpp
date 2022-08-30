@@ -197,7 +197,7 @@ void ContentsCore::Start()
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
 	CreateLevel<TestLevel>("Test");
-	ChangeLevel("Loading");
+	ChangeLevel("Test");
 
 	GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 }

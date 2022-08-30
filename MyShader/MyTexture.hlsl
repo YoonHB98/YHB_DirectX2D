@@ -67,18 +67,12 @@ SamplerState Smp : register(s0);
 float4 MyTexture_PS(Output _Input) : SV_Target0
 {
     float4 Color = Tex.Sample(Smp, _Input.Tex.xy);
-    if (_Input.Pos.y < 194)
+    if (_Input.Pos.y < 195)
     {
         clip(-1);
 
     }
 
-    if (Color.r == 1
-        && Color.b == 1)
-    {
-        clip(-1);
-    }
-    
     
     Color = Tex.Sample(Smp, _Input.Tex.xy) * MulColor+PlusColor;
     

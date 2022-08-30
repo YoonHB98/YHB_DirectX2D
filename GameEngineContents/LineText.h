@@ -40,6 +40,14 @@ protected:
 	int CurEmoticonStatus = 2;
 	void RLineNum();
 	
+	GameEngineCollision* EmoticonCollision1;
+	GameEngineCollision* EmoticonCollision2;
+	GameEngineCollision* EmoticonCollision3;
+	GameEngineCollision* EmoticonCollision4;
+	GameEngineCollision* EmoticonCollision5;
+	GameEngineCollision* EmoticonCollision6;
+	GameEngineCollision* EmoticonCollision7;
+	GameEngineCollision* EmoticonCollision8;
 private:
 	MyTextureRenderer* ChoiceText;
 	GameEngineCollision* Collision;
@@ -49,6 +57,7 @@ private:
 	void CreateDayTime();
 	void EmoticonON();
 	void EmoticonOnOff();
+	void EmoticonCheck();
 	std::vector<GameEngineTextureRenderer*> EmoticonRenderer;
 };
 

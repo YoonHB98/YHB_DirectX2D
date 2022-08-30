@@ -50,7 +50,7 @@ void TutorialLogin::Update(float _DeltaTime)
 	}
 	if (PassWord)
 	{
-		for (size_t i = 47; i < 98; i++)
+		for (int i = 47; i < 98; i++)
 		{
 
 			if (GetAsyncKeyState(i) & 0x0001)
