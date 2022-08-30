@@ -163,6 +163,7 @@ void LineText::EmoticonCheck()
 {
 	if (GlobalContentsValue::CurEmoticonName != "")
 	{
+		EmoticonTimeStart = true;
 		MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
 		float SizeX = 0;
 		float SizeY = 0;
@@ -174,8 +175,70 @@ void LineText::EmoticonCheck()
 		Text.push_back(TextRend);
 		MoveStart++;
 		TextMove(SizeY + 3, 0);
-
-		GlobalContentsValue::CurEmoticonName = "";
-		int a = GameEngineRandom::MainRandom.RandomInt(0, 3);
+		ReactionName = GlobalContentsValue::CurEmoticonName;
+		GlobalContentsValue::CurEmoticonName = "";	
 	}
+	int Re = Reaction();
+	if (Re != -1)
+	{
+		CreateText("Reaction" + std::to_string(Re) + ".png");
+	}
+	if (EmoticonTimeStart)
+	{
+		EmoticonTime = EmoticonTime + GameEngineTime::GetDeltaTime();
+	}
+}
+
+int LineText::Reaction()
+{
+	int Num = -1;
+	if (EmoticonTime > 1.0f)
+	{
+		if (ReactionName == "sorena.png")
+		{
+			Num = GameEngineRandom::MainRandom.RandomInt(62, 70);
+		}else
+		if (ReactionName == "love.png")
+		{
+			Num = GameEngineRandom::MainRandom.RandomInt(52, 61);
+		}else
+		if (ReactionName == "bujisyuuryou.png")
+		{
+			Num = GameEngineRandom::MainRandom.RandomInt(43, 51);
+		}else
+		if (ReactionName == "gomen.png")
+		{
+			Num = GameEngineRandom::MainRandom.RandomInt(35, 42);
+		}else
+		if (ReactionName == "waritodoudemoii.png")
+		{
+			Num = GameEngineRandom::MainRandom.RandomInt(27, 34);
+		}
+		else
+		if (ReactionName == "pien.png")
+		{
+			Num = GameEngineRandom::MainRandom.RandomInt(19, 26);
+		}
+		else
+		if (ReactionName == "saikouka.png")
+		{
+			Num = GameEngineRandom::MainRandom.RandomInt(10, 18);
+		}
+		else
+		if (ReactionName == "ok.png")
+		{
+			Num = GameEngineRandom::MainRandom.RandomInt(1, 9);
+		}
+		ReactionName = "";
+		EmoticonTimeStart = false;
+		EmoticonTime = 0.0f;
+		GameEngineSound().SoundPlayOneShot("jine_recieve.wav");
+		return Num;
+	}
+	else
+	{
+		return -1;
+	}
+	
+
 }

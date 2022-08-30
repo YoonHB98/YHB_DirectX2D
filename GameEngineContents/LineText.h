@@ -39,7 +39,9 @@ protected:
 	int CurTime = 0;
 	int CurEmoticonStatus = 2;
 	void RLineNum();
-	
+	float EmoticonTime = 0;
+	std::string ReactionName = "";
+	bool EmoticonTimeStart = false;
 	GameEngineCollision* EmoticonCollision1;
 	GameEngineCollision* EmoticonCollision2;
 	GameEngineCollision* EmoticonCollision3;
@@ -58,6 +60,7 @@ private:
 	void EmoticonON();
 	void EmoticonOnOff();
 	void EmoticonCheck();
+	int Reaction();
 	std::vector<GameEngineTextureRenderer*> EmoticonRenderer;
 };
 
