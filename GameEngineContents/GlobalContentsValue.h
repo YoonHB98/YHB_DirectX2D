@@ -15,6 +15,7 @@ public:
 	static bool Twitter;
 	static bool TutorialLogin;
 	static bool DayChangeWindow;
+	static bool BgmOn;
 	//스테이터스
 	static int Mental;
 	static int Stress;

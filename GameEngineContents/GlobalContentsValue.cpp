@@ -22,6 +22,7 @@ bool GlobalContentsValue::Line = false;
 bool GlobalContentsValue::Change = false;
 bool GlobalContentsValue::Tutorial = true;
 bool GlobalContentsValue::Tooltip = false;
+bool GlobalContentsValue::BgmOn = true;
 bool GlobalContentsValue::Twitter = false;
 bool GlobalContentsValue::TutorialLogin = false;
 std::string GlobalContentsValue::Contents = "Tutorial";

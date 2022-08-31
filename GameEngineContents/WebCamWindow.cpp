@@ -51,11 +51,11 @@ void WebCamWindow::Start()
 
 void WebCamWindow::Update(float _DeltaTime)
 {
-	if (BgmOn
+	if (GlobalContentsValue::BgmOn
 		&& GlobalContentsValue::WebCamWindow == true)
 	{
 		BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_normal.wav");
-		BgmOn = false;
+		GlobalContentsValue::BgmOn = false;
 	}
 	std::string A = Inst_->WebCamMainCol->GetNameConstRef();
 	A;
