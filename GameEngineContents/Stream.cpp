@@ -32,6 +32,9 @@ void Stream::Start()
 	Inst_->StreamMainCol->GetTransform().SetLocalScale(float4(Size.x,Size.y, 2));
 	Inst_->StreamMainCol->ChangeOrder(OBJECTORDER::Window);
 	Inst_->StreamMainCol->SetName("30");
+
+
+	SetName("");
 }
 
 void Stream::Update(float _DeltaTime)
@@ -46,6 +49,12 @@ void Stream::Update(float _DeltaTime)
 	}else
 	if (GlobalContentsValue::Stream)
 	{
+		if (GetNameConstRef() != "")
+		{
+			Mouse::Inst_->ChangeNameAll();
+			Inst_->StreamMainCol->SetName(GetNameConstRef());
+			SetName("");
+		}
 		int a = std::stoi(Inst_->StreamMainCol->GetNameConstRef());
 		ChangeZPos(std::stoi(Inst_->StreamMainCol->GetNameConstRef()));
 	}

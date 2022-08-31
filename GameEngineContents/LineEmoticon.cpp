@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "LineText.h"
 #include <GameEngineBase/GameEngineRandom.h>
+#include "ToolTipText.h"
 
 void LineText::EmoticonON()
 {
@@ -181,6 +182,10 @@ void LineText::EmoticonCheck()
 	int Re = Reaction();
 	if (Re != -1)
 	{
+		if (ToolTipText::Count == 6)
+		{
+			ToolTipText::Count = ToolTipText::Count + 1;
+		}
 		CreateText("Reaction" + std::to_string(Re) + ".png");
 	}
 	if (EmoticonTimeStart)
@@ -242,3 +247,5 @@ int LineText::Reaction()
 	
 
 }
+
+

@@ -3,7 +3,6 @@
 #include "LineDate.h"
 
 LineMain* LineMain::Inst_ = new LineMain();
-
 LineMain::LineMain()
 {
 }
@@ -26,12 +25,23 @@ void LineMain::Start()
 	Inst_->LineMainCol->ChangeOrder(OBJECTORDER::Window);
 	Mouse::Inst_->ChangeNameAll();
 	Inst_->LineMainCol->SetName("-90");
+	SetName("");
 }
 
 void LineMain::Update(float _DeltaTime)
 {
 	if (GlobalContentsValue::Line)
 	{
+		if (GetNameConstRef() != "")
+		{
+			if (GetNameConstRef() == "-100F")
+			{
+				SetName("-100");
+			}
+			Mouse::Inst_->ChangeNameAll();
+			Inst_->LineMainCol->SetName(GetNameConstRef());
+			SetName("");
+		}
 		int A = std::stoi(Inst_->LineMainCol->GetNameConstRef());
 		ChangeZPos(std::stoi(Inst_->LineMainCol->GetNameConstRef()));
 	}

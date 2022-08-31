@@ -60,7 +60,12 @@ void LineText::Update(float _DeltaTime)
 			EmoticonOnOff();
 			CurEmoticonStatus = GlobalContentsValue::EomticonStatus;
 		}
-		ChangeZPos(std::stoi(LineMain::Inst_->LineMainCol->GetNameConstRef()) - 5.0f );
+		if (LineMain::Inst_->LineMainCol->GetNameConstRef() != ""
+			&& LineMain::Inst_->LineMainCol->GetNameConstRef() != "-100F")
+		{
+			ChangeZPos(std::stoi(LineMain::Inst_->LineMainCol->GetNameConstRef()) - 5.0f);
+		}
+
 	}
 
 	if (ChoiceTimeStart == true)
@@ -97,20 +102,8 @@ void LineText::End()
 
 void LineText::CreateText(std::string _Text)
 {
-	if (_Text == "Tutorial9.png")
-	{
-		GlobalContentsValue::Tooltip = true;
-		ToolTipText::Count = ToolTipText::Count + 1;
-		ChoiceTimeStart = true;
-	}
-	if (_Text == "Tutorial23.png")
-	{
-		ChoiceTimeStart = true;
-	}
-	if (_Text == "Tutorial17.png")
-	{
-		ChangeStart = true;
-	}
+	exceptionCheck(_Text);
+
 	MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
 	TextRend->SetTexture( _Text);
 	TextRend->ScaleToTexture();
@@ -267,7 +260,42 @@ void LineText::RLineNum()
 	case 2:
 		GlobalContentsValue::RemainLinenum = 5;
 		break;
+	case 3:
+		GlobalContentsValue::RemainLinenum = 1;
+		break;
 	default:
 		break;
+	}
+}
+
+void LineText::exceptionCheck(std::string _Text)
+{
+	if (_Text == "Tutorial9.png")
+	{
+		GlobalContentsValue::Tooltip = true;
+		ToolTipText::Count = ToolTipText::Count + 1;
+		ChoiceTimeStart = true;
+	}else
+	if (_Text == "Tutorial23.png")
+	{
+		ChoiceTimeStart = true;
+	}else
+	if (_Text == "Tutorial17.png")
+	{
+		ChangeStart = true;
+	}else
+	if (_Text == "Tutorial28.png")
+	{
+		GlobalContentsValue::Day = GlobalContentsValue::Day + 1;
+	}
+	if (_Text == "Tutorial36.png")
+	{
+		ChoiceTimeStart = true;
+	}else
+	if (_Text == "Tutorial37.png")
+	{
+		GlobalContentsValue::Tooltip = true;
+		ToolTipText::Count = ToolTipText::Count + 1;
+		GlobalContentsValue::EomticonStatus = 2;
 	}
 }

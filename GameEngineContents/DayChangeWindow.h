@@ -21,14 +21,16 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
+	int CurDay = 0;
 	GameEngineTextureRenderer* Renderer;
 	GameEngineTextureRenderer* Tri;
 	GameEngineTextureRenderer* Font;
 	float FontA = 1.0f;
 	int Count = 0;
 	float FirstPos;
+	float ChangeTime = 5.0f;
 	float DayChangeTime = 0.0f;
 	bool First = true;
-	int CurDay = 0;
+	void RemainLineCheck();
 };
 

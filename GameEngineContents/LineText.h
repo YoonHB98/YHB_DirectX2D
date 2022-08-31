@@ -61,6 +61,7 @@ private:
 	void EmoticonOnOff();
 	void EmoticonCheck();
 	int Reaction();
+	void exceptionCheck(std::string _Text_);
 	std::vector<GameEngineTextureRenderer*> EmoticonRenderer;
 };
 
