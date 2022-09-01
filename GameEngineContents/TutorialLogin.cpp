@@ -2,6 +2,7 @@
 #include "TutorialLogin.h"
 #include <conio.h>
 
+TutorialLogin* TutorialLogin::Inst_ = new TutorialLogin();
 TutorialLogin::TutorialLogin() 
 {
 }
@@ -26,12 +27,21 @@ void TutorialLogin::Start()
 	Collision2->GetTransform().SetLocalScale(float4(125, 22));
 	Collision2->ChangeOrder(OBJECTORDER::UI);
 
+	Inst_->TutorialLoginCol = CreateComponent<GameEngineCollision>();
+	Inst_->TutorialLoginCol->GetTransform().SetLocalPosition(float4(-50, 50));
+	Inst_->TutorialLoginCol->GetTransform().SetLocalScale(float4(420, 280, 5));
+	Inst_->TutorialLoginCol->ChangeOrder(OBJECTORDER::Window);
+	Mouse::Inst_->ChangeNameAll();
+	Inst_->TutorialLoginCol->SetName("-90");
+	SetName("TutorialLogin");
+
 	Font = CreateComponent<Myfont>();
 }
 
 void TutorialLogin::Update(float _DeltaTime)
 {
-	ChangeZPos(-50);
+	int A = std::stoi(Inst_->TutorialLoginCol->GetNameConstRef());
+	ChangeZPos(std::stoi(Inst_->TutorialLoginCol->GetNameConstRef()));
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 		&& MouseCheck(Collision))
 	{

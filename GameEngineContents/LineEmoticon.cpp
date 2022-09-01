@@ -196,6 +196,10 @@ void LineText::EmoticonCheck()
 
 int LineText::Reaction()
 {
+	if (ChoiceNum < 3)
+	{
+		return -1;
+	}
 	int Num = -1;
 	if (EmoticonTime > 1.0f)
 	{

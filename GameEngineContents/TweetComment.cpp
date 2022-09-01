@@ -44,6 +44,18 @@ void TweetComment::Update(float _DeltaTime)
 	}
 	else
 	{
+		if (GlobalContentsValue::RemainTwitnum != 0)
+		{
+			CreateText(GlobalContentsValue::Contents + "Twit" + std::to_string(i) + ".png");
+			i = i + 1;
+			GlobalContentsValue::RemainTwitnum = GlobalContentsValue::RemainTwitnum - 1;
+			if (GlobalContentsValue::RemainTwitnum == 0)
+			{
+				Time = 0.0f;
+				LoadingFirst = false;
+				LoadingEnd();
+			}
+		}
 		if (LoadingFirst != true)
 		{
 			std::vector<GameEngineTextureRenderer*>::iterator StartIter = TextVector.begin();

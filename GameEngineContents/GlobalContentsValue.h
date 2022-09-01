@@ -59,5 +59,6 @@ enum class OBJECTORDER
 	UI,
 	SuperChat,
 	Window,
-	Emoticon
+	Emoticon,
+	Exit
 };

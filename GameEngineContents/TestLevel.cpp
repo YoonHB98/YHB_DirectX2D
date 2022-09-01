@@ -27,6 +27,7 @@
 #include "LineMain.h"
 #include "LineText.h"
 #include "Mouse.h"
+#include "Twitter.h"
 
 
 TestLevel::TestLevel() 
@@ -44,6 +45,7 @@ void TestLevel::Start()
 	CreateActor<LineMain>();
 	CreateActor<Mouse>();
 	CreateActor<LineText>();
+	CreateActor<Twitter>();
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
@@ -53,6 +55,7 @@ void TestLevel::Start()
 
 void TestLevel::Update(float _DeltaTime)
 {
+
 	if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))
 	{
 		GetMainCameraActor()->FreeCameraModeOnOff();

@@ -8,6 +8,7 @@
 #include "WebCamWindow.h"
 #include "LineMain.h"
 #include "TaskManager.h"
+#include "TutorialLogin.h"
 
 #pragma comment(lib, "GameEngineBase.lib")
 
@@ -197,7 +198,7 @@ void ContentsCore::Start()
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
 	CreateLevel<TestLevel>("Test");
-	ChangeLevel("Play");
+	ChangeLevel("Loading");
 
 	GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 }
@@ -212,6 +213,7 @@ void ContentsCore::Update(float _DeltaTime)
 
 void ContentsCore::End()
 {
+	TutorialLogin::Destroy();
 	Stream::Destroy();
 	TaskManager::Destroy();
 	LineMain::Destroy();

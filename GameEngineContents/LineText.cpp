@@ -154,7 +154,8 @@ void LineText::CreateChoice()
 	std::string Choice = "Choice" + std::to_string(ChoiceNum) + ".png";
 	ChoiceText->SetTexture(Choice);
 	ChoiceText->ScaleToTexture();
-	ChoiceText->GetTransform().SetLocalPosition(float4(300, -140));
+	float4 CurScale = ChoiceText->GetTransform().GetLocalScale();
+	ChoiceText->GetTransform().SetLocalPosition(float4(344.5 - CurScale.x / 2, -115 - CurScale.y /2));
 
 	Collision = CreateComponent<GameEngineCollision>();
 	Collision->GetTransform().SetLocalScale(float4(40, 10));

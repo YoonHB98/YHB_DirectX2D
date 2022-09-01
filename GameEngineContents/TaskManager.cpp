@@ -48,7 +48,12 @@ void TaskManager::Update(float _DeltaTime)
 				Inst_->TaskManagerMainCol->GetTransform().SetLocalPosition(float4(257, 170, 1030));
 				return;
 			}
-	}
+	}else
+		if (Inst_->TaskManagerMainCol->GetNameConstRef() == ("40")
+			|| Inst_->TaskManagerMainCol->GetNameConstRef() == ("30"))
+		{
+			Inst_->TaskManagerMainCol->SetName("-80");
+		}
 
 	ChangeZPos(std::stoi(Inst_->TaskManagerMainCol->GetNameConstRef()));
 

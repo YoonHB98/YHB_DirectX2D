@@ -181,6 +181,26 @@ void GameEngineSoundPlayer::Stop()
 	ControlHandle_->stop();
 }
 
+void GameEngineSoundPlayer::Paused()
+{
+	if (nullptr == ControlHandle_)
+	{
+		return;
+	}
+
+	ControlHandle_->setPaused(true);
+}
+
+void GameEngineSoundPlayer::UnPaused()
+{
+	if (nullptr == ControlHandle_)
+	{
+		return;
+	}
+
+	ControlHandle_->setPaused(false);
+}
+
 void GameEngineSoundPlayer::PlaySpeed(float _Speed)
 {
 	if (nullptr == ControlHandle_)

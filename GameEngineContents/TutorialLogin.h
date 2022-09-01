@@ -5,10 +5,20 @@
 class TutorialLogin : public DefaultSetTex
 {
 public:
+	static void Destroy()
+	{
+		if (nullptr != Inst_)
+		{
+			delete Inst_;
+			Inst_ = nullptr;
+		}
+	}
 	// constrcuter destructer
 	TutorialLogin();
 	~TutorialLogin();
+	static TutorialLogin* Inst_;
 
+	GameEngineCollision* TutorialLoginCol;
 	// delete Function
 	TutorialLogin(const TutorialLogin& _Other) = delete;
 	TutorialLogin(TutorialLogin&& _Other) noexcept = delete;

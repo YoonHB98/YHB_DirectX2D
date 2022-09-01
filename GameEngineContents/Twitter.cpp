@@ -17,12 +17,18 @@ void Twitter::Start()
 	TextureRenderer->SetTexture("Twitter.png");
 	TextureRenderer->ScaleToTexture();
 
+	Exit = CreateComponent<GameEngineCollision>();
+	Exit->GetTransform().SetLocalPosition(float4(117, 255.5, 5));
+	Exit->GetTransform().SetLocalScale(float4(10, 10, 500));
+	Exit->ChangeOrder(OBJECTORDER::Exit);
+
 	Loading = CreateComponent<GameEngineTextureRenderer>();
 	Loading->GetTransform().SetLocalPosition(float4(-75,210, 0));
 	Loading->GetTransform().SetLocalScale(float4(18, 18));
 	Loading->CreateFrameAnimationCutTexture("loading", FrameAnimation_DESC("icon_loading_poketter.png", 0, 7, 0.09f, true));
 	Loading->ChangeFrameAnimation("loading");
 
+	SetName("Twitter");
 }
 
 void Twitter::Update(float _DeltaTime)
@@ -49,6 +55,11 @@ void Twitter::Update(float _DeltaTime)
 	}
 	else
 	{
+		if (First == false)
+		{
+			GlobalContentsValue::RemainLinenum = 6;
+			First = true;
+		}
 		ChangeZPos(500);
 		Time = 0;
 		return;

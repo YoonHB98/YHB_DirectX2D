@@ -55,6 +55,7 @@ void DayChangeWindow::Update(float _DeltaTime)
 				DayChangeTime = 0.0f;
 				Tri->GetPixelData().MulColor.a = 1.0f;
 				Renderer->GetPixelData().MulColor.a = 1.0f;
+				Font->GetPixelData().MulColor.a = 1.0f;
 				Count = 0;
 			}
 			return;

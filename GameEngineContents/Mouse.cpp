@@ -4,6 +4,7 @@
 #include "Stream.h"
 #include "WebCamWindow.h"
 #include "TaskManager.h"
+#include "TutorialLogin.h"
 
 Mouse* Mouse::Inst_ = new Mouse();
 Mouse::Mouse() 
@@ -22,7 +23,7 @@ void Mouse::Start()
 	Renderer->SetRenderingOrder(2);
 
 	Collision = CreateComponent<GameEngineCollision>();
-	Collision->GetTransform().SetLocalScale({ 32.0f,8.0f,400.0f });
+	Collision->GetTransform().SetLocalScale({ 32.0f,8.0f,4000.0f });
 	Collision->GetTransform().SetLocalPosition(float4(0, 12, 0));
 	Collision->ChangeOrder(OBJECTORDER::Mouse);
 
@@ -125,11 +126,14 @@ void Mouse::Update(float _DeltaTime)
 		}
 	
 	}
-
+	if ( Collision->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Exit, CollisionType::CT_OBB,
+		std::bind(&Mouse::Exit, this, std::placeholders::_1, std::placeholders::_2)))
+	{
+	}
 	if (Collision->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Emoticon, CollisionType::CT_OBB,
 		std::bind(&Mouse::LineEmoticon, this, std::placeholders::_1, std::placeholders::_2))
 		&& true == GameEngineInput::GetInst()->IsDown("MouseClick")
-		&&GlobalContentsValue::EomticonStatus == 2)
+		&& GlobalContentsValue::EomticonStatus == 2)
 	{
 	}
 }
@@ -140,6 +144,19 @@ void Mouse::End()
 
 bool Mouse::MouseCollision(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
+	return true;
+}
+
+bool Mouse::Exit(GameEngineCollision* _This, GameEngineCollision* _Other)
+{
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		std::string CurName = _Other->GetActor()->GetNameConstRef();
+		if (CurName == "Twitter")
+		{
+			GlobalContentsValue::Twitter = false;
+		}
+	}
 	return true;
 }
 
@@ -202,6 +219,12 @@ void Mouse::ChangeNameAll()
 		CurName = CurNameChange(CurName);
 		TaskManager::Inst_->TaskManagerMainCol->SetName(CurName);
 	}
+	if (nullptr != TutorialLogin::Inst_->TutorialLoginCol)
+	{
+		std::string CurName = TutorialLogin::Inst_->TutorialLoginCol->GetNameConstRef();
+		CurName = CurNameChange(CurName);
+		TutorialLogin::Inst_->TutorialLoginCol->SetName(CurName);
+	}
 
 }
 
@@ -257,5 +280,9 @@ void Mouse::GetActorName(std::string Name_, std::string ZPos)
 				if (Name_ == "TaskManager")
 				{
 					TaskManager::Inst_->TaskManagerMainCol->SetName(ZPos);
-				}
+				}else
+					if (Name_ == "TutorialLogin")
+					{
+						TutorialLogin::Inst_->TutorialLoginCol->SetName(ZPos);
+					}
 }

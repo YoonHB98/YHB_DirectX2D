@@ -63,6 +63,7 @@ void WebCamWindow::Update(float _DeltaTime)
 	}
 	else
 	{
+		BgmPlayer.UnPaused();
 			int A = std::stoi(Inst_->WebCamMainCol->GetNameConstRef());
 			ChangeZPos(std::stoi(Inst_->WebCamMainCol->GetNameConstRef()));
 	}
@@ -72,7 +73,7 @@ void WebCamWindow::Update(float _DeltaTime)
 		if (Stop == false)
 		{
 			ChangeZPos(500);
-			BgmPlayer.Stop();
+			BgmPlayer.Paused();
 		}
 
 		Stop = true;
