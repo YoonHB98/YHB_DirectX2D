@@ -45,7 +45,7 @@ void WebCamWindow::Start()
 	Mouse::Inst_->ChangeNameAll();
 	Inst_->WebCamMainCol->SetName("-90");
 
-	SetName("");
+	SetName("WebCamWindow");
 	ChangeZPos(0);
 }
 
@@ -57,33 +57,14 @@ void WebCamWindow::Update(float _DeltaTime)
 		BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_normal.wav");
 		GlobalContentsValue::BgmOn = false;
 	}
-	std::string A = Inst_->WebCamMainCol->GetNameConstRef();
-	A;
-	Inst_->WebCamMainCol->SetName("-90");
-	std::string B = Inst_->WebCamMainCol->GetNameConstRef();
-	SetName("");
-	std::string D = Inst_->WebCamMainCol->GetNameConstRef();
 	if (GlobalContentsValue::WebCamWindow == false)
 	{
 		ChangeZPos(500);
 	}
 	else
 	{
-		if (GetNameConstRef() != "")
-		{
-			if (GetNameConstRef() == "-100F")
-			{
-				SetName("-100");
-			}
-			Mouse::Inst_->ChangeNameAll();
-			Inst_->WebCamMainCol->SetName(GetNameCopy());
-			SetName("");
-		}
-
 			int A = std::stoi(Inst_->WebCamMainCol->GetNameConstRef());
 			ChangeZPos(std::stoi(Inst_->WebCamMainCol->GetNameConstRef()));
-	
-
 	}
 
 	if (GlobalContentsValue::Change ==true)

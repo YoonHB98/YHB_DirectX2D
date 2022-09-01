@@ -34,7 +34,7 @@ void Stream::Start()
 	Inst_->StreamMainCol->SetName("30");
 
 
-	SetName("");
+	SetName("Stream");
 }
 
 void Stream::Update(float _DeltaTime)
@@ -49,12 +49,6 @@ void Stream::Update(float _DeltaTime)
 	}else
 	if (GlobalContentsValue::Stream)
 	{
-		if (GetNameConstRef() != "")
-		{
-			Mouse::Inst_->ChangeNameAll();
-			Inst_->StreamMainCol->SetName(GetNameConstRef());
-			SetName("");
-		}
 		int a = std::stoi(Inst_->StreamMainCol->GetNameConstRef());
 		ChangeZPos(std::stoi(Inst_->StreamMainCol->GetNameConstRef()));
 	}

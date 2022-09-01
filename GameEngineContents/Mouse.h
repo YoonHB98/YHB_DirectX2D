@@ -35,6 +35,7 @@ protected:
 	bool LineEmoticon(GameEngineCollision* _This, GameEngineCollision* _Other);
 	std::string CurNameChange(std::string string);
 private:
+	void GetActorName(std::string Name_,std::string ZPos);
 	GameEngineCollision* Collision;
 	GameEngineCollision* Collision100;
 	GameEngineCollision* Collision90;

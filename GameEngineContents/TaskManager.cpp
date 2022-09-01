@@ -25,7 +25,7 @@ void TaskManager::Start()
 	Inst_->TaskManagerMainCol->ChangeOrder(OBJECTORDER::Window);
 	Inst_->TaskManagerMainCol->SetName("-90");
 
-	SetName("");
+	SetName("TaskManager");
 
 }
 
@@ -34,16 +34,6 @@ void TaskManager::Update(float _DeltaTime)
 	std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
 	if (GlobalContentsValue::Stream == true)
 	{
-		if (GetNameConstRef() != "")
-		{
-			if (GetNameConstRef() == "-100F")
-			{
-				SetName("-100");
-			}
-			Mouse::Inst_->ChangeNameAll();
-			Inst_->TaskManagerMainCol->SetName(GetNameConstRef());
-			SetName("");
-		}
 		std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
 		if (Inst_->TaskManagerMainCol->GetNameConstRef() == ("40"))
 		{
@@ -59,7 +49,7 @@ void TaskManager::Update(float _DeltaTime)
 				return;
 			}
 	}
-	
+
 	ChangeZPos(std::stoi(Inst_->TaskManagerMainCol->GetNameConstRef()));
 
 }

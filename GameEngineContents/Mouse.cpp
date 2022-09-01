@@ -148,27 +148,17 @@ bool Mouse::ChnageName(GameEngineCollision* _This, GameEngineCollision* _Other)
 	if (GlobalContentsValue::Stream == true
 		&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
-
-		_Other->SetName("30F");
+		std::string Name = _Other->GetActor()->GetNameConstRef();
+		GetActorName(Name, "30F");
 		std::string CurName = Stream::Inst_->StreamMainCol->GetNameConstRef();
 		CurName = TaskManager::Inst_->TaskManagerMainCol->GetNameConstRef();
-	}else
-	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
-	{
-		std::string CurName5 = LineMain::Inst_->LineMainCol->GetActor()->GetNameConstRef();
-		std::string CurName6 = WebCamWindow::Inst_->WebCamMainCol->GetActor()->GetNameConstRef();
-		std::string CurName7 = Stream::Inst_->StreamMainCol->GetActor()->GetNameConstRef();
-		std::string A = _Other->GetNameConstRef();
-			std::string C = _Other->GetActor()->GetNameConstRef();
-		_Other->SetName("-100F");
-		_Other->GetActor()->SetName("-100F");
-		std::string CurName8 = LineMain::Inst_->LineMainCol->GetNameCopy();
-		std::string CurName9 = WebCamWindow::Inst_->WebCamMainCol->GetNameCopy();
-		std::string CurName10 = Stream::Inst_->StreamMainCol->GetNameCopy();
-		std::string B = _Other->GetNameCopy();
-		std::string Bd = _Other->GetNameConstRef();
-		std::string Bf = _Other->GetNameConstRef();
 	}
+	else
+		if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+		{
+			std::string Name = _Other->GetActor()->GetNameConstRef();
+			GetActorName(Name, "-100F");
+		}
 
 	return true;
 }
@@ -181,7 +171,7 @@ bool Mouse::LineEmoticon(GameEngineCollision* _This, GameEngineCollision* _Other
 	{
 		GlobalContentsValue::CurEmoticonName = _Other->GetNameConstRef();
 	}
-	
+
 	return true;
 }
 
@@ -190,44 +180,27 @@ void Mouse::ChangeNameAll()
 	if (nullptr != LineMain::Inst_->LineMainCol)
 	{
 		std::string CurName = LineMain::Inst_->LineMainCol->GetNameConstRef();
-		if (CurName != "")
-		{
-			CurName = CurNameChange(CurName);
-			LineMain::Inst_->LineMainCol->SetName(CurName);
-			LineMain::Inst_->LineMainCol->GetActor()->SetName(CurName);
-		}
+		CurName = CurNameChange(CurName);
+		LineMain::Inst_->LineMainCol->SetName(CurName);
 	}
 	if (nullptr != WebCamWindow::Inst_->WebCamMainCol)
 	{
 		std::string CurName = WebCamWindow::Inst_->WebCamMainCol->GetNameConstRef();
-		if (CurName != "")
-		{
-			CurName = CurNameChange(CurName);
-			WebCamWindow::Inst_->WebCamMainCol->SetName(CurName);
-			WebCamWindow::Inst_->WebCamMainCol->GetActor()->SetName(CurName);
-		}
-
+		CurName = CurNameChange(CurName);
+		WebCamWindow::Inst_->WebCamMainCol->SetName(CurName);
 	}
 	if (nullptr != Stream::Inst_->StreamMainCol
 		&& GlobalContentsValue::Stream == true)
 	{
 		std::string CurName = Stream::Inst_->StreamMainCol->GetNameConstRef();
-		if (CurName != "")
-		{
-			CurName = CurNameChange(CurName);
-			Stream::Inst_->StreamMainCol->SetName(CurName);
-			Stream::Inst_->StreamMainCol->GetActor()->SetName(CurName);
-		}
+		CurName = CurNameChange(CurName);
+		Stream::Inst_->StreamMainCol->SetName(CurName);
 	}
 	if (nullptr != TaskManager::Inst_->TaskManagerMainCol)
 	{
 		std::string CurName = TaskManager::Inst_->TaskManagerMainCol->GetNameConstRef();
-		if (CurName != "")
-		{
-			CurName = CurNameChange(CurName);
-			TaskManager::Inst_->TaskManagerMainCol->SetName(CurName);
-			TaskManager::Inst_->TaskManagerMainCol->GetActor()->SetName(CurName);
-		}
+		CurName = CurNameChange(CurName);
+		TaskManager::Inst_->TaskManagerMainCol->SetName(CurName);
 	}
 
 }
@@ -263,4 +236,26 @@ std::string Mouse::CurNameChange(std::string string)
 		string = "40";
 	}
 	return string;
+}
+
+
+void Mouse::GetActorName(std::string Name_, std::string ZPos)
+{
+	if (Name_ == "Line")
+	{
+		LineMain::Inst_->LineMainCol->SetName(ZPos);
+	}else
+		if (Name_ == "Stream")
+		{
+			Stream::Inst_->StreamMainCol->SetName(ZPos);
+		}else
+			if (Name_ == "WebCamWindow")
+			{
+				WebCamWindow::Inst_->WebCamMainCol->SetName(ZPos);
+			}
+			else
+				if (Name_ == "TaskManager")
+				{
+					TaskManager::Inst_->TaskManagerMainCol->SetName(ZPos);
+				}
 }
