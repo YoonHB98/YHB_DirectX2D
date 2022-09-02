@@ -11,6 +11,7 @@ TaskManager::~TaskManager()
 {
 }
 
+
 void TaskManager::Start()
 {
 	Renderer = CreateComponent<GameEngineTextureRenderer>();
@@ -26,11 +27,11 @@ void TaskManager::Start()
 	Inst_->TaskManagerMainCol->SetName("-90");
 
 	SetName("TaskManager");
-
 }
 
 void TaskManager::Update(float _DeltaTime)
 {
+	StatusCheck();
 	std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
 	if (GlobalContentsValue::Stream == true)
 	{

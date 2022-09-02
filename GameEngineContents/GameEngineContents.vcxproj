@@ -333,6 +333,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Hitokoto.cpp" />
     <ClCompile Include="LineDate.cpp">
       <SubType>
       </SubType>

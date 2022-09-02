@@ -30,11 +30,22 @@ public:
 	static TaskManager* Inst_;
 	GameEngineTextureRenderer* Renderer;
 	GameEngineCollision* TaskManagerMainCol;
+
+	void StatusCheck();
+	void DiffrenceCheck(int Diffrence_, float YPos);
+	int DiffrenceCount = 0;
+	std::vector<int> Number;
 protected:
+	int CurMental = 0;
+	int CurStress = 0;
+	int CurAffection = 0;
+	int CurFollower = 0;
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-
+	std::vector<CommentTextureRenderer*> Hitokoto;
+	float HitokotoTime = 0.0f;
+	bool HitokotoCheck = false;
 };
 

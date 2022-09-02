@@ -46,6 +46,7 @@ void TestLevel::Start()
 	CreateActor<Mouse>();
 	CreateActor<LineText>();
 	CreateActor<Twitter>();
+	CreateActor<TaskManager>();
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);

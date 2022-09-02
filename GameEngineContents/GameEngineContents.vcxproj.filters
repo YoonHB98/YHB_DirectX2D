@@ -289,5 +289,8 @@
     <ClCompile Include="TestLevel.cpp">
       <Filter>Level</Filter>
     </ClCompile>
+    <ClCompile Include="Hitokoto.cpp">
+      <Filter>Actor\Play\TaskManager</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
