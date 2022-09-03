@@ -54,7 +54,7 @@ void WebCamWindow::Update(float _DeltaTime)
 	if (GlobalContentsValue::BgmOn
 		&& GlobalContentsValue::WebCamWindow == true)
 	{
-		BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_normal.wav");
+		BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_normal.wav", 999);
 		GlobalContentsValue::BgmOn = false;
 	}
 	if (GlobalContentsValue::WebCamWindow == false)
