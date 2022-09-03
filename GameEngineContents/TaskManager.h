@@ -32,9 +32,14 @@ public:
 	GameEngineCollision* TaskManagerMainCol;
 
 	void StatusCheck();
-	void DiffrenceCheck(int Diffrence_, float YPos);
+	void DiffrenceCheck(int Diffrence_, float YPos,bool follower);
 	int DiffrenceCount = 0;
 	std::vector<int> Number;
+
+	int FollowerDiffrenceNum = 0;
+	int StressDiffrenceNum = 0;
+	int MentalDiffrenceNum = 0;
+	int AffectionDiffrenceNum = 0;
 protected:
 	int CurMental = 0;
 	int CurStress = 0;
@@ -45,7 +50,12 @@ protected:
 	void End() override;
 private:
 	std::vector<CommentTextureRenderer*> Hitokoto;
+	std::vector<CommentTextureRenderer*> Diffrence;
+	std::vector<CommentTextureRenderer*> FollowerDiffrence;
+	bool Check = false;
+	void StatusName();
 	float HitokotoTime = 0.0f;
 	bool HitokotoCheck = false;
+	float CheckTime = 0.0f;
 };
 

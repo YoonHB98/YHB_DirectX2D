@@ -32,6 +32,7 @@ void TaskManager::Start()
 void TaskManager::Update(float _DeltaTime)
 {
 	StatusCheck();
+	StatusName();
 	std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
 	if (GlobalContentsValue::Stream == true)
 	{
