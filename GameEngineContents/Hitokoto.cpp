@@ -65,13 +65,18 @@ void TaskManager::StatusCheck()
 		DiffrenceCheck(MentalDiffrenceNum, 110.5, false);
 		HitokotoCheck = true;
 		Hitokoto.push_back(Renderer);
-		Inst_->TaskManagerMainCol->SetName("-100F");
+		if (GlobalContentsValue::Stream == true)
+		{
+			Inst_->TaskManagerMainCol->SetName("30F");
+			Mouse::Inst_->ChangeNameAll();
+		}
+		else
+		{
+			Inst_->TaskManagerMainCol->SetName("-100F");
+			Mouse::Inst_->ChangeNameAll();
+		}
 	}
 
-	if (GetNameConstRef() == "-100F")
-	{
-		Mouse::Inst_->ChangeNameAll();
-	}
 	if (HitokotoCheck == true)
 	{
 		std::vector<CommentTextureRenderer*>::iterator StartIter = Hitokoto.begin();
