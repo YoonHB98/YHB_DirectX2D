@@ -33,8 +33,11 @@ public:
 
 	void StatusCheck();
 	void DiffrenceCheck(int Diffrence_, float YPos,bool follower);
+	void NumberSetting();
 	int DiffrenceCount = 0;
+	int CunrNumCount = 0;
 	std::vector<int> Number;
+	std::vector<int> CurNumber;
 
 	int FollowerDiffrenceNum = 0;
 	int StressDiffrenceNum = 0;
@@ -52,7 +55,9 @@ private:
 	std::vector<CommentTextureRenderer*> Hitokoto;
 	std::vector<CommentTextureRenderer*> Diffrence;
 	std::vector<CommentTextureRenderer*> FollowerDiffrence;
+	std::vector<CommentTextureRenderer*> CurNumberRenderer;
 	bool Check = false;
+	bool NumberCheck = false;
 	void StatusName();
 	float HitokotoTime = 0.0f;
 	bool HitokotoCheck = false;

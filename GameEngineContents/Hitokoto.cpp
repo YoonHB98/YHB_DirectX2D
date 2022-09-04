@@ -9,7 +9,7 @@ void TaskManager::StatusCheck()
 		FollowerDiffrenceNum = CurFollower - GlobalContentsValue::Followers;
 		CurFollower = GlobalContentsValue::Followers;
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-		Renderer->GetTransform().SetLocalPosition(float4(250,220,0));
+		Renderer->GetTransform().SetLocalPosition(float4(250,220, -1));
 		Renderer->SetTexture("hitokoto.png");
 		Renderer->Clip.PosX = 831.5f;
 		Renderer->ScaleToTexture();
@@ -17,13 +17,14 @@ void TaskManager::StatusCheck()
 		DiffrenceCheck(FollowerDiffrenceNum, 220, true);
 		HitokotoCheck = true;
 		Hitokoto.push_back(Renderer);
+		Inst_->TaskManagerMainCol->SetName("-100F");
 	}
 	if (CurStress != GlobalContentsValue::Stress)
 	{
 		StressDiffrenceNum = CurStress - GlobalContentsValue::Stress;
 		CurStress = GlobalContentsValue::Stress;
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-		Renderer->GetTransform().SetLocalPosition(float4(250, 183, 0));
+		Renderer->GetTransform().SetLocalPosition(float4(250, 183, -1));
 		Renderer->SetTexture("hitokoto.png");
 		Renderer->Clip.PosX = 831.5f;
 		Renderer->ScaleToTexture();
@@ -32,13 +33,14 @@ void TaskManager::StatusCheck()
 		DiffrenceCheck(StressDiffrenceNum, 183, false);
 		HitokotoCheck = true;
 		Hitokoto.push_back(Renderer);
+		Inst_->TaskManagerMainCol->SetName("-100F");
 	}
 	if (CurAffection != GlobalContentsValue::Affection)
 	{
 		AffectionDiffrenceNum = CurAffection - GlobalContentsValue::Affection;
 		CurAffection = GlobalContentsValue::Affection;
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-		Renderer->GetTransform().SetLocalPosition(float4(250, 146.5, 0));
+		Renderer->GetTransform().SetLocalPosition(float4(250, 146.5, -1));
 		Renderer->SetTexture("hitokoto.png");
 		Renderer->Clip.PosX = 831.5f;
 		Renderer->ScaleToTexture();
@@ -47,13 +49,14 @@ void TaskManager::StatusCheck()
 		DiffrenceCheck(AffectionDiffrenceNum, 146.5, false);
 		HitokotoCheck = true;
 		Hitokoto.push_back(Renderer);
+		Inst_->TaskManagerMainCol->SetName("-100F");
 	}
 	if (CurMental != GlobalContentsValue::Mental)
 	{
 		MentalDiffrenceNum = CurMental - GlobalContentsValue::Mental;
 		CurMental = GlobalContentsValue::Mental;
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-		Renderer->GetTransform().SetLocalPosition(float4(250, 110.5, 0));
+		Renderer->GetTransform().SetLocalPosition(float4(250, 110.5, -1));
 		Renderer->SetTexture("hitokoto.png");
 		Renderer->Clip.PosX = 831.5f;
 		Renderer->ScaleToTexture();
@@ -62,8 +65,13 @@ void TaskManager::StatusCheck()
 		DiffrenceCheck(MentalDiffrenceNum, 110.5, false);
 		HitokotoCheck = true;
 		Hitokoto.push_back(Renderer);
+		Inst_->TaskManagerMainCol->SetName("-100F");
 	}
 
+	if (GetNameConstRef() == "-100F")
+	{
+		Mouse::Inst_->ChangeNameAll();
+	}
 	if (HitokotoCheck == true)
 	{
 		std::vector<CommentTextureRenderer*>::iterator StartIter = Hitokoto.begin();
@@ -94,6 +102,15 @@ void TaskManager::StatusCheck()
 		if (End > 301.0f)
 		{
 			End = 301.0f;
+			StartIter = Hitokoto.begin();
+			EndIter = Hitokoto.end();
+			for (; StartIter != EndIter ; ++StartIter)
+			{
+				float YPos = (*StartIter)->GetTransform().GetLocalPosition().y;
+				(*StartIter)->GetTransform().SetLocalPosition(float4(End, YPos, -1));
+			}
+
+			NumberCheck = true;
 			HitokotoCheck = false;
 			Check = true;
 		}
@@ -105,7 +122,7 @@ void TaskManager::DiffrenceCheck(int Diffrence_, float YPos, bool follower)
 	if (Diffrence_ > 0)
 	{
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-		Renderer->GetTransform().SetLocalPosition(float4(200 , YPos, 0));
+		Renderer->GetTransform().SetLocalPosition(float4(200 , YPos, -1));
 		Renderer->SetTexture("-.png");
 		Renderer->ScaleToTexture();
 		if (follower)
@@ -120,7 +137,7 @@ void TaskManager::DiffrenceCheck(int Diffrence_, float YPos, bool follower)
 	else
 	{
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-		Renderer->GetTransform().SetLocalPosition(float4(200, YPos, 0));
+		Renderer->GetTransform().SetLocalPosition(float4(200, YPos, -1));
 		Renderer->SetTexture("+.png");
 		Renderer->ScaleToTexture();
 
@@ -144,7 +161,7 @@ void TaskManager::DiffrenceCheck(int Diffrence_, float YPos, bool follower)
 	for (int A = 0; A != DiffrenceCount; A++)
 	{
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-		Renderer->GetTransform().SetLocalPosition(float4(210 + A * 10, YPos, 0));
+		Renderer->GetTransform().SetLocalPosition(float4(210 + A * 10, YPos, -1));
 		std::string b  = std::to_string(Number.at(DiffrenceCount - A - 1) ) + ".png";
 		Renderer->SetTexture(std::to_string(Number.at(DiffrenceCount - A - 1)) + ".png");
 		Renderer->ScaleToTexture();
@@ -182,7 +199,7 @@ void TaskManager::StatusName()
 			if (StressDiffrenceNum != 0)
 			{
 				CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-				Renderer->GetTransform().SetLocalPosition(float4(287, 183, 0));
+				Renderer->GetTransform().SetLocalPosition(float4(287, 183, -1));
 				Renderer->SetTexture("Stress1.png");
 				Renderer->ScaleToTexture();
 				Hitokoto.push_back(Renderer);
@@ -191,7 +208,7 @@ void TaskManager::StatusName()
 			if (AffectionDiffrenceNum != 0)
 			{
 				CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-				Renderer->GetTransform().SetLocalPosition(float4(287, 146.5, 0));
+				Renderer->GetTransform().SetLocalPosition(float4(287, 146.5, -1));
 				Renderer->SetTexture("Affection1.png");
 				Renderer->ScaleToTexture();
 				Hitokoto.push_back(Renderer);
@@ -200,7 +217,7 @@ void TaskManager::StatusName()
 			if (MentalDiffrenceNum != 0)
 			{
 				CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-				Renderer->GetTransform().SetLocalPosition(float4(287, 110.5, 0));
+				Renderer->GetTransform().SetLocalPosition(float4(287, 110.5, -1));
 				Renderer->SetTexture("Mental1.png");
 				Renderer->ScaleToTexture();
 				Hitokoto.push_back(Renderer);
@@ -231,5 +248,102 @@ void TaskManager::StatusName()
 			Check = false;
 		}
 
+	}
+}
+
+void TaskManager::NumberSetting()
+{
+	if (NumberCheck == true)
+	{
+		int CurStatus = GlobalContentsValue::Affection;
+		while ((CurStatus) != 0)
+		{
+			int CurNum = CurStatus % 10;
+			CurNumber.push_back(CurNum);
+			CurStatus = CurStatus / 10;
+			CunrNumCount = CunrNumCount + 1;
+		}
+
+		for (int A = 0; A != CunrNumCount; A++)
+		{
+			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+			Renderer->GetTransform().SetLocalPosition(float4(215 + A * 8, 141.5, 0));
+			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
+			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
+			Renderer->GetTransform().SetLocalScale(float4(12,12));
+
+			CurNumberRenderer.push_back(Renderer);
+		}
+		CunrNumCount = 0;
+		CurNumber.clear();
+		
+		CurStatus = GlobalContentsValue::Followers;
+		while ((CurStatus) != 0)
+		{
+			int CurNum = CurStatus % 10;
+			CurNumber.push_back(CurNum);
+			CurStatus = CurStatus / 10;
+			CunrNumCount = CunrNumCount + 1;
+		}
+
+		for (int A = 0; A != CunrNumCount; A++)
+		{
+			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+			Renderer->GetTransform().SetLocalPosition(float4(205+ A * 14, 208, 0));
+			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
+			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
+			Renderer->GetTransform().SetLocalScale(float4(20, 20));
+
+			CurNumberRenderer.push_back(Renderer);
+		}
+		CunrNumCount = 0;
+		CurNumber.clear();
+
+		CurStatus = GlobalContentsValue::Stress;
+		while ((CurStatus) != 0)
+		{
+			int CurNum = CurStatus % 10;
+			CurNumber.push_back(CurNum);
+			CurStatus = CurStatus / 10;
+			CunrNumCount = CunrNumCount + 1;
+		}
+
+		for (int A = 0; A != CunrNumCount; A++)
+		{
+			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+			Renderer->GetTransform().SetLocalPosition(float4(215 + A * 8, 178, 0));
+			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
+			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
+			Renderer->GetTransform().SetLocalScale(float4(12, 12));
+
+			CurNumberRenderer.push_back(Renderer);
+		}
+		CunrNumCount = 0;
+		CurNumber.clear();
+
+		CurStatus = GlobalContentsValue::Mental;
+		while ((CurStatus) != 0)
+		{
+			int CurNum = CurStatus % 10;
+			CurNumber.push_back(CurNum);
+			CurStatus = CurStatus / 10;
+			CunrNumCount = CunrNumCount + 1;
+		}
+
+		for (int A = 0; A != CunrNumCount; A++)
+		{
+			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+			Renderer->GetTransform().SetLocalPosition(float4(215 + A * 8, 105.5, 0));
+			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
+			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
+			Renderer->GetTransform().SetLocalScale(float4(12, 12));
+
+			CurNumberRenderer.push_back(Renderer);
+		}
+		CunrNumCount = 0;
+		CurNumber.clear();
+		
+		
+		NumberCheck = false;
 	}
 }

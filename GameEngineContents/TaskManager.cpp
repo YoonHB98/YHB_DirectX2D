@@ -33,6 +33,7 @@ void TaskManager::Update(float _DeltaTime)
 {
 	StatusCheck();
 	StatusName();
+	NumberSetting();
 	std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
 	if (GlobalContentsValue::Stream == true)
 	{
