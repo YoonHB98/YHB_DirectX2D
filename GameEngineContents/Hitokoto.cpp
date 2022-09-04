@@ -124,7 +124,7 @@ void TaskManager::DiffrenceCheck(int Diffrence_, float YPos, bool follower)
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
 		Renderer->GetTransform().SetLocalPosition(float4(200 , YPos, -1));
 		Renderer->SetTexture("-.png");
-		Renderer->ScaleToTexture();
+		Renderer->GetTransform().SetLocalScale(float4(14, 14));
 		if (follower)
 		{
 			FollowerDiffrence.push_back(Renderer);
@@ -139,7 +139,7 @@ void TaskManager::DiffrenceCheck(int Diffrence_, float YPos, bool follower)
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
 		Renderer->GetTransform().SetLocalPosition(float4(200, YPos, -1));
 		Renderer->SetTexture("+.png");
-		Renderer->ScaleToTexture();
+		Renderer->GetTransform().SetLocalScale(float4(14, 14));
 
 		if (follower)
 		{
@@ -164,7 +164,7 @@ void TaskManager::DiffrenceCheck(int Diffrence_, float YPos, bool follower)
 		Renderer->GetTransform().SetLocalPosition(float4(210 + A * 10, YPos, -1));
 		std::string b  = std::to_string(Number.at(DiffrenceCount - A - 1) ) + ".png";
 		Renderer->SetTexture(std::to_string(Number.at(DiffrenceCount - A - 1)) + ".png");
-		Renderer->ScaleToTexture();
+		Renderer->GetTransform().SetLocalScale(float4(14, 14));
 
 		if (follower)
 		{
@@ -255,6 +255,16 @@ void TaskManager::NumberSetting()
 {
 	if (NumberCheck == true)
 	{
+
+		std::vector<CommentTextureRenderer*>::iterator StartIter = CurNumberRenderer.begin();
+		std::vector<CommentTextureRenderer*>::iterator EndIter = CurNumberRenderer.end();
+		for (; StartIter != EndIter; ++StartIter)
+		{
+			(*StartIter)->Off();
+		}
+		CurNumberRenderer.clear();
+		CurNumberRenderer.shrink_to_fit();
+
 		int CurStatus = GlobalContentsValue::Affection;
 		while ((CurStatus) != 0)
 		{
@@ -343,6 +353,7 @@ void TaskManager::NumberSetting()
 		CunrNumCount = 0;
 		CurNumber.clear();
 		
+
 		
 		NumberCheck = false;
 	}

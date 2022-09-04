@@ -23,7 +23,10 @@ private:
 	CommentTextureRenderer* TextureRenderer;
 	GameEngineTextureRenderer* Loading;
 	GameEngineCollision* Exit;
+	bool Check = false;
 	float Time;
 	bool First = true;
+
+	void StatusChange();
 };
 

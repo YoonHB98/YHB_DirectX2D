@@ -33,6 +33,7 @@ void Twitter::Start()
 
 void Twitter::Update(float _DeltaTime)
 {
+	StatusChange();
 	if (GlobalContentsValue::Twitter)
 	{
 		if (GlobalContentsValue::Contents == "Tutorial"
@@ -46,6 +47,7 @@ void Twitter::Update(float _DeltaTime)
 			Time = Time + _DeltaTime;
 			if (Time > 5.0f)
 			{
+				Check = true;
 				GlobalContentsValue::Twitter = false;
 				GlobalContentsValue::RemainLinenum = 6;
 				First = true;
@@ -68,4 +70,17 @@ void Twitter::Update(float _DeltaTime)
 
 void Twitter::End()
 {
+}
+
+void Twitter::StatusChange()
+{
+	if (Check)
+	{
+		Check = false;
+		if (GlobalContentsValue::Contents == "Tutorial")
+		{
+			GlobalContentsValue::Followers = GlobalContentsValue::Followers + 1000;
+			GlobalContentsValue::Stress = GlobalContentsValue::Stress + 10;
+		}
+	}
 }

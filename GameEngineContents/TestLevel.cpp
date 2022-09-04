@@ -56,8 +56,15 @@ void TestLevel::Start()
 
 void TestLevel::Update(float _DeltaTime)
 {
+	time = time + _DeltaTime;
+	if (time > 5.0f
+		&& time < 8.0f)
+	{
+		time = 10.0f;
+		GlobalContentsValue::Followers = GlobalContentsValue::Followers + 1000;
+	}
 
-	if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))
+	/*if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))
 	{
 		GetMainCameraActor()->FreeCameraModeOnOff();
 	}
@@ -81,7 +88,7 @@ void TestLevel::Update(float _DeltaTime)
 	if (GlobalContentsValue::RemainLinenum > 0)
 	{
 		GlobalContentsValue::Message = true;
-	}
+	}*/
 	// 레벨 바뀌어서 오면 초기화
 	// GetAccTime();
 
