@@ -67,6 +67,9 @@
     <Filter Include="Actor\Window\DayChangeWindow">
       <UniqueIdentifier>{71db6fa7-cecc-4b09-82d6-bfdec58b328c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Window\WindowIcon\IconWindow">
+      <UniqueIdentifier>{26fe970e-9efe-4f90-a58a-af6572ff1e83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -174,6 +177,9 @@
     </ClInclude>
     <ClInclude Include="TestLevel.h">
       <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Asobu.h">
+      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +297,9 @@
     </ClCompile>
     <ClCompile Include="Hitokoto.cpp">
       <Filter>Actor\Play\TaskManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Asobu.cpp">
+      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

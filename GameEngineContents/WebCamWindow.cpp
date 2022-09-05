@@ -51,11 +51,12 @@ void WebCamWindow::Start()
 
 void WebCamWindow::Update(float _DeltaTime)
 {
-	if (GlobalContentsValue::BgmOn
-		&& GlobalContentsValue::WebCamWindow == true)
+	if (GlobalContentsValue::WebCamWindow == true
+		&&BgmOn)
 	{
-		BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_normal.wav", 999);
-		GlobalContentsValue::BgmOn = false;
+		BgmOn = false;
+		GlobalContentsValue::BgmOn = true;
+		GlobalContentsValue::BgmName = "mainloop_kenjo.wav";
 	}
 	if (GlobalContentsValue::WebCamWindow == false)
 	{
@@ -63,7 +64,6 @@ void WebCamWindow::Update(float _DeltaTime)
 	}
 	else
 	{
-		BgmPlayer.UnPaused();
 			int A = std::stoi(Inst_->WebCamMainCol->GetNameConstRef());
 			ChangeZPos(std::stoi(Inst_->WebCamMainCol->GetNameConstRef()));
 	}
@@ -73,7 +73,6 @@ void WebCamWindow::Update(float _DeltaTime)
 		if (Stop == false)
 		{
 			ChangeZPos(500);
-			BgmPlayer.Paused();
 		}
 
 		Stop = true;

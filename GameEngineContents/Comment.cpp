@@ -58,7 +58,7 @@ void Comment::Update(float _DeltaTime)
 	{
 		if (GetTransform().GetLocalPosition().z > 400)
 		{
-			ChangeZPos(0);
+			ChangeZPos(-100);
 		}
 
 	}
@@ -74,7 +74,7 @@ void Comment::Update(float _DeltaTime)
 		if (MouseCheck(CommentCheck)
 			&& i > 1)
 		{
-			Stream::Inst_->BgmPlayer.PlaySpeed(0.9f);
+			GlobalContentsValue::BgmSpeed = 0.9;
 			Font->TextDraw("댓글 선택 중", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
 			GameEngineTime::GetInst()->SetGlobalScale(0.5f);
 			GlobalContentsValue::Check = true;
@@ -82,7 +82,7 @@ void Comment::Update(float _DeltaTime)
 		}
 		else if (i > 1)
 		{
-			Stream::Inst_->BgmPlayer.PlaySpeed(1.0f);
+			GlobalContentsValue::BgmSpeed = 1.0;
 			Font->TextDraw("방송 속도(보통)", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
 			GlobalContentsValue::Check = false;
 			Trash->GetTransform().SetLocalPosition(float4(0, 0, 500));

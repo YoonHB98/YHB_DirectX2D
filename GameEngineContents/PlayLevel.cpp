@@ -68,6 +68,9 @@ void PlayLevel::Start()
 }
 void PlayLevel::Update(float _DeltaTime)
 {
+	BGM();
+
+
 	if (GlobalContentsValue::DayChangeWindow)
 	{
 		return;
@@ -131,5 +134,29 @@ void PlayLevel::End() {  }
 void PlayLevel::ChangeZ(GameEngineActor* Actor, float Pos)
 {
 	
+}
+
+void PlayLevel::BGM()
+{
+	if (GlobalContentsValue::BgmStop)
+	{
+		BGMPlayer.Stop();
+	}
+
+	if (GlobalContentsValue::BgmOn)
+	{
+		BGMPlayer.Stop();
+		BGMPlayer = GameEngineSound::SoundPlayControl(GlobalContentsValue::BgmName, 999);
+		GlobalContentsValue::BgmOn = false;
+	}
+	else
+	{
+		if (CurBgmSpeed != GlobalContentsValue::BgmSpeed)
+		{
+			CurBgmSpeed = GlobalContentsValue::BgmSpeed;
+				BGMPlayer.PlaySpeed(GlobalContentsValue::BgmSpeed);
+		}
+		return;
+	}
 }
 

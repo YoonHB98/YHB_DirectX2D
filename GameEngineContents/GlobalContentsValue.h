@@ -44,6 +44,10 @@ public:
 	static std::string SecondComment;
 
 	static int RemainTwitnum;
+	//bgm
+	static std::string BgmName;
+	static int BgmSpeed;
+	static bool BgmStop;
 	//체크하고 있는지
 	static bool Check;
 

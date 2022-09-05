@@ -32,6 +32,7 @@ void NotificationText::TextDraw()
 	if (first)
 	{
 		Font = CreateComponent<Myfont>();
+		Font->SetRenderingOrder(500);
 		switch (GlobalContentsValue::TextConNum)
 		{
 		case 0:

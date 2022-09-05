@@ -100,7 +100,6 @@ void DayChangeWindow::Update(float _DeltaTime)
 			if (GlobalContentsValue::Day > 1)
 			{
 				GlobalContentsValue::WebCamWindow = true;
-				GlobalContentsValue::BgmOn;
 			}
 			ChangeTime = 0.0f;
 			RemainLineCheck();

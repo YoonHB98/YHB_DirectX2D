@@ -14,7 +14,7 @@ void WindowIcon::Start()
 	{
 		Youtube = CreateComponent<GameEngineTextureRenderer>();
 		Youtube->SetTexture("icon_desktop_youtube.png");
-		Youtube->GetTransform().SetLocalPosition(float4(-305, 230, 0));
+		Youtube->GetTransform().SetLocalPosition(float4(-305, 230, -10));
 		Youtube->GetTransform().SetLocalScale(float4(32, 32));
 		YoutubeCol = CreateComponent<GameEngineCollision>();
 		YoutubeCol->GetTransform().SetLocalPosition(float4(-305, 230, -30));
@@ -24,7 +24,7 @@ void WindowIcon::Start()
 	{
 		Asobu = CreateComponent<GameEngineTextureRenderer>();
 		Asobu->SetTexture("icon_desktop_asobu.png");
-		Asobu->GetTransform().SetLocalPosition(float4(-305, 165, 0));
+		Asobu->GetTransform().SetLocalPosition(float4(-305, 165, -10));
 		Asobu->GetTransform().SetLocalScale(float4(32, 32));
 		AsobuCol = CreateComponent<GameEngineCollision>();
 		AsobuCol->GetTransform().SetLocalPosition(float4(-305, 165, 0));
@@ -34,7 +34,7 @@ void WindowIcon::Start()
 	{
 		Neru = CreateComponent<GameEngineTextureRenderer>();
 		Neru->SetTexture("icon_desktop_neru.png");
-		Neru->GetTransform().SetLocalPosition(float4(-305, 100, 0));
+		Neru->GetTransform().SetLocalPosition(float4(-305, 100, -10));
 		Neru->GetTransform().SetLocalScale(float4(32, 32));
 		NeruCol = CreateComponent<GameEngineCollision>();
 		NeruCol->GetTransform().SetLocalPosition(float4(-305, 100, 0));
@@ -44,7 +44,7 @@ void WindowIcon::Start()
 	{
 		Okusuri = CreateComponent<GameEngineTextureRenderer>();
 		Okusuri->SetTexture("icon_desktop_okusuri.png");
-		Okusuri->GetTransform().SetLocalPosition(float4(-305, 35, 0));
+		Okusuri->GetTransform().SetLocalPosition(float4(-305, 35, -10));
 		Okusuri->GetTransform().SetLocalScale(float4(32, 32));
 		OkusuriCol = CreateComponent<GameEngineCollision>();
 		OkusuriCol->GetTransform().SetLocalPosition(float4(-305, 35, 0));
@@ -53,7 +53,7 @@ void WindowIcon::Start()
 	}
 	{
 		Internet = CreateComponent<GameEngineTextureRenderer>();
-		Internet->GetTransform().SetLocalPosition(float4(-305, -30,0));
+		Internet->GetTransform().SetLocalPosition(float4(-305, -30, -10));
 		Internet->CreateFrameAnimationCutTexture("Internet", FrameAnimation_DESC("icon_desktop_internet.png", 0, 0, 0.1f, false));
 		Internet->ChangeFrameAnimation("Internet");
 		Internet->GetTransform().SetLocalScale(float4(32, 32));
@@ -65,7 +65,7 @@ void WindowIcon::Start()
 	{
 		Odekake = CreateComponent<GameEngineTextureRenderer>();
 		Odekake->SetTexture("icon_desktop_odekake.png");
-		Odekake->GetTransform().SetLocalPosition(float4(-305, -95, 0));
+		Odekake->GetTransform().SetLocalPosition(float4(-305, -95, -10));
 		Odekake->GetTransform().SetLocalScale(float4(32, 32));
 		OdekakeCol = CreateComponent<GameEngineCollision>();
 		OdekakeCol->GetTransform().SetLocalPosition(float4(-305, -95, 0));

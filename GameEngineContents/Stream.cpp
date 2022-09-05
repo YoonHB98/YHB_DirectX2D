@@ -31,7 +31,7 @@ void Stream::Start()
 	Inst_->StreamMainCol->GetTransform().SetLocalPosition(float4(0, 0,0));
 	Inst_->StreamMainCol->GetTransform().SetLocalScale(float4(Size.x,Size.y, 2));
 	Inst_->StreamMainCol->ChangeOrder(OBJECTORDER::Window);
-	Inst_->StreamMainCol->SetName("30");
+	Inst_->StreamMainCol->SetName("-90");
 
 
 	SetName("Stream");
@@ -61,14 +61,14 @@ void Stream::Update(float _DeltaTime)
 			ToolTipText::Count = ToolTipText::Count + 1;
 			Tutorial = false;
 		}
-		TaskManager::Inst_->TaskManagerMainCol->SetName("40");
+		TaskManager::Inst_->TaskManagerMainCol->SetName("-60");
 		first = false;
-		Inst_->BgmPlayer = GameEngineSound::SoundPlayControl("mainloop_kenjo.wav", 999);
+		GlobalContentsValue::BgmOn = true;
+		GlobalContentsValue::BgmName = "mainloop_kenjo.wav";
 	}
 	if (GlobalContentsValue::ChangeTime > 200.0f)
 	{
 		TaskManager::Inst_->TaskManagerMainCol->SetName("-90");
-		Inst_->BgmPlayer.Stop();
 	}
 
 }

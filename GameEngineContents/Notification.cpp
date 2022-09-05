@@ -29,6 +29,7 @@ void Notification::Start()
 	Line->ScaleToTexture();
 
 	GameEngineSound().SoundPlayOneShot("jine_recieve.wav");
+	ChangeZPos(-10);
 }
 
 void Notification::Update(float _DeltaTime)

@@ -34,17 +34,19 @@ void Change::Update(float _DeltaTime)
 	}
 	if (GlobalContentsValue::Change)
 	{
-		ChangeZPos(50);
+		ChangeZPos(-10);
 		Bank->ChangeFrameAnimation("Bank");
 		Bank->AnimationBindEnd("Bank", std::bind(&Change::BootEnd, this, std::placeholders::_1));
 		if (first)
 		{
 			Sound = GameEngineSound::SoundPlayControl("Bank.wav");
+			GlobalContentsValue::BgmStop = true;
 			first = false;
 		}
 		if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		{
 			Sound.Stop();
+			GlobalContentsValue::BgmStop = false;
 			GlobalContentsValue::Change = false;
 			GlobalContentsValue::Stream = true;
 			ChangeZPos(500);
@@ -60,6 +62,7 @@ void Change::End()
 void Change::BootEnd(const FrameAnimation_DESC& _Info)
 {
 	Sound.Stop();
+	GlobalContentsValue::BgmStop = false;
 	GlobalContentsValue::Change = false;
 	GlobalContentsValue::Stream = true;
 	ChangeZPos(500);

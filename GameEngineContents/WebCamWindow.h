@@ -49,5 +49,6 @@ private:
 
 	GameEngineSoundPlayer BgmPlayer;
 	bool BgmOn = true;
+
 };
 

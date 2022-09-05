@@ -28,6 +28,7 @@
 #include "LineText.h"
 #include "Mouse.h"
 #include "Twitter.h"
+#include "Asobu.h"
 
 
 TestLevel::TestLevel() 
@@ -39,14 +40,18 @@ TestLevel::~TestLevel()
 }
 
 void TestLevel::Start()
-{
+{	
+	CreateActor<MainBG>(GameObjectGroup::BackGround);
+	CreateActor<SideBG>(GameObjectGroup::BackGround);
+	CreateActor<WindowIcon>();
+	CreateActor<Asobu>();
 	//CreateActor<Stream>();
 	//CreateActor<StreamAnimation>();
-	CreateActor<LineMain>();
+	//CreateActor<LineMain>();
 	CreateActor<Mouse>();
-	CreateActor<LineText>();
-	CreateActor<Twitter>();
-	CreateActor<TaskManager>();
+	//CreateActor<LineText>();
+	//CreateActor<Twitter>();
+	//CreateActor<TaskManager>();
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);

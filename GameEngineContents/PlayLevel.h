@@ -27,8 +27,11 @@ private:
 	bool TutorialFirst = true;
 	bool TutorialLoginFirst = true;
 
+	GameEngineSoundPlayer BGMPlayer;
 	GameEngineActor* A;
 
+	void BGM();
+	int CurBgmSpeed = 1.0f;
 	void ChangeZ(GameEngineActor* Actor, float Pos);
 };
 
