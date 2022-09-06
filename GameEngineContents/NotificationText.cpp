@@ -62,7 +62,7 @@ void NotificationText::TextDraw()
 	if (GlobalContentsValue::LineNum != 1)
 	{
 
-		Font->SetScreenPostion(float4(710, 492 - Count));
+		Font->SetScreenPostion(float4(710.0f, 492.0f - static_cast<float>(Count)));
 		Count = Count + 25;
 	}
 	

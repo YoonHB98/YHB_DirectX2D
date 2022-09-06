@@ -123,14 +123,14 @@ void LineText::CreateText(std::string _Text)
 	{
 		if (TextNum > 180.0f)
 		{
-			TextMove(TextNum - 180.0f,0);
-			TextNum = 180.0f;
+			TextMove(static_cast<float>(TextNum) - 180.0f,0);
+			TextNum = 180;
 		}
 		TextMove(SizeY + 3, 0);
 	}
 	else
 	{
-		TextNum = TextNum + SizeY + 3;
+		TextNum = TextNum + static_cast<int>(SizeY) + 3;
 	}
 }
 
@@ -155,7 +155,7 @@ void LineText::CreateChoice()
 	ChoiceText->SetTexture(Choice);
 	ChoiceText->ScaleToTexture();
 	float4 CurScale = ChoiceText->GetTransform().GetLocalScale();
-	ChoiceText->GetTransform().SetLocalPosition(float4(344.5 - CurScale.x / 2, -115 - CurScale.y /2));
+	ChoiceText->GetTransform().SetLocalPosition(float4(344.5f - CurScale.x / 2.0f, -115.0f - CurScale.y /2.0f));
 
 	Collision = CreateComponent<GameEngineCollision>();
 	Collision->GetTransform().SetLocalScale(float4(40, 10));
@@ -239,14 +239,14 @@ void LineText::CreateDayTime()
 		{
 			if (TextNum > 180.0f)
 			{
-				TextMove(TextNum - 180, 0);
-				TextNum = 180.0f;
+				TextMove(static_cast<float>(TextNum) - 180.0f, 0);
+				TextNum = 180;
 			}
 			TextMove(SizeY + 3, 0);
 		}
 		else
 		{
-			TextNum = TextNum + SizeY + 3;
+			TextNum = TextNum + static_cast<int>(SizeY) + 3;
 		}
 }
 

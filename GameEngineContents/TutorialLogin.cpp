@@ -41,7 +41,7 @@ void TutorialLogin::Start()
 void TutorialLogin::Update(float _DeltaTime)
 {
 	int A = std::stoi(Inst_->TutorialLoginCol->GetNameConstRef());
-	ChangeZPos(std::stoi(Inst_->TutorialLoginCol->GetNameConstRef()));
+	ChangeZPos(static_cast<float>(std::stoi(Inst_->TutorialLoginCol->GetNameConstRef())));
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 		&& MouseCheck(Collision))
 	{

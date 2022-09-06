@@ -50,7 +50,7 @@ void Stream::Update(float _DeltaTime)
 	if (GlobalContentsValue::Stream)
 	{
 		int a = std::stoi(Inst_->StreamMainCol->GetNameConstRef());
-		ChangeZPos(std::stoi(Inst_->StreamMainCol->GetNameConstRef()));
+		ChangeZPos(static_cast<float>(std::stoi(Inst_->StreamMainCol->GetNameConstRef())));
 	}
 	if (GlobalContentsValue::Stream
 		&&first)

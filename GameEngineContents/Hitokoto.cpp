@@ -166,7 +166,7 @@ void TaskManager::DiffrenceCheck(int Diffrence_, float YPos, bool follower)
 	for (int A = 0; A != DiffrenceCount; A++)
 	{
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-		Renderer->GetTransform().SetLocalPosition(float4(210 + A * 10, YPos, -1));
+		Renderer->GetTransform().SetLocalPosition(float4(210.0f + static_cast<float>(A) * 10.0f, YPos, -1));
 		std::string b  = std::to_string(Number.at(DiffrenceCount - A - 1) ) + ".png";
 		Renderer->SetTexture(std::to_string(Number.at(DiffrenceCount - A - 1)) + ".png");
 		Renderer->GetTransform().SetLocalScale(float4(14, 14));
@@ -282,7 +282,7 @@ void TaskManager::NumberSetting()
 		for (int A = 0; A != CunrNumCount; A++)
 		{
 			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-			Renderer->GetTransform().SetLocalPosition(float4(215 + A * 8, 141.5, 0));
+			Renderer->GetTransform().SetLocalPosition(float4(215.0f+ static_cast<float>(A) * 8.0f, 141.5f, 0.0f));
 			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
 			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
 			Renderer->GetTransform().SetLocalScale(float4(12,12));
@@ -304,7 +304,7 @@ void TaskManager::NumberSetting()
 		for (int A = 0; A != CunrNumCount; A++)
 		{
 			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-			Renderer->GetTransform().SetLocalPosition(float4(205+ A * 14, 208, 0));
+			Renderer->GetTransform().SetLocalPosition(float4(205.0f+ static_cast<float>(A) * 14.0f, 208.0f, 0.0f));
 			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
 			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
 			Renderer->GetTransform().SetLocalScale(float4(20, 20));
@@ -326,7 +326,7 @@ void TaskManager::NumberSetting()
 		for (int A = 0; A != CunrNumCount; A++)
 		{
 			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-			Renderer->GetTransform().SetLocalPosition(float4(215 + A * 8, 178, 0));
+			Renderer->GetTransform().SetLocalPosition(float4(215.0f + static_cast<float>(A) * 8.0f, 178.0f, 0.0f));
 			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
 			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
 			Renderer->GetTransform().SetLocalScale(float4(12, 12));
@@ -348,7 +348,7 @@ void TaskManager::NumberSetting()
 		for (int A = 0; A != CunrNumCount; A++)
 		{
 			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
-			Renderer->GetTransform().SetLocalPosition(float4(215 + A * 8, 105.5, 0));
+			Renderer->GetTransform().SetLocalPosition(float4(215.0f + static_cast<float>(A) * 8.0f, 105.5f, 0.0f));
 			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
 			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
 			Renderer->GetTransform().SetLocalScale(float4(12, 12));

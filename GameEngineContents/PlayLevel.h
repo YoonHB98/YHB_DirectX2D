@@ -31,7 +31,7 @@ private:
 	GameEngineActor* A;
 
 	void BGM();
-	int CurBgmSpeed = 1.0f;
+	float CurBgmSpeed = 1.0f;
 	void ChangeZ(GameEngineActor* Actor, float Pos);
 };
 

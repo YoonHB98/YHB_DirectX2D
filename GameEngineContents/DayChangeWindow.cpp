@@ -75,8 +75,8 @@ void DayChangeWindow::Update(float _DeltaTime)
 			if (Time > 0.004)
 			{
 				Count++;
-				Time = Time - 0.004;
-				Renderer->GetTransform().SetLocalMove(float4(-6.42, 0, 0));
+				Time = Time - 0.004f;
+				Renderer->GetTransform().SetLocalMove(float4(-6.42f, 0.0f, 0.0f));
 			}
 		}
 		if (Time > 2.0f

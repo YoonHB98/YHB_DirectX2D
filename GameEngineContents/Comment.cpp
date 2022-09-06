@@ -74,7 +74,7 @@ void Comment::Update(float _DeltaTime)
 		if (MouseCheck(CommentCheck)
 			&& i > 1)
 		{
-			GlobalContentsValue::BgmSpeed = 0.9;
+			GlobalContentsValue::BgmSpeed = 0.9f;
 			Font->TextDraw("댓글 선택 중", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
 			GameEngineTime::GetInst()->SetGlobalScale(0.5f);
 			GlobalContentsValue::Check = true;
@@ -82,7 +82,7 @@ void Comment::Update(float _DeltaTime)
 		}
 		else if (i > 1)
 		{
-			GlobalContentsValue::BgmSpeed = 1.0;
+			GlobalContentsValue::BgmSpeed = 1.0f;
 			Font->TextDraw("방송 속도(보통)", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
 			GlobalContentsValue::Check = false;
 			Trash->GetTransform().SetLocalPosition(float4(0, 0, 500));
@@ -107,12 +107,11 @@ void Comment::CommentCheckStart()
 	for (; StartTextIter != EndITexIter; ++StartIter, ++StartTextIter)
 	{
 		float4 Pos = (*StartIter).first->GetTransform().GetLocalPosition();
-		int CommentPos = Pos.y;
+		float CommentPos = Pos.y;
 
 		if (MouseCheck((*StartIter).first))
 		{
 			float4 Pos = (*StartIter).second->GetTransform().GetLocalPosition();
-			int CommentPos = Pos.y;
 			if ((*StartIter).first->GetNameConstRef() != "")
 			{
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
@@ -264,7 +263,7 @@ void Comment::CreateText(const std::string& _Text)
 	CommentTextureRenderer* TextRend = CreateComponent<CommentTextureRenderer>();
 	TextRend->SetTexture(_Text);
 	TextRend->ScaleToTexture();
-	TextRend->GetTransform().SetLocalPosition(float4(138, 137 - TextNum));
+	TextRend->GetTransform().SetLocalPosition(float4(138.0f, 137.0f - static_cast<float>(TextNum)));
 	TextRend->Clip.PosY = 126.0f;
 
 	float4 Scale = TextRend->GetTransform().GetLocalScale();
@@ -272,11 +271,11 @@ void Comment::CreateText(const std::string& _Text)
 	
 	GameEngineCollision* TrashCollision = CreateComponent<GameEngineCollision>();
 	TrashCollision->GetTransform().SetLocalScale(float4(11,13,0));
-	TrashCollision->GetTransform().SetLocalPosition(float4(228, 137 - TextNum));
+	TrashCollision->GetTransform().SetLocalPosition(float4(228.0f, 137.0f - static_cast<float>(TextNum)));
 
 	GameEngineCollision* Collision = CreateComponent<GameEngineCollision>();
 	Collision->GetTransform().SetLocalScale(float4(Scale.x, Scale.y, 0));
-	Collision->GetTransform().SetLocalPosition(float4(138, 137 - TextNum));
+	Collision->GetTransform().SetLocalPosition(float4(138.0f, 137.0f - static_cast<float>(TextNum)));
 	if (_Text == "Comment1_12.png"
 		||_Text == "Comment1_15.png")
 	{
@@ -303,7 +302,7 @@ void Comment::CreateText(const std::string& _Text)
 	if (MoveStart >= 10)
 	{
 			Move = Move + 25;
-			TextMove(25, Move);
+			TextMove(25.0f, static_cast<float>(Move));
 	}
 
 }

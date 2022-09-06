@@ -33,7 +33,7 @@ void LineMain::Update(float _DeltaTime)
 	if (GlobalContentsValue::Line)
 	{
 		int A = std::stoi(Inst_->LineMainCol->GetNameConstRef());
-		ChangeZPos(std::stoi(Inst_->LineMainCol->GetNameConstRef()));
+		ChangeZPos(static_cast<float>(std::stoi(Inst_->LineMainCol->GetNameConstRef())));
 	}
 	else
 	{

@@ -59,8 +59,11 @@ void Twitter::Update(float _DeltaTime)
 	{
 		if (First == false)
 		{
+			Check = true;
+			GlobalContentsValue::Twitter = false;
 			GlobalContentsValue::RemainLinenum = 6;
 			First = true;
+			Time = 0;
 		}
 		ChangeZPos(500);
 		Time = 0;

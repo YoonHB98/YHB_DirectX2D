@@ -58,7 +58,7 @@ void TaskManager::Update(float _DeltaTime)
 			Inst_->TaskManagerMainCol->SetName("-80");
 		}
 
-	ChangeZPos(std::stoi(Inst_->TaskManagerMainCol->GetNameConstRef()));
+	ChangeZPos(static_cast<float>(std::stoi(Inst_->TaskManagerMainCol->GetNameConstRef())));
 
 }
 

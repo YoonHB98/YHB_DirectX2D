@@ -65,7 +65,7 @@ void WebCamWindow::Update(float _DeltaTime)
 	else
 	{
 			int A = std::stoi(Inst_->WebCamMainCol->GetNameConstRef());
-			ChangeZPos(std::stoi(Inst_->WebCamMainCol->GetNameConstRef()));
+			ChangeZPos(static_cast<float>(std::stoi(Inst_->WebCamMainCol->GetNameConstRef())));
 	}
 
 	if (GlobalContentsValue::Change ==true)
