@@ -49,7 +49,6 @@ void StreamAnimation::Update(float _DeltaTime)
 {
 	if (GlobalContentsValue::Stream == false)
 	{
-		ChangeZPos(550);
 		first = true;
 		return;
 	}
@@ -59,7 +58,6 @@ void StreamAnimation::Update(float _DeltaTime)
 		{
 			first = false;
 		}
-		ChangeZPos(static_cast<float>(std::stoi(Stream::Inst_->StreamMainCol->GetNameConstRef())) - 1.0f);
 		Contents = ContentsMap[GlobalContentsValue::Contents];
 		ContentsUpdate(Contents);
 	}

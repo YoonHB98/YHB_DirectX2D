@@ -41,14 +41,19 @@ TestLevel::~TestLevel()
 
 void TestLevel::Start()
 {	
-	CreateActor<MainBG>(GameObjectGroup::BackGround);
-	CreateActor<SideBG>(GameObjectGroup::BackGround);
-	CreateActor<WindowIcon>();
-	CreateActor<Asobu>();
+	//CreateActor<MainBG>(GameObjectGroup::BackGround);
+	//CreateActor<SideBG>(GameObjectGroup::BackGround);
+	//CreateActor<WindowIcon>();
+	//CreateActor<Asobu>();
+	GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
+	GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
+	GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
+	CommentActor->SetParent(StreamActor);
+	StreamAnimationActor->SetParent(StreamActor);
 	//CreateActor<Stream>();
 	//CreateActor<StreamAnimation>();
 	//CreateActor<LineMain>();
-	CreateActor<Mouse>();
+	//CreateActor<Mouse>();
 	//CreateActor<LineText>();
 	//CreateActor<Twitter>();
 	//CreateActor<TaskManager>();
@@ -61,13 +66,14 @@ void TestLevel::Start()
 
 void TestLevel::Update(float _DeltaTime)
 {
-	time = time + _DeltaTime;
-	if (time > 5.0f
-		&& time < 8.0f)
-	{
-		time = 10.0f;
-		GlobalContentsValue::Followers = GlobalContentsValue::Followers + 1000;
-	}
+	GlobalContentsValue::Stream = true;
+	//time = time + _DeltaTime;
+	//if (time > 5.0f
+	//	&& time < 8.0f)
+	//{
+	//	time = 10.0f;
+	//	GlobalContentsValue::Followers = GlobalContentsValue::Followers + 1000;
+	//}
 
 	/*if (GameEngineInput::GetInst()->IsDown("FreeCameaOnOff"))
 	{

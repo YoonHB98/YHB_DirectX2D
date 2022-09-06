@@ -13,7 +13,7 @@ LineText::~LineText()
 
 void LineText::Start()
 {
-	ChangeZPos(-50);
+	ChangeZPos(-5);
 }
 
 void LineText::Update(float _DeltaTime)
@@ -50,7 +50,6 @@ void LineText::Update(float _DeltaTime)
 	}
 	if (GlobalContentsValue::Line == false)
 	{
-		ChangeZPos(500);
 		return;
 	}
 	else
@@ -60,12 +59,6 @@ void LineText::Update(float _DeltaTime)
 			EmoticonOnOff();
 			CurEmoticonStatus = GlobalContentsValue::EomticonStatus;
 		}
-		if (LineMain::Inst_->LineMainCol->GetNameConstRef() != ""
-			&& LineMain::Inst_->LineMainCol->GetNameConstRef() != "-100F")
-		{
-			ChangeZPos(std::stoi(LineMain::Inst_->LineMainCol->GetNameConstRef()) - 5.0f);
-		}
-
 	}
 
 	if (ChoiceTimeStart == true)

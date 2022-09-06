@@ -33,5 +33,11 @@ private:
 	void BGM();
 	float CurBgmSpeed = 1.0f;
 	void ChangeZ(GameEngineActor* Actor, float Pos);
+
+	GameEngineActor* LineMainActor;
+	GameEngineActor* LineTextActor;
+	GameEngineActor* StreamAnimationActor;
+	GameEngineActor* StreamActor;
+	GameEngineActor* CommentActor;
 };
 

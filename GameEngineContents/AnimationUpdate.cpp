@@ -494,7 +494,7 @@ void StreamAnimation::UpdateA9()
 					{
 					if (GlobalContentsValue::Contents == "Tutorial")
 						{
-						if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+			/*			if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 							{
 							EndTimer = 0.0f;
 							GlobalContentsValue::Stream = false;
@@ -512,7 +512,7 @@ void StreamAnimation::UpdateA9()
 								GlobalContentsValue::Twitter = true;
 								GlobalContentsValue::Tooltip = false;
 								GlobalContentsValue::RemainTwitnum = 2;
-								}
+								}*/
 						}
 					}
 				}

@@ -41,25 +41,33 @@ void PlayLevel::Start()
 
 
 
-	//BG
 
-	CreateActor<LineMain>(GameObjectGroup::WindowIcon);
+	//Line
+	LineMainActor = CreateActor<LineMain>(GameObjectGroup::WindowIcon);
+	LineTextActor = CreateActor<LineText>();
+	LineTextActor->SetParent(LineMainActor);
+
+	//stream
+	StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
+	CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
+	StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
+	CommentActor->SetParent(StreamActor);
+	StreamAnimationActor->SetParent(StreamActor);
+
 	CreateActor<WebCamWindow>(GameObjectGroup::WindowIcon);
 	CreateActor<Mouse>(GameObjectGroup::WindowIcon);
 	CreateActor<ToolTip>(GameObjectGroup::WindowIcon);
 	CreateActor<ToolTipText>(GameObjectGroup::WindowIcon);
-	CreateActor<Stream>(GameObjectGroup::UI);
+	
 	CreateActor<DayChangeWindow>(GameObjectGroup::UI);
 
-	//Icon
+	//BG
 	CreateActor<WindowIcon>(GameObjectGroup::WindowIcon);
 	CreateActor<MainBG>(GameObjectGroup::BackGround);
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
+
 	//ingame
-	CreateActor<LineText>();
 	CreateActor<Change>(GameObjectGroup::WindowIcon);
-	CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
-	CreateActor<Comment>(GameObjectGroup::WindowIcon);
 	CreateActor<Twitter>(GameObjectGroup::WindowIcon);
 	CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
 

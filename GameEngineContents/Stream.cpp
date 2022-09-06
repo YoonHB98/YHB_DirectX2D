@@ -26,11 +26,11 @@ void Stream::Start()
 	Haisin->GetTransform().SetLocalPosition(float4(0,-5));
 	Haisin->GetTransform().SetLocalScale(float4(662, 440));
 	
-	float4 Size = Renderer->GetTransform().GetLocalScale();
 	Inst_->StreamMainCol = CreateComponent<GameEngineCollision>();
-	Inst_->StreamMainCol->GetTransform().SetLocalPosition(float4(0, 0,0));
-	Inst_->StreamMainCol->GetTransform().SetLocalScale(float4(Size.x,Size.y, 2));
+	Inst_->StreamMainCol->GetTransform().SetLocalPosition(float4(0, -5,0));
+	Inst_->StreamMainCol->GetTransform().SetLocalScale(float4(662,440, 4));
 	Inst_->StreamMainCol->ChangeOrder(OBJECTORDER::Window);
+	Mouse::Inst_->ChangeNameAll();
 	Inst_->StreamMainCol->SetName("-90");
 
 
@@ -39,8 +39,6 @@ void Stream::Start()
 
 void Stream::Update(float _DeltaTime)
 {
-
-	MouseCheck(Inst_->StreamMainCol);
 	if (GlobalContentsValue::Stream == false)
 	{
 		ChangeZPos(500);
@@ -61,7 +59,6 @@ void Stream::Update(float _DeltaTime)
 			ToolTipText::Count = ToolTipText::Count + 1;
 			Tutorial = false;
 		}
-		TaskManager::Inst_->TaskManagerMainCol->SetName("-60");
 		first = false;
 		GlobalContentsValue::BgmOn = true;
 		GlobalContentsValue::BgmName = "mainloop_kenjo.wav";

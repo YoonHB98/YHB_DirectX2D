@@ -48,19 +48,13 @@ void Comment::Update(float _DeltaTime)
 {
 	if (GlobalContentsValue::Stream == false)
 	{
-		if (GetTransform().GetLocalPosition().z < 499)
-		{
 			ChangeZPos(500);
 			Font->TextDraw(" ", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
-		}
+			return;
 	}
 	else
 	{
-		if (GetTransform().GetLocalPosition().z > 400)
-		{
-			ChangeZPos(-100);
-		}
-
+			ChangeZPos(static_cast<float>(std::stoi(Stream::Inst_->StreamMainCol->GetNameConstRef())));
 	}
 	if (GlobalContentsValue::Stream)
 	{
@@ -263,7 +257,7 @@ void Comment::CreateText(const std::string& _Text)
 	CommentTextureRenderer* TextRend = CreateComponent<CommentTextureRenderer>();
 	TextRend->SetTexture(_Text);
 	TextRend->ScaleToTexture();
-	TextRend->GetTransform().SetLocalPosition(float4(138.0f, 137.0f - static_cast<float>(TextNum)));
+	TextRend->GetTransform().SetLocalPosition(float4(138.0f, 137.0f - static_cast<float>(TextNum), -2.0f));
 	TextRend->Clip.PosY = 126.0f;
 
 	float4 Scale = TextRend->GetTransform().GetLocalScale();
@@ -318,15 +312,15 @@ void Comment::TextMove(float Y_, float last)
 
 	for (; StartIter != EndIter - 1; ++StartIter,++StartColIter )
 	{
-		(*StartIter)->GetTransform().SetLocalMove(float4(0, Y_));
-		(*StartColIter).first->GetTransform().SetLocalMove(float4(0, Y_));
-		(*StartColIter).second->GetTransform().SetLocalMove(float4(0, Y_));
+		(*StartIter)->GetTransform().SetLocalMove(float4(0, Y_,0));
+		(*StartColIter).first->GetTransform().SetLocalMove(float4(0, Y_,0));
+		(*StartColIter).second->GetTransform().SetLocalMove(float4(0, Y_,0));
 	}
 
 	(StartIter) = EndIter - 1;
-	(*StartIter)->GetTransform().SetLocalMove(float4(0, last));
+	(*StartIter)->GetTransform().SetLocalMove(float4(0, last,0));
 
 	(StartColIter) = EndColIter - 1;
-	(*StartColIter).first->GetTransform().SetLocalMove(float4(0, last));
-	(*StartColIter).second->GetTransform().SetLocalMove(float4(0, last));
+	(*StartColIter).first->GetTransform().SetLocalMove(float4(0, last,0));
+	(*StartColIter).second->GetTransform().SetLocalMove(float4(0, last,0));
 }

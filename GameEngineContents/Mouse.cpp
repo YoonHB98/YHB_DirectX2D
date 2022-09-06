@@ -70,23 +70,8 @@ void Mouse::Update(float _DeltaTime)
 	GlobalContentsValue::MousePos = Pos;
 	GetTransform().SetWorldPosition(float4(Pos.x, Pos.y , 0));
 
-	if (GlobalContentsValue::Stream == true)
-	{
-		if (bool Check30 = Collision30->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Window, CollisionType::CT_OBB,
-			std::bind(&Mouse::ChnageName, this, std::placeholders::_1, std::placeholders::_2))
-			&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
-		{
-			ChangeNameAll();
-		}else
-		if (bool Check40 = Collision40->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Window, CollisionType::CT_OBB,
-			std::bind(&Mouse::ChnageName, this, std::placeholders::_1, std::placeholders::_2))
-			&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
-		{
-			ChangeNameAll();
-		}
-	}else
-	if (GlobalContentsValue::Stream == false)
-	{
+
+
 		//충돌이 있으면
 		if (bool Check = Collision->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Window, CollisionType::CT_OBB,
 			std::bind(&Mouse::MouseCollision, this, std::placeholders::_1, std::placeholders::_2)))
@@ -123,7 +108,7 @@ void Mouse::Update(float _DeltaTime)
 				{
 					ChangeNameAll();
 				}
-		}
+
 	
 	}
 	if ( Collision->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Exit, CollisionType::CT_OBB,
@@ -162,15 +147,6 @@ bool Mouse::Exit(GameEngineCollision* _This, GameEngineCollision* _Other)
 
 bool Mouse::ChnageName(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
-	if (GlobalContentsValue::Stream == true
-		&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
-	{
-		std::string Name = _Other->GetActor()->GetNameConstRef();
-		GetActorName(Name, "30F");
-		std::string CurName = Stream::Inst_->StreamMainCol->GetNameConstRef();
-		CurName = TaskManager::Inst_->TaskManagerMainCol->GetNameConstRef();
-	}
-	else
 		if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		{
 			std::string Name = _Other->GetActor()->GetNameConstRef();
@@ -206,8 +182,7 @@ void Mouse::ChangeNameAll()
 		CurName = CurNameChange(CurName);
 		WebCamWindow::Inst_->WebCamMainCol->SetName(CurName);
 	}
-	if (nullptr != Stream::Inst_->StreamMainCol
-		&& GlobalContentsValue::Stream == true)
+	if (nullptr != Stream::Inst_->StreamMainCol)
 	{
 		std::string CurName = Stream::Inst_->StreamMainCol->GetNameConstRef();
 		CurName = CurNameChange(CurName);

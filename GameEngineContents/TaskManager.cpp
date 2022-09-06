@@ -35,29 +35,6 @@ void TaskManager::Update(float _DeltaTime)
 	StatusName();
 	NumberSetting();
 	std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
-	if (GlobalContentsValue::Stream == true)
-	{
-		std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
-		if (Inst_->TaskManagerMainCol->GetNameConstRef() == ("40"))
-		{
-			ChangeZPos(300);
-			Inst_->TaskManagerMainCol->GetTransform().SetLocalPosition(float4(257, 170, -260));
-			return;
-		}
-		else
-			if (Inst_->TaskManagerMainCol->GetNameConstRef() == ("30"))
-			{
-				ChangeZPos(-1000);
-				Inst_->TaskManagerMainCol->GetTransform().SetLocalPosition(float4(257, 170, 1030));
-				return;
-			}
-	}else
-		if (Inst_->TaskManagerMainCol->GetNameConstRef() == ("40")
-			|| Inst_->TaskManagerMainCol->GetNameConstRef() == ("30"))
-		{
-			Inst_->TaskManagerMainCol->SetName("-80");
-		}
-
 	ChangeZPos(static_cast<float>(std::stoi(Inst_->TaskManagerMainCol->GetNameConstRef())));
 
 }
