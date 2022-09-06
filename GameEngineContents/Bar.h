@@ -26,8 +26,16 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
+	void BarMake();
+	void BarMove();
+	std::vector<CommentTextureRenderer*> MentalStack;
+	std::vector<CommentTextureRenderer*> StressStack;
+	std::vector<CommentTextureRenderer*> AffectionStack;
 	float time;
 	float time2;
+	int BarCount = 0;
+	float BarTime= 0;
 	int count = 0;
+	bool StartCheck = false;
 };
 

@@ -28,7 +28,6 @@ void CommentTextureRenderer::SetTextureRendererSetting()
 	FrameData.SizeY = 1.0f;
 
 	Clip.PosX = 1200.0f;
-	//540
 	Clip.PosY = 0.0f;
 	Clip.SizeX = 0.0f;
 	Clip.SizeY = 0.0f;

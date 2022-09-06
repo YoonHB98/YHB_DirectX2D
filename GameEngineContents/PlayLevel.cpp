@@ -84,19 +84,7 @@ void PlayLevel::Update(float _DeltaTime)
 		return;
 	}
 	time = time + GameEngineTime::GetDeltaTime();
-	//bartime = bartime + GameEngineTime::GetDeltaTime();
-	//if (time < -0.01f)
-	//{
-	//	time = 0.0f;
-	//}
-	//if (bartime > 1.0f)
-	//{
-	//	bartime = bartime - 1.0f;
-	//	if (GlobalContentsValue::Tutorial == false)
-	//	{
-	//		CreateActor<Bar>(GameObjectGroup::WindowIcon);
-	//	}
-	//}
+
 	if (time > 2.5f
 		|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
@@ -131,8 +119,9 @@ void PlayLevel::Update(float _DeltaTime)
 	if (GlobalContentsValue::Tutorial == false
 		&& TutorialFirst)
 	{
-		CreateActor<TaskManager>(GameObjectGroup::WindowIcon);
-		CreateActor<Bar>(GameObjectGroup::WindowIcon);
+		GameEngineActor* TaskManagerActor = CreateActor<TaskManager>(GameObjectGroup::WindowIcon);
+		GameEngineActor* BarActor = CreateActor<Bar>(GameObjectGroup::WindowIcon);
+		BarActor->SetParent(TaskManagerActor);
 		TutorialFirst = false;
 	}
 

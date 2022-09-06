@@ -64,7 +64,8 @@ cbuffer Clip : register(b0)
 {
     float X;
     float Y;
-    float2 XY;
+    float XX;
+    float YY;
 }
 
 float4 CommentTexture_PS(Output _Input) : SV_Target0
@@ -78,6 +79,12 @@ float4 CommentTexture_PS(Output _Input) : SV_Target0
         }
     
     if (_Input.Pos.x > X)
+    {
+        //1200
+        clip(-1);
+    }
+    
+    if (_Input.Pos.x < XX)
     {
         //1200
         clip(-1);
