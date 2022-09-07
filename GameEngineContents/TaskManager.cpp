@@ -31,11 +31,14 @@ void TaskManager::Start()
 
 void TaskManager::Update(float _DeltaTime)
 {
-	StatusCheck();
-	StatusName();
-	NumberSetting();
-	std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
-	ChangeZPos(static_cast<float>(std::stoi(Inst_->TaskManagerMainCol->GetNameConstRef())));
+	if (GlobalContentsValue::DayChangeWindow == false)
+	{
+		StatusCheck();
+		StatusName();
+		NumberSetting();
+		std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
+		ChangeZPos(static_cast<float>(std::stoi(Inst_->TaskManagerMainCol->GetNameConstRef())));
+	}
 
 }
 

@@ -40,6 +40,12 @@ void TutorialLogin::Start()
 
 void TutorialLogin::Update(float _DeltaTime)
 {
+	if (first == true)
+	{
+		Inst_->TutorialLoginCol->SetName("-100F");
+		Mouse::Inst_->ChangeNameAll();
+		first = false;
+	}
 	int A = std::stoi(Inst_->TutorialLoginCol->GetNameConstRef());
 	ChangeZPos(static_cast<float>(std::stoi(Inst_->TutorialLoginCol->GetNameConstRef())));
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick")

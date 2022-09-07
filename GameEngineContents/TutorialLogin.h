@@ -35,7 +35,7 @@ private:
 	GameEngineTextureRenderer* Tex;
 	Myfont* Font;
 	std::string Text = " ";
-	bool first;
+	bool first = true;
 	bool PassWord = false;
 
 };
