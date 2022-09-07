@@ -41,10 +41,10 @@ TestLevel::~TestLevel()
 
 void TestLevel::Start()
 {	
-	//CreateActor<MainBG>(GameObjectGroup::BackGround);
-	//CreateActor<SideBG>(GameObjectGroup::BackGround);
+	CreateActor<MainBG>(GameObjectGroup::BackGround);
+	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	//CreateActor<WindowIcon>();
-	//CreateActor<Asobu>();
+	CreateActor<Asobu>();
 	//GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
 	//GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
 	//GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
@@ -56,10 +56,6 @@ void TestLevel::Start()
 	//CreateActor<Mouse>();
 	//CreateActor<LineText>();
 	//CreateActor<Twitter>();
-	GameEngineActor* A = CreateActor<TaskManager>();
-	GameEngineActor* B = CreateActor<Bar>();
-	B->SetParent(A);
-	GlobalContentsValue::Tutorial = false;
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);

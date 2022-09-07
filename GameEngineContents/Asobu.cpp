@@ -17,11 +17,40 @@ void Asobu::Start()
 	BG->GetTransform().SetLocalPosition(float4(195, -15, -3));
 	BG->GetPixelData().MulColor.a = 0.6f;
 
+	GameEngineTextureRenderer* Renderer = CreateComponent<GameEngineTextureRenderer>();
+	Renderer->SetTexture("BackGroundColor.png");
+	Renderer->GetTransform().SetLocalScale(float4(298, 2));
+	Renderer->GetTransform().SetLocalPosition(float4(197, -223, -3));
+	{
+		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+		Renderer->SetTexture("BackGroundColor.png");
+		Renderer->GetTransform().SetLocalScale(float4(2, 400));
+		Renderer->GetTransform().SetLocalPosition(float4(345, -22, -3));
+	}
+	{
+		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+		Renderer->SetTexture("Triangle2.png");
+		Renderer->GetTransform().SetLocalScale(float4(15,17));
+		Renderer->GetTransform().SetLocalPosition(float4(202, -175, -3));
+	}
 
 	Font = CreateComponent<Myfont>();
 	Font->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 	Font->TextDraw("달달한 대화", "galmuri11", float4(545, 112), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 17);
 	Font->SetRenderingOrder(500);
+	{
+		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+		Renderer->SetTexture("icon_status_stress.png");
+		Renderer->GetTransform().SetLocalScale(float4(24,20));
+		Renderer->GetTransform().SetLocalPosition(float4(80, 80, -3));
+	}
+	{
+		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+		Renderer->SetTexture("icon_status_love.png");
+		Renderer->GetTransform().SetLocalScale(float4(24, 20));
+		Renderer->GetTransform().SetLocalPosition(float4(80, 55, -3));
+	}
+
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
@@ -91,7 +120,30 @@ void Asobu::Start()
 		Script->TextDraw("1", "DinkieBitmap 7px", float4(700, 255), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1),30);
 		Script->SetRenderingOrder(500);
 	}
-
+	{
+		Myfont* Script = CreateComponent<Myfont>();
+		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
+		Script->TextDraw("1", "DinkieBitmap 7px", float4(700, 255), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
+		Script->SetRenderingOrder(500);
+	}
+	{
+		Myfont* Script = CreateComponent<Myfont>();
+		Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
+		Script->TextDraw("낮", "galmuri11", float4(558, 435), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
+		Script->SetRenderingOrder(500);
+	}
+	{
+		Myfont* Script = CreateComponent<Myfont>();
+		Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
+		Script->TextDraw("저녁", "galmuri11", float4(790, 435), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
+		Script->SetRenderingOrder(500);
+	}
+	{
+		Myfont* Script = CreateComponent<Myfont>();
+		Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
+		Script->TextDraw("저녁이  될  거야", "galmuri11", float4(674, 455), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 8);
+		Script->SetRenderingOrder(500);
+	}
 
 }
 

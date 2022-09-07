@@ -21,6 +21,7 @@ public:
 	}
 
 	float4 Clip;
+	float4 Color;
 
 	void SetTextureRendererSetting();
 protected:

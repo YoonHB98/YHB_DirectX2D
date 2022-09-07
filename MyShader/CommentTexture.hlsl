@@ -68,6 +68,15 @@ cbuffer Clip : register(b0)
     float YY;
 }
 
+cbuffer Color : register(b1)
+{
+    float RR;
+    float GG;
+    float BB;
+    float AA;
+}
+
+
 float4 CommentTexture_PS(Output _Input) : SV_Target0
 {
     float4 Color = Tex.Sample(Smp, _Input.Tex.xy);
@@ -90,7 +99,14 @@ float4 CommentTexture_PS(Output _Input) : SV_Target0
         clip(-1);
     }
     
+    if (RR != 0)
+    {
+        Color.r = RR;
+        Color.g = GG;
+        Color.b = BB;
+    }
 
-    return Color;
+
+        return Color;
 
 }
