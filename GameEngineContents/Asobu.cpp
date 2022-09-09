@@ -50,7 +50,24 @@ void Asobu::Start()
 		Renderer->GetTransform().SetLocalScale(float4(24, 20));
 		Renderer->GetTransform().SetLocalPosition(float4(80, 55, -3));
 	}
-
+	{
+		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+		Renderer->SetTexture("Arrow.png");
+		Renderer->GetTransform().SetLocalScale(float4(15, 12));
+		Renderer->GetTransform().SetLocalPosition(float4(226.5f, 76.5f, -5));
+	}
+	{
+		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+		Renderer->SetTexture("Arrow.png");
+		Renderer->GetTransform().SetLocalScale(float4(15, 12));
+		Renderer->GetTransform().SetLocalPosition(float4(226.5f, 51.5f, -5));
+	}
+	{
+		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+		Renderer->SetTexture("Arrow.png");
+		Renderer->GetTransform().SetLocalScale(float4(15, 12));
+		Renderer->GetTransform().SetLocalPosition(float4(205.5f, -2.0f, -5));
+	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
@@ -74,7 +91,7 @@ void Asobu::Start()
 		//720
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
-		Script->TextDraw("7", "DinkieBitmap 7px", float4(720, 174), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
+		Script->TextDraw("7", "DinkieBitmap 7px", float4(720, 175), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
 		Script->SetRenderingOrder(500);
 	}
 	{
@@ -93,7 +110,7 @@ void Asobu::Start()
 		//720
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
-		Script->TextDraw("44", "DinkieBitmap 7px", float4(720, 199), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
+		Script->TextDraw("44", "DinkieBitmap 7px", float4(720, 202), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
 		Script->SetRenderingOrder(500);
 	}
 	{
