@@ -69,6 +69,37 @@ void Asobu::Start()
 		Renderer->GetTransform().SetLocalPosition(float4(205.5f, -2.0f, -5));
 	}
 	{
+		for (float X = 195.5f;X < 224.0f ; X = X +7.5f)
+		{
+			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+			Renderer->SetTexture("DownArrow.png");
+			Renderer->GetTransform().SetLocalScale(float4(7, 8));
+			Renderer->GetTransform().SetLocalPosition(float4(X, 86.0f, -5));
+			Renderer->Color.PosX = 215.0f / 255.0f;
+			Renderer->Color.PosY = 90.0f / 255.0f;
+			Renderer->Color.SizeX = 90.0f / 255.0f;
+		}
+	}
+	{
+		for (float X = 195.5f; X < 216.5f; X = X + 7.5f)
+		{
+			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+			Renderer->SetTexture("UpArrow.png");
+			Renderer->GetTransform().SetLocalScale(float4(7, 8));
+			Renderer->GetTransform().SetLocalPosition(float4(X, 61.5f, -5));
+		}
+	}
+	{
+			CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
+			Renderer->SetTexture("UpArrow.png");
+			Renderer->GetTransform().SetLocalScale(float4(7, 8));
+			Renderer->GetTransform().SetLocalPosition(float4(168, 9.8f, -5));
+			Renderer->Color.PosX = 215.0f / 255.0f;
+			Renderer->Color.PosY = 90.0f / 255.0f;
+			Renderer->Color.SizeX = 90.0f / 255.0f;
+	}
+
+	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("아메와  꽁냥꽁냥하자", "galmuri11", float4(548, 150), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 10);
@@ -84,14 +115,19 @@ void Asobu::Start()
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
-		Script->TextDraw("13", "DinkieBitmap 7px", float4(675, 185), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
+		Script->TextDraw(std::to_string(GlobalContentsValue::Stress), "DinkieBitmap 7px", float4(675, 185), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
 		Script->SetRenderingOrder(500);
 	}
 	{
-		//720
+		int Temp = GlobalContentsValue::Stress;
+		Temp = Temp - 4;
+		if (Temp < 0)
+		{
+			Temp = 0;
+		}
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
-		Script->TextDraw("7", "DinkieBitmap 7px", float4(720, 175), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
+		Script->TextDraw(std::to_string(Temp), "DinkieBitmap 7px", float4(720, 175), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
 		Script->SetRenderingOrder(500);
 	}
 	{
@@ -103,14 +139,19 @@ void Asobu::Start()
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
-		Script->TextDraw("40", "DinkieBitmap 7px", float4(675, 210), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
+		Script->TextDraw(std::to_string(GlobalContentsValue::Affection), "DinkieBitmap 7px", float4(675, 210), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
 		Script->SetRenderingOrder(500);
 	}
 	{
-		//720
+		int Temp = GlobalContentsValue::Affection;
+		Temp = Temp + 4;
+		if (Temp > 100)
+		{
+			Temp = 100;
+		}
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
-		Script->TextDraw("44", "DinkieBitmap 7px", float4(720, 202), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
+		Script->TextDraw(std::to_string(Temp), "DinkieBitmap 7px", float4(720, 202), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
 		Script->SetRenderingOrder(500);
 	}
 	{
@@ -162,6 +203,7 @@ void Asobu::Start()
 		Script->SetRenderingOrder(500);
 	}
 
+	ChangeZPos(-400);
 }
 
 void Asobu::Update(float _DeltaTime)
