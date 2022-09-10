@@ -157,7 +157,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Asobu.h">
+    <ClInclude Include="Asobu_Talk.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Asobu_Game.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Asobu_That.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -305,7 +313,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimationUpdate.cpp" />
-    <ClCompile Include="Asobu.cpp">
+    <ClCompile Include="Asobu_Talk.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Asobu_Game.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Asobu_That.cpp">
       <SubType>
       </SubType>
     </ClCompile>

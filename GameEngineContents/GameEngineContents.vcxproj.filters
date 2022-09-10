@@ -178,7 +178,13 @@
     <ClInclude Include="TestLevel.h">
       <Filter>Level</Filter>
     </ClInclude>
-    <ClInclude Include="Asobu.h">
+    <ClInclude Include="Asobu_Talk.h">
+      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Asobu_Game.h">
+      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Asobu_That.h">
       <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
     </ClInclude>
   </ItemGroup>
@@ -298,7 +304,13 @@
     <ClCompile Include="Hitokoto.cpp">
       <Filter>Actor\Play\TaskManager</Filter>
     </ClCompile>
-    <ClCompile Include="Asobu.cpp">
+    <ClCompile Include="Asobu_Talk.cpp">
+      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Asobu_Game.cpp">
+      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Asobu_That.cpp">
       <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
     </ClCompile>
   </ItemGroup>

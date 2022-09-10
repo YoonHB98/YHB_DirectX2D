@@ -26,7 +26,7 @@ public:
 	SideBG& operator=(const SideBG& _Other) = delete;
 	SideBG& operator=(SideBG&& _Other) noexcept = delete;
 
-	GameEngineTextureRenderer* RightBG;
+	CommentTextureRenderer* RightBG;
 	GameEngineTextureRenderer* LeftBG;
 	GameEngineSoundPlayer BgmPlayer;
 protected:
@@ -40,6 +40,7 @@ private:
 	void StartEvening();
 
 private:
+	bool AAAA = false;
 	DayState CurState_;
 
 };

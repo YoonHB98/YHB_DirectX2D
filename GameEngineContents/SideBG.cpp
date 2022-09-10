@@ -56,7 +56,7 @@ void SideBG::StartEvening()
 void SideBG::Start()
 {
 	{
-		RightBG = CreateComponent<GameEngineTextureRenderer>();
+		RightBG = CreateComponent<CommentTextureRenderer>();
 		RightBG->SetTexture("bg_side_bar_night.png");
 		RightBG->GetTransform().SetLocalPosition(float4(419.5, 0,400));
 		RightBG->ScaleToTexture();
@@ -74,6 +74,33 @@ void SideBG::Update(float _DeltaTime)
 {
 	DayState GlobalValue = (DayState)GlobalContentsValue::DayTime;
 	ChangeState(GlobalValue);
+	float A = RightBG->Color.SizeY;
+	if (RightBG->Color.SizeY < 0.2f
+		&& AAAA == false)
+	{
+		RightBG->Color.SizeY  = RightBG->Color.SizeY + 0.1f * _DeltaTime;
+	}
+	else
+	{
+		AAAA = true;
+	}
+
+	if (AAAA && RightBG->Color.SizeY > 0.0f)
+	{
+		RightBG->Color.SizeY = RightBG->Color.SizeY - 0.06f * _DeltaTime;
+	}
+	else
+		if (AAAA && RightBG->Color.SizeY < 0.0f)
+		{
+			RightBG->Color.SizeY = 0.0f;
+		}
+	{
+
+	}
+
+			//RightBG->Color.SizeY - 1.0f * _DeltaTime;
+
+
 }
 
 void SideBG::End()

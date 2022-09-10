@@ -1,15 +1,15 @@
 ﻿#include "PreCompile.h"
-#include "Asobu.h"
+#include "Asobu_Talk.h"
 
-Asobu::Asobu() 
+Asobu_Talk::Asobu_Talk() 
 {
 }
 
-Asobu::~Asobu() 
+Asobu_Talk::~Asobu_Talk() 
 {
 }
 
-void Asobu::Start()
+void Asobu_Talk::Start()
 {
 	BG = CreateComponent<GameEngineTextureRenderer>();
 	BG->SetTexture("Color.png");
@@ -120,7 +120,7 @@ void Asobu::Start()
 	}
 	{
 		int Temp = GlobalContentsValue::Stress;
-		Temp = Temp - 4;
+		Temp = Temp - 6;
 		if (Temp < 0)
 		{
 			Temp = 0;
@@ -184,32 +184,58 @@ void Asobu::Start()
 		Script->TextDraw("1", "DinkieBitmap 7px", float4(700, 255), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
 		Script->SetRenderingOrder(500);
 	}
-	{
+	{GlobalContentsValue::DayTime = 1;
+		std::string DayTime = CheckDayTime(GlobalContentsValue::DayTime);
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
-		Script->TextDraw("낮", "galmuri11", float4(558, 435), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
+		Script->TextDraw(DayTime, "galmuri11", float4(558, 435), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
 		Script->SetRenderingOrder(500);
 	}
 	{
+		std::string DayTime = CheckDayTime(GlobalContentsValue::DayTime + 1);
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
-		Script->TextDraw("저녁", "galmuri11", float4(790, 435), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
+		Script->TextDraw(DayTime, "galmuri11", float4(790, 435), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
 		Script->SetRenderingOrder(500);
 	}
 	{
+		std::string DayTime = CheckDayTime(GlobalContentsValue::DayTime + 1);
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
-		Script->TextDraw("저녁이  될  거야", "galmuri11", float4(674, 455), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 8);
+		Script->TextDraw(DayTime +"이  될  거야", "galmuri11", float4(674, 455), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 8);
 		Script->SetRenderingOrder(500);
 	}
 
 	ChangeZPos(-400);
 }
 
-void Asobu::Update(float _DeltaTime)
+void Asobu_Talk::Update(float _DeltaTime)
 {
 }
 
-void Asobu::End()
+void Asobu_Talk::End()
 {
+}
+
+std::string Asobu_Talk::CheckDayTime(int DayTime)
+{
+	std::string CurDayTime = "";
+	switch (DayTime)
+	{
+		case 1:
+			CurDayTime = "낮";
+			return CurDayTime;
+			break;
+		case 2:
+			CurDayTime = "저녁";
+			return CurDayTime;
+			break;
+		case 3:
+			CurDayTime = "밤";
+			return CurDayTime;
+			break;
+	default:
+		break;
+	}
+	return "이상함";
 }

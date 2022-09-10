@@ -105,7 +105,16 @@ float4 CommentTexture_PS(Output _Input) : SV_Target0
         Color.g = GG;
         Color.b = BB;
     }
+    Color.rgb /= Color.a;
 
+  // Apply contrast.
+    Color.rgb = ((Color.rgb - 0.5f) * max(YY, 0)) + 0.5f;
+
+  // Apply brightness.
+    Color.rgb += AA;
+
+  // Return final pixel color.
+    Color.rgb *= Color.a;
 
         return Color;
 

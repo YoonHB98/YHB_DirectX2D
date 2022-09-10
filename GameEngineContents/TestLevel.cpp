@@ -28,7 +28,9 @@
 #include "LineText.h"
 #include "Mouse.h"
 #include "Twitter.h"
-#include "Asobu.h"
+#include "Asobu_Talk.h"
+#include "Asobu_Game.h"
+#include "Asobu_That.h"
 
 
 TestLevel::TestLevel() 
@@ -44,7 +46,7 @@ void TestLevel::Start()
 	CreateActor<MainBG>(GameObjectGroup::BackGround);
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	//CreateActor<WindowIcon>();
-	CreateActor<Asobu>();
+	CreateActor<Asobu_That>();
 	//GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
 	//GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
 	//GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
