@@ -35,5 +35,11 @@ std::string GlobalContentsValue::FirstComment = "";
 std::string GlobalContentsValue::SecondComment = "";
 float GlobalContentsValue::ChangeTime = 0;
 bool GlobalContentsValue::Check = false;
+bool GlobalContentsValue::Asobu = false;
+bool GlobalContentsValue::Neru = false;
+bool GlobalContentsValue::Okusuri = false;
+bool GlobalContentsValue::Internet = false;
+bool GlobalContentsValue::Odekake = false;
+bool GlobalContentsValue::Youtube = false;
 
 

@@ -16,6 +16,13 @@ public:
 	static bool TutorialLogin;
 	static bool DayChangeWindow;
 	static bool BgmOn;
+
+	static bool Asobu;
+	static bool Neru;
+	static bool Okusuri;
+	static bool Internet;
+	static bool Odekake;
+	static bool Youtube;
 	//스테이터스
 	static int Mental;
 	static int Stress;

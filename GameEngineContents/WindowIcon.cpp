@@ -20,6 +20,7 @@ void WindowIcon::Start()
 		YoutubeCol->GetTransform().SetLocalPosition(float4(-305, 230, -30));
 		YoutubeCol->GetTransform().SetLocalScale(float4(32, 32));
 		YoutubeCol->ChangeOrder(OBJECTORDER::UI);
+		YoutubeCol->SetName("Youtube");
 	}
 	{
 		Asobu = CreateComponent<GameEngineTextureRenderer>();
@@ -30,6 +31,7 @@ void WindowIcon::Start()
 		AsobuCol->GetTransform().SetLocalPosition(float4(-305, 165, 0));
 		AsobuCol->GetTransform().SetLocalScale(float4(32, 32));
 		AsobuCol->ChangeOrder(OBJECTORDER::UI);
+		AsobuCol->SetName("Asobu");
 	}
 	{
 		Neru = CreateComponent<GameEngineTextureRenderer>();
@@ -40,6 +42,7 @@ void WindowIcon::Start()
 		NeruCol->GetTransform().SetLocalPosition(float4(-305, 100, 0));
 		NeruCol->GetTransform().SetLocalScale(float4(32, 32));
 		NeruCol->ChangeOrder(OBJECTORDER::UI);
+		NeruCol->SetName("Neru");
 	}
 	{
 		Okusuri = CreateComponent<GameEngineTextureRenderer>();
@@ -50,6 +53,7 @@ void WindowIcon::Start()
 		OkusuriCol->GetTransform().SetLocalPosition(float4(-305, 35, 0));
 		OkusuriCol->GetTransform().SetLocalScale(float4(32, 32));
 		OkusuriCol->ChangeOrder(OBJECTORDER::UI);
+		OkusuriCol->SetName("Okusuri");
 	}
 	{
 		Internet = CreateComponent<GameEngineTextureRenderer>();
@@ -61,6 +65,7 @@ void WindowIcon::Start()
 		InternetCol->GetTransform().SetLocalPosition(float4(-305, -30, 0));
 		InternetCol->GetTransform().SetLocalScale(float4(32, 32));
 		InternetCol->ChangeOrder(OBJECTORDER::UI);
+		InternetCol->SetName("Internet");
 	}
 	{
 		Odekake = CreateComponent<GameEngineTextureRenderer>();
@@ -71,6 +76,7 @@ void WindowIcon::Start()
 		OdekakeCol->GetTransform().SetLocalPosition(float4(-305, -95, 0));
 		OdekakeCol->GetTransform().SetLocalScale(float4(32, 32));
 		OdekakeCol->ChangeOrder(OBJECTORDER::UI);
+		OdekakeCol->SetName("Odekake");
 	}
 	//{
 	//	Tex = CreateComponent<GameEngineTextureRenderer>();
@@ -121,9 +127,60 @@ void WindowIcon::Update(float _DeltaTime)
 		Youtube->GetPixelData().MulColor.a = 1.0f;
 	}
 
-
+	MouseClick();
 }
 
 void WindowIcon::End()
 {
+}
+
+void WindowIcon::MouseClick()
+{
+	if (NeruCol->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Mouse, CollisionType::CT_OBB,
+		std::bind(&WindowIcon::WindowOn, this, std::placeholders::_1, std::placeholders::_2)))
+	{
+	}
+}
+
+bool WindowIcon::WindowOn(GameEngineCollision* _This, GameEngineCollision* _Other)
+{
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		std::string Name = _Other->GetNameConstRef();
+		WindowIcon::Swich(Name);
+	}
+
+	return true;
+}
+
+void WindowIcon::Swich(std::string Name_)
+{
+	if (Name_ == "Asobu")
+	{
+		GlobalContentsValue::Asobu = true;
+	}else
+		if (Name_ == "Neru")
+		{
+			GlobalContentsValue::Neru = true;
+		}
+		else
+			if (Name_ == "Okusuri")
+			{
+				GlobalContentsValue::Okusuri = true;
+			}
+			else
+				if (Name_ == "Internet")
+				{
+					GlobalContentsValue::Internet = true;
+				}
+				else
+					if (Name_ == "Odekake")
+					{
+						GlobalContentsValue::Odekake = true;
+					}
+					else
+						if (Name_ == "Youtube")
+						{
+							GlobalContentsValue::Youtube = true;
+						}
 }

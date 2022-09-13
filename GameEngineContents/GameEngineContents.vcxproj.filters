@@ -70,6 +70,9 @@
     <Filter Include="Actor\Window\WindowIcon\IconWindow">
       <UniqueIdentifier>{26fe970e-9efe-4f90-a58a-af6572ff1e83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Window\WindowIcon\Window">
+      <UniqueIdentifier>{94d8815b-399e-4f54-8e30-15eae9ff67c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -186,6 +189,9 @@
     </ClInclude>
     <ClInclude Include="Asobu_That.h">
       <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Asobu_Window.h">
+      <Filter>Actor\Window\WindowIcon\Window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +318,9 @@
     </ClCompile>
     <ClCompile Include="Asobu_That.cpp">
       <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Asobu_Window.cpp">
+      <Filter>Actor\Window\WindowIcon\Window</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -39,6 +39,8 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-
+	void MouseClick();
+	bool WindowOn(GameEngineCollision* _This, GameEngineCollision* _Other);
+	void Swich(std::string Name_);
 };
 
