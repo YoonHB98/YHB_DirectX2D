@@ -59,7 +59,12 @@ Output CommentTexture_VS(Input _Input)
 
 Texture2D Tex : register(t0);
 SamplerState Smp : register(s0);
-
+cbuffer PixelData : register(b2)
+{
+    float4 MulColor;
+    float4 PlusColor;
+    float4 Slice;
+}
 cbuffer Clip : register(b0)
 {
     float X;
@@ -79,7 +84,7 @@ cbuffer Color : register(b1)
 
 float4 CommentTexture_PS(Output _Input) : SV_Target0
 {
-    float4 Color = Tex.Sample(Smp, _Input.Tex.xy);
+    float4 Color = (Tex.Sample(Smp, _Input.Tex.xy) * MulColor)+ PlusColor;
 
      if (_Input.Pos.y < Y)
         {

@@ -37,8 +37,11 @@ void CommentTextureRenderer::SetTextureRendererSetting()
 	Color.SizeX = 0.0f;
 	Color.SizeY = 0.0f;
 
+
+
 	ShaderResources.SetConstantBufferLink("AtlasData", FrameData);
 	ShaderResources.SetConstantBufferLink("Clip", Clip);
 	ShaderResources.SetConstantBufferLink("Color", Color);
+	ShaderResources.SetConstantBufferLink("PixelData", PixelDataInst);
 }
 

@@ -2,6 +2,20 @@
 #include <GameEngineCore/CoreMinimal.h>
 
 // Ό³Έν :
+struct PixelData1
+{
+	float4 MulColor;
+	float4 PlusColor;
+	float4 Slice;
+
+	PixelData1()
+		: MulColor(float4::WHITE)
+		, PlusColor(float4::ZERO)
+		, Slice(float4::ZERO)
+	{
+
+	}
+};
 
 class CommentTextureRenderer : public GameEngineTextureRenderer
 {
@@ -22,7 +36,7 @@ public:
 
 	float4 Clip;
 	float4 Color;
-
+	PixelData1 PixelDataInst;
 	void SetTextureRendererSetting();
 protected:
 	void Start() override;

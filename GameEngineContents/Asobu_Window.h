@@ -23,6 +23,13 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-
+	GameEngineCollision* GameCollision;
+	GameEngineCollision* CommunicationCollision;
+	GameEngineCollision* ThatCollision;
+	GameEngineCollision* ExitCollision;
+	GameEngineCollision* WindowCollision;
+	GameEngineTextureRenderer* Tex;
+	std::string Text = " ";
+	bool On = true;
 };
 

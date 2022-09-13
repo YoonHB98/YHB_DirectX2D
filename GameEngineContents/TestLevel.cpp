@@ -31,6 +31,7 @@
 #include "Asobu_Talk.h"
 #include "Asobu_Game.h"
 #include "Asobu_That.h"
+#include "Asobu_Window.h"
 
 
 TestLevel::TestLevel() 
@@ -47,6 +48,7 @@ void TestLevel::Start()
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	//CreateActor<WindowIcon>();
 	CreateActor<Asobu_That>();
+	CreateActor<Asobu_Window>();
 	//GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
 	//GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
 	//GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
