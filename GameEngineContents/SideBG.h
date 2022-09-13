@@ -27,7 +27,7 @@ public:
 	SideBG& operator=(SideBG&& _Other) noexcept = delete;
 
 	CommentTextureRenderer* RightBG;
-	GameEngineTextureRenderer* LeftBG;
+	CommentTextureRenderer* LeftBG;
 	GameEngineSoundPlayer BgmPlayer;
 protected:
 	void Start() override;

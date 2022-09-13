@@ -109,9 +109,11 @@ float4 CommentTexture_PS(Output _Input) : SV_Target0
 
   // Apply contrast.
     Color.rgb = ((Color.rgb - 0.5f) * max(YY, 0)) + 0.5f;
-
+    
   // Apply brightness.
-    Color.rgb += AA;
+    //float Brightness = (((1.0f - abs((_Input.Pos.x - 60.5f)) / 60.5f) + (1.0f - abs((_Input.Pos.y - 270.0f) / 270.0f)))) / 2;
+    float Brightness =  (1.0f - abs((_Input.Pos.y - 270.0f) / 270.0f)) / 2;
+    Color.rgb += Brightness * AA;
 
   // Return final pixel color.
     Color.rgb *= Color.a;
