@@ -8,6 +8,14 @@
 class Asobu_Window : public DefaultSetTex
 {
 public:
+	static void Destroy()
+	{
+		if (nullptr != Inst_)
+		{
+			delete Inst_;
+			Inst_ = nullptr;
+		}
+	}
 	// constrcuter destructer
 	Asobu_Window();
 	~Asobu_Window();
@@ -18,6 +26,8 @@ public:
 	Asobu_Window& operator=(const Asobu_Window& _Other) = delete;
 	Asobu_Window& operator=(Asobu_Window&& _Other) noexcept = delete;
 
+	static Asobu_Window* Inst_;
+	GameEngineCollision* WindowCollision;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -27,9 +37,10 @@ private:
 	GameEngineCollision* CommunicationCollision;
 	GameEngineCollision* ThatCollision;
 	GameEngineCollision* ExitCollision;
-	GameEngineCollision* WindowCollision;
 	GameEngineTextureRenderer* Tex;
+	bool Click(GameEngineCollision* _This, GameEngineCollision* _Other);
 	std::string Text = " ";
-	bool On = true;
+	bool On = false;
+	void CollisionCheck();
 };
 

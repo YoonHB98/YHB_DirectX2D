@@ -57,7 +57,7 @@ void TestLevel::Start()
 	//CreateActor<Stream>();
 	//CreateActor<StreamAnimation>();
 	//CreateActor<LineMain>();
-	//CreateActor<Mouse>();
+	CreateActor<Mouse>();
 	//CreateActor<LineText>();
 	//CreateActor<Twitter>();
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
@@ -69,6 +69,10 @@ void TestLevel::Start()
 
 void TestLevel::Update(float _DeltaTime)
 {
+	GameEngineSoundPlayer Sound = GameEngineSound::SoundPlayControl("Bank.wav");
+	Sound.Stop();
+	Sound = GameEngineSound::SoundPlayControl("Bank.wav");
+	Sound.Stop();
 	GlobalContentsValue::Stream = true;
 	//time = time + _DeltaTime;
 	//if (time > 5.0f

@@ -5,6 +5,7 @@
 #include "WebCamWindow.h"
 #include "TaskManager.h"
 #include "TutorialLogin.h"
+#include "Asobu_Window.h"
 
 Mouse* Mouse::Inst_ = new Mouse();
 Mouse::Mouse() 
@@ -142,6 +143,14 @@ bool Mouse::Exit(GameEngineCollision* _This, GameEngineCollision* _Other)
 			GlobalContentsValue::Twitter = false;
 		}
 	}
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		std::string CurName = _Other->GetActor()->GetNameConstRef();
+		if (CurName == "Asobu_Window")
+		{
+			GlobalContentsValue::Asobu = false;
+		}
+	}
 	return true;
 }
 
@@ -199,6 +208,12 @@ void Mouse::ChangeNameAll()
 		std::string CurName = TutorialLogin::Inst_->TutorialLoginCol->GetNameConstRef();
 		CurName = CurNameChange(CurName);
 		TutorialLogin::Inst_->TutorialLoginCol->SetName(CurName);
+	}
+	if (nullptr != Asobu_Window::Inst_->WindowCollision)
+	{
+		std::string CurName = Asobu_Window::Inst_->WindowCollision->GetNameConstRef();
+		CurName = CurNameChange(CurName);
+		Asobu_Window::Inst_->WindowCollision->SetName(CurName);
 	}
 
 }
@@ -259,5 +274,9 @@ void Mouse::GetActorName(std::string Name_, std::string ZPos)
 					if (Name_ == "TutorialLogin")
 					{
 						TutorialLogin::Inst_->TutorialLoginCol->SetName(ZPos);
-					}
+					}else
+						if (Name_ == "Asobu_Window")
+						{
+							Asobu_Window::Inst_->WindowCollision->SetName(ZPos);
+						}
 }
