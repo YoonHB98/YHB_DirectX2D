@@ -136,17 +136,22 @@ void WindowIcon::End()
 
 void WindowIcon::MouseClick()
 {
-	if (NeruCol->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Mouse, CollisionType::CT_OBB,
-		std::bind(&WindowIcon::WindowOn, this, std::placeholders::_1, std::placeholders::_2)))
+	GameEngineCollision* Array[5]{NeruCol, InternetCol, AsobuCol, OkusuriCol, OdekakeCol};
+	for (int i = 0; i < 5; i++)
 	{
+		if (Array[i]->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Mouse, CollisionType::CT_OBB,
+			std::bind(&WindowIcon::WindowOn, this, std::placeholders::_1, std::placeholders::_2)))
+		{
+		}
 	}
+
 }
 
 bool WindowIcon::WindowOn(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
-		std::string Name = _Other->GetNameConstRef();
+		std::string Name = _This->GetNameConstRef();
 		WindowIcon::Swich(Name);
 	}
 

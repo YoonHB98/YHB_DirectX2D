@@ -211,6 +211,10 @@ void Asobu_Game::Start()
 
 void Asobu_Game::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::Asobu_Window != "Game")
+	{
+		Death();
+	}
 }
 
 void Asobu_Game::End()

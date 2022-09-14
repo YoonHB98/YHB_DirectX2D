@@ -29,7 +29,7 @@ void Asobu_Window::Start()
 	}
 
 	GameCollision = CreateComponent<GameEngineCollision>();
-	GameCollision->GetTransform().SetLocalPosition(float4(-38, -40.5));
+	GameCollision->GetTransform().SetLocalPosition(float4(-114, -40.5));
 	GameCollision->GetTransform().SetLocalScale(float4(40, 60, 5));
 	GameCollision->ChangeOrder(OBJECTORDER::UI);
 	GameCollision->SetName("Game");
@@ -64,8 +64,35 @@ void Asobu_Window::Start()
 
 void Asobu_Window::Update(float _DeltaTime)
 {
-	ChangeZPos(static_cast<float>(std::stoi(Inst_->WindowCollision->GetNameConstRef())));
+	if (GlobalContentsValue::Asobu)
+	{
+		ChangeZPos(static_cast<float>(std::stoi(Inst_->WindowCollision->GetNameConstRef())));
+	}
+	else
+	{
+		ChangeZPos(500);
+		return;
+	}
+
+	GlobalContentsValue::Asobu_Window = "";
 	CollisionCheck();
+	if (CurString != GlobalContentsValue::Asobu_Window)
+	{
+		CurString = GlobalContentsValue::Asobu_Window;
+		if (CurString == "Game")
+		{
+			GetLevel()->CreateActor<Asobu_Game>();
+		}
+		if (CurString == "Communication")
+		{
+			GetLevel()->CreateActor<Asobu_Talk>();
+		}
+		if (CurString == "That")
+		{
+			GetLevel()->CreateActor<Asobu_That>();
+		}
+
+	}
 }
 
 void Asobu_Window::End()
@@ -75,13 +102,11 @@ void Asobu_Window::End()
 void Asobu_Window::CollisionCheck()
 {
 	GameEngineCollision* Array[5]{ GameCollision, CommunicationCollision, ThatCollision };
-	On = false;
 	for (int i = 0; i < 3; i++)
 	{
 		if (Array[i]->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Mouse, CollisionType::CT_OBB,
 			std::bind(&Asobu_Window::Click, this, std::placeholders::_1, std::placeholders::_2)))
 		{
-			On = true;
 			break;
 		}
 	}
@@ -95,6 +120,7 @@ bool Asobu_Window::Click(GameEngineCollision* _This, GameEngineCollision* _Other
 		std::string A = _This->GetNameConstRef();
 		if (_This->GetNameConstRef() == numbers[i])
 		{
+			GlobalContentsValue::Asobu_Window = numbers[i];
 		}
 	}
 	return true;

@@ -47,8 +47,8 @@ void TestLevel::Start()
 	CreateActor<MainBG>(GameObjectGroup::BackGround);
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	//CreateActor<WindowIcon>();
-	CreateActor<Asobu_That>();
 	CreateActor<Asobu_Window>();
+	CreateActor<WindowIcon>();
 	//GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
 	//GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
 	//GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
@@ -73,7 +73,6 @@ void TestLevel::Update(float _DeltaTime)
 	Sound.Stop();
 	Sound = GameEngineSound::SoundPlayControl("Bank.wav");
 	Sound.Stop();
-	GlobalContentsValue::Stream = true;
 	//time = time + _DeltaTime;
 	//if (time > 5.0f
 	//	&& time < 8.0f)

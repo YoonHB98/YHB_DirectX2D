@@ -58,6 +58,9 @@ public:
 	//체크하고 있는지
 	static bool Check;
 
+	//윈도우
+	static std::string Asobu_Window;
+
 private:
 	GlobalContentsValue()	{	}
 

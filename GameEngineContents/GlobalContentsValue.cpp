@@ -33,6 +33,7 @@ std::string GlobalContentsValue::CurEmoticonName = "";
 std::string GlobalContentsValue::TextContents = "Tutorial";
 std::string GlobalContentsValue::FirstComment = "";
 std::string GlobalContentsValue::SecondComment = "";
+std::string GlobalContentsValue::Asobu_Window = "";
 float GlobalContentsValue::ChangeTime = 0;
 bool GlobalContentsValue::Check = false;
 bool GlobalContentsValue::Asobu = false;

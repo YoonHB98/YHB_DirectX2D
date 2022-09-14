@@ -260,6 +260,10 @@ void Asobu_That::Start()
 
 void Asobu_That::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::Asobu_Window != "That")
+	{
+		Death();
+	}
 }
 
 void Asobu_That::End()

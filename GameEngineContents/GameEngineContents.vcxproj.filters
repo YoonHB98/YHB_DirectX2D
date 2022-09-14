@@ -73,6 +73,12 @@
     <Filter Include="Actor\Window\WindowIcon\Window">
       <UniqueIdentifier>{94d8815b-399e-4f54-8e30-15eae9ff67c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Window\WindowIcon\IconWindow\Asobu">
+      <UniqueIdentifier>{ae6d526f-b914-44ac-84fd-0b96b376e515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Window\WindowIcon\IconWindow\Neru">
+      <UniqueIdentifier>{c8b44f3e-b022-469a-9b51-ad69b624b550}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -121,9 +127,6 @@
     <ClInclude Include="Bar.h">
       <Filter>Actor\Play\TaskManager</Filter>
     </ClInclude>
-    <ClInclude Include="DefaultSetTex.h">
-      <Filter>Actor\Window\WindowIcon</Filter>
-    </ClInclude>
     <ClInclude Include="WindowIcon.h">
       <Filter>Actor\Window\WindowIcon</Filter>
     </ClInclude>
@@ -141,9 +144,6 @@
     </ClInclude>
     <ClInclude Include="StreamAnimation.h">
       <Filter>Actor\Play\Stream\StreamAnimation</Filter>
-    </ClInclude>
-    <ClInclude Include="Myfont.h">
-      <Filter>Actor\Window\WindowIcon</Filter>
     </ClInclude>
     <ClInclude Include="ToolTip.h">
       <Filter>Actor\Play\Tooltip</Filter>
@@ -181,16 +181,25 @@
     <ClInclude Include="TestLevel.h">
       <Filter>Level</Filter>
     </ClInclude>
-    <ClInclude Include="Asobu_Talk.h">
-      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+    <ClInclude Include="Asobu_Window.h">
+      <Filter>Actor\Window\WindowIcon\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Myfont.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultSetTex.h">
+      <Filter>Global</Filter>
     </ClInclude>
     <ClInclude Include="Asobu_Game.h">
-      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+      <Filter>Actor\Window\WindowIcon\IconWindow\Asobu</Filter>
+    </ClInclude>
+    <ClInclude Include="Asobu_Talk.h">
+      <Filter>Actor\Window\WindowIcon\IconWindow\Asobu</Filter>
     </ClInclude>
     <ClInclude Include="Asobu_That.h">
-      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+      <Filter>Actor\Window\WindowIcon\IconWindow\Asobu</Filter>
     </ClInclude>
-    <ClInclude Include="Asobu_Window.h">
+    <ClInclude Include="Neru_Window.h">
       <Filter>Actor\Window\WindowIcon\Window</Filter>
     </ClInclude>
   </ItemGroup>
@@ -241,9 +250,6 @@
     <ClCompile Include="Bar.cpp">
       <Filter>Actor\Play\TaskManager</Filter>
     </ClCompile>
-    <ClCompile Include="DefaultSetTex.cpp">
-      <Filter>Actor\Window\WindowIcon</Filter>
-    </ClCompile>
     <ClCompile Include="WindowIcon.cpp">
       <Filter>Actor\Window\WindowIcon</Filter>
     </ClCompile>
@@ -264,9 +270,6 @@
     </ClCompile>
     <ClCompile Include="AnimationUpdate.cpp">
       <Filter>Actor\Play\Stream\StreamAnimation</Filter>
-    </ClCompile>
-    <ClCompile Include="Myfont.cpp">
-      <Filter>Actor\Window\WindowIcon</Filter>
     </ClCompile>
     <ClCompile Include="ToolTip.cpp">
       <Filter>Actor\Play\Tooltip</Filter>
@@ -310,16 +313,25 @@
     <ClCompile Include="Hitokoto.cpp">
       <Filter>Actor\Play\TaskManager</Filter>
     </ClCompile>
-    <ClCompile Include="Asobu_Talk.cpp">
-      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+    <ClCompile Include="Asobu_Window.cpp">
+      <Filter>Actor\Window\WindowIcon\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Myfont.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultSetTex.cpp">
+      <Filter>Global</Filter>
     </ClCompile>
     <ClCompile Include="Asobu_Game.cpp">
-      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+      <Filter>Actor\Window\WindowIcon\IconWindow\Asobu</Filter>
+    </ClCompile>
+    <ClCompile Include="Asobu_Talk.cpp">
+      <Filter>Actor\Window\WindowIcon\IconWindow\Asobu</Filter>
     </ClCompile>
     <ClCompile Include="Asobu_That.cpp">
-      <Filter>Actor\Window\WindowIcon\IconWindow</Filter>
+      <Filter>Actor\Window\WindowIcon\IconWindow\Asobu</Filter>
     </ClCompile>
-    <ClCompile Include="Asobu_Window.cpp">
+    <ClCompile Include="Neru_Window.cpp">
       <Filter>Actor\Window\WindowIcon\Window</Filter>
     </ClCompile>
   </ItemGroup>

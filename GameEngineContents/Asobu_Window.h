@@ -41,6 +41,7 @@ private:
 	bool Click(GameEngineCollision* _This, GameEngineCollision* _Other);
 	std::string Text = " ";
 	bool On = false;
+	std::string CurString = "";
 	void CollisionCheck();
 };
 

@@ -211,6 +211,10 @@ void Asobu_Talk::Start()
 
 void Asobu_Talk::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::Asobu_Window != "Communication")
+	{
+		Death();
+	}
 }
 
 void Asobu_Talk::End()
