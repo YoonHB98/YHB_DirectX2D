@@ -32,7 +32,7 @@
 #include "Asobu_Game.h"
 #include "Asobu_That.h"
 #include "Asobu_Window.h"
-
+#include "Neru_Window.h"
 
 TestLevel::TestLevel() 
 {
@@ -48,6 +48,7 @@ void TestLevel::Start()
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	//CreateActor<WindowIcon>();
 	CreateActor<Asobu_Window>();
+	CreateActor<Neru_Window>();
 	CreateActor<WindowIcon>();
 	//GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
 	//GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);

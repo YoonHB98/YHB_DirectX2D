@@ -10,6 +10,7 @@
 #include "TaskManager.h"
 #include "TutorialLogin.h"
 #include "Asobu_Window.h"
+#include "Neru_Window.h"
 
 #pragma comment(lib, "GameEngineBase.lib")
 
@@ -222,5 +223,6 @@ void ContentsCore::End()
 	TaskManager::Destroy();
 	Mouse::Destroy();
 	Asobu_Window::Destroy();
+	Neru_Window::Destroy();
 
 }

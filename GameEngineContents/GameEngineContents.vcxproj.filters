@@ -202,6 +202,15 @@
     <ClInclude Include="Neru_Window.h">
       <Filter>Actor\Window\WindowIcon\Window</Filter>
     </ClInclude>
+    <ClInclude Include="Neru_Evening.h">
+      <Filter>Actor\Window\WindowIcon\IconWindow\Neru</Filter>
+    </ClInclude>
+    <ClInclude Include="Neru_Night.h">
+      <Filter>Actor\Window\WindowIcon\IconWindow\Neru</Filter>
+    </ClInclude>
+    <ClInclude Include="Neru_Tomorrow.h">
+      <Filter>Actor\Window\WindowIcon\IconWindow\Neru</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -333,6 +342,15 @@
     </ClCompile>
     <ClCompile Include="Neru_Window.cpp">
       <Filter>Actor\Window\WindowIcon\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Neru_Evening.cpp">
+      <Filter>Actor\Window\WindowIcon\IconWindow\Neru</Filter>
+    </ClCompile>
+    <ClCompile Include="Neru_Night.cpp">
+      <Filter>Actor\Window\WindowIcon\IconWindow\Neru</Filter>
+    </ClCompile>
+    <ClCompile Include="Neru_Tomorrow.cpp">
+      <Filter>Actor\Window\WindowIcon\IconWindow\Neru</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

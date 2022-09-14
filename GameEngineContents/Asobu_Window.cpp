@@ -67,6 +67,23 @@ void Asobu_Window::Update(float _DeltaTime)
 	if (GlobalContentsValue::Asobu)
 	{
 		ChangeZPos(static_cast<float>(std::stoi(Inst_->WindowCollision->GetNameConstRef())));
+		CollisionCheck();
+		if (CurString != GlobalContentsValue::Asobu_Window)
+		{
+			CurString = GlobalContentsValue::Asobu_Window;
+			if (CurString == "Game")
+			{
+				GetLevel()->CreateActor<Asobu_Game>();
+			}
+			if (CurString == "Communication")
+			{
+				GetLevel()->CreateActor<Asobu_Talk>();
+			}
+			if (CurString == "That")
+			{
+				GetLevel()->CreateActor<Asobu_That>();
+			}
+		}
 	}
 	else
 	{
@@ -74,25 +91,8 @@ void Asobu_Window::Update(float _DeltaTime)
 		return;
 	}
 
-	GlobalContentsValue::Asobu_Window = "";
-	CollisionCheck();
-	if (CurString != GlobalContentsValue::Asobu_Window)
-	{
-		CurString = GlobalContentsValue::Asobu_Window;
-		if (CurString == "Game")
-		{
-			GetLevel()->CreateActor<Asobu_Game>();
-		}
-		if (CurString == "Communication")
-		{
-			GetLevel()->CreateActor<Asobu_Talk>();
-		}
-		if (CurString == "That")
-		{
-			GetLevel()->CreateActor<Asobu_That>();
-		}
 
-	}
+
 }
 
 void Asobu_Window::End()
@@ -108,6 +108,10 @@ void Asobu_Window::CollisionCheck()
 			std::bind(&Asobu_Window::Click, this, std::placeholders::_1, std::placeholders::_2)))
 		{
 			break;
+		}
+		else
+		{
+			GlobalContentsValue::Asobu_Window = "";
 		}
 	}
 }

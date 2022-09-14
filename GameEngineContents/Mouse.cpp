@@ -6,6 +6,7 @@
 #include "TaskManager.h"
 #include "TutorialLogin.h"
 #include "Asobu_Window.h"
+#include "Neru_Window.h"
 
 Mouse* Mouse::Inst_ = new Mouse();
 Mouse::Mouse() 
@@ -24,7 +25,7 @@ void Mouse::Start()
 	Renderer->SetRenderingOrder(1000);
 
 	Collision = CreateComponent<GameEngineCollision>();
-	Collision->GetTransform().SetLocalScale({ 32.0f,8.0f,4000.0f });
+	Collision->GetTransform().SetLocalScale({ 32.0f,8.0f,900.0f });
 	Collision->GetTransform().SetLocalPosition(float4(0, 12, 0));
 	Collision->ChangeOrder(OBJECTORDER::Mouse);
 
@@ -135,10 +136,12 @@ bool Mouse::MouseCollision(GameEngineCollision* _This, GameEngineCollision* _Oth
 
 bool Mouse::Exit(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
+	std::string CurName = _Other->GetActor()->GetNameConstRef();
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
 		std::string CurName = _Other->GetActor()->GetNameConstRef();
-		if (CurName == "Twitter")
+		if (CurName == "Twitter"
+			&& GlobalContentsValue::Twitter == true)
 		{
 			GlobalContentsValue::Twitter = false;
 		}
@@ -146,9 +149,19 @@ bool Mouse::Exit(GameEngineCollision* _This, GameEngineCollision* _Other)
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
 		std::string CurName = _Other->GetActor()->GetNameConstRef();
-		if (CurName == "Asobu_Window")
+		if (CurName == "Asobu_Window"
+			&& GlobalContentsValue::Asobu == true)
 		{
 			GlobalContentsValue::Asobu = false;
+		}
+	}
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		std::string CurName = _Other->GetActor()->GetNameConstRef();
+		if (CurName == "Neru_Window"
+			&& GlobalContentsValue::Neru == true)
+		{
+			GlobalContentsValue::Neru = false;
 		}
 	}
 	return true;
@@ -214,6 +227,12 @@ void Mouse::ChangeNameAll()
 		std::string CurName = Asobu_Window::Inst_->WindowCollision->GetNameConstRef();
 		CurName = CurNameChange(CurName);
 		Asobu_Window::Inst_->WindowCollision->SetName(CurName);
+	}
+	if (nullptr != Neru_Window::Inst_->WindowCollision)
+	{
+		std::string CurName = Neru_Window::Inst_->WindowCollision->GetNameConstRef();
+		CurName = CurNameChange(CurName);
+		Neru_Window::Inst_->WindowCollision->SetName(CurName);
 	}
 
 }

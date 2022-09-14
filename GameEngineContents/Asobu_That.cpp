@@ -232,7 +232,7 @@ void Asobu_That::Start()
 		Script->TextDraw("1", "DinkieBitmap 7px", float4(700 - 380, 280), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
 		Script->SetRenderingOrder(500);
 	}
-	{GlobalContentsValue::DayTime = 1;
+	{
 	std::string DayTime = CheckDayTime(GlobalContentsValue::DayTime);
 	Myfont* Script = CreateComponent<Myfont>();
 	Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
@@ -287,8 +287,13 @@ std::string Asobu_That::CheckDayTime(int DayTime)
 		CurDayTime = "밤";
 		return CurDayTime;
 		break;
-	default:
+	case 4:
+		CurDayTime = "다음날";
+		return CurDayTime;
 		break;
+	default:
+		CurDayTime = "다음날";
+		return CurDayTime;
 	}
 	return "이상함";
 }
