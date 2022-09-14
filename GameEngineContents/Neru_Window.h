@@ -43,5 +43,6 @@ private:
 	bool On = false;
 	std::string CurString = "";
 	void CollisionCheck();
+	bool CurStatus = true;
 };
 

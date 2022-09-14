@@ -297,5 +297,9 @@ void Mouse::GetActorName(std::string Name_, std::string ZPos)
 						if (Name_ == "Asobu_Window")
 						{
 							Asobu_Window::Inst_->WindowCollision->SetName(ZPos);
-						}
+						}else
+							if (Name_ == "Neru_Window")
+							{
+								Neru_Window::Inst_->WindowCollision->SetName(ZPos);
+							}
 }

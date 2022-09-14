@@ -57,13 +57,19 @@ void Asobu_Window::Start()
 	Inst_->WindowCollision->GetTransform().SetLocalScale(float4(287, 158));
 	Inst_->WindowCollision->ChangeOrder(OBJECTORDER::Window);
 	Mouse::Inst_->ChangeNameAll();
-	Inst_->WindowCollision->SetName("-90");
+	Inst_->WindowCollision->SetName("-100");
 
 	SetName("Asobu_Window");
 }
 
 void Asobu_Window::Update(float _DeltaTime)
 {
+	if (CurStatus != GlobalContentsValue::Asobu)
+	{
+		CurStatus = GlobalContentsValue::Asobu;
+		Inst_->WindowCollision->SetName("-100");
+		Mouse::Inst_->ChangeNameAll();
+	}
 	if (GlobalContentsValue::Asobu)
 	{
 		ChangeZPos(static_cast<float>(std::stoi(Inst_->WindowCollision->GetNameConstRef())));

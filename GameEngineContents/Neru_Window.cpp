@@ -57,13 +57,19 @@ void Neru_Window::Start()
 	Inst_->WindowCollision->GetTransform().SetLocalScale(float4(287, 158));
 	Inst_->WindowCollision->ChangeOrder(OBJECTORDER::Window);
 	Mouse::Inst_->ChangeNameAll();
-	Inst_->WindowCollision->SetName("-90");
+	Inst_->WindowCollision->SetName("-100");
 
 	SetName("Neru_Window");
 }
 
 void Neru_Window::Update(float _DeltaTime)
 {
+	if (CurStatus != GlobalContentsValue::Neru)
+	{
+		CurStatus = GlobalContentsValue::Neru;
+		Inst_->WindowCollision->SetName("-100");
+		Mouse::Inst_->ChangeNameAll();
+	}
 	if (GlobalContentsValue::Neru)
 	{
 		ChangeZPos(static_cast<float>(std::stoi(Inst_->WindowCollision->GetNameConstRef())));

@@ -25,6 +25,8 @@
 #include "Twitter.h"
 #include "TweetComment.h"
 #include "DayChangeWindow.h"
+#include "Asobu_Window.h"
+#include "Neru_Window.h"
 
 float PlayLevel::time = 0;
 
@@ -70,6 +72,8 @@ void PlayLevel::Start()
 	CreateActor<Change>(GameObjectGroup::WindowIcon);
 	CreateActor<Twitter>(GameObjectGroup::WindowIcon);
 	CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
+	CreateActor<Asobu_Window>();
+	CreateActor<Neru_Window>();
 
 
 
