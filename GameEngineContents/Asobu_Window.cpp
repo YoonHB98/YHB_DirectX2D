@@ -64,6 +64,11 @@ void Asobu_Window::Start()
 
 void Asobu_Window::Update(float _DeltaTime)
 {
+	//듀토리얼이면 무시
+	if (GlobalContentsValue::Contents == "Tutorial")
+	{
+		return;
+	}
 	if (CurStatus != GlobalContentsValue::Asobu)
 	{
 		CurStatus = GlobalContentsValue::Asobu;

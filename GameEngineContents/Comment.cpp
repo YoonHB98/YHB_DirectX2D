@@ -156,7 +156,7 @@ void Comment::CommentCheckStart()
 			else
 			if (CommentPos >= 136.9)
 			{
-				Trash->GetTransform().SetLocalPosition(float4(228, 137, 0));
+				Trash->GetTransform().SetLocalPosition(float4(228, 137, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
 				{
@@ -165,7 +165,7 @@ void Comment::CommentCheckStart()
 			}else
 				if (CommentPos >= 111.9)
 				{
-					Trash->GetTransform().SetLocalPosition(float4(228, 112, 0));
+					Trash->GetTransform().SetLocalPosition(float4(228, 112, -100));
 					if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 						&& MouseCheck((*StartIter).second))
 					{
@@ -175,7 +175,7 @@ void Comment::CommentCheckStart()
 				else
 			if (CommentPos >= 86.9)
 			{
-				Trash->GetTransform().SetLocalPosition(float4(228, 87, 0));
+				Trash->GetTransform().SetLocalPosition(float4(228, 87, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
 				{
@@ -184,7 +184,7 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= 61.9)
 			{
-				Trash->GetTransform().SetLocalPosition(float4(228, 62, 0));
+				Trash->GetTransform().SetLocalPosition(float4(228, 62, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
 				{
@@ -193,7 +193,7 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= 36.9)
 			{
-				Trash->GetTransform().SetLocalPosition(float4(228, 37, 0));
+				Trash->GetTransform().SetLocalPosition(float4(228, 37, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
 				{
@@ -202,7 +202,7 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= 11.9)
 			{
-				Trash->GetTransform().SetLocalPosition(float4(228, 12, 0));
+				Trash->GetTransform().SetLocalPosition(float4(228, 12, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
 				{
@@ -211,7 +211,7 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= -13.1)
 			{
-				Trash->GetTransform().SetLocalPosition(float4(228, -13, 0));
+				Trash->GetTransform().SetLocalPosition(float4(228, -13, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
 				{
@@ -220,7 +220,7 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= -38.1)
 			{
-				Trash->GetTransform().SetLocalPosition(float4(228, -38, 0));
+				Trash->GetTransform().SetLocalPosition(float4(228, -38, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
 				{
@@ -229,7 +229,7 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= -63.1)
 			{
-				Trash->GetTransform().SetLocalPosition(float4(228,-63, 0));
+				Trash->GetTransform().SetLocalPosition(float4(228,-63, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
 				{
@@ -238,7 +238,7 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= -88.1)
 			{
-				Trash->GetTransform().SetLocalPosition(float4(228,-88, 0));
+				Trash->GetTransform().SetLocalPosition(float4(228,-88, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
 				{

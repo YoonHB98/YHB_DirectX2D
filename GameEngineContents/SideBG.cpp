@@ -72,7 +72,6 @@ void SideBG::Start()
 
 void SideBG::Update(float _DeltaTime)
 {
-	GlobalContentsValue::DayTime = 0;
 	DayState GlobalValue = (DayState)GlobalContentsValue::DayTime;
 	ChangeState(GlobalValue);
 	float A = LeftBG->Color.SizeY;

@@ -107,12 +107,12 @@ void LineText::CreateText(std::string _Text)
 	TextRend->GetTransform().SetLocalPosition(float4(185,(75 - TextNum) - SizeY/2 ));
 	Text.push_back(TextRend);
 	MoveStart++;
-	if (MoveStart == 4)
+	if (MoveStart == 5)
 	{
-		TextMove(-10, 0);
+		TextMove(20, 0);
 		TextNum = TextNum + 60+ 3; 
 	}else
-	if (MoveStart >= 5)
+	if (MoveStart >= 6)
 	{
 		if (TextNum > 180.0f)
 		{
