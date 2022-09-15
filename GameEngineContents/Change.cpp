@@ -34,7 +34,7 @@ void Change::Update(float _DeltaTime)
 	}
 	if (GlobalContentsValue::Change)
 	{
-		ChangeZPos(-10);
+		ChangeZPos(-100);
 		Bank->ChangeFrameAnimation("Bank");
 		Bank->AnimationBindEnd("Bank", std::bind(&Change::BootEnd, this, std::placeholders::_1));
 		if (first)

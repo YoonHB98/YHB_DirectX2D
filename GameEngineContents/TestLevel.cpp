@@ -55,8 +55,8 @@ void TestLevel::Start()
 	//GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CommentActor->SetParent(StreamActor);
 	//StreamAnimationActor->SetParent(StreamActor);
-	//CreateActor<Stream>();
-	//CreateActor<StreamAnimation>();
+	CreateActor<Stream>();
+	CreateActor<StreamAnimation>();
 	//CreateActor<LineMain>();
 	CreateActor<Mouse>();
 	//CreateActor<LineText>();
@@ -70,6 +70,7 @@ void TestLevel::Start()
 
 void TestLevel::Update(float _DeltaTime)
 {
+	GlobalContentsValue::Stream = true;
 	GameEngineSoundPlayer Sound = GameEngineSound::SoundPlayControl("Bank.wav");
 	Sound.Stop();
 	Sound = GameEngineSound::SoundPlayControl("Bank.wav");

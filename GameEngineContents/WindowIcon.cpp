@@ -12,10 +12,14 @@ WindowIcon::~WindowIcon()
 void WindowIcon::Start()
 {
 	{
-		Youtube = CreateComponent<GameEngineTextureRenderer>();
-		Youtube->SetTexture("icon_desktop_youtube.png");
-		Youtube->GetTransform().SetLocalPosition(float4(-305, 230, -10));
-		Youtube->GetTransform().SetLocalScale(float4(32, 32));
+		Youtube[0] = CreateComponent<GameEngineTextureRenderer>();
+		Youtube[0]->SetTexture("icon_desktop_youtube.png");
+		Youtube[0]->GetTransform().SetLocalPosition(float4(-305, 230, -10));
+		Youtube[0]->GetTransform().SetLocalScale(float4(32, 32));
+		Youtube[1] = CreateComponent<GameEngineTextureRenderer>();
+		Youtube[1]->SetTexture("BangSong.png");
+		Youtube[1]->GetTransform().SetLocalPosition(float4(-305,200, -10));
+		Youtube[1]->GetTransform().SetLocalScale(float4(32, 16.5));
 		YoutubeCol = CreateComponent<GameEngineCollision>();
 		YoutubeCol->GetTransform().SetLocalPosition(float4(-305, 230, -30));
 		YoutubeCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -23,10 +27,14 @@ void WindowIcon::Start()
 		YoutubeCol->SetName("Youtube");
 	}
 	{
-		Asobu = CreateComponent<GameEngineTextureRenderer>();
-		Asobu->SetTexture("icon_desktop_asobu.png");
-		Asobu->GetTransform().SetLocalPosition(float4(-305, 165, -10));
-		Asobu->GetTransform().SetLocalScale(float4(32, 32));
+		Asobu[0] = CreateComponent<GameEngineTextureRenderer>();
+		Asobu[0]->SetTexture("icon_desktop_asobu.png");
+		Asobu[0]->GetTransform().SetLocalPosition(float4(-305, 165, -10));
+		Asobu[0]->GetTransform().SetLocalScale(float4(32, 32));
+		Asobu[1] = CreateComponent<GameEngineTextureRenderer>();
+		Asobu[1]->SetTexture("Nolgi.png");
+		Asobu[1]->GetTransform().SetLocalPosition(float4(-305, 135, -10));
+		Asobu[1]->GetTransform().SetLocalScale(float4(32, 16.5));
 		AsobuCol = CreateComponent<GameEngineCollision>();
 		AsobuCol->GetTransform().SetLocalPosition(float4(-305, 165, 0));
 		AsobuCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -34,10 +42,14 @@ void WindowIcon::Start()
 		AsobuCol->SetName("Asobu");
 	}
 	{
-		Neru = CreateComponent<GameEngineTextureRenderer>();
-		Neru->SetTexture("icon_desktop_neru.png");
-		Neru->GetTransform().SetLocalPosition(float4(-305, 100, -10));
-		Neru->GetTransform().SetLocalScale(float4(32, 32));
+		Neru[0] = CreateComponent<GameEngineTextureRenderer>();
+		Neru[0]->SetTexture("icon_desktop_neru.png");
+		Neru[0]->GetTransform().SetLocalPosition(float4(-305, 100, -10));
+		Neru[0]->GetTransform().SetLocalScale(float4(32, 32));
+		Neru[1] = CreateComponent<GameEngineTextureRenderer>();
+		Neru[1]->SetTexture("husik.png");
+		Neru[1]->GetTransform().SetLocalPosition(float4(-305, 70, -10));
+		Neru[1]->GetTransform().SetLocalScale(float4(32, 16.5));
 		NeruCol = CreateComponent<GameEngineCollision>();
 		NeruCol->GetTransform().SetLocalPosition(float4(-305, 100, 0));
 		NeruCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -45,10 +57,14 @@ void WindowIcon::Start()
 		NeruCol->SetName("Neru");
 	}
 	{
-		Okusuri = CreateComponent<GameEngineTextureRenderer>();
-		Okusuri->SetTexture("icon_desktop_okusuri.png");
-		Okusuri->GetTransform().SetLocalPosition(float4(-305, 35, -10));
-		Okusuri->GetTransform().SetLocalScale(float4(32, 32));
+		Okusuri[0] = CreateComponent<GameEngineTextureRenderer>();
+		Okusuri[0]->SetTexture("icon_desktop_okusuri.png");
+		Okusuri[0]->GetTransform().SetLocalPosition(float4(-305, 35, -10));
+		Okusuri[0]->GetTransform().SetLocalScale(float4(32, 32));
+		Okusuri[1] = CreateComponent<GameEngineTextureRenderer>();
+		Okusuri[1]->SetTexture("YakMukgi.png");
+		Okusuri[1]->GetTransform().SetLocalPosition(float4(-305, 5, -10));
+		Okusuri[1]->GetTransform().SetLocalScale(float4(32, 16.5));
 		OkusuriCol = CreateComponent<GameEngineCollision>();
 		OkusuriCol->GetTransform().SetLocalPosition(float4(-305, 35, 0));
 		OkusuriCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -56,11 +72,15 @@ void WindowIcon::Start()
 		OkusuriCol->SetName("Okusuri");
 	}
 	{
-		Internet = CreateComponent<GameEngineTextureRenderer>();
-		Internet->GetTransform().SetLocalPosition(float4(-305, -30, -10));
-		Internet->CreateFrameAnimationCutTexture("Internet", FrameAnimation_DESC("icon_desktop_internet.png", 0, 0, 0.1f, false));
-		Internet->ChangeFrameAnimation("Internet");
-		Internet->GetTransform().SetLocalScale(float4(32, 32));
+		Internet[0] = CreateComponent<GameEngineTextureRenderer>();
+		Internet[0]->GetTransform().SetLocalPosition(float4(-305, -30, -10));
+		Internet[0]->CreateFrameAnimationCutTexture("Internet", FrameAnimation_DESC("icon_desktop_internet.png", 0, 0, 0.1f, false));
+		Internet[0]->ChangeFrameAnimation("Internet");
+		Internet[0]->GetTransform().SetLocalScale(float4(32, 32));
+		Internet[1] = CreateComponent<GameEngineTextureRenderer>();
+		Internet[1]->SetTexture("Internetname.png");
+		Internet[1]->GetTransform().SetLocalPosition(float4(-305, -60, -10));
+		Internet[1]->GetTransform().SetLocalScale(float4(32, 16.5));
 		InternetCol = CreateComponent<GameEngineCollision>();
 		InternetCol->GetTransform().SetLocalPosition(float4(-305, -30, 0));
 		InternetCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -68,10 +88,14 @@ void WindowIcon::Start()
 		InternetCol->SetName("Internet");
 	}
 	{
-		Odekake = CreateComponent<GameEngineTextureRenderer>();
-		Odekake->SetTexture("icon_desktop_odekake.png");
-		Odekake->GetTransform().SetLocalPosition(float4(-305, -95, -10));
-		Odekake->GetTransform().SetLocalScale(float4(32, 32));
+		Odekake[0] = CreateComponent<GameEngineTextureRenderer>();
+		Odekake[0]->SetTexture("icon_desktop_odekake.png");
+		Odekake[0]->GetTransform().SetLocalPosition(float4(-305, -95, -10));
+		Odekake[0]->GetTransform().SetLocalScale(float4(32, 32));
+		Odekake[1] = CreateComponent<GameEngineTextureRenderer>();
+		Odekake[1]->SetTexture("whaechul.png");
+		Odekake[1]->GetTransform().SetLocalPosition(float4(-305, -125, -10));
+		Odekake[1]->GetTransform().SetLocalScale(float4(32, 16.5));
 		OdekakeCol = CreateComponent<GameEngineCollision>();
 		OdekakeCol->GetTransform().SetLocalPosition(float4(-305, -95, 0));
 		OdekakeCol->GetTransform().SetLocalScale(float4(32, 32));
@@ -84,12 +108,16 @@ void WindowIcon::Start()
 	//	Tex->GetTransform().SetLocalPosition(float4(0, 135, 0));
 	//	Tex->GetTransform().SetLocalScale(float4(32, 32));
 	//}
-	Youtube->GetPixelData().MulColor.a = 0.2f;
-	Internet->GetPixelData().MulColor.a = 0.2f;
-	Asobu->GetPixelData().MulColor.a = 0.2f;
-	Neru->GetPixelData().MulColor.a = 0.2f;
-	Okusuri->GetPixelData().MulColor.a = 0.2f;
-	Odekake->GetPixelData().MulColor.a = 0.2f;
+	for (int i = 0; i < 2; i++)
+	{
+		Youtube[i]->GetPixelData().MulColor.a = 0.2f;
+		Internet[i]->GetPixelData().MulColor.a = 0.2f;
+		Asobu[i]->GetPixelData().MulColor.a = 0.2f;
+		Neru[i]->GetPixelData().MulColor.a = 0.2f;
+		Okusuri[i]->GetPixelData().MulColor.a = 0.2f;
+		Odekake[i]->GetPixelData().MulColor.a = 0.2f;
+	}
+
 }
 
 void WindowIcon::Update(float _DeltaTime)
@@ -106,25 +134,30 @@ void WindowIcon::Update(float _DeltaTime)
 	}
 	if (GlobalContentsValue::Tutorial == false)
 	{
-		Youtube->GetPixelData().MulColor.a = 1.0f;
-		Internet->GetPixelData().MulColor.a = 1.0f;
-		Asobu->GetPixelData().MulColor.a = 1.0f;
-		Neru->GetPixelData().MulColor.a = 1.0f;
-		Okusuri->GetPixelData().MulColor.a = 1.0f;
-		Odekake->GetPixelData().MulColor.a = 1.0f;
+		for (int i = 0; i < 2; i++)
+		{
+			Youtube[i]->GetPixelData().MulColor.a = 1.0f;
+			Internet[i]->GetPixelData().MulColor.a = 1.0f;
+			Asobu[i]->GetPixelData().MulColor.a = 1.0f;
+			Neru[i]->GetPixelData().MulColor.a = 1.0f;
+			Okusuri[i]->GetPixelData().MulColor.a = 1.0f;
+			Odekake[i]->GetPixelData().MulColor.a = 1.0f;
+		}
 	}
 	if (MouseCheck(YoutubeCol)
 		&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
 		if (GlobalContentsValue::Tooltip)
 		{
-			Youtube->GetPixelData().MulColor.a = 1.0f;
+			Youtube[0]->GetPixelData().MulColor.a = 1.0f;
+			Youtube[1]->GetPixelData().MulColor.a = 1.0f;
 			GlobalContentsValue::TutorialLogin = true;
 		}
 	}
 	if (GlobalContentsValue::Tooltip)
 	{
-		Youtube->GetPixelData().MulColor.a = 1.0f;
+		Youtube[0]->GetPixelData().MulColor.a = 1.0f;
+		Youtube[1]->GetPixelData().MulColor.a = 1.0f;
 	}
 
 	MouseClick();

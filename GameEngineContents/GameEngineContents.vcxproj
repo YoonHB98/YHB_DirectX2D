@@ -429,6 +429,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="StreamInfo.cpp" />
     <ClCompile Include="TaskManager.cpp">
       <SubType>
       </SubType>

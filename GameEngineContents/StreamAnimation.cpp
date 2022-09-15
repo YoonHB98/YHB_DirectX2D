@@ -17,11 +17,11 @@ void StreamAnimation::Start()
 
 	BG = CreateComponent<GameEngineTextureRenderer>();
 	BG->SetTexture("bg_stream.png");
-	BG->GetTransform().SetLocalPosition(float4(-140, 55, 0));
+	BG->GetTransform().SetLocalPosition(float4(-140, 55, -100));
 	BG->GetTransform().SetLocalScale(float4(335, 223));
 	//348 227 -> 335 223 13 4
 	Renderer = CreateComponent<GameEngineTextureRenderer>();
-	Renderer->GetTransform().SetLocalPosition(float4(-140, 55, 0));
+	Renderer->GetTransform().SetLocalPosition(float4(-140, 55, -100));
 	Renderer->GetTransform().SetLocalScale(float4(335, 223));
 	Renderer->CreateFrameAnimationCutTexture("cho_kashikoma", FrameAnimation_DESC("cho_kashikoma.png", 0, 7, 0.15f, false));
 	std::vector<unsigned int> End { 0, 2 };
@@ -60,6 +60,12 @@ void StreamAnimation::Update(float _DeltaTime)
 		}
 		Contents = ContentsMap[GlobalContentsValue::Contents];
 		ContentsUpdate(Contents);
+		if (CurContents != GlobalContentsValue::Contents)
+		{
+			CurContents = GlobalContentsValue::Contents;
+			StreamInfomation();
+		}
+
 	}
 
 }

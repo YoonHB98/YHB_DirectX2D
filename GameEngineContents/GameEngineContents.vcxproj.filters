@@ -352,5 +352,8 @@
     <ClCompile Include="Neru_Tomorrow.cpp">
       <Filter>Actor\Window\WindowIcon\IconWindow\Neru</Filter>
     </ClCompile>
+    <ClCompile Include="StreamInfo.cpp">
+      <Filter>Actor\Play\Stream\StreamAnimation</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

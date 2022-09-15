@@ -63,11 +63,13 @@ private:
 	float Time = 0;
 	float ChangeTime = 0;
 	void StateUpdate(AnimationType Type);
+	std::string CurContents = "";
 	StreamContents Contents;
 	Animation CurAnim;
 	AnimationType CurType  = AnimationType::A1;
     std::string  CurText = "а╘го!";
 	std::map<std::string, StreamContents> ContentsMap;
+	Myfont* Info[5];
 	float TempTime = 0;
    int TempCount = 0;
 private:
@@ -88,6 +90,7 @@ private:
 	void UpdateA8();
 	void UpdateA9();
 	void ClickTime(float Time_);
+	void StreamInfomation();
 	bool StreamEnd = false;
 	int EnterCount = 0;
 	float BlankXSize = 0;

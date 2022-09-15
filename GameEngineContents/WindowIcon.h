@@ -18,13 +18,13 @@ public:
 	WindowIcon& operator=(const WindowIcon& _Other) = delete;
 	WindowIcon& operator=(WindowIcon&& _Other) noexcept = delete;
 
-	GameEngineTextureRenderer* Youtube;
-	GameEngineTextureRenderer* Asobu;
-	GameEngineTextureRenderer* Neru;
-	GameEngineTextureRenderer* Okusuri;
-	GameEngineTextureRenderer* Internet;
-	GameEngineTextureRenderer* Odekake;
-	GameEngineTextureRenderer* Tex;
+	GameEngineTextureRenderer* Youtube[2];
+	GameEngineTextureRenderer* Asobu[2];
+	GameEngineTextureRenderer* Neru[2];
+	GameEngineTextureRenderer* Okusuri[2];
+	GameEngineTextureRenderer* Internet[2];
+	GameEngineTextureRenderer* Odekake[2];
+	GameEngineTextureRenderer* Tex[2];
 
 	GameEngineCollision* YoutubeCol;
 	GameEngineCollision* AsobuCol;
