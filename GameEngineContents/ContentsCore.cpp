@@ -188,6 +188,8 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("ame_idle_normal1.png", 11, 1);
 	GameEngineTexture::Cut("ame_talk1.png", 5, 2);
 	GameEngineTexture::Cut("ame_out0.png", 5, 3);
+	GameEngineTexture::Cut("ame_idle_happy3.png", 9, 2);
+	GameEngineTexture::Cut("ame_idle_happy6.png", 6, 2);
 
 	GameEngineTexture::Cut("badge.png",1, 1);
 	GameEngineTexture::Cut("icon_desktop_internet.png", 1, 2);

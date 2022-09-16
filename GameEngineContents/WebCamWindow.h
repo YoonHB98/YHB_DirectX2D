@@ -46,6 +46,7 @@ private:
 	GameEngineTextureRenderer* Ame;
 	GameEngineTextureRenderer* BG;
 	GameEngineTextureRenderer* BGNC;
+	GameEngineCollision* ClickCol;
 
 	GameEngineSoundPlayer BgmPlayer;
 	bool BgmOn = true;

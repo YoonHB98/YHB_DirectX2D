@@ -46,17 +46,17 @@ void TestLevel::Start()
 {	
 	CreateActor<MainBG>(GameObjectGroup::BackGround);
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
-	//CreateActor<WindowIcon>();
 	CreateActor<Asobu_Window>();
 	CreateActor<Neru_Window>();
 	CreateActor<WindowIcon>();
+	CreateActor<WebCamWindow>();
 	//GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
 	//GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
 	//GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CommentActor->SetParent(StreamActor);
 	//StreamAnimationActor->SetParent(StreamActor);
-	CreateActor<Stream>();
-	CreateActor<StreamAnimation>();
+	//CreateActor<Stream>();
+	//CreateActor<StreamAnimation>();
 	//CreateActor<LineMain>();
 	CreateActor<Mouse>();
 	//CreateActor<LineText>();
@@ -70,11 +70,8 @@ void TestLevel::Start()
 
 void TestLevel::Update(float _DeltaTime)
 {
-	GlobalContentsValue::Stream = true;
-	GameEngineSoundPlayer Sound = GameEngineSound::SoundPlayControl("Bank.wav");
-	Sound.Stop();
-	Sound = GameEngineSound::SoundPlayControl("Bank.wav");
-	Sound.Stop();
+	GlobalContentsValue::WebCamWindow = true;
+	GlobalContentsValue::Contents = "Tutorial2";
 	//time = time + _DeltaTime;
 	//if (time > 5.0f
 	//	&& time < 8.0f)

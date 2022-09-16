@@ -7,7 +7,7 @@ void StreamAnimation::StreamInfomation()
 	if (GlobalContentsValue::Contents == "Tutorial")
 	{
 		Info[0] = CreateComponent<Myfont>();
-		Info[0]->TextDraw("ÃÊÅÙ  µîÀå!", "NanumBarunGothicBold", float4(180, 340), float4(222 / 255, 215 / 255, 1, 1), 12);
+		Info[0]->TextDraw("ÃÊÅÙ  µîÀå!", "NanumBarunGothicBold", float4(180, 340), float4(222 / 255, 215 / 255, 1, 1), 14);
 		Info[0]->SetRenderingOrder(500);
 		
 		Info[1] = CreateComponent<Myfont>();

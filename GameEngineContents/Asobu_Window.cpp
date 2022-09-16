@@ -129,7 +129,20 @@ void Asobu_Window::CollisionCheck()
 
 bool Asobu_Window::Click(GameEngineCollision* _This, GameEngineCollision* _Other)
 {
-	std::string numbers[5]{ "Game", "Communication", "That"};
+	std::string numbersstart[5]{ "GameStart", "CommunicationStart", "ThatStart"};
+	std::string numbers[5]{ "Game", "Communication", "That" };
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			std::string A = _This->GetNameConstRef();
+			if (_This->GetNameConstRef() == numbers[i])
+			{
+				MouseClick(numbersstart[i]);
+				return true;
+			}
+		}
+	}else
 	for (int i = 0;  i < 3;  i++)
 	{
 		std::string A = _This->GetNameConstRef();
@@ -139,4 +152,10 @@ bool Asobu_Window::Click(GameEngineCollision* _This, GameEngineCollision* _Other
 		}
 	}
 	return true;
+}
+
+void Asobu_Window::MouseClick(std::string Name_)
+{
+	GlobalContentsValue::Asobu_Window = Name_;
+	GlobalContentsValue::Asobu = false;
 }

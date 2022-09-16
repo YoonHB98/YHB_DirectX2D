@@ -39,6 +39,7 @@ private:
 	GameEngineCollision* ExitCollision;
 	GameEngineTextureRenderer* Tex;
 	bool Click(GameEngineCollision* _This, GameEngineCollision* _Other);
+	void MouseClick(std::string Name_);
 	std::string Text = " ";
 	bool On = false;
 	std::string CurString = "";

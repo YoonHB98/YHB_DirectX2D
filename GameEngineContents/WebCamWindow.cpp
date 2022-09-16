@@ -23,6 +23,12 @@ void WebCamWindow::Start()
 	BG->GetTransform().SetLocalPosition(float4(-91, 115));
 	BG->GetTransform().SetLocalScale(float4(348, 222));
 
+	ClickCol = CreateComponent<GameEngineCollision>();
+	ClickCol->GetTransform().SetLocalPosition(float4(-90, 165, 5000));
+	ClickCol->GetTransform().SetLocalScale(float4(120, 60));
+	ClickCol->ChangeOrder(OBJECTORDER::Click);
+	ClickCol->SetName("Click");
+
 	BGNC = CreateComponent<GameEngineTextureRenderer>();
 	BGNC->SetTexture("bg_stream_no_chair.png");
 	BGNC->GetTransform().SetLocalPosition(float4(-91, 115));
@@ -33,6 +39,8 @@ void WebCamWindow::Start()
 	Ame->GetTransform().SetLocalScale(float4(348, 222));
 	Ame->CreateFrameAnimationCutTexture("ame_talk1", FrameAnimation_DESC("ame_talk1.png", 0, 4, 0.4f,true));
 	Ame->CreateFrameAnimationCutTexture("ame_out0", FrameAnimation_DESC("ame_out0.png", 0, 13, 0.15f, false));
+	Ame->CreateFrameAnimationCutTexture("ame_idle_happy3", FrameAnimation_DESC("ame_idle_happy3.png", 0, 8, 0.2f, true));
+	Ame->CreateFrameAnimationCutTexture("ame_idle_happy6", FrameAnimation_DESC("ame_idle_happy6.png", 0, 5, 0.2f, true));
 
 	StateManager.CreateStateMember("Idle", std::bind(&WebCamWindow::IdleUpdate, this, std::placeholders::_1, std::placeholders::_2), std::bind(&WebCamWindow::IdleStart, this, std::placeholders::_1));
 	StateManager.CreateStateMember("Active", std::bind(&WebCamWindow::ActiveUpdate, this, std::placeholders::_1, std::placeholders::_2), std::bind(&WebCamWindow::ActiveStart, this, std::placeholders::_1));
@@ -98,11 +106,22 @@ void WebCamWindow::IdleStart(const StateInfo& _Info)
 
 void WebCamWindow::IdleUpdate(float _DeltaTime, const StateInfo& _Info)
 {
+	std::string numbers[5]{ "GameStart", "CommunicationStart", "ThatStart" };
 	if (GlobalContentsValue::Out == true)
 	{
 		Ame->ChangeFrameAnimation("ame_out0");
 		StateManager.ChangeState("Active");
 	}
+	for (int i = 0; i <3 ; i++)
+	{
+		if (GlobalContentsValue::Asobu_Window == numbers[i]
+			&& GlobalContentsValue::Asobu == false)
+		{
+			Ame->ChangeFrameAnimation("ame_idle_happy3");
+			StateManager.ChangeState("Active");
+		}
+	}
+
 }
 
 void WebCamWindow::ActiveStart(const StateInfo& _Info)
@@ -112,4 +131,17 @@ void WebCamWindow::ActiveStart(const StateInfo& _Info)
 
 void WebCamWindow::ActiveUpdate(float _DeltaTime, const StateInfo& _Info)
 {
+	if (GlobalContentsValue::Asobu_Window == "CommunicationStart")
+	{
+		ClickCol->GetTransform().SetLocalPosition(float4(-91, 165, -100));
+		if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+		{
+			if (ClickCol->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Mouse, CollisionType::CT_OBB))
+			{
+				Ame->ChangeFrameAnimation("ame_idle_happy6");
+			}
+		}
+	
+	}
 }
+

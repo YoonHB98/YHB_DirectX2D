@@ -74,5 +74,6 @@ enum class OBJECTORDER
 	SuperChat,
 	Window,
 	Emoticon,
-	Exit
+	Exit,
+	Click
 };
