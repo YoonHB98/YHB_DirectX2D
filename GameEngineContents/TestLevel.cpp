@@ -50,6 +50,8 @@ void TestLevel::Start()
 	CreateActor<Neru_Window>();
 	CreateActor<WindowIcon>();
 	CreateActor<WebCamWindow>();
+	CreateActor<ToolTip>();
+	CreateActor<ToolTipText>();
 	//GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
 	//GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
 	//GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
@@ -66,12 +68,12 @@ void TestLevel::Start()
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
 	//CreateActor<Twitter>(GameObjectGroup::WindowIcon);
 	//CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
+	GlobalContentsValue::Contents = "";
 }
 
 void TestLevel::Update(float _DeltaTime)
 {
 	GlobalContentsValue::WebCamWindow = true;
-	GlobalContentsValue::Contents = "Tutorial2";
 	//time = time + _DeltaTime;
 	//if (time > 5.0f
 	//	&& time < 8.0f)

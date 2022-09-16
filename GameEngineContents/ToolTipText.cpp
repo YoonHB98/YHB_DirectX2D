@@ -34,10 +34,23 @@ void ToolTipText::Update(float _DeltaTime)
 		GetTransform().SetWorldPosition(float4(Pos.x, Pos.y, 540));
 		return;
 	}
-	TextRenderer->SetTexture("TutorialTooltip_" + std::to_string(Count) + ".png");
+	if (CurString != GlobalContentsValue::Contents)
+	{
+		CurString = GlobalContentsValue::Contents;
+		Count = 1;
+	}
+	if (GlobalContentsValue::Contents == "Tutorial")
+	{
+		TextRenderer->GetTransform().SetLocalPosition(float4(100 - (Size.x / 2), 15.5f + (Size.y / 2), 500));
+	}
+	else
+	{
+		TextRenderer->GetTransform().SetLocalPosition(float4(247 - (Size.x / 2), -20.5f + (Size.y / 2), 500));
+	}
+	TextRenderer->SetTexture(GlobalContentsValue::Contents + "Tooltip_" + std::to_string(Count) + ".png");
 	TextRenderer->ScaleToTexture();
 	Size = TextRenderer->GetTransform().GetLocalScale();
-	TextRenderer->GetTransform().SetLocalPosition(float4(100 - (Size.x / 2), 15.5f+ (Size.y / 2), 500));
+
 	if (Count == 7
 		&&true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{

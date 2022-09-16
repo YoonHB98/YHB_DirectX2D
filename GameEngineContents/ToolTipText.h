@@ -16,6 +16,7 @@ public:
 	ToolTipText& operator=(ToolTipText&& _Other) noexcept = delete;
 
 	static int Count;
+	std::string CurString = "";
 	float4 Size;
 	GameEngineTextureRenderer* TextRenderer;
 protected:

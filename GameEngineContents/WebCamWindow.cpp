@@ -133,6 +133,7 @@ void WebCamWindow::ActiveUpdate(float _DeltaTime, const StateInfo& _Info)
 {
 	if (GlobalContentsValue::Asobu_Window == "CommunicationStart")
 	{
+		
 		ClickCol->GetTransform().SetLocalPosition(float4(-91, 165, -100));
 		if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		{
