@@ -24,6 +24,7 @@ protected:
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
+	void ContentsCheck();
 	float4 Pos;
 };
 

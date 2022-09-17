@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "WebCamWindow.h"
+#include "ToolTipText.h"
 
 WebCamWindow* WebCamWindow::Inst_ = new WebCamWindow();
 
@@ -17,6 +18,12 @@ void WebCamWindow::Start()
 	Renderer->SetTexture("WebCam.png");
 	Renderer->GetTransform().SetLocalPosition(float4(-90, 120));
 	Renderer->GetTransform().SetLocalScale(float4(358,254));
+
+	//GameEngineTextureRenderer* Renderer2 = CreateComponent<GameEngineTextureRenderer>();
+	//Renderer2->SetTexture("Color3.png");
+	//Renderer2->GetTransform().SetLocalPosition(float4(-90, 120));
+	//Renderer2->GetTransform().SetLocalScale(float4(3000, 3000,-300));
+	//Renderer2->GetPixelData().MulColor.a = 0.5f;
 
 	BG = CreateComponent<GameEngineTextureRenderer>();
 	BG->SetTexture("bg_stream.png");
@@ -117,7 +124,6 @@ void WebCamWindow::IdleUpdate(float _DeltaTime, const StateInfo& _Info)
 		if (GlobalContentsValue::Asobu_Window == numbers[i]
 			&& GlobalContentsValue::Asobu == false)
 		{
-			Ame->ChangeFrameAnimation("ame_idle_happy3");
 			StateManager.ChangeState("Active");
 		}
 	}
@@ -135,11 +141,25 @@ void WebCamWindow::ActiveUpdate(float _DeltaTime, const StateInfo& _Info)
 	{
 		
 		ClickCol->GetTransform().SetLocalPosition(float4(-91, 165, -100));
-		if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+		if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+			&&ToolTipText::Count == 1)
 		{
 			if (ClickCol->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Mouse, CollisionType::CT_OBB))
 			{
-				Ame->ChangeFrameAnimation("ame_idle_happy6");
+				Ame->ChangeFrameAnimation("ame_idle_happy3");
+				ToolTipText::Count++;
+			}
+		}
+		else if(ToolTipText::Count == 2)
+		{
+			Ame->ChangeFrameAnimation("ame_idle_happy6");
+			if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+			{
+				StateManager.ChangeState("Idle");
+				GlobalContentsValue::Asobu_Window = "";
+				GlobalContentsValue::Twitter = true;
+				GlobalContentsValue::RemainTwitnum = 1;
+				GlobalContentsValue::Tooltip = false;
 			}
 		}
 	

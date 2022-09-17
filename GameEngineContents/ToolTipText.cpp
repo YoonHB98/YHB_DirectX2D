@@ -39,17 +39,9 @@ void ToolTipText::Update(float _DeltaTime)
 		CurString = GlobalContentsValue::Contents;
 		Count = 1;
 	}
-	if (GlobalContentsValue::Contents == "Tutorial")
-	{
-		TextRenderer->GetTransform().SetLocalPosition(float4(100 - (Size.x / 2), 15.5f + (Size.y / 2), 500));
-	}
-	else
-	{
-		TextRenderer->GetTransform().SetLocalPosition(float4(247 - (Size.x / 2), -20.5f + (Size.y / 2), 500));
-	}
-	TextRenderer->SetTexture(GlobalContentsValue::Contents + "Tooltip_" + std::to_string(Count) + ".png");
-	TextRenderer->ScaleToTexture();
-	Size = TextRenderer->GetTransform().GetLocalScale();
+	ContentsCheck();
+
+
 
 	if (Count == 7
 		&&true == GameEngineInput::GetInst()->IsDown("MouseClick"))
@@ -63,5 +55,26 @@ void ToolTipText::Update(float _DeltaTime)
 void ToolTipText::End()
 {
 }
+
+void ToolTipText::ContentsCheck()
+{
+	if (GlobalContentsValue::Contents == "Tutorial")
+	{
+		TextRenderer->GetTransform().SetLocalPosition(float4(100 - (Size.x / 2), 15.5f + (Size.y / 2), 500));
+	}
+	else
+	{
+		TextRenderer->GetTransform().SetLocalPosition(float4(100, -20.5f + (Size.y / 2), 500));
+		TextRenderer->SetPivot(PIVOTMODE::LEFT);
+	}
+	if (GlobalContentsValue::Contents + "Tooltip_" + std::to_string(Count) == "CommunicationStartToolTip_2")
+	{
+		if (GameEngineInput::GetInst()->IsDown("MouseClick"));
+	}
+	TextRenderer->SetTexture(GlobalContentsValue::Contents + "Tooltip_" + std::to_string(Count) + ".png");
+	TextRenderer->ScaleToTexture();
+	Size = TextRenderer->GetTransform().GetLocalScale();
+}
+
 
 int ToolTipText::Count = 1;

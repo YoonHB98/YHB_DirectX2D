@@ -42,7 +42,7 @@ void Twitter::Update(float _DeltaTime)
 			First = false;
 		}
 		ChangeZPos(-300);
-		if (GlobalContentsValue::RemainTwitnum == 0)
+		/*if (GlobalContentsValue::RemainTwitnum == 0)
 		{
 			Time = Time + _DeltaTime;
 			if (Time > 5.0f)
@@ -53,7 +53,7 @@ void Twitter::Update(float _DeltaTime)
 				First = true;
 				Time = 0;
 			}
-		}
+		}*/
 	}
 	else
 	{

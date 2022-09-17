@@ -66,8 +66,8 @@ void TestLevel::Start()
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
-	//CreateActor<Twitter>(GameObjectGroup::WindowIcon);
-	//CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
+	CreateActor<Twitter>(GameObjectGroup::WindowIcon);
+	CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
 	GlobalContentsValue::Contents = "";
 }
 
