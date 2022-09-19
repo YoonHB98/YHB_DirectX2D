@@ -6,6 +6,7 @@
 enum class StreamContents
 {
 	Tutorial,
+	Talk
 };
 
 enum class Animation
@@ -33,6 +34,15 @@ enum class AnimationType
 	A7,
 	A8,
 	A9,
+	B1,
+	B2,
+	B3,
+	B4,
+	B5,
+	B6,
+	B7,
+	B8,
+	B9
 };
 
 class StreamAnimation : public DefaultSetTex
@@ -60,6 +70,7 @@ private:
 	GameEngineTextureRenderer* BG;
 	void ContentsUpdate(StreamContents Contents);
 	void Tutorial();
+	void Talk();
 	float Time = 0;
 	float ChangeTime = 0;
 	void StateUpdate(AnimationType Type);
@@ -91,6 +102,18 @@ private:
 	void UpdateA7();
 	void UpdateA8();
 	void UpdateA9();
+
+	void UpdateB1();
+	void UpdateB2();
+	void UpdateB3();
+	void UpdateB4();
+	void UpdateB5();
+	void UpdateB6();
+	void UpdateB7();
+	void UpdateB8();
+	void UpdateB9();
+
+
 	void ClickTime(float Time_);
 	void StreamInfomation();
 	bool StreamEnd = false;

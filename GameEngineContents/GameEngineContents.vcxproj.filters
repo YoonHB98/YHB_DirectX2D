@@ -355,5 +355,8 @@
     <ClCompile Include="StreamInfo.cpp">
       <Filter>Actor\Play\Stream\StreamAnimation</Filter>
     </ClCompile>
+    <ClCompile Include="AnimationTalk.cpp">
+      <Filter>Actor\Play\Stream\StreamAnimation</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -25,4 +25,3 @@ private:
 	Myfont* Font;
 	int Count = 0;
 };
-

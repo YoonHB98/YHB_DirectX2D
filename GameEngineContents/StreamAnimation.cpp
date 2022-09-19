@@ -85,6 +85,8 @@ void StreamAnimation::ContentsUpdate(StreamContents Contents)
 	{
 	case StreamContents::Tutorial:
 		Tutorial();
+	case StreamContents::Talk:
+		Talk();
 		break;
 	default:
 		break;

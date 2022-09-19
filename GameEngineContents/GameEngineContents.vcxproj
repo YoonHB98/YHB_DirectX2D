@@ -323,6 +323,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationTalk.cpp" />
     <ClCompile Include="AnimationUpdate.cpp" />
     <ClCompile Include="Asobu_Talk.cpp">
       <SubType>

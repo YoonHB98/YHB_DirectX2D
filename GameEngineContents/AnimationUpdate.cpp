@@ -40,6 +40,33 @@ void StreamAnimation::StateUpdate(AnimationType Type)
 	case AnimationType::A9:
 		UpdateA9();
 		break;
+	case AnimationType::B1:
+		UpdateB1();
+		break;
+	case AnimationType::B2:
+		UpdateB2();
+		break;
+	case AnimationType::B3:
+		UpdateB3();
+		break;
+	case AnimationType::B4:
+		UpdateB4();
+		break;
+	case AnimationType::B5:
+		UpdateA5();
+		break;
+	case AnimationType::B6:
+		UpdateB6();
+		break;
+	case AnimationType::B7:
+		UpdateB7();
+		break;
+	case AnimationType::B8:
+		UpdateB8();
+		break;
+	case AnimationType::B9:
+		UpdateB9();
+		break;
 	default:
 		break;
 	}
