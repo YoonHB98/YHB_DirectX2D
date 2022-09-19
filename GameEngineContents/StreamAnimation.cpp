@@ -12,6 +12,10 @@ StreamAnimation::~StreamAnimation()
 
 void StreamAnimation::Start()
 {
+
+	Info[0] = CreateComponent<Myfont>();
+	Info[1] = CreateComponent<Myfont>();
+
 	Blank = CreateComponent<GameEngineTextureRenderer>();
 	Blank->SetTexture("Color.png");
 
@@ -50,6 +54,7 @@ void StreamAnimation::Update(float _DeltaTime)
 	if (GlobalContentsValue::Stream == false)
 	{
 		first = true;
+		StreamInfomation();
 		return;
 	}
 	else

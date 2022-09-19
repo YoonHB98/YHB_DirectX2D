@@ -27,6 +27,8 @@ private:
 	float YSize = 0;
 	int i = 1;
 	bool LoadingFirst = true;
+	std::string CurContents = "Tutorial";
+	bool CurStatus = true;
 	std::vector<GameEngineTextureRenderer*> TextVector;
 };
 

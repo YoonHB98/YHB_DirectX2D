@@ -70,8 +70,9 @@ void PlayLevel::Start()
 
 	//ingame
 	CreateActor<Change>(GameObjectGroup::WindowIcon);
-	CreateActor<Twitter>(GameObjectGroup::WindowIcon);
-	CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
+	GameEngineActor* Twit =  CreateActor<Twitter>(GameObjectGroup::WindowIcon);
+	GameEngineActor* TwitCom = CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
+	TwitCom->SetParent(Twit);
 	CreateActor<Asobu_Window>();
 	CreateActor<Neru_Window>();
 
@@ -92,7 +93,7 @@ void PlayLevel::Update(float _DeltaTime)
 	if (time > 2.5f
 		|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
-		time = time - 2.5f;
+		time = 0.0f;
 		if (GlobalContentsValue::Message)
 		{
 			GlobalContentsValue::RemainLinenum = GlobalContentsValue::RemainLinenum - 1;

@@ -15,6 +15,23 @@ void TweetComment::Start()
 
 void TweetComment::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::Contents != "Tutorial"
+		&& CurStatus != GlobalContentsValue::Twitter)
+	{
+		CurStatus = GlobalContentsValue::Twitter;
+		std::vector<GameEngineTextureRenderer*>::iterator StartIter = TextVector.begin();
+		std::vector<GameEngineTextureRenderer*>::iterator EndIter = TextVector.end();
+
+		for (; StartIter != EndIter; ++StartIter)
+		{
+			(*StartIter)->GetTransform().SetLocalMove(float4(0, -12.5f, 0));
+		}
+	}
+	if (CurContents != GlobalContentsValue::Contents)
+	{
+		CurContents = GlobalContentsValue::Contents;
+		i = 1;
+	}
 	if (GlobalContentsValue::Twitter)
 	{
 		Time = Time + _DeltaTime;
@@ -34,11 +51,11 @@ void TweetComment::Update(float _DeltaTime)
 			Time = Time  - 1.0f;
 			LoadingEnd();
 		}
-		if (i >2)
+		if (i >2
+			|| CurContents != "Tutorial")
 		{
 			MoveY(YSize);
 		}
-		ChangeZPos(-300);
 
 
 	}
@@ -56,19 +73,12 @@ void TweetComment::Update(float _DeltaTime)
 				LoadingEnd();
 			}
 		}
-		if (LoadingFirst != true)
+		if (i > 2
+			|| CurContents != "Tutorial")
 		{
-			std::vector<GameEngineTextureRenderer*>::iterator StartIter = TextVector.begin();
-			std::vector<GameEngineTextureRenderer*>::iterator EndIter = TextVector.end();
-
-			for (; StartIter != EndIter; ++StartIter)
-			{
-				float4 Pos = (*StartIter)->GetTransform().GetLocalPosition();
-				(*StartIter)->GetTransform().SetLocalPosition(float4(Pos.x,Pos.y, 500));
-			}
+			MoveY(YSize);
 		}
 		LoadingFirst = true;
-		ChangeZPos(500);
 		return;
 	}
 
@@ -84,7 +94,7 @@ void TweetComment::CreateText(const std::string& _Text)
 	TextRend->SetTexture(_Text);
 	TextRend->ScaleToTexture();
 	YSize = TextRend->GetTransform().GetLocalScale().y;
-	TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize /2, -500));
+	TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize /2, -500,-3));
 	TextVector.push_back(TextRend);
 	Bot = Bot - YSize;
 }
@@ -104,7 +114,7 @@ void TweetComment::MoveY(float Y)
 
 	for (; StartIter != EndIter - 1 ; ++StartIter )
 	{
-		(*StartIter)->GetTransform().SetLocalMove(float4(0, -500 * GameEngineTime::GetDeltaTime() ));
+		(*StartIter)->GetTransform().SetLocalMove(float4(0, -500 * GameEngineTime::GetDeltaTime(),0 ));
 	}
 }
 
@@ -115,6 +125,6 @@ void TweetComment::LoadingEnd()
 
 	for (; StartIter != EndIter; ++StartIter)
 	{
-		(*StartIter)->GetTransform().SetLocalMove(float4(0, 25));
+		(*StartIter)->GetTransform().SetLocalMove(float4(0, 25,0));
 	}
 }

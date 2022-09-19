@@ -66,14 +66,28 @@ void TestLevel::Start()
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
-	CreateActor<Twitter>(GameObjectGroup::WindowIcon);
-	CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
-	GlobalContentsValue::Contents = "";
+	GameEngineActor* A = CreateActor<Twitter>(GameObjectGroup::WindowIcon);
+	GameEngineActor* B = CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
+	B->SetParent(A);
+	GlobalContentsValue::RemainTwitnum = 2;
+	GlobalContentsValue::Twitter = true;
 }
 
 void TestLevel::Update(float _DeltaTime)
 {
-	GlobalContentsValue::WebCamWindow = true;
+	time = time + _DeltaTime;
+	if (GlobalContentsValue::Twitter == false)
+	{
+		GlobalContentsValue::Contents = "CommunicationStart";
+	}
+	if (GlobalContentsValue::Twitter == false
+		&& time >12.0f)
+	{
+		GlobalContentsValue::Twitter = true;
+		GlobalContentsValue::RemainTwitnum = 1;
+		GlobalContentsValue::Contents = "CommunicationStart";
+	}
+
 	//time = time + _DeltaTime;
 	//if (time > 5.0f
 	//	&& time < 8.0f)

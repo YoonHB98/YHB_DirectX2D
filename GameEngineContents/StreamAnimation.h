@@ -70,9 +70,11 @@ private:
     std::string  CurText = "а╘го!";
 	std::map<std::string, StreamContents> ContentsMap;
 	Myfont* Info[5];
+
 	float TempTime = 0;
    int TempCount = 0;
 private:
+	bool InfoFirst = true;
  int Count = 0;
 	bool FirstText = true;
 	float CountTime = 0;
