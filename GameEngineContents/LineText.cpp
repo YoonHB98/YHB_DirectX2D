@@ -218,7 +218,19 @@ void LineText::Check()
 void LineText::CreateDayTime()
 {
 	MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
-	TextRend->SetTexture("Night.png");
+	std::string Time;
+	switch (GlobalContentsValue::DayTime)
+	{
+	case 1:
+		Time = "Morning.png";
+	case 2:
+		Time = "Evening.png";
+	case 3: 
+		Time = "Night.png";
+	default:
+		break;
+	}
+	TextRend->SetTexture(Time);
 	TextRend->ScaleToTexture();
 
 	float SizeY = 0;

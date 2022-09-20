@@ -60,19 +60,18 @@ void TestLevel::Start()
 	StreamAnimationActor->SetParent(StreamActor);
 	//CreateActor<Stream>();
 	//CreateActor<StreamAnimation>();
-	//CreateActor<LineMain>();
+	CreateActor<LineMain>();
 	CreateActor<Mouse>();
-	//CreateActor<LineText>();
+	CreateActor<LineText>();
 	//CreateActor<Twitter>();
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
-	//GameEngineActor* A = CreateActor<Twitter>(GameObjectGroup::WindowIcon);
-	//GameEngineActor* B = CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
-	//B->SetParent(A);
-	GlobalContentsValue::RemainTwitnum = 2;
-	GlobalContentsValue::Twitter = true;
-	GlobalContentsValue::Stream = true;
+	GameEngineActor* A = CreateActor<Twitter>(GameObjectGroup::WindowIcon);
+	GameEngineActor* B = CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
+	B->SetParent(A);
+	//GlobalContentsValue::Stream = true;
+	GlobalContentsValue::Contents = "  ";
 }
 
 void TestLevel::Update(float _DeltaTime)
@@ -104,13 +103,16 @@ void TestLevel::Update(float _DeltaTime)
 	}
 	GlobalContentsValue::Line = true;
 	GlobalContentsValue::EomticonStatus = 2;
+	*/
+	// 레벨 바뀌어서 오면 초기화
+	// GetAccTime();
 	if (time > 2.5f
 		|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
 		time = time - 2.5f;
 		if (GlobalContentsValue::Message)
 		{
-			GlobalContentsValue::RemainLinenum = GlobalContentsValue::RemainLinenum -1;
+			GlobalContentsValue::RemainLinenum = GlobalContentsValue::RemainLinenum - 1;
 			CreateActor<Notification>(GameObjectGroup::BackGround);
 			CreateActor<NotificationText>(GameObjectGroup::WindowIcon);
 		}
@@ -122,10 +124,7 @@ void TestLevel::Update(float _DeltaTime)
 	if (GlobalContentsValue::RemainLinenum > 0)
 	{
 		GlobalContentsValue::Message = true;
-	}*/
-	// 레벨 바뀌어서 오면 초기화
-	// GetAccTime();
-
+	}
 }
 
 void TestLevel::End()

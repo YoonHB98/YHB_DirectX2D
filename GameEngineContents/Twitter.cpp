@@ -36,8 +36,7 @@ void Twitter::Update(float _DeltaTime)
 	StatusChange();
 	if (GlobalContentsValue::Twitter)
 	{
-		if (GlobalContentsValue::Contents == "Tutorial"
-			&&First)
+		if (First)
 		{
 			First = false;
 		}
@@ -57,14 +56,26 @@ void Twitter::Update(float _DeltaTime)
 	}
 	else
 	{
-		if (First == false)
+		std::string A = GlobalContentsValue::Contents;
+		if (First == false
+			&& GlobalContentsValue::Contents == "Tutorial")
 		{
 			Check = true;
 			GlobalContentsValue::Twitter = false;
 			GlobalContentsValue::RemainLinenum = 6;
 			First = true;
 			Time = 0;
-		}
+		}else
+			if (First == false
+				&& GlobalContentsValue::Contents == "CommunicationStart")
+			{
+				Check = true;
+				GlobalContentsValue::Twitter = false;
+				GlobalContentsValue::RemainLinenum = 3;
+				GlobalContentsValue::TextContents = "Communication";
+				First = true;
+				Time = 0;
+			}
 		ChangeZPos(500);
 		Time = 0;
 		return;
@@ -84,6 +95,11 @@ void Twitter::StatusChange()
 		{
 			GlobalContentsValue::Followers = GlobalContentsValue::Followers + 1000;
 			GlobalContentsValue::Stress = GlobalContentsValue::Stress + 10;
-		}
+		}else
+			if (GlobalContentsValue::Contents == "Communication")
+			{
+				GlobalContentsValue::Followers = GlobalContentsValue::Followers + 30;
+				GlobalContentsValue::Stress = GlobalContentsValue::Stress + 20;
+			}
 	}
 }
