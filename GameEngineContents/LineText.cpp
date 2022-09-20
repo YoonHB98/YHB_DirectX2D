@@ -2,6 +2,7 @@
 #include "LineText.h"
 #include "ToolTipText.h"
 #include "LineMain.h"
+#include "Sojae.h"
 
 LineText::LineText() 
 {
@@ -129,6 +130,10 @@ void LineText::CreateText(std::string _Text)
 	else
 	{
 		TextNum = TextNum + static_cast<int>(SizeY) + 3;
+	}
+	if (_Text =="Communication3.png")
+	{
+		GetLevel()->CreateActor<Sojae>();
 	}
 }
 

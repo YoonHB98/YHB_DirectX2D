@@ -214,6 +214,9 @@
     <ClInclude Include="SuperChat.h">
       <Filter>Actor\Play\Stream\StreamComment</Filter>
     </ClInclude>
+    <ClInclude Include="Sojae.h">
+      <Filter>Actor\Window\WindowIcon\Window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -363,6 +366,9 @@
     </ClCompile>
     <ClCompile Include="SuperChat.cpp">
       <Filter>Actor\Play\Stream\StreamComment</Filter>
+    </ClCompile>
+    <ClCompile Include="Sojae.cpp">
+      <Filter>Actor\Window\WindowIcon\Window</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

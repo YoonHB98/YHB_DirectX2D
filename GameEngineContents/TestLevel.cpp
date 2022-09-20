@@ -34,6 +34,7 @@
 #include "Asobu_Window.h"
 #include "Neru_Window.h"
 #include "SuperChat.h"
+#include "Sojae.h"
 
 TestLevel::TestLevel() 
 {
@@ -63,6 +64,7 @@ void TestLevel::Start()
 	CreateActor<LineMain>();
 	CreateActor<Mouse>();
 	CreateActor<LineText>();
+	CreateActor<Sojae>();
 	//CreateActor<Twitter>();
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
