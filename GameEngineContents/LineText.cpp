@@ -18,6 +18,11 @@ void LineText::Start()
 
 void LineText::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::TextContents != CurTextCon)
+	{
+		CurTextCon = GlobalContentsValue::TextContents;
+		Count = 0;
+	}
 	if (Tutorial == false
 		&&Count == 2
 		&&GlobalContentsValue::Line)

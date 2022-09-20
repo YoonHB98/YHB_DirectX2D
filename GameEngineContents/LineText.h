@@ -41,6 +41,7 @@ protected:
 	void RLineNum();
 	float EmoticonTime = 0;
 	std::string ReactionName = "";
+	std::string CurTextCon = "";
 	bool EmoticonTimeStart = false;
 	GameEngineCollision* EmoticonCollision1;
 	GameEngineCollision* EmoticonCollision2;

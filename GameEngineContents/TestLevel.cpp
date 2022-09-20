@@ -33,6 +33,7 @@
 #include "Asobu_That.h"
 #include "Asobu_Window.h"
 #include "Neru_Window.h"
+#include "SuperChat.h"
 
 TestLevel::TestLevel() 
 {
@@ -52,11 +53,11 @@ void TestLevel::Start()
 	CreateActor<WebCamWindow>();
 	CreateActor<ToolTip>();
 	CreateActor<ToolTipText>();
-	//GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
-	//GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
-	//GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
-	//CommentActor->SetParent(StreamActor);
-	//StreamAnimationActor->SetParent(StreamActor);
+	GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
+	GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
+	GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
+	CommentActor->SetParent(StreamActor);
+	StreamAnimationActor->SetParent(StreamActor);
 	//CreateActor<Stream>();
 	//CreateActor<StreamAnimation>();
 	//CreateActor<LineMain>();
@@ -66,27 +67,28 @@ void TestLevel::Start()
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
-	GameEngineActor* A = CreateActor<Twitter>(GameObjectGroup::WindowIcon);
-	GameEngineActor* B = CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
-	B->SetParent(A);
+	//GameEngineActor* A = CreateActor<Twitter>(GameObjectGroup::WindowIcon);
+	//GameEngineActor* B = CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
+	//B->SetParent(A);
 	GlobalContentsValue::RemainTwitnum = 2;
 	GlobalContentsValue::Twitter = true;
+	GlobalContentsValue::Stream = true;
 }
 
 void TestLevel::Update(float _DeltaTime)
 {
 	time = time + _DeltaTime;
-	if (GlobalContentsValue::Twitter == false)
-	{
-		GlobalContentsValue::Contents = "CommunicationStart";
-	}
-	if (GlobalContentsValue::Twitter == false
-		&& time >12.0f)
-	{
-		GlobalContentsValue::Twitter = true;
-		GlobalContentsValue::RemainTwitnum = 1;
-		GlobalContentsValue::Contents = "CommunicationStart";
-	}
+	//if (GlobalContentsValue::Twitter == false)
+	//{
+	//	GlobalContentsValue::Contents = "CommunicationStart";
+	//}
+	//if (GlobalContentsValue::Twitter == false
+	//	&& time >12.0f)
+	//{
+	//	GlobalContentsValue::Twitter = true;
+	//	GlobalContentsValue::RemainTwitnum = 1;
+	//	GlobalContentsValue::Contents = "CommunicationStart";
+	//}
 
 	//time = time + _DeltaTime;
 	//if (time > 5.0f

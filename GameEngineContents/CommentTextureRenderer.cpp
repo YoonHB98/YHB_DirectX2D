@@ -31,7 +31,7 @@ void CommentTextureRenderer::SetTextureRendererSetting()
 	Clip.PosY = 0.0f;
 	Clip.SizeX = 0.0f;
 	Clip.SizeY = 1.0f;
-
+	
 	Color.PosX = 0.0f;
 	Color.PosY = 0.0f;
 	Color.SizeX = 0.0f;

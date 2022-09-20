@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "Comment.h"
 #include "Stream.h"
+#include "SuperChat.h"
 
 Comment::Comment() 
 {
@@ -273,6 +274,7 @@ void Comment::CreateText(const std::string& _Text)
 	if (_Text == "Comment1_12.png"
 		||_Text == "Comment1_15.png")
 	{
+		GetLevel()->CreateActor<SuperChat>();
 		Collision->ChangeOrder(OBJECTORDER::SuperChat);
 		Collision->SetName(std::to_string(ColName));
 

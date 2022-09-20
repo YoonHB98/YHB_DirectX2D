@@ -211,6 +211,9 @@
     <ClInclude Include="Neru_Tomorrow.h">
       <Filter>Actor\Window\WindowIcon\IconWindow\Neru</Filter>
     </ClInclude>
+    <ClInclude Include="SuperChat.h">
+      <Filter>Actor\Play\Stream\StreamComment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -357,6 +360,9 @@
     </ClCompile>
     <ClCompile Include="AnimationTalk.cpp">
       <Filter>Actor\Play\Stream\StreamAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="SuperChat.cpp">
+      <Filter>Actor\Play\Stream\StreamComment</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

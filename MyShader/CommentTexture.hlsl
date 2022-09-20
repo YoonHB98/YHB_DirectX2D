@@ -103,6 +103,12 @@ float4 CommentTexture_PS(Output _Input) : SV_Target0
         //1200
         clip(-1);
     }
+    if (_Input.Pos.y > Slice.y
+        &&Slice.y != 0)
+    {
+        //1200
+        clip(-1);
+    }
     
     if (RR != 0)
     {
