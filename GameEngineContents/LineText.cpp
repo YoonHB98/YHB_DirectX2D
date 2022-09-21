@@ -302,7 +302,7 @@ void LineText::exceptionCheck(std::string _Text)
 	}else
 	if (_Text == "Tutorial28.png")
 	{
-		GlobalContentsValue::Day = GlobalContentsValue::Day + 1;
+		GlobalContentsValue::DayTime = GlobalContentsValue::DayTime + 1;
 	}
 	if (_Text == "Tutorial36.png")
 	{

@@ -14,7 +14,7 @@ void ToolTipText::Start()
 	TextRenderer = CreateComponent<GameEngineTextureRenderer>();
 	TextRenderer->SetTexture("TutorialTooltip_1.png");
 	TextRenderer->GetTransform().SetLocalPosition(float4(-36.5, 42, 500));
-	TextRenderer->SetRenderingOrder(2);
+	TextRenderer->SetRenderingOrder(501);
 
 }
 

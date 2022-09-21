@@ -32,6 +32,11 @@ void DayChangeWindow::Start()
 
 void DayChangeWindow::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::DayTime >= 4)
+	{
+		GlobalContentsValue::Day = GlobalContentsValue::Day + 1;
+		GlobalContentsValue::DayTime = 1;
+	}
 	if (CurDay != GlobalContentsValue::Day)
 	{
 		CurDay = GlobalContentsValue::Day;
@@ -41,8 +46,7 @@ void DayChangeWindow::Update(float _DeltaTime)
 	{
 		ChangeTime = ChangeTime + _DeltaTime;
 	}
-	if (GlobalContentsValue::DayChangeWindow
-		&&ChangeTime > 1.0f)
+	if (GlobalContentsValue::DayChangeWindow)
 	{
 		GlobalContentsValue::Line = false;
 		Time = Time + _DeltaTime;
@@ -97,11 +101,7 @@ void DayChangeWindow::Update(float _DeltaTime)
 			Renderer->GetPixelData().MulColor.a = 0.0f;
 			Font->GetPixelData().MulColor.a = 0.0f;
 			GlobalContentsValue::DayChangeWindow = false;
-			if (GlobalContentsValue::Day > 1)
-			{
-				GlobalContentsValue::WebCamWindow = true;
-				GlobalContentsValue::DayTime = 1;
-			}
+			GlobalContentsValue::WebCamWindow = true;
 			ChangeTime = 0.0f;
 			RemainLineCheck();
 		}
