@@ -66,4 +66,5 @@ void Change::BootEnd(const FrameAnimation_DESC& _Info)
 	GlobalContentsValue::Change = false;
 	GlobalContentsValue::Stream = true;
 	ChangeZPos(500);
+	Death();
 }

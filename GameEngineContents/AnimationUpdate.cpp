@@ -144,9 +144,6 @@ void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& 
 			}
 		}
 	}
-	Blank->GetPixelData().MulColor.a = 0.5f;
-	Blank->GetTransform().SetWorldPosition(float4(-140, -35 , -520));
-	Blank->GetTransform().SetLocalScale(float4(200, 60));
 	float4 CurPos = Pos_ - float4(0, EnterCount * 20.0f);
 	Font->SetLeftAndRightSort(LeftAndRightSort::CENTER);
 	Font->TextDraw(Text,  Font_, CurPos, Color_, Size_);
@@ -529,6 +526,7 @@ void StreamAnimation::UpdateA9()
 							GlobalContentsValue::Twitter = true;
 							GlobalContentsValue::Tooltip = false;
 							GlobalContentsValue::RemainTwitnum = 2;
+							Renderer->ChangeFrameAnimation("cho_idleEnd");
 						}else
 							if (EndTimer > 3.0f
 								|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
@@ -539,6 +537,7 @@ void StreamAnimation::UpdateA9()
 								GlobalContentsValue::Twitter = true;
 								GlobalContentsValue::Tooltip = false;
 								GlobalContentsValue::RemainTwitnum = 2;
+								Renderer->ChangeFrameAnimation("cho_idleEnd");
 								}
 						}
 					}

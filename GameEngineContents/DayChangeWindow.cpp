@@ -101,7 +101,11 @@ void DayChangeWindow::Update(float _DeltaTime)
 			Renderer->GetPixelData().MulColor.a = 0.0f;
 			Font->GetPixelData().MulColor.a = 0.0f;
 			GlobalContentsValue::DayChangeWindow = false;
-			GlobalContentsValue::WebCamWindow = true;
+			if (GlobalContentsValue::Day > 1)
+			{
+				GlobalContentsValue::WebCamWindow = true;
+				GlobalContentsValue::DayTime = 1;
+			}
 			ChangeTime = 0.0f;
 			RemainLineCheck();
 		}

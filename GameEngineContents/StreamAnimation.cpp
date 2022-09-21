@@ -16,9 +16,6 @@ void StreamAnimation::Start()
 	Info[0] = CreateComponent<Myfont>();
 	Info[1] = CreateComponent<Myfont>();
 
-	Blank = CreateComponent<GameEngineTextureRenderer>();
-	Blank->SetTexture("Color.png");
-
 	BG = CreateComponent<GameEngineTextureRenderer>();
 	BG->SetTexture("bg_stream.png");
 	BG->GetTransform().SetLocalPosition(float4(-140, 55, -100));
@@ -85,6 +82,7 @@ void StreamAnimation::ContentsUpdate(StreamContents Contents)
 	{
 	case StreamContents::Tutorial:
 		Tutorial();
+		break;
 	case StreamContents::Talk:
 		Talk();
 		break;
