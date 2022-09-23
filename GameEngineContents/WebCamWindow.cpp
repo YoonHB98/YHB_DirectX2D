@@ -48,6 +48,9 @@ void WebCamWindow::Start()
 	Ame->CreateFrameAnimationCutTexture("ame_out0", FrameAnimation_DESC("ame_out0.png", 0, 13, 0.15f, false));
 	Ame->CreateFrameAnimationCutTexture("ame_idle_happy3", FrameAnimation_DESC("ame_idle_happy3.png", 0, 8, 0.2f, true));
 	Ame->CreateFrameAnimationCutTexture("ame_idle_happy6", FrameAnimation_DESC("ame_idle_happy6.png", 0, 5, 0.2f, true));
+	Ame->CreateFrameAnimationCutTexture("ame_game", FrameAnimation_DESC("ame_game.png", 0, 3, 0.1f, true));
+	std::vector<unsigned int> End{ 2, 3,0 };
+	Ame->CreateFrameAnimationCutTexture("ame_game2", FrameAnimation_DESC("ame_game.png", End, 0.2f, true));
 
 	StateManager.CreateStateMember("Idle", std::bind(&WebCamWindow::IdleUpdate, this, std::placeholders::_1, std::placeholders::_2), std::bind(&WebCamWindow::IdleStart, this, std::placeholders::_1));
 	StateManager.CreateStateMember("Active", std::bind(&WebCamWindow::ActiveUpdate, this, std::placeholders::_1, std::placeholders::_2), std::bind(&WebCamWindow::ActiveStart, this, std::placeholders::_1));
@@ -163,6 +166,30 @@ void WebCamWindow::ActiveUpdate(float _DeltaTime, const StateInfo& _Info)
 			}
 		}
 	
-	}
+	}else
+		if (GlobalContentsValue::Asobu_Window == "GameStart")
+		{
+			AccTime = AccTime + _DeltaTime;
+			Time = Time + _DeltaTime;
+			if (AccTime > 5.0f)
+			{
+				StateManager.ChangeState("Idle");
+				GlobalContentsValue::Asobu_Window = "";
+				GlobalContentsValue::Twitter = true;
+				GlobalContentsValue::RemainTwitnum = 1;
+				GlobalContentsValue::Tooltip = false;
+				return;
+			}
+			if (Time > 1.5f)
+			{
+				Time = Time - 1.5f;
+			}
+			if (Time > 0.3f)
+			{
+				Ame->ChangeFrameAnimation("ame_game2");
+				return;
+			}
+			Ame->ChangeFrameAnimation("ame_game");
+		}
 }
 

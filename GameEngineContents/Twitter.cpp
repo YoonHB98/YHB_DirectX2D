@@ -67,12 +67,21 @@ void Twitter::Update(float _DeltaTime)
 			Time = 0;
 		}else
 			if (First == false
-				&& GlobalContentsValue::Contents == "CommunicationStart")
+				&& (GlobalContentsValue::Contents == ("CommunicationStart")|| GlobalContentsValue::Contents == ("GameStart")))
 			{
 				Check = true;
 				GlobalContentsValue::Twitter = false;
-				GlobalContentsValue::RemainLinenum = 3;
-				GlobalContentsValue::TextContents = "Communication";
+				if (GlobalContentsValue::Contents == ("CommunicationStart"))
+				{
+					GlobalContentsValue::TextContents = "Communication";
+					GlobalContentsValue::RemainLinenum = 3;
+				}else
+					if (GlobalContentsValue::Contents == ("GameStart"))
+					{
+						GlobalContentsValue::TextContents = "Game";
+						GlobalContentsValue::RemainLinenum = 2;
+					}
+				GlobalContentsValue::Sojae = true;
 				First = true;
 				Time = 0;
 			}

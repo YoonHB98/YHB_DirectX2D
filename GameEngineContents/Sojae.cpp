@@ -11,9 +11,20 @@ Sojae::~Sojae()
 
 void Sojae::Start()
 {
-	SetTexture("SoJae.png");
-	SetLocalPosition(float4(0, 0, -200));
-	SetLocalScale(float4(297,195));
+	if (GlobalContentsValue::TextContents == "Communication")
+	{
+		SetTexture("SoJae.png");
+		SetLocalPosition(float4(0, 0, -200));
+		SetLocalScale(float4(297, 195));
+	}else
+		if (GlobalContentsValue::TextContents == "Game")
+		{
+			SetTexture("SoJaeGame.png");
+			SetLocalPosition(float4(0, 0, -200));
+			SetLocalScale(float4(297, 195));
+
+		}
+
 
 	GameEngineSound::SoundPlayOneShot("day_start.wav");
 
@@ -36,7 +47,7 @@ void Sojae::Start()
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
 		Renderer->SetTexture("BackGroundColor.png");
 		Renderer->GetTransform().SetLocalScale(float4(2, 190));
-		Renderer->GetTransform().SetLocalPosition(float4(147.8, -2,-200));
+		Renderer->GetTransform().SetLocalPosition(float4(147.8f, -2,-200));
 	}
 }
 

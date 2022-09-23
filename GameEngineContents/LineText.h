@@ -26,6 +26,7 @@ protected:
 	void CreateText(std::string _Text);
 	void TextMove(float Y_, float last);
 	void CreateChoice();
+	void SojaeLine();
 	void Check();
 	bool CheckStart = false;
 	int Move = 0;

@@ -40,10 +40,12 @@ public:
 	static int EomticonStatus;
 	static std::string TextContents;
 	static std::string CurEmoticonName;
+	static bool Sojae;
 	//시간
 	static int DayTime;
 	//행동
 	static bool Out;
+	static bool DayTimeChange;
 	//뭔 방송임
 	static std::string Contents;
 	static float ChangeTime;

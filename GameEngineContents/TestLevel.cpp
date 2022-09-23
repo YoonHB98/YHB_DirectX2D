@@ -64,8 +64,6 @@ void TestLevel::Start()
 	CreateActor<LineMain>();
 	CreateActor<Mouse>();
 	CreateActor<LineText>();
-	CreateActor<Sojae>();
-	//CreateActor<Twitter>();
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
@@ -74,6 +72,7 @@ void TestLevel::Start()
 	B->SetParent(A);
 	//GlobalContentsValue::Stream = true;
 	GlobalContentsValue::Contents = "  ";
+	GlobalContentsValue::WebCamWindow = true;
 }
 
 void TestLevel::Update(float _DeltaTime)

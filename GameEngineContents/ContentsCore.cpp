@@ -161,6 +161,7 @@ void ContentsCore::Start()
 		NewPipe->SetVertexShader("CommentTexture.hlsl");
 		NewPipe->SetPixelShader("CommentTexture.hlsl");
 	}
+	//font
 	GameEngineFont::Load("Galmuri11");
 	GameEngineFont::Load("Galmuri9");
 	GameEngineFont::Load("Galmuri7");
@@ -180,6 +181,7 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("cho_dokuzetsu_superchat.png", 6, 2);
 	GameEngineTexture::Cut("cho_nyo.png", 2, 2);
 
+	//ame
 	GameEngineTexture::Cut("ame_handspinner.png", 11, 1);
 	GameEngineTexture::Cut("boot.png", 10, 7);
 	GameEngineTexture::Cut("Windose.png", 10, 3);
@@ -190,6 +192,7 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("ame_out0.png", 5, 3);
 	GameEngineTexture::Cut("ame_idle_happy3.png", 9, 2);
 	GameEngineTexture::Cut("ame_idle_happy6.png", 6, 2);
+	GameEngineTexture::Cut("ame_game.png", 4, 2);
 
 	GameEngineTexture::Cut("badge.png",1, 1);
 	GameEngineTexture::Cut("icon_desktop_internet.png", 1, 2);
@@ -201,8 +204,8 @@ void ContentsCore::Start()
 	CreateLevel<LoadingLevel>("Loading");
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-	//CreateLevel<TestLevel>("Test");
-	ChangeLevel("Play");
+	CreateLevel<TestLevel>("Test");
+	ChangeLevel("Test");
 
 	GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 }

@@ -43,6 +43,8 @@ protected:
 	void ActiveStart(const StateInfo& _Info);
 	void ActiveUpdate(float _DeltaTime, const StateInfo& _Info);
 private:
+	float Time = 0;
+	float AccTime = 0;
 	GameEngineTextureRenderer* Ame;
 	GameEngineTextureRenderer* BG;
 	GameEngineTextureRenderer* BGNC;

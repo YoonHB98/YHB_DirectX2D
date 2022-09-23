@@ -2,6 +2,7 @@
 #include "DefaultSetTex.h"
 
 // Ό³Έν :
+class GameEngineTextureRenderer;
 class Sojae : public DefaultSetTex
 {
 public:

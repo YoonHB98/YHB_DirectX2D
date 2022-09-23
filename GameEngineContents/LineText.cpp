@@ -45,6 +45,11 @@ void LineText::Update(float _DeltaTime)
 			CurTime = GlobalContentsValue::DayTime;
 			CreateDayTime();
 		}
+		if (GlobalContentsValue::Sojae)
+		{
+			SojaeLine();
+			GlobalContentsValue::Sojae = false;
+		}
 		Count = Count + 1;
 		for (int i = 0; i <40; i++)
 		{
@@ -134,7 +139,11 @@ void LineText::CreateText(std::string _Text)
 	if (_Text =="Communication3.png")
 	{
 		GetLevel()->CreateActor<Sojae>();
-	}
+	}else
+		if (_Text == "Game2.png")
+		{
+			GetLevel()->CreateActor<Sojae>();
+		}
 }
 
 void LineText::TextMove(float Y_, float last)
@@ -236,6 +245,39 @@ void LineText::CreateDayTime()
 		break;
 	}
 	TextRend->SetTexture(Time);
+	TextRend->ScaleToTexture();
+
+	float SizeY = 0;
+	SizeY = TextRend->GetTransform().GetLocalScale().y;
+
+	TextRend->GetTransform().SetLocalPosition(float4(185, (75 - TextNum) - SizeY / 2));
+	Text.push_back(TextRend);
+	MoveStart++;
+	if (MoveStart == 4)
+	{
+		TextMove(20, 0);
+		TextNum = TextNum + 60 + 3;
+	}
+	else
+		if (MoveStart >= 5)
+		{
+			if (TextNum > 180.0f)
+			{
+				TextMove(static_cast<float>(TextNum) - 180.0f, 0);
+				TextNum = 180;
+			}
+			TextMove(SizeY + 3, 0);
+		}
+		else
+		{
+			TextNum = TextNum + static_cast<int>(SizeY) + 3;
+		}
+}
+
+void LineText::SojaeLine()
+{
+	MyTextureRenderer* TextRend = CreateComponent<MyTextureRenderer>();
+	TextRend->SetTexture("SojaeLine.png");
 	TextRend->ScaleToTexture();
 
 	float SizeY = 0;

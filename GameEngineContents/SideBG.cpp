@@ -73,6 +73,14 @@ void SideBG::Start()
 void SideBG::Update(float _DeltaTime)
 {
 	DayState GlobalValue = (DayState)GlobalContentsValue::DayTime;
+	if (GlobalContentsValue::DayTimeChange || GlobalContentsValue::Contents == "Tutorial")
+	{
+		GlobalContentsValue::DayTimeChange = false;
+	}
+	else
+	{
+		return;
+	}
 	ChangeState(GlobalValue);
 	float A = LeftBG->Color.SizeY;
 	if (LeftBG->Color.SizeY < 1.4f
