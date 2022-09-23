@@ -1,7 +1,10 @@
 #pragma once
-#include "DefaultSetTex.h"
+#include <GameEngineCore/CoreMinimal.h>
 
 // Ό³Έν :
+
+
+class GameEngineTextureRenderer;
 class NotificationDayTime : public DefaultSetTex
 {
 public:
@@ -15,11 +18,15 @@ public:
 	NotificationDayTime& operator=(const NotificationDayTime& _Other) = delete;
 	NotificationDayTime& operator=(NotificationDayTime&& _Other) noexcept = delete;
 
+	GameEngineTextureRenderer* Tuuti;
+	GameEngineTextureRenderer* Tuuti2;
+	GameEngineTextureRenderer* Line;
+	GameEngineSoundPlayer BgmPlayer;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-
+	GameEngineCollision* Collision;
 };
 

@@ -75,11 +75,18 @@ void Twitter::Update(float _DeltaTime)
 				{
 					GlobalContentsValue::TextContents = "Communication";
 					GlobalContentsValue::RemainLinenum = 3;
+					GlobalContentsValue::DayTime = GlobalContentsValue::DayTime + 1;
+					GlobalContentsValue::Stress = GlobalContentsValue::Stress - 4;
+					GlobalContentsValue::Affection = GlobalContentsValue::Affection +2;
+
 				}else
 					if (GlobalContentsValue::Contents == ("GameStart"))
 					{
 						GlobalContentsValue::TextContents = "Game";
 						GlobalContentsValue::RemainLinenum = 2;
+						GlobalContentsValue::DayTime = GlobalContentsValue::DayTime + 1;
+						GlobalContentsValue::Stress = GlobalContentsValue::Stress - 6;
+						GlobalContentsValue::Affection = GlobalContentsValue::Affection + 4;
 					}
 				GlobalContentsValue::Sojae = true;
 				First = true;

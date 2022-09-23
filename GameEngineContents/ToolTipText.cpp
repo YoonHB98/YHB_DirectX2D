@@ -65,20 +65,14 @@ void ToolTipText::ContentsCheck()
 		TextRenderer->ScaleToTexture();
 		Size = TextRenderer->GetTransform().GetLocalScale();
 	}
-	else
-		//TextRenderer->GetTransform().SetLocalPosition(float4(100, -20.5f + (Size.y / 2), 500));
-		//TextRenderer->SetPivot(PIVOTMODE::LEFT);
-		//TextRenderer->SetTexture(GlobalContentsValue::Contents + "Tooltip_" + std::to_string(Count) + ".png");
-		//TextRenderer->ScaleToTexture();
-		//Size = TextRenderer->GetTransform().GetLocalScale();
-	if (GlobalContentsValue::Contents + "Tooltip_" + std::to_string(Count) == "CommunicationStartToolTip_2")
+	if ( GlobalContentsValue::Contents  == "CommunicationStart")
 	{
+		TextRenderer->GetTransform().SetLocalPosition(float4(100, -20.5f + (Size.y / 2), 500));
+		TextRenderer->SetPivot(PIVOTMODE::LEFT);
 		TextRenderer->SetTexture(GlobalContentsValue::Contents + "Tooltip_" + std::to_string(Count) + ".png");
 		TextRenderer->ScaleToTexture();
 		Size = TextRenderer->GetTransform().GetLocalScale();
-		if (GameEngineInput::GetInst()->IsDown("MouseClick"));
 	}
-
 }
 
 

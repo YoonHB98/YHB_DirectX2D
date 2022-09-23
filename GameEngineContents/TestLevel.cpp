@@ -35,6 +35,7 @@
 #include "Neru_Window.h"
 #include "SuperChat.h"
 #include "Sojae.h"
+#include "NotificationDayTime.h"
 
 TestLevel::TestLevel() 
 {
@@ -59,11 +60,12 @@ void TestLevel::Start()
 	GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	CommentActor->SetParent(StreamActor);
 	StreamAnimationActor->SetParent(StreamActor);
+	CreateActor<NotificationDayTime>();
 	//CreateActor<Stream>();
 	//CreateActor<StreamAnimation>();
-	CreateActor<LineMain>();
+	//CreateActor<LineMain>();
 	CreateActor<Mouse>();
-	CreateActor<LineText>();
+	//CreateActor<LineText>();
 	//CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);

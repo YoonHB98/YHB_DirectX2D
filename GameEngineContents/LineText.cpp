@@ -237,10 +237,15 @@ void LineText::CreateDayTime()
 	{
 	case 1:
 		Time = "Morning.png";
+		break;
 	case 2:
 		Time = "Evening.png";
+		break;
 	case 3: 
 		Time = "Night.png";
+		break;
+	case 4:
+		return;
 	default:
 		break;
 	}

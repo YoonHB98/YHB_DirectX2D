@@ -158,6 +158,9 @@ void Asobu_Window::MouseClick(std::string Name_)
 {
 	GlobalContentsValue::Asobu_Window = Name_;
 	GlobalContentsValue::Contents = Name_;
-	GlobalContentsValue::Tooltip = true;
+	if (GlobalContentsValue::Contents == "CommunicationStart")
+	{
+		GlobalContentsValue::Tooltip = true;
+	}
 	GlobalContentsValue::Asobu = false;
 }

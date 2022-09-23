@@ -198,6 +198,7 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("icon_desktop_internet.png", 1, 2);
 
 	GameEngineTexture::Cut("icon_loading_poketter.png", 8, 1);
+	GameEngineTexture::Cut("tuutidaytime.png", 6, 1);
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션

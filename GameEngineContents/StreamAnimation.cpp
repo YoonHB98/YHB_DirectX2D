@@ -43,7 +43,7 @@ void StreamAnimation::Start()
 	
 	ContentsMap["Tutorial"] = StreamContents::Tutorial;
 	Font = CreateComponent<Myfont>();
-	Font->SetRenderingOrder(500);
+	Font->SetRenderingOrder(501);
 }
 
 void StreamAnimation::Update(float _DeltaTime)

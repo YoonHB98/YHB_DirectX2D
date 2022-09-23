@@ -77,10 +77,6 @@ void SideBG::Update(float _DeltaTime)
 	{
 		GlobalContentsValue::DayTimeChange = false;
 	}
-	else
-	{
-		return;
-	}
 	ChangeState(GlobalValue);
 	float A = LeftBG->Color.SizeY;
 	if (LeftBG->Color.SizeY < 1.4f

@@ -217,6 +217,9 @@
     <ClInclude Include="Sojae.h">
       <Filter>Actor\Window\WindowIcon\Window</Filter>
     </ClInclude>
+    <ClInclude Include="NotificationDayTime.h">
+      <Filter>Actor\Play\Line\Notification</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -369,6 +372,9 @@
     </ClCompile>
     <ClCompile Include="Sojae.cpp">
       <Filter>Actor\Window\WindowIcon\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificationDayTime.cpp">
+      <Filter>Actor\Play\Line\Notification</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
