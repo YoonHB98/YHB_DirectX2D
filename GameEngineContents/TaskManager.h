@@ -56,6 +56,7 @@ private:
 	std::vector<CommentTextureRenderer*> Diffrence;
 	std::vector<CommentTextureRenderer*> FollowerDiffrence;
 	std::vector<CommentTextureRenderer*> CurNumberRenderer;
+	bool first = false;
 	bool Check = false;
 	bool NumberCheck = false;
 	void StatusName();

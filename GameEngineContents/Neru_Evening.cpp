@@ -37,7 +37,7 @@ void Neru_Evening::Start()
 	Font = CreateComponent<Myfont>();
 	Font->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 	Font->TextDraw("Àú³á±îÁö ÀÜ´Ù", "galmuri11", float4(545, 112), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 17);
-	Font->SetRenderingOrder(500);
+	Font->SetRenderingOrder(501);
 	{
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
 		Renderer->SetTexture("icon_status_stress.png");
@@ -91,20 +91,20 @@ void Neru_Evening::Start()
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("Àá±ñ¸¸ Àß°Ô", "galmuri11", float4(548, 150), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 10);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("½ºÆ®·¹½º", "galmuri11", float4(572, 180), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw(std::to_string(GlobalContentsValue::Stress), "DinkieBitmap 7px", float4(675, 185), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		int Temp = GlobalContentsValue::Stress;
@@ -116,19 +116,19 @@ void Neru_Evening::Start()
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw(std::to_string(Temp), "DinkieBitmap 7px", float4(720, 175), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("¸àÅ»", "galmuri11", float4(572, 205), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw(std::to_string(GlobalContentsValue::Mental), "DinkieBitmap 7px", float4(675, 210), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		int Temp = GlobalContentsValue::Mental;
@@ -140,28 +140,28 @@ void Neru_Evening::Start()
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw(std::to_string(Temp), "DinkieBitmap 7px", float4(720, 202), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 	std::string DayTime = CheckDayTime(GlobalContentsValue::DayTime);
 	Myfont* Script = CreateComponent<Myfont>();
 	Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
 	Script->TextDraw(DayTime, "galmuri11", float4(558, 435), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-	Script->SetRenderingOrder(500);
+	Script->SetRenderingOrder(501);
 	}
 	{
 		std::string DayTime = CheckDayTime(GlobalContentsValue::DayTime + 1);
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
 		Script->TextDraw(DayTime, "galmuri11", float4(790, 435), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		std::string DayTime = CheckDayTime(GlobalContentsValue::DayTime + 1);
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
 		Script->TextDraw(DayTime + "ÀÌ  µÉ  °Å¾ß", "galmuri11", float4(674, 455), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 8);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 
 	ChangeZPos(-400);

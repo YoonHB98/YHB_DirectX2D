@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "TaskManager.h"
+#include "Mouse.h"
 
 TaskManager* TaskManager::Inst_ = new TaskManager();
 
@@ -31,12 +32,17 @@ void TaskManager::Start()
 
 void TaskManager::Update(float _DeltaTime)
 {
+	if (first && GlobalContentsValue::Stream)
+	{
+		Inst_->TaskManagerMainCol->SetName("-70");
+	}
 	if (GlobalContentsValue::DayChangeWindow == false)
 	{
 		StatusCheck();
 		StatusName();
 		NumberSetting();
 		std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
+		Mouse::Inst_->ChangeNameAll();
 		ChangeZPos(static_cast<float>(std::stoi(Inst_->TaskManagerMainCol->GetNameConstRef())));
 	}
 

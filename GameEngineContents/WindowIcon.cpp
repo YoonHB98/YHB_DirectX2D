@@ -159,7 +159,10 @@ void WindowIcon::Update(float _DeltaTime)
 		Youtube[0]->GetPixelData().MulColor.a = 1.0f;
 		Youtube[1]->GetPixelData().MulColor.a = 1.0f;
 	}
-
+	if (GlobalContentsValue::Contents == "Tutorial")
+	{
+		return;
+	}
 	MouseClick();
 }
 

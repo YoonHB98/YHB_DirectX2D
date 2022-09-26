@@ -22,6 +22,8 @@ void Change::Start()
 	Bank->CreateFrameAnimationCutTexture("Bank", FrameAnimation_DESC("Bank.png", 0, 184, 0.08f, false));
 	Bank->CreateFrameAnimationCutTexture("BankE", FrameAnimation_DESC("Bank.png", 0, 0, 0.08f, false));
 	ChangeZPos(500);
+	Bank->ChangeFrameAnimation("BankE");
+	first = true;
 
 }
 

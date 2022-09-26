@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "Stream_Window.h"
+#include "Change.h"
 
 Stream_Window* Stream_Window::Inst_ = new Stream_Window();
 
@@ -64,9 +65,9 @@ void Stream_Window::Update(float _DeltaTime)
 	{
 		return;
 	}
-	if (CurStatus != GlobalContentsValue::Stream)
+	if (CurStatus != GlobalContentsValue::Youtube)
 	{
-		CurStatus = GlobalContentsValue::Stream;
+		CurStatus = GlobalContentsValue::Youtube;
 		Inst_->WindowCollision->SetName("-100");
 		Mouse::Inst_->ChangeNameAll();
 	}
@@ -153,5 +154,6 @@ void Stream_Window::MouseClick(std::string Name_)
 	GlobalContentsValue::WebCamWindow = false;
 	GlobalContentsValue::Line = false;
 	GlobalContentsValue::Change = true;
+	GetLevel()->CreateActor<Change>();
 	GlobalContentsValue::Youtube = false;
 }

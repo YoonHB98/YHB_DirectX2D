@@ -43,7 +43,7 @@ void Asobu_That::Start()
 	Font = CreateComponent<Myfont>();
 	Font->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 	Font->TextDraw("어른의 놀이", "galmuri11", float4(545-380, 112), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 17);
-	Font->SetRenderingOrder(500);
+	Font->SetRenderingOrder(501);
 	{
 		CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
 		Renderer->SetTexture("icon_status_stress.png");
@@ -133,26 +133,26 @@ void Asobu_That::Start()
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("그거 하자...", "galmuri11", float4(548-380, 150), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 10);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("스트레스", "galmuri11", float4(572-380, 180), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw(std::to_string(GlobalContentsValue::Stress), "DinkieBitmap 7px", float4(675-380, 185), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw(std::to_string(GlobalContentsValue::Mental), "DinkieBitmap 7px", float4(675 - 380, 235), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		int Temp = GlobalContentsValue::Stress;
@@ -164,7 +164,7 @@ void Asobu_That::Start()
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw(std::to_string(Temp), "DinkieBitmap 7px", float4(720-380, 175), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		int Temp = GlobalContentsValue::Mental;
@@ -176,25 +176,25 @@ void Asobu_That::Start()
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw(std::to_string(Temp), "DinkieBitmap 7px", float4(720 - 380, 225), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("호감도", "galmuri11", float4(572-380, 205), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("멘탈", "galmuri11", float4(572 - 380, 230), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw(std::to_string(GlobalContentsValue::Affection), "DinkieBitmap 7px", float4(675-380, 210), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		int Temp = GlobalContentsValue::Affection;
@@ -206,52 +206,52 @@ void Asobu_That::Start()
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw(std::to_string(Temp), "DinkieBitmap 7px", float4(720-380, 202), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("방송  보너스", "galmuri11", float4(548-380, 265), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 8);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("경험", "galmuri11", float4(548-380, 280), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("0", "DinkieBitmap 7px", float4(645-380, 287), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::LEFT);
 		Script->TextDraw("1", "DinkieBitmap 7px", float4(700 - 380, 280), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 30);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 	std::string DayTime = CheckDayTime(GlobalContentsValue::DayTime);
 	Myfont* Script = CreateComponent<Myfont>();
 	Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
 	Script->TextDraw(DayTime, "galmuri11", float4(558 - 380, 435), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-	Script->SetRenderingOrder(500);
+	Script->SetRenderingOrder(501);
 	}
 	{
 		std::string DayTime = CheckDayTime(GlobalContentsValue::DayTime + 2);
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
 		Script->TextDraw(DayTime, "galmuri11", float4(790 - 380, 435), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 18);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	{
 		std::string DayTime = CheckDayTime(GlobalContentsValue::DayTime + 2);
 		Myfont* Script = CreateComponent<Myfont>();
 		Script->SetLeftAndRightSort(LeftAndRightSort::CENTER);
 		Script->TextDraw(DayTime + "이  될  거야", "galmuri11", float4(674 - 380, 455), float4(75.0f / 255.0f, 35.0f / 255.0f, 198.0f / 255.0f, 1), 8);
-		Script->SetRenderingOrder(500);
+		Script->SetRenderingOrder(501);
 	}
 	GetTransform().SetLocalMove(float4(-380,0,0));
 

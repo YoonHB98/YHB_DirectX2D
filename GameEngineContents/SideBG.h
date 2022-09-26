@@ -4,9 +4,10 @@
 // Ό³Έν :
 enum class DayState
 {
-	night,
+	Start,
 	noon,
 	evening,
+	night,
 	Max,
 };
 
