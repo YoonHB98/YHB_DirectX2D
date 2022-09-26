@@ -169,8 +169,8 @@ void WindowIcon::End()
 
 void WindowIcon::MouseClick()
 {
-	GameEngineCollision* Array[5]{NeruCol, InternetCol, AsobuCol, OkusuriCol, OdekakeCol};
-	for (int i = 0; i < 5; i++)
+	GameEngineCollision* Array[6]{NeruCol, InternetCol, AsobuCol, OkusuriCol, OdekakeCol, YoutubeCol};
+	for (int i = 0; i < 6; i++)
 	{
 		if (Array[i]->IsCollision(CollisionType::CT_OBB, OBJECTORDER::Mouse, CollisionType::CT_OBB,
 			std::bind(&WindowIcon::WindowOn, this, std::placeholders::_1, std::placeholders::_2)))

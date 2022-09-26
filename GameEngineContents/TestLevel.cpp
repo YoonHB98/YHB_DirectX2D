@@ -36,6 +36,9 @@
 #include "SuperChat.h"
 #include "Sojae.h"
 #include "NotificationDayTime.h"
+#include "Stream_Game.h"
+#include "Stream_Talk.h"
+#include "Stream_Window.h"
 
 TestLevel::TestLevel() 
 {
@@ -50,6 +53,8 @@ void TestLevel::Start()
 	CreateActor<MainBG>(GameObjectGroup::BackGround);
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
 	CreateActor<Asobu_Window>();
+	CreateActor<Stream_Window>();
+	CreateActor<Stream_Talk>();
 	CreateActor<Neru_Window>();
 	CreateActor<WindowIcon>();
 	CreateActor<WebCamWindow>();

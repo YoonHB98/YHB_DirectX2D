@@ -62,6 +62,7 @@ public:
 
 	//À©µµ¿ì
 	static std::string Asobu_Window;
+	static std::string Stream_Window;
 
 private:
 	GlobalContentsValue()	{	}

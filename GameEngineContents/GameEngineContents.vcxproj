@@ -269,6 +269,18 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Stream_Game.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Stream_Talk.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Stream_Window.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="SuperChat.h">
       <SubType>
       </SubType>
@@ -451,6 +463,18 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="StreamInfo.cpp" />
+    <ClCompile Include="Stream_Game.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Stream_Talk.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Stream_Window.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="SuperChat.cpp">
       <SubType>
       </SubType>

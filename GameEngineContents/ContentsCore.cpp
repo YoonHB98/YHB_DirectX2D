@@ -11,6 +11,7 @@
 #include "TutorialLogin.h"
 #include "Asobu_Window.h"
 #include "Neru_Window.h"
+#include "Stream_Window.h"
 
 #pragma comment(lib, "GameEngineBase.lib")
 
@@ -230,5 +231,6 @@ void ContentsCore::End()
 	Mouse::Destroy();
 	Asobu_Window::Destroy();
 	Neru_Window::Destroy();
+	Stream_Window::Destroy();
 
 }
