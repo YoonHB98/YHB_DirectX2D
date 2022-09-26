@@ -150,5 +150,8 @@ void Stream_Window::MouseClick(std::string Name_)
 {
 	GlobalContentsValue::Stream_Window = Name_;
 	GlobalContentsValue::Contents = Name_;
-	GlobalContentsValue::Stream = false;
+	GlobalContentsValue::WebCamWindow = false;
+	GlobalContentsValue::Line = false;
+	GlobalContentsValue::Change = true;
+	GlobalContentsValue::Youtube = false;
 }

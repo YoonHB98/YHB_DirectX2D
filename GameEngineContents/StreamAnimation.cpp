@@ -12,10 +12,6 @@ StreamAnimation::~StreamAnimation()
 
 void StreamAnimation::Start()
 {
-
-	Info[0] = CreateComponent<Myfont>();
-	Info[1] = CreateComponent<Myfont>();
-
 	BG = CreateComponent<GameEngineTextureRenderer>();
 	BG->SetTexture("bg_stream.png");
 	BG->GetTransform().SetLocalPosition(float4(-140, 55, -100));
@@ -42,6 +38,9 @@ void StreamAnimation::Start()
 
 	
 	ContentsMap["Tutorial"] = StreamContents::Tutorial;
+	ContentsMap["CommunicationStart"] = StreamContents::Talk;
+	ContentsMap["BadEnding"] = StreamContents::BadEnding;
+	ContentsMap["GoodEnding"] = StreamContents::GoodEnding;
 	Font = CreateComponent<Myfont>();
 	Font->SetRenderingOrder(501);
 }
@@ -51,13 +50,13 @@ void StreamAnimation::Update(float _DeltaTime)
 	if (GlobalContentsValue::Stream == false)
 	{
 		first = true;
-		StreamInfomation();
 		return;
 	}
 	else
 	{
 		if (first == true)
 		{
+			StreamContentsCheck();
 			first = false;
 		}
 		Contents = ContentsMap[GlobalContentsValue::Contents];
@@ -65,7 +64,6 @@ void StreamAnimation::Update(float _DeltaTime)
 		if (CurContents != GlobalContentsValue::Contents)
 		{
 			CurContents = GlobalContentsValue::Contents;
-			StreamInfomation();
 		}
 
 	}
@@ -86,7 +84,29 @@ void StreamAnimation::ContentsUpdate(StreamContents Contents)
 	case StreamContents::Talk:
 		Talk();
 		break;
+	case StreamContents::BadEnding:
+		BadEnding();
+		break;
+	case StreamContents::GoodEnding:
+		GoodEnding();
+		break;
 	default:
 		break;
 	}
+}
+
+void StreamAnimation::StreamContentsCheck()
+{
+	if (GlobalContentsValue::Contents == "CommunicationStart")
+	{
+		CurType = AnimationType::B1;
+	}
+	else if(GlobalContentsValue::Contents == "BadEnding")
+	{
+		CurType = AnimationType::C1;
+	}
+	else if (GlobalContentsValue::Contents == "GoodEnding")
+	{
+		CurType = AnimationType::D1;
+	}		
 }

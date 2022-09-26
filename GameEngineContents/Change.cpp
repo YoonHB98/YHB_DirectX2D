@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "Change.h"
+#include "StreamInfo.h"
 
 Change::Change() 
 {
@@ -34,6 +35,17 @@ void Change::Update(float _DeltaTime)
 	}
 	if (GlobalContentsValue::Change)
 	{
+		if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
+			&&first == false)
+		{
+			Sound.Stop();
+			GlobalContentsValue::BgmStop = false;
+			GlobalContentsValue::Change = false;
+			GlobalContentsValue::Stream = true;
+			GetLevel()->CreateActor<StreamInfo>();
+			ChangeZPos(500);
+			Death();
+		}
 		ChangeZPos(-100);
 		Bank->ChangeFrameAnimation("Bank");
 		Bank->AnimationBindEnd("Bank", std::bind(&Change::BootEnd, this, std::placeholders::_1));
@@ -42,14 +54,6 @@ void Change::Update(float _DeltaTime)
 			Sound = GameEngineSound::SoundPlayControl("Bank.wav");
 			GlobalContentsValue::BgmStop = true;
 			first = false;
-		}
-		if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
-		{
-			Sound.Stop();
-			GlobalContentsValue::BgmStop = false;
-			GlobalContentsValue::Change = false;
-			GlobalContentsValue::Stream = true;
-			ChangeZPos(500);
 		}
 	}
 
@@ -65,6 +69,7 @@ void Change::BootEnd(const FrameAnimation_DESC& _Info)
 	GlobalContentsValue::BgmStop = false;
 	GlobalContentsValue::Change = false;
 	GlobalContentsValue::Stream = true;
+	GetLevel()->CreateActor<StreamInfo>();
 	ChangeZPos(500);
 	Death();
 }

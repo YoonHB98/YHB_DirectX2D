@@ -269,6 +269,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="StreamInfo.h" />
     <ClInclude Include="Stream_Game.h">
       <SubType>
       </SubType>
@@ -347,6 +348,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationBadEnd.cpp" />
+    <ClCompile Include="AnimationGoodEnd.cpp" />
     <ClCompile Include="AnimationTalk.cpp" />
     <ClCompile Include="AnimationUpdate.cpp" />
     <ClCompile Include="Asobu_Talk.cpp">

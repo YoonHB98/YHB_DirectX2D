@@ -6,7 +6,9 @@
 enum class StreamContents
 {
 	Tutorial,
-	Talk
+	Talk,
+	BadEnding,
+	GoodEnding
 };
 
 enum class Animation
@@ -42,7 +44,20 @@ enum class AnimationType
 	B6,
 	B7,
 	B8,
-	B9
+	B9,
+	C1,
+	C2,
+	C3,
+	D1,
+	D2,
+	D3,
+	D4,
+	D5,
+	D6,
+	D7,
+	D8,
+	D9,
+	D10,
 };
 
 class StreamAnimation : public DefaultSetTex
@@ -71,6 +86,8 @@ private:
 	void ContentsUpdate(StreamContents Contents);
 	void Tutorial();
 	void Talk();
+	void BadEnding();
+	void GoodEnding();
 	float Time = 0;
 	float ChangeTime = 0;
 	void StateUpdate(AnimationType Type);
@@ -80,7 +97,6 @@ private:
 	AnimationType CurType  = AnimationType::A1;
     std::string  CurText = "а╘го!";
 	std::map<std::string, StreamContents> ContentsMap;
-	Myfont* Info[5];
 
 	float TempTime = 0;
    int TempCount = 0;
@@ -110,13 +126,26 @@ private:
 	void UpdateB5();
 	void UpdateB6();
 	void UpdateB7();
-	void UpdateB8();
-	void UpdateB9();
 
+	void UpdateC1();
+	void UpdateC2();
+	void UpdateC3();
+
+	void UpdateD1();
+	void UpdateD2();
+	void UpdateD3();
+	void UpdateD4();
+	void UpdateD5();
+	void UpdateD6();
+	void UpdateD7();
+	void UpdateD8();
+	void UpdateD9();
+	void UpdateD10();
 
 	void ClickTime(float Time_);
 	void StreamInfomation();
 	bool StreamEnd = false;
+	void StreamContentsCheck();
 	int EnterCount = 0;
 	float BlankXSize = 0;
 	AnimationType TextType;

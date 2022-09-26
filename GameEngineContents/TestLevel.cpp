@@ -71,7 +71,7 @@ void TestLevel::Start()
 	//CreateActor<LineMain>();
 	CreateActor<Mouse>();
 	//CreateActor<LineText>();
-	//CreateActor<Change>(GameObjectGroup::WindowIcon);
+	CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
 	GameEngineActor* A = CreateActor<Twitter>(GameObjectGroup::WindowIcon);
