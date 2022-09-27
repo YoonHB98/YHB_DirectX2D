@@ -34,39 +34,46 @@ void SideBG::ChangeState(DayState _State)
 
 void SideBG::StartNight()
 {
-	RightBG->SetTexture("bg_side_bar_night.png");
+	RightBG->ChangeFrameAnimation("Night");
 	RightBG->GetTransform().PixLocalNegativeX();
-	LeftBG->SetTexture("bg_side_bar_night.png");
+	LeftBG->ChangeFrameAnimation("Night");
 }
 
 void SideBG::StartNoon()
 {
-	RightBG->SetTexture("bg_side_bar_noon.png");
+	RightBG->ChangeFrameAnimation("Noon");
 	RightBG->GetTransform().PixLocalNegativeX();
-	LeftBG->SetTexture("bg_side_bar_noon.png");
+	LeftBG->ChangeFrameAnimation("Noon");
 }
 
 void SideBG::StartEvening()
 {
-	RightBG->SetTexture("bg_side_bar_evening.png");
+	RightBG->ChangeFrameAnimation("Evening");
 	RightBG->GetTransform().PixLocalNegativeX();
-	LeftBG->SetTexture("bg_side_bar_evening.png");
+	LeftBG->ChangeFrameAnimation("Evening");
 }
 
 void SideBG::Start()
 {
 	{
-		RightBG = CreateComponent<CommentTextureRenderer>();
-		RightBG->SetTexture("bg_side_bar_night.png");
+		RightBG = CreateComponent<GameEngineTextureRenderer>();
 		RightBG->GetTransform().SetLocalPosition(float4(419.5, 0,400));
-		RightBG->ScaleToTexture();
+		RightBG->CreateFrameAnimationCutTexture("Night", FrameAnimation_DESC("bg_side_bar_night.png", 0, 77, 0.05f, false));
+		RightBG->CreateFrameAnimationCutTexture("Evening", FrameAnimation_DESC("bg_side_bar_evening.png", 0, 74, 0.05f, false));
+		RightBG->CreateFrameAnimationCutTexture("Noon", FrameAnimation_DESC("bg_side_bar_noon.png", 0, 0, 0.05f, false));
+		RightBG->GetTransform().SetLocalScale(float4(121,540));
 		RightBG->GetTransform().PixLocalNegativeX();
+		RightBG->ChangeFrameAnimation("Night");
 	}
 	{
-		LeftBG = CreateComponent<CommentTextureRenderer>();
+		LeftBG = CreateComponent<GameEngineTextureRenderer>();
 		LeftBG->SetTexture("bg_side_bar_night.png");
+		LeftBG->CreateFrameAnimationCutTexture("Night", FrameAnimation_DESC("bg_side_bar_night.png", 0, 77, 0.05f, false));
+		LeftBG->CreateFrameAnimationCutTexture("Evening", FrameAnimation_DESC("bg_side_bar_evening.png", 0, 74, 0.05f, false));
+		LeftBG->CreateFrameAnimationCutTexture("Noon", FrameAnimation_DESC("bg_side_bar_noon.png", 0, 0, 0.05f, false));
 		LeftBG->GetTransform().SetLocalPosition(float4(-419.5, 0,400));
-		LeftBG->ScaleToTexture();
+		LeftBG->GetTransform().SetLocalScale(float4(121, 540));
+		LeftBG->ChangeFrameAnimation("Night");
 	}
 }
 
@@ -78,33 +85,6 @@ void SideBG::Update(float _DeltaTime)
 		GlobalContentsValue::DayTimeChange = false;
 	}
 	ChangeState(GlobalValue);
-	float A = LeftBG->Color.SizeY;
-	if (LeftBG->Color.SizeY < 1.4f
-		&& AAAA == false)
-	{
-		LeftBG->Color.SizeY  = LeftBG->Color.SizeY +1.0f * _DeltaTime;
-	}
-	else
-	{
-		AAAA = true;
-	}
-
-	if (AAAA && LeftBG->Color.SizeY > 0.0f)
-	{
-		LeftBG->Color.SizeY = LeftBG->Color.SizeY - 0.06f * _DeltaTime;
-	}
-	else
-		if (AAAA && LeftBG->Color.SizeY < 0.0f)
-		{
-			LeftBG->Color.SizeY = 0.0f;
-		}
-	{
-
-	}
-
-			//RightBG->Color.SizeY - 1.0f * _DeltaTime;
-
-
 }
 
 void SideBG::End()

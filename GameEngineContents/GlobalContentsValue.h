@@ -48,6 +48,7 @@ public:
 	static bool DayTimeChange;
 	//π∫ πÊº€¿”
 	static std::string Contents;
+	static std::string CommentContents;
 	static float ChangeTime;
 	static std::string FirstComment;
 	static std::string SecondComment;

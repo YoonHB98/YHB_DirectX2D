@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "Change.h"
 #include "StreamInfo.h"
+#include "CommentTalk.h"
 
 Change::Change() 
 {
@@ -24,6 +25,10 @@ void Change::Start()
 	ChangeZPos(500);
 	Bank->ChangeFrameAnimation("BankE");
 	first = true;
+	if (GlobalContentsValue::Contents != "Tutorial")
+	{
+		GlobalContentsValue::CommentContents = GlobalContentsValue::Contents;
+	}
 
 }
 

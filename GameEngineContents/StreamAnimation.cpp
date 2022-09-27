@@ -34,6 +34,10 @@ void StreamAnimation::Start()
 	Renderer->CreateFrameAnimationCutTexture("ChoEnd", FrameAnimation_DESC("stream_cho_end.png", 0, 0, 0.5f, false));
 	Renderer->CreateFrameAnimationCutTexture("ChoNyo", FrameAnimation_DESC("cho_nyo.png", 0, 0, 0.5f, false)); 
 	Renderer->CreateFrameAnimationCutTexture("ChoSuperChat", FrameAnimation_DESC("cho_dokuzetsu_superchat.png", 0, 5, 0.15f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_kawaiku_superchat", FrameAnimation_DESC("cho_kawaiku_superchat.png", 0, 3, 0.15f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_kawaiku_superchat2", FrameAnimation_DESC("cho_kawaiku_superchat.png", 3, 3, 0.15f, false));
+	Renderer->CreateFrameAnimationCutTexture("cho_akaruku_superchat", FrameAnimation_DESC("cho_akaruku_superchat.png", 0, 3, 0.1f, true));
+	Renderer->CreateFrameAnimationCutTexture("cho_akaruku_superchat2", FrameAnimation_DESC("cho_akaruku_superchat.png", 3, 3, 0.15f, false));
 
 
 	

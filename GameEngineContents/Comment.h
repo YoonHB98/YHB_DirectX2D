@@ -35,6 +35,7 @@ private:
 	std::vector<std::pair<GameEngineCollision*, GameEngineCollision*>> Col;
 	int MoveStart = 0;
 	int ColName = 1;
+	bool DeathTime = false;
 	CommentTextureRenderer* Trash;
 };
 

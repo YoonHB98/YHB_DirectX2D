@@ -39,6 +39,7 @@
 #include "Stream_Game.h"
 #include "Stream_Talk.h"
 #include "Stream_Window.h"
+#include "CommentTalk.h"
 
 TestLevel::TestLevel() 
 {
@@ -61,9 +62,9 @@ void TestLevel::Start()
 	CreateActor<ToolTip>();
 	CreateActor<ToolTipText>();
 	GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
-	GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
+	//GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
 	GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
-	CommentActor->SetParent(StreamActor);
+	//CommentActor->SetParent(StreamActor);
 	StreamAnimationActor->SetParent(StreamActor);
 	CreateActor<NotificationDayTime>();
 	//CreateActor<Stream>();
@@ -84,6 +85,12 @@ void TestLevel::Start()
 
 void TestLevel::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::CommentContents != ""
+		&& GlobalContentsValue::CommentContents != "Tutorial")
+	{
+		CreateActor<CommentTalk>();
+		GlobalContentsValue::CommentContents = "";
+	}
 	time = time + _DeltaTime;
 	//if (GlobalContentsValue::Twitter == false)
 	//{

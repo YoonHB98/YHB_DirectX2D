@@ -238,6 +238,9 @@
     <ClInclude Include="StreamInfo.h">
       <Filter>Actor\Play\Stream\StreamInfo</Filter>
     </ClInclude>
+    <ClInclude Include="CommentTalk.h">
+      <Filter>Actor\Play\Stream\StreamComment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -408,6 +411,9 @@
     </ClCompile>
     <ClCompile Include="AnimationGoodEnd.cpp">
       <Filter>Actor\Play\Stream\StreamAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="CommentTalk.cpp">
+      <Filter>Actor\Play\Stream\StreamComment</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

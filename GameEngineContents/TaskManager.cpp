@@ -34,6 +34,7 @@ void TaskManager::Update(float _DeltaTime)
 {
 	if (first && GlobalContentsValue::Stream)
 	{
+		Mouse::Inst_->ChangeNameAll();
 		Inst_->TaskManagerMainCol->SetName("-70");
 	}
 	if (GlobalContentsValue::DayChangeWindow == false)
@@ -42,7 +43,6 @@ void TaskManager::Update(float _DeltaTime)
 		StatusName();
 		NumberSetting();
 		std::string A = Inst_->TaskManagerMainCol->GetNameConstRef();
-		Mouse::Inst_->ChangeNameAll();
 		ChangeZPos(static_cast<float>(std::stoi(Inst_->TaskManagerMainCol->GetNameConstRef())));
 	}
 

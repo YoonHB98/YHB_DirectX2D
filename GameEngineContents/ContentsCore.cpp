@@ -180,7 +180,9 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("cho_teach.png", 2, 2);
 	GameEngineTexture::Cut("stream_cho_end.png", 1, 2);
 	GameEngineTexture::Cut("cho_dokuzetsu_superchat.png", 6, 2);
+	GameEngineTexture::Cut("cho_kawaiku_superchat.png",4, 2);
 	GameEngineTexture::Cut("cho_nyo.png", 2, 2);
+	GameEngineTexture::Cut("cho_akaruku_superchat.png", 4, 2);
 
 	//ame
 	GameEngineTexture::Cut("ame_handspinner.png", 11, 1);
@@ -200,14 +202,17 @@ void ContentsCore::Start()
 
 	GameEngineTexture::Cut("icon_loading_poketter.png", 8, 1);
 	GameEngineTexture::Cut("tuutidaytime.png", 6, 1);
+	GameEngineTexture::Cut("bg_side_bar_night.png", 10, 8);
+	GameEngineTexture::Cut("bg_side_bar_evening.png", 10, 8);
+	GameEngineTexture::Cut("bg_side_bar_noon.png", 1, 1);
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션
 	CreateLevel<LoadingLevel>("Loading");
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-//	CreateLevel<TestLevel>("Test");
-	ChangeLevel("Play");
+	CreateLevel<TestLevel>("Test");
+	ChangeLevel("Test");
 
 	GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 }

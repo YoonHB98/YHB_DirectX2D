@@ -27,8 +27,8 @@ public:
 	SideBG& operator=(const SideBG& _Other) = delete;
 	SideBG& operator=(SideBG&& _Other) noexcept = delete;
 
-	CommentTextureRenderer* RightBG;
-	CommentTextureRenderer* LeftBG;
+	GameEngineTextureRenderer* RightBG;
+	GameEngineTextureRenderer* LeftBG;
 	GameEngineSoundPlayer BgmPlayer;
 protected:
 	void Start() override;

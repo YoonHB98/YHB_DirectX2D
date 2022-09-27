@@ -22,8 +22,7 @@ void StreamAnimation::UpdateB1()
 	// 0 ~ 7 텍스트 유지
 
 	// 6 "예쁜데" 46 초록
-
-	TextDrawTime("텐하!\n인터넷 엔젤, 초텐 짱이야!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.0f);
+	TextDrawTime("젤하!\n인터넷 엔젤, 초텐 짱이야!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.0f);
 
 	if (AnimationStart == false)
 	{
@@ -32,11 +31,11 @@ void StreamAnimation::UpdateB1()
 	}
 
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 1.0f)
-		|| GlobalContentsValue::ChangeTime > 7.0f)
+		|| GlobalContentsValue::ChangeTime > 5.0f)
 	{
 		CurType = AnimationType::B2;
 		Time = 0;
-		GlobalContentsValue::ChangeTime = 7.1f;
+		GlobalContentsValue::ChangeTime = 5.1f;
 		AnimationStart = false;
 	}
 }
@@ -52,7 +51,7 @@ void StreamAnimation::UpdateB2()
 
 	// 13 "왜 천사임?" 53 초록
 
-	TextDrawTime("난 인터넷이 정말 좋아\n그야 모두가 이야기를 들어주거든", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 2.0f);
+	TextDrawTime("인터넷은 정말 최고야.\n모두 내 이야기를 들어 주는걸!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.0f);
 
 	if (AnimationStart == false)
 	{
@@ -77,11 +76,11 @@ void StreamAnimation::UpdateB2()
 		}
 
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 8.0f)
-		|| GlobalContentsValue::ChangeTime > 14.0f)
+		|| GlobalContentsValue::ChangeTime > 10.0f)
 	{
 		CurType = AnimationType::B3;
 		Time = 0;
-		GlobalContentsValue::ChangeTime = 14.1f;
+		GlobalContentsValue::ChangeTime = 10.1f;
 		AnimationStart = false;
 	}
 }
@@ -93,8 +92,7 @@ void StreamAnimation::UpdateB3()
 
 	// 14 ~ 17 텍스트 출력
 	// 14 ~ 28 텍스트 유지
-
-	TextDrawTime("현실에서 가장 무서운 건 고독이야\n누구한테도 필요없는 인생은 공포밖에 없으니까", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 2.0f);
+	TextDrawTime("현실에서 가장 무서운 건 고독이야\n누구도 원하지 않는 삶이란 공포 그 자체니까", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.0f);
 
 	if (AnimationStart == false)
 	{
@@ -119,12 +117,13 @@ void StreamAnimation::UpdateB3()
 		}
 
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 15.0f)
-		|| GlobalContentsValue::ChangeTime > 28.0f)
+		|| GlobalContentsValue::ChangeTime > 18.0f)
 	{
 		CurType = AnimationType::B4;
 		Time = 0;
-		GlobalContentsValue::ChangeTime = 28.1f;
+		GlobalContentsValue::ChangeTime = 18.1f;
 		AnimationStart = false;
+		CurAnim = Animation::Idle1;
 	}
 }
 void StreamAnimation::UpdateB4()
@@ -135,20 +134,35 @@ void StreamAnimation::UpdateB4()
 	// 28 ~ 30 텍스트 출력
 	// 28 ~ 43 텍스트 유지
 
-	TextDrawTime("아핫! 모두들 정말 좋아 이야기를 들어주네\n너희들을 위해서 나도 열심히 해야지!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 2.0f);
+	TextDrawTime("헤헤, 모두 넘 좋아! 이야기를 들어주는\n너희 모두를 위해서라도 열심히 해야지!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.5f);
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_kawaiku"); // 눈 감고 양손 볼 감싸기 + 2번 위아래 무빙 1초간
+		Renderer->ChangeFrameAnimation("cho_kawaiku_superchat"); // 눈 감고 양손 볼 감싸기 + 2번 위아래 무빙 1초간
 		AnimationStart = true;
 	}
 
+	if (CurAnim == Animation::End1)
+	{
+		Renderer->ChangeFrameAnimation("cho_kawaiku_superchat2");
+		CurAnim = Animation::Idle1;
+		Time = Time - 2.0f;
+	}
+	else
+		if (Time > 1.0f
+			&& CurAnim == Animation::Idle1)
+		{
+			Renderer->ChangeFrameAnimation("cho_kawaiku_superchat");
+			Time = Time - 1.0f;
+			CurAnim = Animation::End1;
+		}
+
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 29.0f)
-		|| GlobalContentsValue::ChangeTime > 43.0f)
+		|| GlobalContentsValue::ChangeTime > 24.0f)
 	{
 		CurType = AnimationType::B5;
 		Time = 0;
-		GlobalContentsValue::ChangeTime = 43.1f;
+		GlobalContentsValue::ChangeTime = 24.1f;
 		AnimationStart = false;
 	}
 }
@@ -161,7 +175,7 @@ void StreamAnimation::UpdateB5()
 	// 43 ~ 45 텍스트 출력
 	// 43 ~ 51 텍스트 유지
 
-	TextDrawTime("질려버리면 끝장이니까...\n초텐 짱 아직 죽고싶지 않아 해보자!!!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 2.0f);
+	TextDrawTime("모두가 싫어하면 거기서 끝인걸...\n초텐은 아직 죽고 싶지 않아. 아자아자!!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.5f);
 
 	if (AnimationStart == false)
 	{
@@ -186,11 +200,11 @@ void StreamAnimation::UpdateB5()
 		}
 
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 44.0f)
-		|| GlobalContentsValue::ChangeTime > 51.0f)
+		|| GlobalContentsValue::ChangeTime > 32.0f)
 	{
 		CurType = AnimationType::B6;
 		Time = 0;
-		GlobalContentsValue::ChangeTime = 51.1f;
+		GlobalContentsValue::ChangeTime = 32.1f;
 		AnimationStart = false;
 	}
 }
@@ -206,25 +220,29 @@ void StreamAnimation::UpdateB6()
 	// 51 "죽지 마셈" 1 31 빨강
 	// 52.5 "벌서 질리네" 1 32.5 보라 
 
-	if (GlobalContentsValue::ChangeTime > 55.0f) {
-		TextDrawTime("「" + GlobalContentsValue::FirstComment + " 」", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
-	}
-	else {
-		TextDrawTime("너희들 반응이나 볼까...", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.0f);
-	}
+
+
+
+		TextDrawTime("잡담 시간이야!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("ChoSuperChat"); // 쳐다보는 눈깔, 깜빡거리지 않음
+		Renderer->ChangeFrameAnimation("cho_idleEnd"); 
 		AnimationStart = true;
 	}
 
+	if (GlobalContentsValue::FirstComment == "")
+	{
+		GlobalContentsValue::ChangeTime = 130.1f;
+		CurType = AnimationType::B7;
+		return;
+	}
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 55.5f)
-		|| GlobalContentsValue::ChangeTime > 58.0f)
+		|| GlobalContentsValue::ChangeTime > 37.0f)
 	{
 		CurType = AnimationType::B7;
 		Time = 0;
-		GlobalContentsValue::ChangeTime = 58.1f;
+		GlobalContentsValue::ChangeTime = 37.1f;
 		AnimationStart = false;
 	}
 }
@@ -242,8 +260,111 @@ void StreamAnimation::UpdateB7()
 	// 64.5 ~ 70 ~ 트윗 로딩
 	// 65.5 1번 트윗
 	// 70 2번 트윗
+	if (Time > 2.0f
+		&& CurAnim == Animation::End3)
+	{
+		Renderer->ChangeFrameAnimation("cho_akaruku_superchat");
+		CurAnim = Animation::Idle3;
+		Time = Time - 2.0f;
+	}
+	else
+		if (Time > 3.0f
+			&& CurAnim == Animation::Idle3)
+		{
+			Renderer->ChangeFrameAnimation("cho_akaruku_superchat2");
+			Time = Time - 3.0f;
+			CurAnim = Animation::End3;
+		}
 
-	TextDrawTime("고마워♡ 맨날 얘기하러 와줘!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.0f);
+	if (Time >1.0f
+		&& CurAnim == Animation::End2)
+	{
+		Renderer->ChangeFrameAnimation("cho_idle");
+		CurAnim = Animation::Idle2;
+		Time = Time - 1.0f;
+	}
+	else
+		if (Time > 1.0f
+			&& CurAnim == Animation::Idle2)
+		{
+			Renderer->ChangeFrameAnimation("cho_idleEnd");
+			Time = Time - 1.0f;
+			CurAnim = Animation::End2;
+		}
+
+
+	if (GlobalContentsValue::ChangeTime < 41.0f)
+	{
+		TextDrawTime("「" + GlobalContentsValue::FirstComment + " 」", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
+		ClickTime(41.1f);
+	}
+	else
+		if (GlobalContentsValue::ChangeTime < 52.0f)
+		{
+			if (GlobalContentsValue::FirstComment == "완죤 내 스탈!")
+			{
+				if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
+				{
+					Time = 0.0f;
+					CurAnim = Animation::Idle3;
+				}
+				if (GlobalContentsValue::ChangeTime < 46.0f)
+				{
+					TextDrawTime("고마워♡ 매일 와서 말해 줘!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.3f);
+					ClickTime(52.1f);
+				}
+			}
+			else
+				if (GlobalContentsValue::FirstComment == "어째서 천사임?")
+				{
+					if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
+					{
+						Time = 0.0f;
+						CurAnim = Animation::Idle2;
+					}
+						TextDrawTime("그건 말야... 넘 귀여워서지\n 난 태어날 때부터 천사였는걸", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.6f);
+						ClickTime(52.1f);
+				}
+
+		}
+		else
+			if (GlobalContentsValue::SecondComment == "")
+			{
+				GlobalContentsValue::ChangeTime = 130.1f;
+			}
+			else
+				if (GlobalContentsValue::ChangeTime < 56.0f)
+				{
+					TextDrawTime("「" + GlobalContentsValue::SecondComment + " 」", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
+					ClickTime(56.1f);
+				}
+				else
+					if (GlobalContentsValue::ChangeTime < 61.0f)
+					{
+						if (GlobalContentsValue::SecondComment == "완죤 내 스탈!")
+						{
+							if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
+							{
+								Time = 0.0f;
+								CurAnim = Animation::Idle3;
+							}if (GlobalContentsValue::ChangeTime < 67.0f)
+							{
+								TextDrawTime("고마워♡ 매일 와서 말해 줘!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
+								ClickTime(67.1f);
+							}
+						}
+						else
+							if (GlobalContentsValue::SecondComment == "어째서 천사임?")
+							{
+								if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
+								{
+									Time = 0.0f;
+									CurAnim = Animation::Idle2;
+								}
+								TextDrawTime("그건 말야... 넘 귀여워서지\n 난 태어날 때부터 천사였는걸", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.0f);
+								ClickTime(67.1f);
+							}
+					}
 
 	if (AnimationStart == false)
 	{
@@ -251,7 +372,7 @@ void StreamAnimation::UpdateB7()
 		AnimationStart = true;
 	}
 
-	if (GlobalContentsValue::ChangeTime > 62.0f)
+	if (GlobalContentsValue::ChangeTime > 72.0f)
 	{
 		AnimationStart = false;
 		Renderer->ChangeFrameAnimation("ChoEnd");

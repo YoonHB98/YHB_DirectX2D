@@ -31,6 +31,7 @@ std::string GlobalContentsValue::Contents = "Tutorial";
 std::string GlobalContentsValue::BgmName = "";
 std::string GlobalContentsValue::CurEmoticonName = "";
 std::string GlobalContentsValue::TextContents = "Tutorial";
+std::string GlobalContentsValue::CommentContents = "";
 std::string GlobalContentsValue::FirstComment = "";
 std::string GlobalContentsValue::SecondComment = "";
 std::string GlobalContentsValue::Asobu_Window = "";

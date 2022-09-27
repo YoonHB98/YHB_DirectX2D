@@ -51,6 +51,10 @@ void Comment::Update(float _DeltaTime)
 	{
 			ChangeZPos(500);
 			Font->TextDraw(" ", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
+			if (DeathTime)
+			{
+				Death();
+			}
 			return;
 	}
 	else
@@ -62,6 +66,7 @@ void Comment::Update(float _DeltaTime)
 		if (i < ((GlobalContentsValue::ChangeTime - 9) / 3.115)
 			&& i < 27)
 		{
+			DeathTime = true;
 			CreateText("Comment1_" + std::to_string(i) + ".png");
 			i = i + 1;
 		}
