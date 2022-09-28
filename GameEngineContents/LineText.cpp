@@ -1,4 +1,5 @@
 #include "PreCompile.h"
+#include <GameEngineBase/GameEngineRandom.h>
 #include "LineText.h"
 #include "ToolTipText.h"
 #include "LineMain.h"
@@ -40,11 +41,17 @@ void LineText::Update(float _DeltaTime)
 	EmoticonCheck();
 	if (GlobalContentsValue::LineNum != 1)
 	{
-		if (CurTime != GlobalContentsValue::DayTime)
+		if (CurTime != GlobalContentsValue::DayTime
+			&&(GlobalContentsValue::LineDate == true))
 		{
 			CurTime = GlobalContentsValue::DayTime;
 			CreateDayTime();
-		}
+		}else
+			if (CurTime != GlobalContentsValue::DayTime && (GlobalContentsValue::Contents == "Tutorial"))
+			{
+			CurTime = GlobalContentsValue::DayTime;
+			CreateDayTime();
+			}
 		if (GlobalContentsValue::Sojae)
 		{
 			SojaeLine();
@@ -55,7 +62,16 @@ void LineText::Update(float _DeltaTime)
 		{
 			if (Count == i)
 			{
-				CreateText(GlobalContentsValue::TextContents + std::to_string(i) + ".png");
+				if (GlobalContentsValue::TextContents == "LineD")
+				{
+					CreateText("LineD" + std::to_string(DCount) + ".png");
+					DCount++;
+				}
+				else
+				{
+					CreateText(GlobalContentsValue::TextContents + std::to_string(i) + ".png");
+				}
+
 			}
 		}
 	}

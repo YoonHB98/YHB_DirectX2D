@@ -44,6 +44,7 @@ protected:
 	std::string ReactionName = "";
 	std::string CurTextCon = "";
 	bool EmoticonTimeStart = false;
+	int DCount = 1;
 	GameEngineCollision* EmoticonCollision1;
 	GameEngineCollision* EmoticonCollision2;
 	GameEngineCollision* EmoticonCollision3;

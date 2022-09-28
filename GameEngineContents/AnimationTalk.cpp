@@ -260,18 +260,18 @@ void StreamAnimation::UpdateB7()
 	// 64.5 ~ 70 ~ Æ®À­ ·Îµù
 	// 65.5 1¹ø Æ®À­
 	// 70 2¹ø Æ®À­
-	if (Time > 2.0f
+	if (Time > 1.0f
 		&& CurAnim == Animation::End3)
 	{
-		Renderer->ChangeFrameAnimation("cho_akaruku_superchat");
+		Renderer->ChangeFrameAnimation("cho_akaruku_superchat2");
 		CurAnim = Animation::Idle3;
-		Time = Time - 2.0f;
+		Time = Time - 1.0f;
 	}
 	else
 		if (Time > 3.0f
 			&& CurAnim == Animation::Idle3)
 		{
-			Renderer->ChangeFrameAnimation("cho_akaruku_superchat2");
+			Renderer->ChangeFrameAnimation("cho_akaruku_superchat");
 			Time = Time - 3.0f;
 			CurAnim = Animation::End3;
 		}
@@ -306,6 +306,7 @@ void StreamAnimation::UpdateB7()
 				if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
 				{
 					Time = 0.0f;
+					Renderer->ChangeFrameAnimation("cho_akaruku_superchat");
 					CurAnim = Animation::Idle3;
 				}
 				if (GlobalContentsValue::ChangeTime < 46.0f)
@@ -365,12 +366,6 @@ void StreamAnimation::UpdateB7()
 								ClickTime(67.1f);
 							}
 					}
-
-	if (AnimationStart == false)
-	{
-		Renderer->ChangeFrameAnimation("cho_idleEnd"); // ¾ç¼Õ ³»¹Ð°í 1ÃÊ°£ ¾çÂÊÀ¸·Î Èçµë
-		AnimationStart = true;
-	}
 
 	if (GlobalContentsValue::ChangeTime > 72.0f)
 	{

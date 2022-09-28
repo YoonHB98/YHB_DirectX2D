@@ -43,6 +43,7 @@ public:
 	static bool Sojae;
 	//시간
 	static int DayTime;
+	static bool LineDate;
 	//행동
 	static bool Out;
 	static bool DayTimeChange;

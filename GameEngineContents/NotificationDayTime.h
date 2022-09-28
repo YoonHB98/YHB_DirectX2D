@@ -20,6 +20,7 @@ public:
 
 	GameEngineTextureRenderer* Tuuti;
 	GameEngineTextureRenderer* Tuuti2;
+	Myfont* Font;
 	GameEngineTextureRenderer* Line;
 	GameEngineSoundPlayer BgmPlayer;
 protected:

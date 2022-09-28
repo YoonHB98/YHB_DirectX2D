@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "Sojae.h"
+#include "NotificationDayTime.h"
 
 Sojae::Sojae() 
 {
@@ -56,6 +57,7 @@ void Sojae::Update(float _DeltaTime)
 	if (MouseCheck(MainCol)
 	&&true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
+		GetLevel()->CreateActor<NotificationDayTime>();
 		Death();
 	}
 }

@@ -32,7 +32,8 @@ void DayChangeWindow::Start()
 
 void DayChangeWindow::Update(float _DeltaTime)
 {
-	if (GlobalContentsValue::DayTime >= 4)
+	if (GlobalContentsValue::DayTime >= 4
+		&&GlobalContentsValue::Day ==1)
 	{
 		GlobalContentsValue::Day = GlobalContentsValue::Day + 1;
 		GlobalContentsValue::DayTime = 1;

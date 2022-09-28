@@ -81,6 +81,7 @@ void TestLevel::Start()
 	//GlobalContentsValue::Stream = true;
 	GlobalContentsValue::Contents = "  ";
 	GlobalContentsValue::WebCamWindow = true;
+	GlobalContentsValue::DayTime = 1;
 }
 
 void TestLevel::Update(float _DeltaTime)
