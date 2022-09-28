@@ -99,7 +99,7 @@ void TweetComment::CreateText(const std::string& _Text)
 	TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize /2, -500,-3));
 	TextVector.push_back(TextRend);
 	Bot = Bot - YSize;
-	if (GlobalContentsValue::Contents == "CommunicationStreamTwit")
+	if (GlobalContentsValue::Contents + "Twit" + std::to_string(i) == "CommunicationStreamTwit1")
 	{
 		GetLevel()->CreateActor<NotificationDayTime>();
 	}

@@ -260,12 +260,12 @@ void StreamAnimation::UpdateB7()
 	// 64.5 ~ 70 ~ Æ®À­ ·Îµù
 	// 65.5 1¹ø Æ®À­
 	// 70 2¹ø Æ®À­
-	if (Time > 5.0f
+	if (Time > 10.0f
 		&& CurAnim == Animation::End3)
 	{
 		Renderer->ChangeFrameAnimation("cho_akaruku_superchat2");
 		CurAnim = Animation::Idle3;
-		Time = Time - 5.0f;
+		Time = Time - 10.0f;
 	}
 	else
 		if (Time > 3.0f
