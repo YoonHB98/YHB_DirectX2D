@@ -71,7 +71,10 @@ void Mouse::Update(float _DeltaTime)
 	float4 Pos = GetLevel()->GetMainCamera()->GetMouseWorldPosition();
 	GlobalContentsValue::MousePos = Pos;
 	GetTransform().SetWorldPosition(float4(Pos.x, Pos.y , 0));
-
+	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+	{
+		GameEngineSound::SoundPlayOneShot("Poko.wav");
+	}
 
 
 		//충돌이 있으면

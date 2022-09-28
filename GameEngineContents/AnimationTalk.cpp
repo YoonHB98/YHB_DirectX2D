@@ -260,12 +260,12 @@ void StreamAnimation::UpdateB7()
 	// 64.5 ~ 70 ~ 트윗 로딩
 	// 65.5 1번 트윗
 	// 70 2번 트윗
-	if (Time > 1.0f
+	if (Time > 5.0f
 		&& CurAnim == Animation::End3)
 	{
 		Renderer->ChangeFrameAnimation("cho_akaruku_superchat2");
 		CurAnim = Animation::Idle3;
-		Time = Time - 1.0f;
+		Time = Time - 5.0f;
 	}
 	else
 		if (Time > 3.0f
@@ -347,6 +347,7 @@ void StreamAnimation::UpdateB7()
 							if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
 							{
 								Time = 0.0f;
+								Renderer->ChangeFrameAnimation("cho_akaruku_superchat");
 								CurAnim = Animation::Idle3;
 							}if (GlobalContentsValue::ChangeTime < 67.0f)
 							{
@@ -360,6 +361,7 @@ void StreamAnimation::UpdateB7()
 								if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
 								{
 									Time = 0.0f;
+									Renderer->ChangeFrameAnimation("cho_idle");
 									CurAnim = Animation::Idle2;
 								}
 								TextDrawTime("그건 말야... 넘 귀여워서지\n 난 태어날 때부터 천사였는걸", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.0f);

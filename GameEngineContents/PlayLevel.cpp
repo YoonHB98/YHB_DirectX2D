@@ -27,6 +27,7 @@
 #include "DayChangeWindow.h"
 #include "Asobu_Window.h"
 #include "Neru_Window.h"
+#include "CommentTalk.h"
 #include "Stream_Window.h"
 
 float PlayLevel::time = 0;
@@ -131,7 +132,12 @@ void PlayLevel::Update(float _DeltaTime)
 		BarActor->SetParent(TaskManagerActor);
 		TutorialFirst = false;
 	}
-
+	if (GlobalContentsValue::CommentContents != ""
+		&& GlobalContentsValue::CommentContents != "Tutorial")
+	{
+		CreateActor<CommentTalk>();
+		GlobalContentsValue::CommentContents = "";
+	}
 }
 void PlayLevel::End() {  }
 

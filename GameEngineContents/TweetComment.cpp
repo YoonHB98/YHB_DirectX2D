@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "TweetComment.h"
+#include "NotificationDayTime.h"
 
 TweetComment::TweetComment() 
 {
@@ -98,25 +99,48 @@ void TweetComment::CreateText(const std::string& _Text)
 	TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize /2, -500,-3));
 	TextVector.push_back(TextRend);
 	Bot = Bot - YSize;
+	if (GlobalContentsValue::Contents == "CommunicationStreamTwit")
+	{
+		GetLevel()->CreateActor<NotificationDayTime>();
+	}
 }
 
 void TweetComment::MoveY(float Y)
 {
-	if (YSize  > 0.0f)
+	if (YSize  > 0.0f && GlobalContentsValue::Contents + "Twit" + std::to_string(i) + ".png" == "CommunicationStreamTwit1")
 	{
-		YSize = YSize - 500 * GameEngineTime::GetDeltaTime();
+		YSize = 0.0f;
+		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
+		std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
+
+		for (; StartIter != EndIter - 1; ++StartIter)
+		{
+			(*StartIter)->GetTransform().SetLocalMove(float4(0, -YSize, 0));
+		}
 	}
 	else
 	{
-		return;
-	}
-	std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
-	std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
+		YSize = YSize - 500 * GameEngineTime::GetDeltaTime();
+		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
+		std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
 
-	for (; StartIter != EndIter - 1 ; ++StartIter )
-	{
-		(*StartIter)->GetTransform().SetLocalMove(float4(0, -500 * GameEngineTime::GetDeltaTime(),0 ));
+		for (; StartIter != EndIter - 1; ++StartIter)
+		{
+			(*StartIter)->GetTransform().SetLocalMove(float4(0, -500 * GameEngineTime::GetDeltaTime(), 0));
+		}
 	}
+	if (YSize < 0.0f)
+	{
+		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
+		std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
+
+		for (; StartIter != EndIter - 1; ++StartIter)
+		{
+			(*StartIter)->GetTransform().SetLocalMove(float4(0, -YSize, 0));
+		}
+		YSize = 0.0f;
+	}
+
 }
 
 void TweetComment::LoadingEnd()

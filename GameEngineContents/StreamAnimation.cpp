@@ -104,6 +104,7 @@ void StreamAnimation::StreamContentsCheck()
 	if (GlobalContentsValue::Contents == "CommunicationStart")
 	{
 		CurType = AnimationType::B1;
+		GlobalContentsValue::Contents = "CommunicationStream";
 	}
 	else if(GlobalContentsValue::Contents == "BadEnding")
 	{
