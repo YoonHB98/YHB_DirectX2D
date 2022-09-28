@@ -79,6 +79,7 @@ void TestLevel::Start()
 	GameEngineActor* B = CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
 	B->SetParent(A);
 	//GlobalContentsValue::Stream = true;
+		GlobalContentsValue::Twitter = true;
 	GlobalContentsValue::Contents = "  ";
 	GlobalContentsValue::WebCamWindow = true;
 	GlobalContentsValue::DayTime = 1;

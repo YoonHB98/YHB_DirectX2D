@@ -19,8 +19,8 @@ void TweetComment::Update(float _DeltaTime)
 		&& CurStatus != GlobalContentsValue::Twitter)
 	{
 		CurStatus = GlobalContentsValue::Twitter;
-		std::vector<GameEngineTextureRenderer*>::iterator StartIter = TextVector.begin();
-		std::vector<GameEngineTextureRenderer*>::iterator EndIter = TextVector.end();
+		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
+		std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
 
 		for (; StartIter != EndIter; ++StartIter)
 		{
@@ -90,9 +90,10 @@ void TweetComment::End()
 
 void TweetComment::CreateText(const std::string& _Text)
 {
-	GameEngineTextureRenderer* TextRend = CreateComponent<GameEngineTextureRenderer>();
+	CommentTextureRenderer* TextRend = CreateComponent<CommentTextureRenderer>();
 	TextRend->SetTexture(_Text);
 	TextRend->ScaleToTexture();
+	TextRend->PixelDataInst.Slice.y = 507.0f;
 	YSize = TextRend->GetTransform().GetLocalScale().y;
 	TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize /2, -500,-3));
 	TextVector.push_back(TextRend);
@@ -109,8 +110,8 @@ void TweetComment::MoveY(float Y)
 	{
 		return;
 	}
-	std::vector<GameEngineTextureRenderer*>::iterator StartIter = TextVector.begin();
-	std::vector<GameEngineTextureRenderer*>::iterator EndIter = TextVector.end();
+	std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
+	std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
 
 	for (; StartIter != EndIter - 1 ; ++StartIter )
 	{
@@ -120,8 +121,8 @@ void TweetComment::MoveY(float Y)
 
 void TweetComment::LoadingEnd()
 {
-	std::vector<GameEngineTextureRenderer*>::iterator StartIter = TextVector.begin();
-	std::vector<GameEngineTextureRenderer*>::iterator EndIter = TextVector.end();
+	std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
+	std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
 
 	for (; StartIter != EndIter; ++StartIter)
 	{

@@ -29,6 +29,6 @@ private:
 	bool LoadingFirst = true;
 	std::string CurContents = "Tutorial";
 	bool CurStatus = true;
-	std::vector<GameEngineTextureRenderer*> TextVector;
+	std::vector<CommentTextureRenderer*> TextVector;
 };
 
