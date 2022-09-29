@@ -287,7 +287,9 @@ void CommentTalk::CreateText(const std::string& _Text)
 	Collision->GetTransform().SetLocalScale(float4(Scale.x, Scale.y, 0));
 	Collision->GetTransform().SetLocalPosition(float4(138.0f, 137.0f - static_cast<float>(TextNum)));
 	if (_Text == "Comment2_3.png"
-		|| _Text == "Comment2_5.png")
+		|| _Text == "Comment2_5.png"
+		|| _Text == "Comment2_13.png"
+		|| _Text == "Comment2_14.png")
 	{
 		GetLevel()->CreateActor<SuperChat>();
 		Collision->ChangeOrder(OBJECTORDER::SuperChat);

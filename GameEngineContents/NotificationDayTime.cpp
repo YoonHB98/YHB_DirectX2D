@@ -45,7 +45,7 @@ void NotificationDayTime::Start()
 		Font->TextDraw("밤 시간대로", "Galmuri9", float4(710, 492), float4(0.271f, 0.3294f, 0.56862f, 1), 10.0f);
 		break;
 	case 4:
-		Line->SetTexture("icon_watch_noon.png");
+		Line->SetTexture("icon_watch_night.png");
 		Font->TextDraw("다음날로", "Galmuri9", float4(710, 492), float4(0.271f, 0.3294f, 0.56862f, 1), 10.0f);
 		break;
 	default:

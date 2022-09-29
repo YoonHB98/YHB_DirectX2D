@@ -260,38 +260,6 @@ void StreamAnimation::UpdateB7()
 	// 64.5 ~ 70 ~ 트윗 로딩
 	// 65.5 1번 트윗
 	// 70 2번 트윗
-	if (Time > 10.0f
-		&& CurAnim == Animation::End3)
-	{
-		Renderer->ChangeFrameAnimation("cho_akaruku_superchat2");
-		CurAnim = Animation::Idle3;
-		Time = Time - 10.0f;
-	}
-	else
-		if (Time > 3.0f
-			&& CurAnim == Animation::Idle3)
-		{
-			Renderer->ChangeFrameAnimation("cho_akaruku_superchat");
-			Time = Time - 3.0f;
-			CurAnim = Animation::End3;
-		}
-
-	if (Time >1.0f
-		&& CurAnim == Animation::End2)
-	{
-		Renderer->ChangeFrameAnimation("cho_idle");
-		CurAnim = Animation::Idle2;
-		Time = Time - 1.0f;
-	}
-	else
-		if (Time > 1.0f
-			&& CurAnim == Animation::Idle2)
-		{
-			Renderer->ChangeFrameAnimation("cho_idleEnd");
-			Time = Time - 1.0f;
-			CurAnim = Animation::End2;
-		}
-
 
 	if (GlobalContentsValue::ChangeTime < 41.0f)
 	{
@@ -303,11 +271,11 @@ void StreamAnimation::UpdateB7()
 		{
 			if (GlobalContentsValue::FirstComment == "완죤 내 스탈!")
 			{
-				if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
+				if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
 				{
 					Time = 0.0f;
 					Renderer->ChangeFrameAnimation("cho_akaruku_superchat");
-					CurAnim = Animation::Idle3;
+					CurAnim = Animation::Idle2;
 				}
 				if (GlobalContentsValue::ChangeTime < 46.0f)
 				{
@@ -318,10 +286,10 @@ void StreamAnimation::UpdateB7()
 			else
 				if (GlobalContentsValue::FirstComment == "어째서 천사임?")
 				{
-					if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
+					if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
 					{
 						Time = 0.0f;
-						CurAnim = Animation::Idle2;
+						CurAnim = Animation::Idle3;
 					}
 						TextDrawTime("그건 말야... 넘 귀여워서지\n 난 태어날 때부터 천사였는걸", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.6f);
 						ClickTime(52.1f);
@@ -344,11 +312,11 @@ void StreamAnimation::UpdateB7()
 					{
 						if (GlobalContentsValue::SecondComment == "완죤 내 스탈!")
 						{
-							if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
+							if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
 							{
 								Time = 0.0f;
 								Renderer->ChangeFrameAnimation("cho_akaruku_superchat");
-								CurAnim = Animation::Idle3;
+								CurAnim = Animation::Idle2;
 							}if (GlobalContentsValue::ChangeTime < 67.0f)
 							{
 								TextDrawTime("고마워♡ 매일 와서 말해 줘!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
@@ -358,18 +326,18 @@ void StreamAnimation::UpdateB7()
 						else
 							if (GlobalContentsValue::SecondComment == "어째서 천사임?")
 							{
-								if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
+								if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
 								{
 									Time = 0.0f;
 									Renderer->ChangeFrameAnimation("cho_idle");
-									CurAnim = Animation::Idle2;
+									CurAnim = Animation::Idle3;
 								}
 								TextDrawTime("그건 말야... 넘 귀여워서지\n 난 태어날 때부터 천사였는걸", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.0f);
 								ClickTime(67.1f);
 							}
 					}
 
-	if (GlobalContentsValue::ChangeTime > 72.0f)
+	if (GlobalContentsValue::ChangeTime > 67.0f)
 	{
 		AnimationStart = false;
 		Renderer->ChangeFrameAnimation("ChoEnd");
@@ -377,7 +345,7 @@ void StreamAnimation::UpdateB7()
 		if (StreamEnd == false)
 		{
 			StreamEnd = true;
-			GameEngineSoundPlayer BGM = GameEngineSound::SoundPlayControl("endHaishin.wav", 0);
+			GameEngineSound::SoundPlayOneShot("EndHaisin.wav");
 		}
 		if (StreamEnd == true)
 		{
@@ -407,6 +375,41 @@ void StreamAnimation::UpdateB7()
 		}
 		return;
 	}
+	if (AnimationStart == false)
+	{
+		Renderer->ChangeFrameAnimation("cho_idleEnd");
+		AnimationStart = true;
+	}
+
+	if (Time > 2.0f
+		&& CurAnim == Animation::End1)
+	{
+		Renderer->ChangeFrameAnimation("cho_idleEnd");
+		CurAnim = Animation::Idle1;
+		Time = Time - 2.0f;
+	}
+	else
+		if (Time > 0.8f
+			&& CurAnim == Animation::Idle1)
+		{
+			Renderer->ChangeFrameAnimation("cho_idle");
+			Time = Time - 0.8f;
+			CurAnim = Animation::End1;
+		}
+	if (CurAnim == Animation::Idle3)
+	{
+		Renderer->ChangeFrameAnimation("cho_idleEnd");
+	}
+	 if (CurAnim == Animation::Idle2
+		 &&Time < 1.0f)
+	{
+		Renderer->ChangeFrameAnimation("cho_akaruku_superchat");
+	}else
+		 if (CurAnim == Animation::Idle2
+			 && Time >1.0f)
+		 {
+			 Renderer->ChangeFrameAnimation("cho_akaruku_superchat2");
+		 }
 }
 
 

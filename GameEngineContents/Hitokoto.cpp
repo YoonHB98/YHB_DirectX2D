@@ -4,7 +4,7 @@
 void TaskManager::StatusCheck()
 {
 	//301±îÁö °¡¾ßµÊ
-	if (CurFollower != GlobalContentsValue::Followers)
+	if (CurFollower != GlobalContentsValue::Followers )
 	{
 		FollowerDiffrenceNum = CurFollower - GlobalContentsValue::Followers;
 		CurFollower = GlobalContentsValue::Followers;
@@ -65,16 +65,6 @@ void TaskManager::StatusCheck()
 		DiffrenceCheck(MentalDiffrenceNum, 110.5, false);
 		HitokotoCheck = true;
 		Hitokoto.push_back(Renderer);
-		if (GlobalContentsValue::Stream == true)
-		{
-			Inst_->TaskManagerMainCol->SetName("30F");
-			Mouse::Inst_->ChangeNameAll();
-		}
-		else
-		{
-			Inst_->TaskManagerMainCol->SetName("-100F");
-			Mouse::Inst_->ChangeNameAll();
-		}
 	}
 
 	if (HitokotoCheck == true)
@@ -106,6 +96,26 @@ void TaskManager::StatusCheck()
 
 		if (End > 301.0f)
 		{
+			if (GlobalContentsValue::Contents != "Tutorial")
+			{
+				if (GlobalContentsValue::Stress > 80)
+				{
+					GameEngineSound::SoundPlayOneShot("stress_up_lv3.wav");
+				}else
+					if (GlobalContentsValue::Stress >60 )
+					{
+						GameEngineSound::SoundPlayOneShot("stress_up_lv2.wav");
+					}else
+							if (GlobalContentsValue::Stress > 40)
+							{
+								GameEngineSound::SoundPlayOneShot("stress_up_lv1.wav");
+							}
+							else
+							{
+								GameEngineSound::SoundPlayOneShot("status_up.wav");
+							}
+			}
+
 			End = 301.0f;
 			StartIter = Hitokoto.begin();
 			EndIter = Hitokoto.end();

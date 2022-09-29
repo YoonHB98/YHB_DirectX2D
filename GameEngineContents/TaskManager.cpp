@@ -37,6 +37,7 @@ void TaskManager::Update(float _DeltaTime)
 		Mouse::Inst_->ChangeNameAll();
 		Inst_->TaskManagerMainCol->SetName("-70");
 	}
+
 	if (GlobalContentsValue::DayChangeWindow == false)
 	{
 		StatusCheck();

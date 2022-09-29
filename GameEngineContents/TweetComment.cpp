@@ -40,7 +40,7 @@ void TweetComment::Update(float _DeltaTime)
 			&& GlobalContentsValue::RemainTwitnum != 0)
 		{
 			Time = Time - 3.0f;
-			CreateText(GlobalContentsValue::Contents +"Twit" +  std::to_string(i) + ".png");
+			CreateText(GlobalContentsValue::Contents + "Twit" + std::to_string(i) + ".png");
 			i = i + 1;
 			GlobalContentsValue::RemainTwitnum = GlobalContentsValue::RemainTwitnum - 1;
 		}
@@ -91,35 +91,32 @@ void TweetComment::End()
 
 void TweetComment::CreateText(const std::string& _Text)
 {
+	if (GlobalContentsValue::Contents + "Twit" + std::to_string(i) == "CommunicationStreamTwit1")
+	{
+		GetLevel()->CreateActor<NotificationDayTime>();
+		TwitCheck = true;
+	}
 	CommentTextureRenderer* TextRend = CreateComponent<CommentTextureRenderer>();
 	TextRend->SetTexture(_Text);
 	TextRend->ScaleToTexture();
 	TextRend->PixelDataInst.Slice.y = 507.0f;
 	YSize = TextRend->GetTransform().GetLocalScale().y;
-	TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize /2, -500,-3));
+	if (TwitCheck == false)
+	{
+		TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize / 2, -500, -3));
+	}
+	else
+	{
+		TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize / 2, -500, 150));
+	}
+
 	TextVector.push_back(TextRend);
 	Bot = Bot - YSize;
-	if (GlobalContentsValue::Contents + "Twit" + std::to_string(i) == "CommunicationStreamTwit1")
-	{
-		GetLevel()->CreateActor<NotificationDayTime>();
-	}
+
 }
 
 void TweetComment::MoveY(float Y)
 {
-	if (YSize  > 0.0f && GlobalContentsValue::Contents + "Twit" + std::to_string(i) + ".png" == "CommunicationStreamTwit1")
-	{
-		YSize = 0.0f;
-		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
-		std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
-
-		for (; StartIter != EndIter - 1; ++StartIter)
-		{
-			(*StartIter)->GetTransform().SetLocalMove(float4(0, -YSize, 0));
-		}
-	}
-	else
-	{
 		YSize = YSize - 500 * GameEngineTime::GetDeltaTime();
 		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
 		std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
@@ -128,7 +125,6 @@ void TweetComment::MoveY(float Y)
 		{
 			(*StartIter)->GetTransform().SetLocalMove(float4(0, -500 * GameEngineTime::GetDeltaTime(), 0));
 		}
-	}
 	if (YSize < 0.0f)
 	{
 		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
@@ -139,6 +135,14 @@ void TweetComment::MoveY(float Y)
 			(*StartIter)->GetTransform().SetLocalMove(float4(0, -YSize, 0));
 		}
 		YSize = 0.0f;
+	}
+	if (YSize == 0.0f
+		&&TwitCheck == true)
+	{
+		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
+		std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
+		float4 CurPos = (*StartIter)->GetTransform().GetLocalPosition();
+			(*StartIter)->GetTransform().SetLocalMove(float4(CurPos.x, CurPos.y, -150));
 	}
 
 }

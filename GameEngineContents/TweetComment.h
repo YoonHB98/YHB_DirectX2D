@@ -30,5 +30,6 @@ private:
 	std::string CurContents = "Tutorial";
 	bool CurStatus = true;
 	std::vector<CommentTextureRenderer*> TextVector;
+	bool TwitCheck = false;
 };
 

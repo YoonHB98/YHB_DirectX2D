@@ -57,6 +57,8 @@ private:
 	std::vector<CommentTextureRenderer*> FollowerDiffrence;
 	std::vector<CommentTextureRenderer*> CurNumberRenderer;
 	bool first = false;
+	std::string SoundName = "";
+	bool NextCheck = true;
 	bool Check = false;
 	bool NumberCheck = false;
 	void StatusName();

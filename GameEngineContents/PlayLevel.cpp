@@ -132,10 +132,10 @@ void PlayLevel::Update(float _DeltaTime)
 		BarActor->SetParent(TaskManagerActor);
 		TutorialFirst = false;
 	}
-	if (GlobalContentsValue::CommentContents != ""
-		&& GlobalContentsValue::CommentContents != "Tutorial")
+	if (GlobalContentsValue::CommentContents == "CommunicationStart")
 	{
 		CreateActor<CommentTalk>();
+		GlobalContentsValue::DayTime = GlobalContentsValue::DayTime + 1;
 		GlobalContentsValue::CommentContents = "";
 	}
 }
