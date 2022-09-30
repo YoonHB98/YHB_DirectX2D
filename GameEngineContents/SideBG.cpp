@@ -13,6 +13,10 @@ void SideBG::ChangeState(DayState _State)
 {
 	if (CurState_ != _State)
 	{
+		if (GlobalContentsValue::Affection >= 100)
+		{
+			GlobalContentsValue::LoveEnd = true;
+		}
 		CurState_ = _State;
 		switch (_State)
 		{

@@ -86,7 +86,7 @@ void PlayLevel::Update(float _DeltaTime)
 {
 	BGM();
 
-
+	TestTime = TestTime + _DeltaTime;
 	if (GlobalContentsValue::DayChangeWindow)
 	{
 		return;

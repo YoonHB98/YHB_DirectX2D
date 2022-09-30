@@ -54,6 +54,10 @@ public:
 	static std::string FirstComment;
 	static std::string SecondComment;
 
+	//¿£µù
+	static bool LoveEnd;
+
+
 	static int RemainTwitnum;
 	//bgm
 	static std::string BgmName;

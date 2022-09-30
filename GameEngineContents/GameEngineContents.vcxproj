@@ -206,6 +206,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Enums.h" />
+    <ClInclude Include="GameContentsGUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="GlobalContentsValue.h">
       <SubType>
       </SubType>
@@ -401,6 +405,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="DayChangeWindow.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="GameContentsGUI.cpp">
       <SubType>
       </SubType>
     </ClCompile>

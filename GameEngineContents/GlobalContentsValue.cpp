@@ -41,6 +41,7 @@ float GlobalContentsValue::ChangeTime = 0;
 bool GlobalContentsValue::Check = false;
 bool GlobalContentsValue::Asobu = false;
 bool GlobalContentsValue::Neru = false;
+bool GlobalContentsValue::LoveEnd = false;
 bool GlobalContentsValue::DayTimeChange = true;
 bool GlobalContentsValue::Okusuri = false;
 bool GlobalContentsValue::Sojae = false;

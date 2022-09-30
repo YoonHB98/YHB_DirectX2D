@@ -45,6 +45,7 @@ void LineText::Update(float _DeltaTime)
 			&&(GlobalContentsValue::LineDate == true))
 		{
 			CurTime = GlobalContentsValue::DayTime;
+			GlobalContentsValue::LineDate = false;
 			CreateDayTime();
 		}else
 			if (CurTime != GlobalContentsValue::DayTime && (GlobalContentsValue::Contents == "Tutorial"))
@@ -349,6 +350,14 @@ void LineText::RLineNum()
 
 void LineText::exceptionCheck(std::string _Text)
 {
+	for (int i = 0; i < 10; i++)
+	{
+		if (_Text == "LineD" + std::to_string(i) + ".png")
+		{
+			CreateDayTime();
+		}
+	}
+
 	if (_Text == "Tutorial9.png")
 	{
 		GlobalContentsValue::Tooltip = true;

@@ -19,7 +19,7 @@ protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
-
+	float TestTime = 0;
 private:
 	int a = 0;
 	float bartime = 0;

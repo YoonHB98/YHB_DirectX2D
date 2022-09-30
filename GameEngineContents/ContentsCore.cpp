@@ -12,6 +12,7 @@
 #include "Asobu_Window.h"
 #include "Neru_Window.h"
 #include "Stream_Window.h"
+#include "GameContentsGUI.h"
 
 #pragma comment(lib, "GameEngineBase.lib")
 
@@ -214,7 +215,8 @@ void ContentsCore::Start()
 	//CreateLevel<TestLevel>("Test");
 	ChangeLevel("Play");
 
-	GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
+	//GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
+	GameEngineGUI::CreateGUIWindow<GameContentsGUI>("Status", nullptr);
 }
 
 void ContentsCore::Update(float _DeltaTime)

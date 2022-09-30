@@ -215,7 +215,26 @@ void TaskManager::StatusName()
 			{
 				CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
 				Renderer->GetTransform().SetLocalPosition(float4(287, 183, -1));
-				Renderer->SetTexture("Stress1.png");
+				if (GlobalContentsValue::Stress > 80)
+				{
+					Renderer->SetTexture("Stress5.png");
+				}
+				else if (GlobalContentsValue::Stress > 60)
+				{
+					Renderer->SetTexture("Stress4.png");
+				}
+				else if (GlobalContentsValue::Stress > 40)
+				{
+					Renderer->SetTexture("Stress3.png");
+				}
+				else if (GlobalContentsValue::Stress > 20)
+				{
+					Renderer->SetTexture("Stress2.png");
+				}
+				else
+				{
+					Renderer->SetTexture("Stress1.png");
+				}
 				Renderer->ScaleToTexture();
 				Hitokoto.push_back(Renderer);
 				StressDiffrenceNum = 0;
@@ -233,7 +252,26 @@ void TaskManager::StatusName()
 			{
 				CommentTextureRenderer* Renderer = CreateComponent<CommentTextureRenderer>();
 				Renderer->GetTransform().SetLocalPosition(float4(287, 110.5, -1));
-				Renderer->SetTexture("Mental1.png");
+				if (GlobalContentsValue::Mental > 80)
+				{
+					Renderer->SetTexture("Mental5.png");
+				}
+				else if (GlobalContentsValue::Mental > 60)
+				{
+					Renderer->SetTexture("Mental4.png");
+				}
+				else if (GlobalContentsValue::Mental > 40)
+				{
+					Renderer->SetTexture("Mental3.png");
+				}
+				else if (GlobalContentsValue::Mental > 20)
+				{
+					Renderer->SetTexture("Mental2.png");
+				}
+				else
+				{
+					Renderer->SetTexture("Mental1.png");
+				}
 				Renderer->ScaleToTexture();
 				Hitokoto.push_back(Renderer);
 				MentalDiffrenceNum = 0;

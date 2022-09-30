@@ -104,5 +104,6 @@ void GameEngineStatusWindow::OnGUI(GameEngineLevel* _Level, float _DeltaTime)
 	}
 
 	DebugRenderTarget.clear();
+	ImGui::Text("StatusUp");
 
 }

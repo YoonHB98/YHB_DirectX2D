@@ -241,6 +241,9 @@
     <ClInclude Include="CommentTalk.h">
       <Filter>Actor\Play\Stream\StreamComment</Filter>
     </ClInclude>
+    <ClInclude Include="GameContentsGUI.h">
+      <Filter>Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -414,6 +417,9 @@
     </ClCompile>
     <ClCompile Include="CommentTalk.cpp">
       <Filter>Actor\Play\Stream\StreamComment</Filter>
+    </ClCompile>
+    <ClCompile Include="GameContentsGUI.cpp">
+      <Filter>Global</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
