@@ -47,6 +47,7 @@ void FrameAnimation::Update(float _Delta)
 				}
 				bOnceEnd = true;
 				bOnceStart = false;
+				return;
 			}
 
 			++Info.CurFrame;
@@ -426,3 +427,4 @@ bool GameEngineTextureRenderer::IsCurAnimationPause()
 {
 	return CurAni->Pause;
 }
+

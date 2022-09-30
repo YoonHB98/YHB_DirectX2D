@@ -16,6 +16,14 @@ void TweetComment::Start()
 
 void TweetComment::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::Twitter == true)
+	{
+		ChangeZPos(-150);
+	}
+	else
+	{
+		ChangeZPos(550);
+	}
 	if (GlobalContentsValue::Contents != "Tutorial"
 		&& CurStatus != GlobalContentsValue::Twitter)
 	{
@@ -94,7 +102,6 @@ void TweetComment::CreateText(const std::string& _Text)
 	if (GlobalContentsValue::Contents + "Twit" + std::to_string(i) == "CommunicationStreamTwit1")
 	{
 		GetLevel()->CreateActor<NotificationDayTime>();
-		TwitCheck = true;
 	}
 	CommentTextureRenderer* TextRend = CreateComponent<CommentTextureRenderer>();
 	TextRend->SetTexture(_Text);
@@ -103,11 +110,11 @@ void TweetComment::CreateText(const std::string& _Text)
 	YSize = TextRend->GetTransform().GetLocalScale().y;
 	if (TwitCheck == false)
 	{
-		TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize / 2, -500, -3));
+		TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize / 2, -500, 1000));
 	}
 	else
 	{
-		TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize / 2, -500, 150));
+		TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize / 2, -500, 1000));
 	}
 
 	TextVector.push_back(TextRend);
@@ -136,13 +143,12 @@ void TweetComment::MoveY(float Y)
 		}
 		YSize = 0.0f;
 	}
-	if (YSize == 0.0f
-		&&TwitCheck == true)
+	if (YSize == 0.0f)
 	{
 		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
 		std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
 		float4 CurPos = (*StartIter)->GetTransform().GetLocalPosition();
-			(*StartIter)->GetTransform().SetLocalMove(float4(CurPos.x, CurPos.y, -150));
+			(*StartIter)->GetTransform().SetLocalPosition(float4(CurPos.x, CurPos.y, -180));
 	}
 
 }

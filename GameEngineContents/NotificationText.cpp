@@ -55,6 +55,15 @@ void NotificationText::TextDraw()
 			GlobalContentsValue::TextConNum++;
 			first = false;
 			break;
+		case 4:
+			Font->TextDraw("안녕! 스트리머가 되고...", "Galmuri9", float4(710, 492), float4(0.271f, 0.3294f, 0.56862f, 1), 10.0f);
+			GlobalContentsValue::TextConNum++;
+			first = false;
+			break;
+		case 5:
+			Font->TextDraw("안녕! 스트리머가 되고...", "Galmuri9", float4(710, 492), float4(0.271f, 0.3294f, 0.56862f, 1), 10.0f);
+			GlobalContentsValue::TextConNum++;
+			first = false;
 		default:
 			break;
 		}

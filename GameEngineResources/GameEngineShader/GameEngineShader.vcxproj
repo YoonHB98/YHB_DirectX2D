@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{16D87392-8791-4B63-BC71-0F51037F29E2}</ProjectGuid>
+    <ProjectGuid>{688cb3c2-7cc3-4e51-b028-9614041da912}</ProjectGuid>
     <RootNamespace>GameEngineShader</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -136,7 +136,6 @@
     <FxCompile Include="Texture.hlsl" />
     <FxCompile Include="TextureAtlas.hlsl" />
     <FxCompile Include="DebugTexture.hlsl" />
-    <FxCompile Include="TextureAtlas_Inst.hlsl" />
     <FxCompile Include="TransformHeader.fx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

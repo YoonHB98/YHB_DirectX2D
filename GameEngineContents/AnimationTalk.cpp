@@ -75,7 +75,7 @@ void StreamAnimation::UpdateB2()
 			CurAnim = Animation::End1;
 		}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 8.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 		|| GlobalContentsValue::ChangeTime > 10.0f)
 	{
 		CurType = AnimationType::B3;
@@ -116,7 +116,7 @@ void StreamAnimation::UpdateB3()
 			CurAnim = Animation::End1;
 		}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 15.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 		|| GlobalContentsValue::ChangeTime > 18.0f)
 	{
 		CurType = AnimationType::B4;
@@ -157,7 +157,7 @@ void StreamAnimation::UpdateB4()
 			CurAnim = Animation::End1;
 		}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 29.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 		|| GlobalContentsValue::ChangeTime > 24.0f)
 	{
 		CurType = AnimationType::B5;
@@ -199,7 +199,7 @@ void StreamAnimation::UpdateB5()
 			CurAnim = Animation::End1;
 		}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 44.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 		|| GlobalContentsValue::ChangeTime > 32.0f)
 	{
 		CurType = AnimationType::B6;
@@ -237,7 +237,7 @@ void StreamAnimation::UpdateB6()
 		CurType = AnimationType::B7;
 		return;
 	}
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 55.5f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
 		|| GlobalContentsValue::ChangeTime > 37.0f)
 	{
 		CurType = AnimationType::B7;
@@ -345,7 +345,7 @@ void StreamAnimation::UpdateB7()
 		if (StreamEnd == false)
 		{
 			StreamEnd = true;
-			GameEngineSound::SoundPlayOneShot("EndHaisin.wav");
+			GameEngineSound::SoundPlayOneShot("endHaishin.wav");
 		}
 		if (StreamEnd == true)
 		{

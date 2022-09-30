@@ -37,6 +37,7 @@ void DayChangeWindow::Update(float _DeltaTime)
 	{
 		GlobalContentsValue::Day = GlobalContentsValue::Day + 1;
 		GlobalContentsValue::DayTime = 1;
+		GlobalContentsValue::Line = false;
 	}
 	if (CurDay != GlobalContentsValue::Day)
 	{

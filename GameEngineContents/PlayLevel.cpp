@@ -89,6 +89,7 @@ void PlayLevel::Update(float _DeltaTime)
 	TestTime = TestTime + _DeltaTime;
 	if (GlobalContentsValue::DayChangeWindow)
 	{
+		time = 0.0f;
 		return;
 	}
 	time = time + GameEngineTime::GetDeltaTime();
@@ -131,6 +132,11 @@ void PlayLevel::Update(float _DeltaTime)
 		GameEngineActor* BarActor = CreateActor<Bar>(GameObjectGroup::WindowIcon);
 		BarActor->SetParent(TaskManagerActor);
 		TutorialFirst = false;
+	}
+	if (GlobalContentsValue::Day == 2&&Day2)
+	{
+		Day2 = false;
+		CreateActor<NotificationText>(GameObjectGroup::WindowIcon);
 	}
 	if (GlobalContentsValue::CommentContents == "CommunicationStart")
 	{

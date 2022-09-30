@@ -58,8 +58,6 @@ class GameEngineSoundPlayer
 
 public:
 	void Stop();
-	void Paused();
-	void UnPaused();
 	void PlaySpeed(float _Speed);
 	void Volume(float _Value);
 

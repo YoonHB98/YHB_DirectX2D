@@ -75,9 +75,9 @@ void TestLevel::Start()
 	CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
-	GameEngineActor* A = CreateActor<Twitter>(GameObjectGroup::WindowIcon);
-	GameEngineActor* B = CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
-	B->SetParent(A);
+	//GameEngineActor* A = CreateActor<Twitter>(GameObjectGroup::WindowIcon);
+	//GameEngineActor* B = CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
+	//B->SetParent(A);
 	//GlobalContentsValue::Stream = true;
 		GlobalContentsValue::Twitter = true;
 	GlobalContentsValue::Contents = "  ";

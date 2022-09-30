@@ -162,6 +162,12 @@
     <ClInclude Include="GameEngineStructuredBuffer.h">
       <Filter>Resources\ShaderResources</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngineInstancingBuffer.h">
+      <Filter>Resources\InputAssembler</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineInstancing.h">
+      <Filter>Object\Component\Rendering\Instancing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineActor.cpp">
@@ -315,6 +321,12 @@
     <ClCompile Include="GameEngineStructuredBuffer.cpp">
       <Filter>Resources\ShaderResources</Filter>
     </ClCompile>
+    <ClCompile Include="GameEngineInstancingBuffer.cpp">
+      <Filter>Resources\InputAssembler</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineInstancing.cpp">
+      <Filter>Object\Component\Rendering\Instancing</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Object">
@@ -397,6 +409,9 @@
     </Filter>
     <Filter Include="Object\Component\Rendering\PostEffect">
       <UniqueIdentifier>{46d08731-172c-4b19-8fb5-25f7401c5f82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Component\Rendering\Instancing">
+      <UniqueIdentifier>{3a3bf4d0-95cd-440d-bf1c-69a00a292dd1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

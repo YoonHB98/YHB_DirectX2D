@@ -63,6 +63,7 @@ void Stream_Window::Update(float _DeltaTime)
 	//듀토리얼이면 무시
 	if (GlobalContentsValue::Contents == "Tutorial")
 	{
+		ChangeZPos(500);
 		return;
 	}
 	if (CurStatus != GlobalContentsValue::Youtube)
@@ -71,6 +72,8 @@ void Stream_Window::Update(float _DeltaTime)
 		Inst_->WindowCollision->SetName("-100");
 		Mouse::Inst_->ChangeNameAll();
 	}
+
+
 	if (GlobalContentsValue::Youtube)
 	{
 		ChangeZPos(static_cast<float>(std::stoi(Inst_->WindowCollision->GetNameConstRef())));
@@ -88,7 +91,8 @@ void Stream_Window::Update(float _DeltaTime)
 			}
 		}
 	}
-	else
+
+	if (GlobalContentsValue::Youtube == false)
 	{
 		ChangeZPos(500);
 		return;

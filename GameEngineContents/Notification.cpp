@@ -16,16 +16,16 @@ void Notification::Start()
 	Tuuti = CreateComponent<GameEngineTextureRenderer>();
 	Tuuti->SetTexture("tuuti.png");
 	Tuuti->GetTransform().SetLocalScale(float4(140, 20));
-	Tuuti->GetTransform().SetLocalPosition(float4(280, -255, 0));
+	Tuuti->GetTransform().SetLocalPosition(float4(280, -255, -30));
 
 	Collision = CreateComponent<GameEngineCollision>();
 	Collision->GetTransform().SetLocalScale(float4(140, 20));
-	Collision->GetTransform().SetLocalPosition(float4(280, -255, 0));
+	Collision->GetTransform().SetLocalPosition(float4(280, -255, -30));
 	Collision->ChangeOrder(OBJECTORDER::UI);
 
 	Line = CreateComponent<GameEngineTextureRenderer>();
 	Line->SetTexture("Line.png");
-	Line->GetTransform().SetLocalPosition(float4(220, -255, 0));
+	Line->GetTransform().SetLocalPosition(float4(220, -255, -30));
 	Line->ScaleToTexture();
 
 	GameEngineSound().SoundPlayOneShot("jine_recieve.wav");

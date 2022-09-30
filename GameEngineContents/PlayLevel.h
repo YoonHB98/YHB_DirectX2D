@@ -30,6 +30,7 @@ private:
 	GameEngineSoundPlayer BGMPlayer;
 	GameEngineActor* A;
 
+	bool Day2 = true;
 	void BGM();
 	float CurBgmSpeed = 1.0f;
 	void ChangeZ(GameEngineActor* Actor, float Pos);
