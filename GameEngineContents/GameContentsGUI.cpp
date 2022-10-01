@@ -67,4 +67,10 @@ void GameContentsGUI::OnGUI(GameEngineLevel* _Level, float _DeltaTime)
 			GlobalContentsValue::Mental = 100;
 		}
 	}
+	ImGui::Text("Day");
+	if (true == ImGui::Button("NextDay"))
+	{
+		GlobalContentsValue::DayTime = 4;
+		GlobalContentsValue::Console = true;
+	}
 }

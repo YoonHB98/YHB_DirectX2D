@@ -60,7 +60,7 @@ void TweetComment::Update(float _DeltaTime)
 			Time = Time  - 1.0f;
 			LoadingEnd();
 		}
-		if (i >2
+		if (i > 2
 			|| CurContents != "Tutorial")
 		{
 			MoveY(YSize);
@@ -110,11 +110,11 @@ void TweetComment::CreateText(const std::string& _Text)
 	YSize = TextRend->GetTransform().GetLocalScale().y;
 	if (TwitCheck == false)
 	{
-		TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize / 2, -500, 1000));
+		TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize / 2, 150));
 	}
 	else
 	{
-		TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize / 2, -500, 1000));
+		TextRend->GetTransform().SetLocalPosition(float4(-78, 198 - YSize / 2,150));
 	}
 
 	TextVector.push_back(TextRend);
@@ -145,8 +145,10 @@ void TweetComment::MoveY(float Y)
 	}
 	if (YSize == 0.0f)
 	{
+		TwitCheck = true;
 		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
 		std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
+		StartIter = EndIter - 1;
 		float4 CurPos = (*StartIter)->GetTransform().GetLocalPosition();
 			(*StartIter)->GetTransform().SetLocalPosition(float4(CurPos.x, CurPos.y, -180));
 	}

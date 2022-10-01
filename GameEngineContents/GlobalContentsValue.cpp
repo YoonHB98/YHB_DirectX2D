@@ -48,5 +48,6 @@ bool GlobalContentsValue::Sojae = false;
 bool GlobalContentsValue::Internet = false;
 bool GlobalContentsValue::Odekake = false;
 bool GlobalContentsValue::Youtube = false;
+bool GlobalContentsValue::Console = false;
 
 

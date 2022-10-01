@@ -112,7 +112,7 @@ void Twitter::StatusChange()
 			GlobalContentsValue::Followers = GlobalContentsValue::Followers + 1000;
 			GlobalContentsValue::Stress = GlobalContentsValue::Stress + 10;
 		}else
-			if (GlobalContentsValue::Contents == "CommunicationStart")
+			if (GlobalContentsValue::Contents == "CommunicationStream")
 			{
 				GlobalContentsValue::Followers = GlobalContentsValue::Followers + 30;
 				GlobalContentsValue::Stress = GlobalContentsValue::Stress + 20;

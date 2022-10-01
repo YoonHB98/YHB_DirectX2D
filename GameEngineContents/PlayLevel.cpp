@@ -29,6 +29,7 @@
 #include "Neru_Window.h"
 #include "CommentTalk.h"
 #include "Stream_Window.h"
+#include "NotificationDayTime.h"
 
 float PlayLevel::time = 0;
 
@@ -85,7 +86,11 @@ void PlayLevel::Start()
 void PlayLevel::Update(float _DeltaTime)
 {
 	BGM();
-
+	if (GlobalContentsValue::Console)
+	{
+		CreateActor<NotificationDayTime>();
+		GlobalContentsValue::Console = false;
+	}
 	TestTime = TestTime + _DeltaTime;
 	if (GlobalContentsValue::DayChangeWindow)
 	{

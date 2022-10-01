@@ -226,7 +226,7 @@ void StreamAnimation::UpdateA1()
 
 void StreamAnimation::UpdateA2()
 {
-	TextDrawTime("а╘го!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 0.5f);
+	TextDrawTime("а╘го!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255,1), 15.0f, 0.5f);
 	Renderer->ChangeFrameAnimation("cho_kashikoma");
 
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") &&GlobalContentsValue::Check == false)
@@ -558,7 +558,7 @@ void StreamAnimation::UpdateA9()
 							GlobalContentsValue::ChangeTime = 0.0f;
 							GlobalContentsValue::Twitter = true;
 							GlobalContentsValue::Tooltip = false;
-							GlobalContentsValue::RemainTwitnum = 2;
+							GlobalContentsValue::RemainTwitnum = 3;
 							Renderer->ChangeFrameAnimation("cho_idleEnd");
 						}else
 							if (EndTimer > 3.0f
@@ -569,7 +569,7 @@ void StreamAnimation::UpdateA9()
 								GlobalContentsValue::ChangeTime = 0.0f;
 								GlobalContentsValue::Twitter = true;
 								GlobalContentsValue::Tooltip = false;
-								GlobalContentsValue::RemainTwitnum = 2;
+								GlobalContentsValue::RemainTwitnum = 3;
 								Renderer->ChangeFrameAnimation("cho_idleEnd");
 								}
 						}

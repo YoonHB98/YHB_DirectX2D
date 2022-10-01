@@ -11,16 +11,22 @@ NotificationText::~NotificationText()
 
 void NotificationText::Start()
 {
+	TextDraw();
 }
 
 void NotificationText::Update(float _DeltaTime)
 {
+	if (GlobalContentsValue::LineNum != 1 && GlobalContentsValue::Line == false)
+	{
+
+		Font->SetScreenPostion(float4(710.0f, 492.0f - static_cast<float>(Count)));
+		Count = Count + 25;
+	}
+
 	if (GlobalContentsValue::Line)
 	{
 		Off();
-		return;
 	}
-	TextDraw();
 }
 
 void NotificationText::End()
@@ -29,7 +35,7 @@ void NotificationText::End()
 
 void NotificationText::TextDraw()
 {
-	if (first)
+	if (first && GlobalContentsValue::Line == false)
 	{
 		Font = CreateComponent<Myfont>();
 		Font->SetRenderingOrder(500);
@@ -68,11 +74,4 @@ void NotificationText::TextDraw()
 			break;
 		}
 	}
-	if (GlobalContentsValue::LineNum != 1)
-	{
-
-		Font->SetScreenPostion(float4(710.0f, 492.0f - static_cast<float>(Count)));
-		Count = Count + 25;
-	}
-	
 }

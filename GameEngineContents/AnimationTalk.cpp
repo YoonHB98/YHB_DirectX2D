@@ -22,7 +22,7 @@ void StreamAnimation::UpdateB1()
 	// 0 ~ 7 텍스트 유지
 
 	// 6 "예쁜데" 46 초록
-	TextDrawTime("젤하!\n인터넷 엔젤, 초텐 짱이야!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.0f);
+	TextDrawTime("젤하!\n인터넷 엔젤, 초텐 짱이야!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255,1), 15.0f, 1.0f);
 
 	if (AnimationStart == false)
 	{
@@ -51,7 +51,7 @@ void StreamAnimation::UpdateB2()
 
 	// 13 "왜 천사임?" 53 초록
 
-	TextDrawTime("인터넷은 정말 최고야.\n모두 내 이야기를 들어 주는걸!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.0f);
+	TextDrawTime("인터넷은 정말 최고야.\n모두 내 이야기를 들어 주는걸!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255,1), 15.0f, 1.0f);
 
 	if (AnimationStart == false)
 	{
@@ -92,7 +92,7 @@ void StreamAnimation::UpdateB3()
 
 	// 14 ~ 17 텍스트 출력
 	// 14 ~ 28 텍스트 유지
-	TextDrawTime("현실에서 가장 무서운 건 고독이야\n누구도 원하지 않는 삶이란 공포 그 자체니까", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.0f);
+	TextDrawTime("현실에서 가장 무서운 건 고독이야\n누구도 원하지 않는 삶이란 공포 그 자체니까", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255,1), 15.0f, 1.0f);
 
 	if (AnimationStart == false)
 	{
@@ -134,7 +134,7 @@ void StreamAnimation::UpdateB4()
 	// 28 ~ 30 텍스트 출력
 	// 28 ~ 43 텍스트 유지
 
-	TextDrawTime("헤헤, 모두 넘 좋아! 이야기를 들어주는\n너희 모두를 위해서라도 열심히 해야지!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.5f);
+	TextDrawTime("헤헤, 모두 넘 좋아! 이야기를 들어주는\n너희 모두를 위해서라도 열심히 해야지!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255,1), 15.0f, 1.5f);
 
 	if (AnimationStart == false)
 	{
@@ -175,7 +175,7 @@ void StreamAnimation::UpdateB5()
 	// 43 ~ 45 텍스트 출력
 	// 43 ~ 51 텍스트 유지
 
-	TextDrawTime("모두가 싫어하면 거기서 끝인걸...\n초텐은 아직 죽고 싶지 않아. 아자아자!!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255), 15.0f, 1.5f);
+	TextDrawTime("모두가 싫어하면 거기서 끝인걸...\n초텐은 아직 죽고 싶지 않아. 아자아자!!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255,1), 15.0f, 1.5f);
 
 	if (AnimationStart == false)
 	{
