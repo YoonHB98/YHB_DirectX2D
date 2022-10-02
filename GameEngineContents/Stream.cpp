@@ -39,6 +39,12 @@ void Stream::Start()
 
 void Stream::Update(float _DeltaTime)
 {
+	if (CurStatus != GlobalContentsValue::Stream)
+	{
+		Mouse::Inst_->ChangeNameAll();
+		Mouse::Inst_->ChangeNameAll();
+		Inst_->StreamMainCol->SetName("-100");
+	}
 	if (GlobalContentsValue::Stream == false)
 	{
 		ChangeZPos(500);
@@ -61,7 +67,15 @@ void Stream::Update(float _DeltaTime)
 		}
 		first = false;
 		GlobalContentsValue::BgmOn = true;
-		GlobalContentsValue::BgmName = "mainloop_kenjo.wav";
+		if (GlobalContentsValue::BadEnd == true)
+		{
+			GlobalContentsValue::BgmName = "wind.wav";
+		}
+		else
+		{
+			GlobalContentsValue::BgmName = "mainloop_kenjo.wav";
+		}
+
 	}
 	if (GlobalContentsValue::ChangeTime > 200.0f)
 	{

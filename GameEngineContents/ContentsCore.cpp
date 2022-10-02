@@ -163,6 +163,15 @@ void ContentsCore::Start()
 		NewPipe->SetVertexShader("CommentTexture.hlsl");
 		NewPipe->SetPixelShader("CommentTexture.hlsl");
 	}
+
+	{
+		GameEngineRenderingPipeLine* NewPipe = GameEngineRenderingPipeLine::Create("YEffect");
+		NewPipe->SetInputAssembler1VertexBuffer("FullRect");
+		NewPipe->SetInputAssembler2IndexBuffer("FullRect");
+		NewPipe->SetVertexShader("YEffect.hlsl");
+		NewPipe->SetPixelShader("YEffect.hlsl");
+	}
+
 	//font
 	GameEngineFont::Load("Galmuri11");
 	GameEngineFont::Load("Galmuri9");
@@ -184,6 +193,9 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("cho_kawaiku_superchat.png",4, 2);
 	GameEngineTexture::Cut("cho_nyo.png", 2, 2);
 	GameEngineTexture::Cut("cho_akaruku_superchat.png", 4, 2);
+	GameEngineTexture::Cut("stream_cho_sayonara1.png", 3, 2);
+	GameEngineTexture::Cut("stream_cho_sayonara2.png", 3, 2);
+	GameEngineTexture::Cut("stream_cho_sayonara3.png", 4, 2);
 
 	//ame
 	GameEngineTexture::Cut("ame_handspinner.png", 11, 1);

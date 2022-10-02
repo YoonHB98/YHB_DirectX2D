@@ -24,7 +24,7 @@ void StreamAnimation::UpdateD1()
 		AnimationStart = true;
 	}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 1.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		|| GlobalContentsValue::ChangeTime > 5.0f)
 	{
 		CurType = AnimationType::D2;
@@ -64,7 +64,7 @@ void StreamAnimation::UpdateD2()
 			CurAnim = Animation::End1;
 		}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 3.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		|| GlobalContentsValue::ChangeTime > 7.0f)
 	{
 		CurType = AnimationType::D3;
@@ -88,7 +88,7 @@ void StreamAnimation::UpdateD3()
 		AnimationStart = true;
 	}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 8.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		|| GlobalContentsValue::ChangeTime > 10.0f)
 	{
 		CurType = AnimationType::D4;
@@ -112,7 +112,7 @@ void StreamAnimation::UpdateD4()
 		AnimationStart = true;
 	}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 11.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		|| GlobalContentsValue::ChangeTime > 13.5f)
 	{
 		CurType = AnimationType::D5;
@@ -152,7 +152,7 @@ void StreamAnimation::UpdateD5()
 			CurAnim = Animation::End1;
 		}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 14.5f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		|| GlobalContentsValue::ChangeTime > 16.5f)
 	{
 		CurType = AnimationType::D6;
@@ -192,7 +192,7 @@ void StreamAnimation::UpdateD6()
 			CurAnim = Animation::End1;
 		}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 17.5f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") )
 		|| GlobalContentsValue::ChangeTime > 23.0f)
 	{
 		CurType = AnimationType::D7;
@@ -216,7 +216,7 @@ void StreamAnimation::UpdateD7()
 		AnimationStart = true;
 	}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 24.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") )
 		|| GlobalContentsValue::ChangeTime > 27.5f)
 	{
 		CurType = AnimationType::D8;
@@ -246,7 +246,7 @@ void StreamAnimation::UpdateD8()
 		AnimationStart = true;
 	}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 28.5f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") )
 		|| GlobalContentsValue::ChangeTime > 37.0f)
 	{
 		CurType = AnimationType::D9;
@@ -292,7 +292,7 @@ void StreamAnimation::UpdateD9()
 			CurAnim = Animation::End1;
 		}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 38.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") )
 		|| GlobalContentsValue::ChangeTime > 43.5f)
 	{
 		CurType = AnimationType::D10;

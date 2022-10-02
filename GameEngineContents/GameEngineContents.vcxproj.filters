@@ -85,6 +85,12 @@
     <Filter Include="Actor\Play\Stream\StreamInfo">
       <UniqueIdentifier>{7d3c8e69-1569-49cb-8af6-e115d0676278}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Global\Effect">
+      <UniqueIdentifier>{221b9831-875c-4257-9a36-9f2b9874a580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Play\WindowForEnd">
+      <UniqueIdentifier>{35e17ac9-3a34-4dab-9bcf-1241a7935310}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -243,6 +249,15 @@
     </ClInclude>
     <ClInclude Include="GameContentsGUI.h">
       <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="YNoiseEffect.h">
+      <Filter>Global\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="CommentBadEnding.h">
+      <Filter>Actor\Play\Stream\StreamComment</Filter>
+    </ClInclude>
+    <ClInclude Include="BadEndWindow.h">
+      <Filter>Actor\Play\WindowForEnd</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -420,6 +435,15 @@
     </ClCompile>
     <ClCompile Include="GameContentsGUI.cpp">
       <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="YNoiseEffect.cpp">
+      <Filter>Global\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="CommentBadEnding.cpp">
+      <Filter>Actor\Play\Stream\StreamComment</Filter>
+    </ClCompile>
+    <ClCompile Include="BadEndWindow.cpp">
+      <Filter>Actor\Play\WindowForEnd</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

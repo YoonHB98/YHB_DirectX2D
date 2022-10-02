@@ -22,11 +22,11 @@ void StreamAnimation::UpdateC1()
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_idleEnd"); // 가만히 
+		Renderer->ChangeFrameAnimation("stream_cho_sayonara1"); // 가만히 
 		AnimationStart = true;
 	}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 1.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		|| GlobalContentsValue::ChangeTime > 6.0f)
 	{
 		CurType = AnimationType::C2;
@@ -49,41 +49,37 @@ void StreamAnimation::UpdateC2()
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_idleEnd"); // 손 뻗기 1초
+		Renderer->ChangeFrameAnimation("stream_cho_sayonara2"); // 손 뻗기 1초
 		AnimationStart = true;
 	}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 7.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		|| GlobalContentsValue::ChangeTime > 11.0f)
 	{
 		CurType = AnimationType::C3;
 		Time = 0;
 		GlobalContentsValue::ChangeTime = 11.1f;
 		AnimationStart = false;
+		GameEngineSound::SoundPlayOneShot("dosa.wav");
 	}
 }
 
 void StreamAnimation::UpdateC3()
 {
-	// 11 ~ 18 전봇대?
 
-	// 11 ~ 18 텍스트 유지
-	// 11 ~ 11 텍스트 순간 출력
 
 	TextDrawTime("바이바이", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_idleEnd"); // 전봇대?
+		Renderer->ChangeFrameAnimation("stream_cho_sayonara3"); 
 		AnimationStart = true;
 	}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 12.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		|| GlobalContentsValue::ChangeTime > 18.0f)
 	{
 		Time = 0;
 		AnimationStart = false;
 	}
 }
-
-// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ

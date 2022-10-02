@@ -16,11 +16,14 @@ public:
 	TestLevel& operator=(const TestLevel& _Other) = delete;
 	TestLevel& operator=(TestLevel&& _Other) noexcept = delete;
 
+	class YNoiseEffect* YEffect;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
 	float time;
+	bool BadEnd = true;
+	int CurDay = 0;
 };
 

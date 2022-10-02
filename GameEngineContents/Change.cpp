@@ -43,7 +43,8 @@ void Change::Update(float _DeltaTime)
 	if (GlobalContentsValue::Change)
 	{
 		if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
-			&&first == false)
+			&&first == false
+			&&GlobalContentsValue::BadEnd != true)
 		{
 			Sound.Stop();
 			GlobalContentsValue::BgmStop = false;
@@ -77,6 +78,7 @@ void Change::BootEnd(const FrameAnimation_DESC& _Info)
 	GlobalContentsValue::Change = false;
 	GlobalContentsValue::Stream = true;
 	GetLevel()->CreateActor<StreamInfo>();
+	GlobalContentsValue::BadEndLoadEnd = true;
 	ChangeZPos(500);
 	Death();
 }

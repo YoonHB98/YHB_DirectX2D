@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "WindowIcon.h"
+#include "BadEndWindow.h"
 
 WindowIcon::WindowIcon()
 {
@@ -152,7 +153,15 @@ void WindowIcon::Update(float _DeltaTime)
 			Youtube[0]->GetPixelData().MulColor.a = 1.0f;
 			Youtube[1]->GetPixelData().MulColor.a = 1.0f;
 			GlobalContentsValue::TutorialLogin = true;
-		}
+		}else
+			if (GlobalContentsValue::BadEnd)
+			{
+				GetLevel()->CreateActor<BadEndWindow>();
+			}
+	}
+	if (GlobalContentsValue::BadEnd)
+	{
+		return;
 	}
 	if (GlobalContentsValue::Tooltip)
 	{

@@ -42,6 +42,8 @@ bool GlobalContentsValue::Check = false;
 bool GlobalContentsValue::Asobu = false;
 bool GlobalContentsValue::Neru = false;
 bool GlobalContentsValue::LoveEnd = false;
+bool GlobalContentsValue::GoodEnd = false;
+bool GlobalContentsValue::BadEnd = false;
 bool GlobalContentsValue::DayTimeChange = true;
 bool GlobalContentsValue::Okusuri = false;
 bool GlobalContentsValue::Sojae = false;
@@ -49,5 +51,7 @@ bool GlobalContentsValue::Internet = false;
 bool GlobalContentsValue::Odekake = false;
 bool GlobalContentsValue::Youtube = false;
 bool GlobalContentsValue::Console = false;
+bool GlobalContentsValue::BadEndChange = false;
+bool GlobalContentsValue::BadEndLoadEnd = false;
 
 

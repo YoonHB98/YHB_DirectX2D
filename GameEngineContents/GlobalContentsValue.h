@@ -56,8 +56,11 @@ public:
 
 	//¿£µù
 	static bool LoveEnd;
+	static bool BadEnd;
+	static bool GoodEnd;
 
-
+	static bool BadEndLoadEnd;
+	static bool BadEndChange;
 	static int RemainTwitnum;
 	//bgm
 	static std::string BgmName;

@@ -52,7 +52,12 @@ void LineText::Update(float _DeltaTime)
 			{
 			CurTime = GlobalContentsValue::DayTime;
 			CreateDayTime();
-			}
+			}else
+				if (CurTime != GlobalContentsValue::DayTime && (GlobalContentsValue::BadEnd))
+				{
+					CurTime = GlobalContentsValue::DayTime;
+					CreateDayTime();
+				}
 		if (GlobalContentsValue::Sojae)
 		{
 			SojaeLine();
@@ -272,7 +277,7 @@ void LineText::CreateDayTime()
 	float SizeY = 0;
 	SizeY = TextRend->GetTransform().GetLocalScale().y;
 
-	TextRend->GetTransform().SetLocalPosition(float4(185, (75 - TextNum) - SizeY / 2));
+	TextRend->GetTransform().SetLocalPosition(float4(205, (75 - TextNum) - SizeY / 2));
 	Text.push_back(TextRend);
 	MoveStart++;
 	if (MoveStart == 4)
@@ -305,7 +310,7 @@ void LineText::SojaeLine()
 	float SizeY = 0;
 	SizeY = TextRend->GetTransform().GetLocalScale().y;
 
-	TextRend->GetTransform().SetLocalPosition(float4(185, (75 - TextNum) - SizeY / 2));
+	TextRend->GetTransform().SetLocalPosition(float4(205, (75 - TextNum) - SizeY / 2));
 	Text.push_back(TextRend);
 	MoveStart++;
 	if (MoveStart == 4)

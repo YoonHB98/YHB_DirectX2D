@@ -40,6 +40,8 @@
 #include "Stream_Talk.h"
 #include "Stream_Window.h"
 #include "CommentTalk.h"
+#include "YNoiseEffect.h"
+#include "CommentBadEnding.h"
 
 TestLevel::TestLevel() 
 {
@@ -69,9 +71,9 @@ void TestLevel::Start()
 	CreateActor<NotificationDayTime>();
 	//CreateActor<Stream>();
 	//CreateActor<StreamAnimation>();
-	//CreateActor<LineMain>();
+    CreateActor<LineMain>();
 	CreateActor<Mouse>();
-	//CreateActor<LineText>();
+	CreateActor<LineText>();
 	CreateActor<Change>(GameObjectGroup::WindowIcon);
 	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
 	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
@@ -84,24 +86,57 @@ void TestLevel::Start()
 	GlobalContentsValue::Contents = "  ";
 	GlobalContentsValue::WebCamWindow = true;
 	GlobalContentsValue::DayTime = 1;
+
+	YEffect = GetMainCamera()->GetCameraRenderTarget()->AddEffect<YNoiseEffect>();
+	YEffect->Off();
 }
 
 void TestLevel::Update(float _DeltaTime)
 {
+	if (CurDay != GlobalContentsValue::Day
+		&& GlobalContentsValue::Mental > 80)
+	{
+		GlobalContentsValue::BadEnd = true;
+		GlobalContentsValue::RemainLinenum = 8;
+		GlobalContentsValue::TextContents = "BadEnding";
+		GlobalContentsValue::CommentContents = "BadEnding";
+		GlobalContentsValue::Contents = "BadEndingStream";
+		time = 0.0f;
+	}
+
+	if ((GlobalContentsValue::TextContents == "BadEnding" && GlobalContentsValue::RemainLinenum <= 0)
+		&& time > 2.4f && BadEnd )
+	{
+		BadEnd = false;
+		CreateActor<Change>();
+		GlobalContentsValue::Change = true;
+		YEffect->On();
+	}
+	if (true == GameEngineInput::GetInst()->IsDown("a"))
+	{
+		YEffect->Off();
+	}
+
 	if (GlobalContentsValue::Console)
 	{
 		CreateActor<NotificationDayTime>();
 		GlobalContentsValue::Console = false;
 	}
-	GlobalContentsValue::Contents = "CommunicationStream";
-	GlobalContentsValue::RemainTwitnum = 2;
-	if (GlobalContentsValue::CommentContents != ""
-		&& GlobalContentsValue::CommentContents != "Tutorial")
+
+	if (GlobalContentsValue::CommentContents == "BadEnding")
 	{
-		CreateActor<CommentTalk>();
+		CreateActor<CommentBadEnding>();
 		GlobalContentsValue::CommentContents = "";
 	}
+	if (GlobalContentsValue::BadEndLoadEnd)
+	{
+		YEffect->Off();
+	}
 	time = time + _DeltaTime;
+	if (time < 0.0f)
+	{
+		time = 0.0f;
+	}
 	//if (GlobalContentsValue::Twitter == false)
 	//{
 	//	GlobalContentsValue::Contents = "CommunicationStart";
@@ -150,6 +185,7 @@ void TestLevel::Update(float _DeltaTime)
 	{
 		GlobalContentsValue::Message = true;
 	}
+	CurDay = GlobalContentsValue::Day;
 }
 
 void TestLevel::End()

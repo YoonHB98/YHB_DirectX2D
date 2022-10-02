@@ -15,6 +15,7 @@ public:
 	PlayLevel& operator=(const PlayLevel& _Other) = delete;
 	PlayLevel& operator=(PlayLevel&& _Other) noexcept = delete;
 	static float time;
+	class YNoiseEffect* YEffect;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -40,5 +41,7 @@ private:
 	GameEngineActor* StreamAnimationActor;
 	GameEngineActor* StreamActor;
 	GameEngineActor* CommentActor;
+	bool BadEnd = true;
+	int CurDay = 0;
 };
 

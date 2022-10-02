@@ -30,6 +30,8 @@
 #include "CommentTalk.h"
 #include "Stream_Window.h"
 #include "NotificationDayTime.h"
+#include "YNoiseEffect.h"
+#include "CommentBadEnding.h"
 
 float PlayLevel::time = 0;
 
@@ -81,16 +83,53 @@ void PlayLevel::Start()
 	CreateActor<Stream_Window>();
 
 
-
+	YEffect = GetMainCamera()->GetCameraRenderTarget()->AddEffect<YNoiseEffect>();
+	YEffect->Off();
 }
 void PlayLevel::Update(float _DeltaTime)
 {
 	BGM();
+	if (CurDay != GlobalContentsValue::Day
+		&& GlobalContentsValue::Mental > 80)
+	{
+		GlobalContentsValue::BgmOn = true;
+		GlobalContentsValue::BadEnd = true;
+		GlobalContentsValue::BgmName = "NoSalvationNoAngels.wav";
+		GlobalContentsValue::RemainLinenum = 8;
+		GlobalContentsValue::TextContents = "BadEnding";
+		GlobalContentsValue::CommentContents = "BadEnding";
+		GlobalContentsValue::Contents = "BadEndingStream";
+		time = 0.0f;
+	}
+
+	if (GlobalContentsValue::BadEndChange)
+	{
+		BadEnd = false;
+		GlobalContentsValue::BadEndChange = false;
+		CreateActor<Change>();
+		GlobalContentsValue::Change = true;
+		YEffect->On();
+	}
+
+	if (GlobalContentsValue::BadEndLoadEnd)
+	{
+		YEffect->Off();
+	}
+	if (GlobalContentsValue::CommentContents == "BadEnding")
+	{
+		CreateActor<CommentBadEnding>();
+		GlobalContentsValue::CommentContents = "";
+	}
+	if (time < 0.0f)
+	{
+		time = 0.0f;
+	}
 	if (GlobalContentsValue::Console)
 	{
 		CreateActor<NotificationDayTime>();
 		GlobalContentsValue::Console = false;
 	}
+
 	TestTime = TestTime + _DeltaTime;
 	if (GlobalContentsValue::DayChangeWindow)
 	{
@@ -149,6 +188,7 @@ void PlayLevel::Update(float _DeltaTime)
 		GlobalContentsValue::DayTime = GlobalContentsValue::DayTime + 1;
 		GlobalContentsValue::CommentContents = "";
 	}
+	CurDay = GlobalContentsValue::Day;
 }
 void PlayLevel::End() {  }
 
