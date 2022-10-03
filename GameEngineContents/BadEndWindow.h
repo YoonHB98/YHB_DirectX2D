@@ -16,11 +16,12 @@ public:
 	BadEndWindow& operator=(const BadEndWindow& _Other) = delete;
 	BadEndWindow& operator=(BadEndWindow&& _Other) noexcept = delete;
 
+	GameEngineCollision* MainCol;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void End() override;
 private:
-	GameEngineCollision* MainCol;
+
 };
 

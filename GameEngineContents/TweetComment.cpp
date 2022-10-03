@@ -118,15 +118,21 @@ void TweetComment::CreateText(const std::string& _Text)
 	}
 
 	TextVector.push_back(TextRend);
+	StartFirst = true;
 	Bot = Bot - YSize;
 
 }
 
 void TweetComment::MoveY(float Y)
 {
+	if (StartFirst != true)
+	{
+		return;
+	}
 		YSize = YSize - 500 * GameEngineTime::GetDeltaTime();
 		std::vector<CommentTextureRenderer*>::iterator StartIter = TextVector.begin();
 		std::vector<CommentTextureRenderer*>::iterator EndIter = TextVector.end();
+
 
 		for (; StartIter != EndIter - 1; ++StartIter)
 		{

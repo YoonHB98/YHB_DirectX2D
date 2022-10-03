@@ -46,16 +46,6 @@ float4 YEffect_PS(Output _Input) : SV_Target0
     
     
     float4 Color = Tex.Sample(Smp, _Input.Tex.xy);
-    if (_Input.Pos.x < 121)
-    {
-        clip(-1);
-
-    }
-    if (_Input.Pos.x > 839)
-    {
-        clip(-1);
-
-    }
     
         float TempDeltaTime = SumDeltaTime + 1.0f;
     

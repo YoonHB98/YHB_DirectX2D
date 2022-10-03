@@ -149,6 +149,7 @@ private:
 	int EnterCount = 0;
 	float BlankXSize = 0;
 	AnimationType TextType;
+	bool Ending = true;
 	GameEngineTextureRenderer* Blank;
 };
 

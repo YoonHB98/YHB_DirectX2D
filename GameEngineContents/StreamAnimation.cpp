@@ -43,6 +43,10 @@ void StreamAnimation::Start()
 	Renderer->CreateFrameAnimationCutTexture("stream_cho_sayonara2", FrameAnimation_DESC("stream_cho_sayonara2.png", 0, 2, 0.2f, false));
 	Renderer->CreateFrameAnimationCutTexture("stream_cho_sayonara3", FrameAnimation_DESC("stream_cho_sayonara3.png", 0, 3, 0.2f, false));
 
+	Renderer->CreateFrameAnimationCutTexture("stream_cho_h_superchat", FrameAnimation_DESC("stream_cho_h_superchat.png", 0, 3, 0.2f, false));
+	Renderer->CreateFrameAnimationCutTexture("stream_cho_kobiru", FrameAnimation_DESC("stream_cho_kobiru.png", 0, 3, 0.2f, false));
+	Renderer->CreateFrameAnimationCutTexture("stream_cho_peace", FrameAnimation_DESC("stream_cho_peace.png", 0, 2, 0.2f, false));
+
 	
 	ContentsMap["Tutorial"] = StreamContents::Tutorial;
 	ContentsMap["CommunicationStart"] = StreamContents::Talk;
@@ -54,6 +58,10 @@ void StreamAnimation::Start()
 
 void StreamAnimation::Update(float _DeltaTime)
 {
+	if (true)
+	{
+		BG->SetTexture("bg_stream.png");
+	}
 	if (GlobalContentsValue::Stream == false)
 	{
 		first = true;
@@ -113,7 +121,7 @@ void StreamAnimation::StreamContentsCheck()
 	{
 		CurType = AnimationType::C1;
 	}
-	else if (GlobalContentsValue::Contents == "GoodEnding")
+	else if (GlobalContentsValue::Contents == "GoodEndingStream")
 	{
 		CurType = AnimationType::D1;
 	}		

@@ -259,6 +259,12 @@
     <ClInclude Include="BadEndWindow.h">
       <Filter>Actor\Play\WindowForEnd</Filter>
     </ClInclude>
+    <ClInclude Include="BadEndEndWindow.h">
+      <Filter>Actor\Play\WindowForEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="CommentGoodEnding.h">
+      <Filter>Actor\Play\Stream\StreamComment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -444,6 +450,12 @@
     </ClCompile>
     <ClCompile Include="BadEndWindow.cpp">
       <Filter>Actor\Play\WindowForEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="BadEndEndWindow.cpp">
+      <Filter>Actor\Play\WindowForEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="CommentGoodEnding.cpp">
+      <Filter>Actor\Play\Stream\StreamComment</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

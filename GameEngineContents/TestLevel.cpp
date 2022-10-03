@@ -42,6 +42,7 @@
 #include "CommentTalk.h"
 #include "YNoiseEffect.h"
 #include "CommentBadEnding.h"
+#include "CommentGoodEnding.h"
 
 TestLevel::TestLevel() 
 {
@@ -71,7 +72,7 @@ void TestLevel::Start()
 	CreateActor<NotificationDayTime>();
 	//CreateActor<Stream>();
 	//CreateActor<StreamAnimation>();
-    CreateActor<LineMain>();
+    //CreateActor<LineMain>();
 	CreateActor<Mouse>();
 	CreateActor<LineText>();
 	CreateActor<Change>(GameObjectGroup::WindowIcon);
@@ -94,6 +95,25 @@ void TestLevel::Start()
 void TestLevel::Update(float _DeltaTime)
 {
 	if (CurDay != GlobalContentsValue::Day
+		&& GlobalContentsValue::Followers > 10000)
+	{
+		CurDay = GlobalContentsValue::Day;
+		GlobalContentsValue::BgmOn = true;
+		GlobalContentsValue::GoodEnd = true;
+		GlobalContentsValue::BgmName = "mainloop_happyarranged.wav";
+		GlobalContentsValue::RemainLinenum = 5;
+		GlobalContentsValue::TextContents = "GoodEnding";
+		GlobalContentsValue::CommentContents = "GoodEnding";
+		GlobalContentsValue::Contents = "GoodEndingStream";
+		time = 0.0f;
+	}
+	if (time > 2.4f && GlobalContentsValue::RemainLinenum <= 0 && GlobalContentsValue::GoodEnd)
+	{
+		GlobalContentsValue::GoodEnd = false;
+		GlobalContentsValue::Change = true;
+		CreateActor<Change>();
+	}
+	if (CurDay != GlobalContentsValue::Day
 		&& GlobalContentsValue::Mental > 80)
 	{
 		GlobalContentsValue::BadEnd = true;
@@ -103,7 +123,11 @@ void TestLevel::Update(float _DeltaTime)
 		GlobalContentsValue::Contents = "BadEndingStream";
 		time = 0.0f;
 	}
-
+	if (GlobalContentsValue::CommentContents == "GoodEnding")
+	{
+		CreateActor<CommentGoodEnding>();
+		GlobalContentsValue::CommentContents = "";
+	}
 	if ((GlobalContentsValue::TextContents == "BadEnding" && GlobalContentsValue::RemainLinenum <= 0)
 		&& time > 2.4f && BadEnd )
 	{

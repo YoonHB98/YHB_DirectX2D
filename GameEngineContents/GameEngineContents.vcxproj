@@ -173,6 +173,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="BadEndEndWindow.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="BadEndWindow.h">
       <SubType>
       </SubType>
@@ -194,6 +198,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="CommentBadEnding.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="CommentGoodEnding.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -388,6 +396,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="BadEndEndWindow.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="BadEndWindow.cpp">
       <SubType>
       </SubType>
@@ -409,6 +421,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="CommentBadEnding.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="CommentGoodEnding.cpp">
       <SubType>
       </SubType>
     </ClCompile>

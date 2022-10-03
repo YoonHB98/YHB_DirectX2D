@@ -17,7 +17,8 @@ void TaskManager::StatusCheck()
 		DiffrenceCheck(FollowerDiffrenceNum, 220, true);
 		HitokotoCheck = true;
 		Hitokoto.push_back(Renderer);
-		Inst_->TaskManagerMainCol->SetName("-100F");
+		Mouse::Inst_->ChangeNameAll();
+		Inst_->TaskManagerMainCol->SetName("-100");
 	}
 	if (CurStress != GlobalContentsValue::Stress)
 	{
@@ -33,7 +34,8 @@ void TaskManager::StatusCheck()
 		DiffrenceCheck(StressDiffrenceNum, 183, false);
 		HitokotoCheck = true;
 		Hitokoto.push_back(Renderer);
-		Inst_->TaskManagerMainCol->SetName("-100F");
+		Mouse::Inst_->ChangeNameAll();
+		Inst_->TaskManagerMainCol->SetName("-100");
 	}
 	if (CurAffection != GlobalContentsValue::Affection)
 	{
@@ -49,7 +51,8 @@ void TaskManager::StatusCheck()
 		DiffrenceCheck(AffectionDiffrenceNum, 146.5, false);
 		HitokotoCheck = true;
 		Hitokoto.push_back(Renderer);
-		Inst_->TaskManagerMainCol->SetName("-100F");
+		Mouse::Inst_->ChangeNameAll();
+		Inst_->TaskManagerMainCol->SetName("-100");
 	}
 	if (CurMental != GlobalContentsValue::Mental)
 	{
@@ -65,6 +68,8 @@ void TaskManager::StatusCheck()
 		DiffrenceCheck(MentalDiffrenceNum, 110.5, false);
 		HitokotoCheck = true;
 		Hitokoto.push_back(Renderer);
+		Mouse::Inst_->ChangeNameAll();
+		Inst_->TaskManagerMainCol->SetName("-100");
 	}
 
 	if (HitokotoCheck == true)

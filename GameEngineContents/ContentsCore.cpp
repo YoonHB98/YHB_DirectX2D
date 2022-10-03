@@ -196,6 +196,9 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("stream_cho_sayonara1.png", 3, 2);
 	GameEngineTexture::Cut("stream_cho_sayonara2.png", 3, 2);
 	GameEngineTexture::Cut("stream_cho_sayonara3.png", 4, 2);
+	GameEngineTexture::Cut("stream_cho_kobiru.png", 4, 2);
+	GameEngineTexture::Cut("stream_cho_peace.png", 3, 2);
+	GameEngineTexture::Cut("stream_cho_h_superchat.png", 4, 2);
 
 	//ame
 	GameEngineTexture::Cut("ame_handspinner.png", 11, 1);
@@ -224,8 +227,8 @@ void ContentsCore::Start()
 	CreateLevel<LoadingLevel>("Loading");
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-	//CreateLevel<TestLevel>("Test");
-	ChangeLevel("Play");
+	CreateLevel<TestLevel>("Test");
+	ChangeLevel("Test");
 
 	//GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 	GameEngineGUI::CreateGUIWindow<GameContentsGUI>("Status", nullptr);

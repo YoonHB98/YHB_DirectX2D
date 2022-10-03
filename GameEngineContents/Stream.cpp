@@ -43,6 +43,7 @@ void Stream::Update(float _DeltaTime)
 	{
 		Mouse::Inst_->ChangeNameAll();
 		Mouse::Inst_->ChangeNameAll();
+		CurStatus = GlobalContentsValue::Stream;
 		Inst_->StreamMainCol->SetName("-100");
 	}
 	if (GlobalContentsValue::Stream == false)
@@ -70,6 +71,10 @@ void Stream::Update(float _DeltaTime)
 		if (GlobalContentsValue::BadEnd == true)
 		{
 			GlobalContentsValue::BgmName = "wind.wav";
+		}
+		else if (GlobalContentsValue::GoodEnd == true)
+		{
+			GlobalContentsValue::BgmName = "mainloop_happyarranged.wav";
 		}
 		else
 		{

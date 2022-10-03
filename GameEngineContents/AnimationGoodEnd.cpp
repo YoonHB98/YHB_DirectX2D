@@ -20,12 +20,12 @@ void StreamAnimation::UpdateD1()
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_kashikoma"); // 오른손 브이 
+		Renderer->ChangeFrameAnimation("cho_kashikoma");
 		AnimationStart = true;
 	}
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick"))
-		|| GlobalContentsValue::ChangeTime > 5.0f)
+	if (((true == GameEngineInput::GetInst()->IsDown("MouseClick"))&& (GlobalContentsValue::ChangeTime > 1.0f))
+		||( GlobalContentsValue::ChangeTime > 5.0f))
 	{
 		CurType = AnimationType::D2;
 		Time = 0;
@@ -84,7 +84,7 @@ void StreamAnimation::UpdateD3()
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_idleEnd"); // 양볼 감싸기 + 윙크?
+		Renderer->ChangeFrameAnimation("cho_kawaiku"); // 양볼 감싸기 + 윙크?
 		AnimationStart = true;
 	}
 
@@ -108,7 +108,7 @@ void StreamAnimation::UpdateD4()
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_idleEnd"); // 양볼 감싸기, 눈감기
+		Renderer->ChangeFrameAnimation("cho_kawaiku_superchat"); // 양볼 감싸기, 눈감기
 		AnimationStart = true;
 	}
 
@@ -172,32 +172,17 @@ void StreamAnimation::UpdateD6()
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_idleEnd"); // 양손소매
+		Renderer->ChangeFrameAnimation("stream_cho_kobiru"); // 양손소매
 		AnimationStart = true;
 	}
 
-	if (Time > 2.0f
-		&& CurAnim == Animation::End1)
-	{
-		Renderer->ChangeFrameAnimation("cho_idle"); // 눈깜빡
-		CurAnim = Animation::Idle1;
-		Time = Time - 2.0f;
-	}
-	else
-		if (Time > 1.0f
-			&& CurAnim == Animation::Idle1)
-		{
-			Renderer->ChangeFrameAnimation("cho_idleEnd"); // 양손소매
-			Time = Time - 1.0f;
-			CurAnim = Animation::End1;
-		}
 
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") )
 		|| GlobalContentsValue::ChangeTime > 23.0f)
 	{
 		CurType = AnimationType::D7;
 		Time = 0;
-		GlobalContentsValue::ChangeTime = 16.6f;
+		GlobalContentsValue::ChangeTime = 23.1f;
 		AnimationStart = false;
 	}
 }
@@ -212,7 +197,7 @@ void StreamAnimation::UpdateD7()
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_idleEnd"); // 눈감고 양손 내밀고 흔들기
+		Renderer->ChangeFrameAnimation("cho_akaruku_superchat"); // 눈감고 양손 내밀고 흔들기
 		AnimationStart = true;
 	}
 
@@ -242,7 +227,7 @@ void StreamAnimation::UpdateD8()
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_idleEnd"); // 한손 내밀며 브이
+		Renderer->ChangeFrameAnimation("stream_cho_peace"); // 한손 내밀며 브이
 		AnimationStart = true;
 	}
 
@@ -312,7 +297,7 @@ void StreamAnimation::UpdateD10()
 
 	if (AnimationStart == false)
 	{
-		Renderer->ChangeFrameAnimation("cho_idleEnd"); // 허공 키스
+		Renderer->ChangeFrameAnimation("stream_cho_h_superchat"); // 허공 키스
 		AnimationStart = true;
 	}
 
@@ -336,18 +321,16 @@ void StreamAnimation::UpdateD10()
 					EndTimer = 0.0f;
 					GlobalContentsValue::Stream = false;
 					GlobalContentsValue::ChangeTime = 0.0f;
-					GlobalContentsValue::Twitter = true;
 					GlobalContentsValue::Tooltip = false;
-					GlobalContentsValue::RemainTwitnum = 2;
+					GlobalContentsValue::RemainLinenum = 2;
 				}
 				else if (EndTimer > 3.0f)
 				{
 					EndTimer = 0.0f;
 					GlobalContentsValue::Stream = false;
 					GlobalContentsValue::ChangeTime = 0.0f;
-					GlobalContentsValue::Twitter = true;
 					GlobalContentsValue::Tooltip = false;
-					GlobalContentsValue::RemainTwitnum = 2;
+					GlobalContentsValue::RemainLinenum = 2;
 
 				}
 			}

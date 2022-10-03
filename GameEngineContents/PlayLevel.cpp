@@ -32,6 +32,7 @@
 #include "NotificationDayTime.h"
 #include "YNoiseEffect.h"
 #include "CommentBadEnding.h"
+#include "CommentGoodEnding.h"
 
 float PlayLevel::time = 0;
 
@@ -99,6 +100,22 @@ void PlayLevel::Update(float _DeltaTime)
 		GlobalContentsValue::TextContents = "BadEnding";
 		GlobalContentsValue::CommentContents = "BadEnding";
 		GlobalContentsValue::Contents = "BadEndingStream";
+		CurDay = GlobalContentsValue::Day;
+		time = 0.0f;
+	}
+
+	if (CurDay != GlobalContentsValue::Day
+		&& GlobalContentsValue::Followers > 10000)
+	{
+		CurDay = GlobalContentsValue::Day;
+		GlobalContentsValue::BgmOn = true;
+		GlobalContentsValue::BadEnd = false;
+		GlobalContentsValue::GoodEnd = true;
+		GlobalContentsValue::BgmName = "mainloop_happyarranged.wav";
+		GlobalContentsValue::RemainLinenum = 5;
+		GlobalContentsValue::TextContents = "GoodEnding";
+		GlobalContentsValue::CommentContents = "GoodEnding";
+		GlobalContentsValue::Contents = "GoodEndingStream";
 		time = 0.0f;
 	}
 
@@ -137,7 +154,12 @@ void PlayLevel::Update(float _DeltaTime)
 		return;
 	}
 	time = time + GameEngineTime::GetDeltaTime();
-
+	if (time > 2.4f && GlobalContentsValue::RemainLinenum <= 0 && GlobalContentsValue::GoodEnd)
+	{
+		GlobalContentsValue::GoodEnd = false;
+		GlobalContentsValue::Change = true;
+		CreateActor<Change>();
+	}
 	if (time > 2.5f
 		|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
@@ -186,6 +208,11 @@ void PlayLevel::Update(float _DeltaTime)
 	{
 		CreateActor<CommentTalk>();
 		GlobalContentsValue::DayTime = GlobalContentsValue::DayTime + 1;
+		GlobalContentsValue::CommentContents = "";
+	}
+	if (GlobalContentsValue::CommentContents == "GoodEnding")
+	{
+		CreateActor<CommentGoodEnding>();
 		GlobalContentsValue::CommentContents = "";
 	}
 	CurDay = GlobalContentsValue::Day;

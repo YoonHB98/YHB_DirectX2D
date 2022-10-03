@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "StreamAnimation.h"
+#include "BadEndEndWindow.h"
 
 void StreamAnimation::BadEnding()
 {
@@ -67,7 +68,7 @@ void StreamAnimation::UpdateC2()
 void StreamAnimation::UpdateC3()
 {
 
-
+	TextDrawTime("   ", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 	TextDrawTime("바이바이", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
@@ -80,6 +81,12 @@ void StreamAnimation::UpdateC3()
 		|| GlobalContentsValue::ChangeTime > 18.0f)
 	{
 		Time = 0;
-		AnimationStart = false;
+		if (Ending)
+		{
+			AnimationStart = false;
+			GetLevel()->CreateActor<BadEndEndWindow>();
+			Ending = false;
+		}
+
 	}
 }

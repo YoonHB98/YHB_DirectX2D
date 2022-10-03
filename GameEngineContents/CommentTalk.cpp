@@ -82,7 +82,7 @@ void CommentTalk::Update(float _DeltaTime)
 			GlobalContentsValue::Check = true;
 			CommentTalkCheckStart();
 		}
-		else if (i > 1)
+		else
 		{
 			GlobalContentsValue::BgmSpeed = 1.0f;
 			Font->TextDraw("방송 속도(보통)", "galmuri11", float4(618, 103), float4(94 / 255, 60 / 255, 127 / 255, 1), 12);
@@ -305,6 +305,7 @@ void CommentTalk::CreateText(const std::string& _Text)
 		Collision->ChangeOrder(OBJECTORDER::UI);
 		TrashCollision->ChangeOrder(OBJECTORDER::UI);
 	}
+
 
 
 	TextNum = TextNum + 25;

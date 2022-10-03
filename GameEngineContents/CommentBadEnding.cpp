@@ -16,17 +16,17 @@ void CommentBadEnding::Start()
 	GameEngineTextureRenderer* TextRend = CreateComponent<GameEngineTextureRenderer>();
 	TextRend->SetTexture("Rect.png");
 	TextRend->ScaleToTexture();
-	TextRend->GetTransform().SetLocalPosition(float4(88, -185));
+	TextRend->GetTransform().SetLocalPosition(float4(88, -185,-1));
 
 	GameEngineTextureRenderer* TextRend2 = CreateComponent<GameEngineTextureRenderer>();
 	TextRend2->SetTexture("Rect.png");
 	TextRend2->ScaleToTexture();
-	TextRend2->GetTransform().SetLocalPosition(float4(-102, -185));
+	TextRend2->GetTransform().SetLocalPosition(float4(-102, -185,-1));
 
 	GameEngineTextureRenderer* TextRend3 = CreateComponent<GameEngineTextureRenderer>();
 	TextRend3->SetTexture("Speed.png");
 	TextRend3->GetTransform().SetLocalScale(float4(183, 14));
-	TextRend3->GetTransform().SetLocalPosition(float4(138, 158));
+	TextRend3->GetTransform().SetLocalPosition(float4(138, 158,-1));
 
 	Font = CreateComponent<Myfont>();
 	Font->SetLeftAndRightSort(LeftAndRightSort::CENTER);
@@ -60,7 +60,7 @@ void CommentBadEnding::Update(float _DeltaTime)
 			&& i < 15)
 		{
 			DeathTime = true;
-			CreateText("BedEnd" + std::to_string(i) + ".png");
+			CreateText("BadEnd" + std::to_string(i) + ".png");
 			i = i + 1;
 		}
 		GlobalContentsValue::BgmSpeed = 1.0f;

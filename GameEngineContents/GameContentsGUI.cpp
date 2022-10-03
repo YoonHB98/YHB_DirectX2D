@@ -41,7 +41,7 @@ void GameContentsGUI::OnGUI(GameEngineLevel* _Level, float _DeltaTime)
 	ImGui::Text("StatusUp");
 	if (true == ImGui::Button("Follower"))
 	{
-		GlobalContentsValue::Followers = GlobalContentsValue::Followers + 1000;
+		GlobalContentsValue::Followers = GlobalContentsValue::Followers + 100000;
 	}
 	if (true == ImGui::Button("Stress"))
 	{
@@ -67,10 +67,44 @@ void GameContentsGUI::OnGUI(GameEngineLevel* _Level, float _DeltaTime)
 			GlobalContentsValue::Mental = 100;
 		}
 	}
+	ImGui::Text("StatusDown");
+	if (true == ImGui::Button("FollowerDown"))
+	{
+		GlobalContentsValue::Followers = GlobalContentsValue::Followers - 1000;
+	}
+	if (true == ImGui::Button("StressDown"))
+	{
+		GlobalContentsValue::Stress = GlobalContentsValue::Stress - 20;
+		if (GlobalContentsValue::Stress < 0)
+		{
+			GlobalContentsValue::Stress = 0;
+		}
+	}
+	if (true == ImGui::Button("AffectionDown"))
+	{
+		GlobalContentsValue::Affection = GlobalContentsValue::Affection - 20;
+		if (GlobalContentsValue::Affection < 0)
+		{
+			GlobalContentsValue::Affection = 0;
+		}
+	}
+	if (true == ImGui::Button("MentalDown"))
+	{
+		GlobalContentsValue::Mental = GlobalContentsValue::Mental - 20;
+		if (GlobalContentsValue::Mental < 0)
+		{
+			GlobalContentsValue::Mental = 0;
+		}
+	}
 	ImGui::Text("Day");
 	if (true == ImGui::Button("NextDay"))
 	{
 		GlobalContentsValue::DayTime = 4;
 		GlobalContentsValue::Console = true;
 	}
+	if (true == ImGui::Button("Reset"))
+	{
+		GameEngineTime::GetInst()->SetGlobalScale(1.0f);
+	}
+
 }

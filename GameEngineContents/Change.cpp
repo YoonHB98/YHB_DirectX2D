@@ -47,6 +47,7 @@ void Change::Update(float _DeltaTime)
 			&&GlobalContentsValue::BadEnd != true)
 		{
 			Sound.Stop();
+			GlobalContentsValue::ChangeTime = 0.0f;
 			GlobalContentsValue::BgmStop = false;
 			GlobalContentsValue::Change = false;
 			GlobalContentsValue::Stream = true;
@@ -54,7 +55,7 @@ void Change::Update(float _DeltaTime)
 			ChangeZPos(500);
 			Death();
 		}
-		ChangeZPos(-100);
+		ChangeZPos(-150);
 		Bank->ChangeFrameAnimation("Bank");
 		Bank->AnimationBindEnd("Bank", std::bind(&Change::BootEnd, this, std::placeholders::_1));
 		if (first)
@@ -73,6 +74,7 @@ void Change::End()
 
 void Change::BootEnd(const FrameAnimation_DESC& _Info)
 {
+	GlobalContentsValue::ChangeTime = 0.0f;
 	Sound.Stop();
 	GlobalContentsValue::BgmStop = false;
 	GlobalContentsValue::Change = false;

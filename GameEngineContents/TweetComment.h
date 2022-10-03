@@ -32,5 +32,7 @@ private:
 	std::vector<CommentTextureRenderer*> TextVector;
 	bool TwitCheck = false;
 
+	bool StartFirst = false;
+
 };
 

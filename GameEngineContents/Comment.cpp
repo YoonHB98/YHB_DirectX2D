@@ -112,11 +112,13 @@ void Comment::CommentCheckStart()
 		if (MouseCheck((*StartIter).first))
 		{
 			float4 Pos = (*StartIter).second->GetTransform().GetLocalPosition();
-			if ((*StartIter).first->GetNameConstRef() != "")
+			if ((*StartIter).first->GetNameConstRef() == "1"
+				|| (*StartIter).first->GetNameConstRef() == "2")
 			{
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).first))
 				{
+			
 					if (GlobalContentsValue::FirstComment == "")
 					{
 						if ((*StartIter).first->GetNameConstRef() == "1")
@@ -126,7 +128,7 @@ void Comment::CommentCheckStart()
 							font->TextDraw("와 줘서 고마워", "NanumBarunGothicBold", float4(385, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
 							GlobalContentsValue::FirstComment = "와 줘서 고마워";
 						}
-						else
+						else if ((*StartIter).first->GetNameConstRef() == "2")
 						{
 							(*StartIter).first->SetName("End");
 							Myfont* font = CreateComponent<Myfont>();
@@ -145,7 +147,7 @@ void Comment::CommentCheckStart()
 								font->TextDraw("와 줘서 고마워", "NanumBarunGothicBold", float4(575, 447), float4(222 / 255, 215 / 255, 1, 1), 12);
 								GlobalContentsValue::SecondComment = "와 줘서 고마워";
 							}
-							else
+							else if ((*StartIter).first->GetNameConstRef() == "2")
 							{
 								(*StartIter).first->SetName("End");
 								Myfont* font = CreateComponent<Myfont>();
@@ -163,6 +165,11 @@ void Comment::CommentCheckStart()
 			if (CommentPos >= 136.9)
 			{
 				Trash->GetTransform().SetLocalPosition(float4(228, 137, -100));
+				if ((*StartIter).first->GetNameConstRef() == "Check"
+					&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				{
+					GlobalContentsValue::Stress = GlobalContentsValue::Stress - 1;
+				}
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
 				{
@@ -171,6 +178,11 @@ void Comment::CommentCheckStart()
 			}else
 				if (CommentPos >= 111.9)
 				{
+					if ((*StartIter).first->GetNameConstRef() == "Check"
+						&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+					{
+						GlobalContentsValue::Stress = GlobalContentsValue::Stress - 1;
+					}
 					Trash->GetTransform().SetLocalPosition(float4(228, 112, -100));
 					if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 						&& MouseCheck((*StartIter).second))
@@ -181,6 +193,11 @@ void Comment::CommentCheckStart()
 				else
 			if (CommentPos >= 86.9)
 			{
+				if ((*StartIter).first->GetNameConstRef() == "Check"
+					&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				{
+					GlobalContentsValue::Stress = GlobalContentsValue::Stress - 1;
+				}
 				Trash->GetTransform().SetLocalPosition(float4(228, 87, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
@@ -190,6 +207,11 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= 61.9)
 			{
+				if ((*StartIter).first->GetNameConstRef() == "Check"
+					&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				{
+					GlobalContentsValue::Stress = GlobalContentsValue::Stress - 1;
+				}
 				Trash->GetTransform().SetLocalPosition(float4(228, 62, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
@@ -199,6 +221,11 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= 36.9)
 			{
+				if ((*StartIter).first->GetNameConstRef() == "Check"
+					&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				{
+					GlobalContentsValue::Stress = GlobalContentsValue::Stress - 1;
+				}
 				Trash->GetTransform().SetLocalPosition(float4(228, 37, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
@@ -208,6 +235,11 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= 11.9)
 			{
+				if ((*StartIter).first->GetNameConstRef() == "Check"
+					&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				{
+					GlobalContentsValue::Stress = GlobalContentsValue::Stress - 1;
+				}
 				Trash->GetTransform().SetLocalPosition(float4(228, 12, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
@@ -217,6 +249,11 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= -13.1)
 			{
+				if ((*StartIter).first->GetNameConstRef() == "Check"
+					&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				{
+					GlobalContentsValue::Stress = GlobalContentsValue::Stress - 1;
+				}
 				Trash->GetTransform().SetLocalPosition(float4(228, -13, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
@@ -226,6 +263,11 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= -38.1)
 			{
+				if ((*StartIter).first->GetNameConstRef() == "Check"
+					&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				{
+					GlobalContentsValue::Stress = GlobalContentsValue::Stress - 1;
+				}
 				Trash->GetTransform().SetLocalPosition(float4(228, -38, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
@@ -235,6 +277,11 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= -63.1)
 			{
+				if ((*StartIter).first->GetNameConstRef() == "Check"
+					&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				{
+					GlobalContentsValue::Stress = GlobalContentsValue::Stress - 1;
+				}
 				Trash->GetTransform().SetLocalPosition(float4(228,-63, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
@@ -244,6 +291,11 @@ void Comment::CommentCheckStart()
 			}else
 			if (CommentPos >= -88.1)
 			{
+				if ((*StartIter).first->GetNameConstRef() == "Check"
+					&& true == GameEngineInput::GetInst()->IsDown("MouseClick"))
+				{
+					GlobalContentsValue::Stress = GlobalContentsValue::Stress - 1;
+				}
 				Trash->GetTransform().SetLocalPosition(float4(228,-88, -100));
 				if (true == GameEngineInput::GetInst()->IsDown("MouseClick")
 					&& MouseCheck((*StartIter).second))
@@ -293,7 +345,10 @@ void Comment::CreateText(const std::string& _Text)
 		Collision->ChangeOrder(OBJECTORDER::UI);
 		TrashCollision->ChangeOrder(OBJECTORDER::UI);
 	}
-
+	if (_Text == "Comment1_11.png")
+	{
+		Collision->SetName("Check");
+	}
 
 	TextNum = TextNum + 25;
 	Text.push_back(TextRend);

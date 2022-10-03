@@ -1,5 +1,6 @@
 #include "PreCompile.h"
 #include "Notification.h"
+#include "LineMain.h"
 
 Notification::Notification()
 {
@@ -39,6 +40,8 @@ void Notification::Update(float _DeltaTime)
 		&& MouseCheck(Collision))
 	{
 		GlobalContentsValue::Line = true;
+		Mouse::Inst_->ChangeNameAll();
+		LineMain::Inst_->LineMainCol->SetName("-100");
 		GlobalContentsValue::EomticonStatus = 2;
 		//GlobalContentsValue::WebCamWindow = true;
 	}
