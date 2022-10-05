@@ -91,6 +91,10 @@ void PlayLevel::Start()
 void PlayLevel::Update(float _DeltaTime)
 {
 	BGM();
+	if (true == GameEngineInput::GetInst()->IsDown("M"))
+	{
+		GameEngineTime::GetInst()->SetGlobalScale(1.0f);
+	}
 	if (CurDay != GlobalContentsValue::Day
 		&& GlobalContentsValue::Mental > 80)
 	{

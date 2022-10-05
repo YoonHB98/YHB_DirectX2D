@@ -32,6 +32,7 @@ void LoadingLevel::Start()
 		GameEngineInput::GetInst()->CreateKey("Q", 'Q');
 		GameEngineInput::GetInst()->CreateKey("W", 'W');
 		GameEngineInput::GetInst()->CreateKey("E", 'E');
+		GameEngineInput::GetInst()->CreateKey("M", 'M');
 		GameEngineInput::GetInst()->CreateKey("BACKSPACE", VK_BACK);
 
 	CreateActor<TitleLogo>(GameObjectGroup::BackGround);

@@ -69,7 +69,7 @@ void DayChangeWindow::Update(float _DeltaTime)
 		DayChangeTime = DayChangeTime + _DeltaTime;
 		if (DayChangeTime < 0.08f)
 		{
-			Tri->GetTransform().SetLocalMove(float4(0, -250 * _DeltaTime, 0));
+			Tri->GetTransform().SetLocalMove(float4(0, -360 * _DeltaTime, 0));
 			return;
 		}
 		else
@@ -82,7 +82,7 @@ void DayChangeWindow::Update(float _DeltaTime)
 			{
 				Count++;
 				Time = Time - 0.004f;
-				Renderer->GetTransform().SetLocalMove(float4(-6.42f, 0.0f, 0.0f));
+				Renderer->GetTransform().SetLocalMove(float4(-360.0f * _DeltaTime, 0.0f, 0.0f));
 			}
 		}
 		if (Time > 2.0f

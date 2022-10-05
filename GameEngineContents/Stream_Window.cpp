@@ -69,6 +69,7 @@ void Stream_Window::Update(float _DeltaTime)
 	if (GlobalContentsValue::BadEnd)
 	{
 		ChangeZPos(500);
+		EndD = true;
 		return;
 	}else
 		if (GlobalContentsValue::GoodEnd)
@@ -76,6 +77,12 @@ void Stream_Window::Update(float _DeltaTime)
 			ChangeZPos(500);
 			return;
 		}
+
+	if (EndD)
+	{
+		ChangeZPos(500);
+		return;
+	}
 	if (CurStatus != GlobalContentsValue::Youtube)
 	{
 		CurStatus = GlobalContentsValue::Youtube;
