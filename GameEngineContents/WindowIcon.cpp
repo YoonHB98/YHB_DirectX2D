@@ -159,9 +159,56 @@ void WindowIcon::Update(float _DeltaTime)
 				GetLevel()->CreateActor<BadEndWindow>();
 			}
 	}
-	if (GlobalContentsValue::BadEnd)
+	if (GlobalContentsValue::BadEnd
+		&&GlobalContentsValue::RemainLinenum <= 0)
 	{
+		Youtube[0]->GetPixelData().MulColor.a = 1.0f;
+		Internet[0]->GetPixelData().MulColor.a = 0.0f;
+		Asobu[0]->GetPixelData().MulColor.a = 0.0f;
+		Neru[0]->GetPixelData().MulColor.a = 0.0f;
+		Okusuri[0]->GetPixelData().MulColor.a = 0.0f;
+		Odekake[0]->GetPixelData().MulColor.a = 0.0f;
+
+		Youtube[1]->GetPixelData().MulColor.a = 1.0f;
+		Internet[1]->GetPixelData().MulColor.a = 0.0f;
+		Asobu[1]->GetPixelData().MulColor.a = 0.0f;
+		Neru[1]->GetPixelData().MulColor.a = 0.0f;
+		Okusuri[1]->GetPixelData().MulColor.a = 0.0f;
+		Odekake[1]->GetPixelData().MulColor.a = 0.0f;
+	}else
+	if (GlobalContentsValue::BadEnd
+		&&GlobalContentsValue::Tutorial != true)
+	{
+		Youtube[0]->GetPixelData().MulColor.a = 0.0f;
+		Internet[0]->GetPixelData().MulColor.a = 0.0f;
+		Asobu[0]->GetPixelData().MulColor.a = 0.0f;
+		Neru[0]->GetPixelData().MulColor.a = 0.0f;
+		Okusuri[0]->GetPixelData().MulColor.a = 0.0f;
+		Odekake[0]->GetPixelData().MulColor.a = 0.0f;
+
+		Youtube[1]->GetPixelData().MulColor.a = 0.0f;
+		Internet[1]->GetPixelData().MulColor.a = 0.0f;
+		Asobu[1]->GetPixelData().MulColor.a = 0.0f;
+		Neru[1]->GetPixelData().MulColor.a = 0.0f;
+		Okusuri[1]->GetPixelData().MulColor.a = 0.0f;
+		Odekake[1]->GetPixelData().MulColor.a = 0.0f;
 		return;
+	}
+	else
+	{
+		Youtube[0]->GetPixelData().MulColor.a = 1.0f;
+		Internet[0]->GetPixelData().MulColor.a = 1.0f;
+		Asobu[0]->GetPixelData().MulColor.a = 1.0f;
+		Neru[0]->GetPixelData().MulColor.a = 1.0f;
+		Okusuri[0]->GetPixelData().MulColor.a = 1.0f;
+		Odekake[0]->GetPixelData().MulColor.a = 1.0f;
+
+		Youtube[1]->GetPixelData().MulColor.a = 1.0f;
+		Internet[1]->GetPixelData().MulColor.a = 1.0f;
+		Asobu[1]->GetPixelData().MulColor.a = 1.0f;
+		Neru[1]->GetPixelData().MulColor.a = 1.0f;
+		Okusuri[1]->GetPixelData().MulColor.a = 1.0f;
+		Odekake[1]->GetPixelData().MulColor.a = 1.0f;
 	}
 	if (GlobalContentsValue::Tooltip)
 	{
