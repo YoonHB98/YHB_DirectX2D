@@ -18,11 +18,9 @@ void StreamAnimation::UpdateD1()
 
 	TextDrawTime("ÅÙÇÏ!,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
-	if (AnimationStart == false)
-	{
+
 		Renderer->ChangeFrameAnimation("cho_kashikoma");
 		AnimationStart = true;
-	}
 
 	if (((true == GameEngineInput::GetInst()->IsDown("MouseClick"))&& (GlobalContentsValue::ChangeTime > 1.0f))
 		||( GlobalContentsValue::ChangeTime > 5.0f))
@@ -323,6 +321,7 @@ void StreamAnimation::UpdateD10()
 					GlobalContentsValue::ChangeTime = 0.0f;
 					GlobalContentsValue::Tooltip = false;
 					GlobalContentsValue::RemainLinenum = 2;
+					GlobalContentsValue::GameEnd = true;
 				}
 				else if (EndTimer > 3.0f)
 				{
@@ -331,6 +330,7 @@ void StreamAnimation::UpdateD10()
 					GlobalContentsValue::ChangeTime = 0.0f;
 					GlobalContentsValue::Tooltip = false;
 					GlobalContentsValue::RemainLinenum = 2;
+					GlobalContentsValue::GameEnd = true;
 
 				}
 			}

@@ -16,7 +16,7 @@ void LineText::EmoticonON()
 
 		EmoticonCollision1 = CreateComponent<GameEngineCollision>();
 		EmoticonCollision1->GetTransform().SetLocalScale(float4(56, 56));
-		EmoticonCollision1->GetTransform().SetLocalPosition(float4(290, -200, 0));
+		EmoticonCollision1->GetTransform().SetLocalPosition(float4(300, -200, 0));
 		EmoticonCollision1->ChangeOrder(OBJECTORDER::Emoticon);
 		EmoticonCollision1->SetName("sorena.png");
 	}
@@ -30,7 +30,7 @@ void LineText::EmoticonON()
 
 		EmoticonCollision2 = CreateComponent<GameEngineCollision>();
 		EmoticonCollision2->GetTransform().SetLocalScale(float4(56, 56));
-		EmoticonCollision2->GetTransform().SetLocalPosition(float4(230, -200));
+		EmoticonCollision2->GetTransform().SetLocalPosition(float4(240, -200));
 		EmoticonCollision2->ChangeOrder(OBJECTORDER::Emoticon);
 		EmoticonCollision2->SetName("love.png");
 	}
@@ -44,7 +44,7 @@ void LineText::EmoticonON()
 
 		EmoticonCollision3 = CreateComponent<GameEngineCollision>();
 		EmoticonCollision3->GetTransform().SetLocalScale(float4(56, 56));
-		EmoticonCollision3->GetTransform().SetLocalPosition(float4(170, -200));
+		EmoticonCollision3->GetTransform().SetLocalPosition(float4(180, -200));
 		EmoticonCollision3->ChangeOrder(OBJECTORDER::Emoticon);
 		EmoticonCollision3->SetName("bujisyuuryou.png");
 	}
@@ -58,7 +58,7 @@ void LineText::EmoticonON()
 
 		EmoticonCollision4 = CreateComponent<GameEngineCollision>();
 		EmoticonCollision4->GetTransform().SetLocalScale(float4(56, 56));
-		EmoticonCollision4->GetTransform().SetLocalPosition(float4(110, -200));
+		EmoticonCollision4->GetTransform().SetLocalPosition(float4(120, -200));
 		EmoticonCollision4->ChangeOrder(OBJECTORDER::Emoticon);
 		EmoticonCollision4->SetName("gomen.png");
 	}
@@ -72,7 +72,7 @@ void LineText::EmoticonON()
 
 		EmoticonCollision5 = CreateComponent<GameEngineCollision>();
 		EmoticonCollision5->GetTransform().SetLocalScale(float4(56, 56));
-		EmoticonCollision5->GetTransform().SetLocalPosition(float4(290, -144));
+		EmoticonCollision5->GetTransform().SetLocalPosition(float4(300, -144));
 		EmoticonCollision5->ChangeOrder(OBJECTORDER::Emoticon);
 		EmoticonCollision5->SetName("waritodoudemoii.png");
 	}
@@ -86,7 +86,7 @@ void LineText::EmoticonON()
 
 		EmoticonCollision6 = CreateComponent<GameEngineCollision>();
 		EmoticonCollision6->GetTransform().SetLocalScale(float4(56, 56));
-		EmoticonCollision6->GetTransform().SetLocalPosition(float4(230, -144));
+		EmoticonCollision6->GetTransform().SetLocalPosition(float4(240, -144));
 		EmoticonCollision6->ChangeOrder(OBJECTORDER::Emoticon);
 		EmoticonCollision6->SetName("pien.png");
 	}
@@ -100,7 +100,7 @@ void LineText::EmoticonON()
 
 		EmoticonCollision7 = CreateComponent<GameEngineCollision>();
 		EmoticonCollision7->GetTransform().SetLocalScale(float4(56, 56));
-		EmoticonCollision7->GetTransform().SetLocalPosition(float4(170, -144));
+		EmoticonCollision7->GetTransform().SetLocalPosition(float4(180, -144));
 		EmoticonCollision7->ChangeOrder(OBJECTORDER::Emoticon);
 		EmoticonCollision7->SetName("saikouka.png");
 	}
@@ -114,7 +114,7 @@ void LineText::EmoticonON()
 
 		EmoticonCollision8 = CreateComponent<GameEngineCollision>();
 		EmoticonCollision8->GetTransform().SetLocalScale(float4(56, 56));
-		EmoticonCollision8->GetTransform().SetLocalPosition(float4(110, -144));
+		EmoticonCollision8->GetTransform().SetLocalPosition(float4(120, -144));
 		EmoticonCollision8->ChangeOrder(OBJECTORDER::Emoticon);
 		EmoticonCollision8->SetName("ok.png");
 	}

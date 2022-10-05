@@ -14,7 +14,7 @@ public:
 	LineText(LineText&& _Other) noexcept = delete;
 	LineText& operator=(const LineText& _Other) = delete;
 	LineText& operator=(LineText&& _Other) noexcept = delete;
-
+	static int DCount;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -44,7 +44,6 @@ protected:
 	std::string ReactionName = "";
 	std::string CurTextCon = "";
 	bool EmoticonTimeStart = false;
-	int DCount = 1;
 	GameEngineCollision* EmoticonCollision1;
 	GameEngineCollision* EmoticonCollision2;
 	GameEngineCollision* EmoticonCollision3;

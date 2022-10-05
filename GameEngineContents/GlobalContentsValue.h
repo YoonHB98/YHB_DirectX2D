@@ -58,6 +58,7 @@ public:
 	static bool LoveEnd;
 	static bool BadEnd;
 	static bool GoodEnd;
+	static bool GameEnd;
 
 	static bool BadEndLoadEnd;
 	static bool BadEndChange;

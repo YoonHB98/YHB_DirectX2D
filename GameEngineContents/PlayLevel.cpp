@@ -33,6 +33,7 @@
 #include "YNoiseEffect.h"
 #include "CommentBadEnding.h"
 #include "CommentGoodEnding.h"
+#include "GoodEndWindow.h"
 
 float PlayLevel::time = 0;
 
@@ -100,6 +101,7 @@ void PlayLevel::Update(float _DeltaTime)
 		GlobalContentsValue::TextContents = "BadEnding";
 		GlobalContentsValue::CommentContents = "BadEnding";
 		GlobalContentsValue::Contents = "BadEndingStream";
+		GlobalContentsValue::TextConNum = 1;
 		CurDay = GlobalContentsValue::Day;
 		time = 0.0f;
 	}
@@ -115,6 +117,7 @@ void PlayLevel::Update(float _DeltaTime)
 		GlobalContentsValue::RemainLinenum = 5;
 		GlobalContentsValue::TextContents = "GoodEnding";
 		GlobalContentsValue::CommentContents = "GoodEnding";
+		GlobalContentsValue::TextConNum = 1;
 		GlobalContentsValue::Contents = "GoodEndingStream";
 		time = 0.0f;
 	}
@@ -160,6 +163,13 @@ void PlayLevel::Update(float _DeltaTime)
 		GlobalContentsValue::Change = true;
 		CreateActor<Change>();
 	}
+	if (GlobalContentsValue::GameEnd == true
+		&& GlobalContentsValue::RemainLinenum <= 0
+		&& time > 2.5f)
+	{
+		CreateActor<GoodEndWindow>(GameObjectGroup::BackGround);
+		GlobalContentsValue::GameEnd = false;
+	}
 	if (time > 2.5f
 		|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
@@ -171,6 +181,7 @@ void PlayLevel::Update(float _DeltaTime)
 			CreateActor<NotificationText>(GameObjectGroup::WindowIcon);
 		}
 	}
+
 	if (GlobalContentsValue::RemainLinenum <= 0)
 	{
 		GlobalContentsValue::Message = false;

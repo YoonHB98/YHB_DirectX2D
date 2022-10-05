@@ -5,6 +5,7 @@
 #include "LineMain.h"
 #include "Sojae.h"
 
+int LineText::DCount = 1;
 LineText::LineText() 
 {
 }

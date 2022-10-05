@@ -21,5 +21,7 @@ protected:
 	void End() override;
 private:
 	Myfont* Info[5];
+	float time = 0.0f;
+	int Num = 0;
 };
 

@@ -20,6 +20,7 @@ bool GlobalContentsValue::DayChangeWindow = false;
 float4 GlobalContentsValue::MousePos = float4(200,200,0);
 bool GlobalContentsValue::WebCamWindow = false;
 bool GlobalContentsValue::Line = false;
+bool GlobalContentsValue::GameEnd = false;
 bool GlobalContentsValue::Change = false;
 bool GlobalContentsValue::Tutorial = true;
 bool GlobalContentsValue::Tooltip = false;
