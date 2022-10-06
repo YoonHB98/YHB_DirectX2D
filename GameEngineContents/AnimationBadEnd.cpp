@@ -21,11 +21,8 @@ void StreamAnimation::UpdateC1()
 
 	TextDrawTime("그럼,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
-	if (AnimationStart == false)
-	{
+
 		Renderer->ChangeFrameAnimation("stream_cho_sayonara1"); // 가만히 
-		AnimationStart = true;
-	}
 
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 		|| GlobalContentsValue::ChangeTime > 6.0f)

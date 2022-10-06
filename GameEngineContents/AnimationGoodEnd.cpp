@@ -38,7 +38,7 @@ void StreamAnimation::UpdateD2()
 	// ´« ±ôºý
 
 	// 2 ~ 7
-
+	BG->SetTexture("bg_stream_mansion.png");
 	TextDrawTime("ÀÌ°Å ºÁ!,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
@@ -78,7 +78,7 @@ void StreamAnimation::UpdateD3()
 	// 7 ~ 10
 
 	// ¾çº¼ °¨½Î±â + À®Å©?
-
+	BG->SetTexture("bg_stream_mansion.png");
 	TextDrawTime("¿¡ÇìÇì ±ôÂ¦ ³î¶úÁö?,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
@@ -102,7 +102,7 @@ void StreamAnimation::UpdateD4()
 	// 10 ~ 13.5
 
 	// ¾çº¼ °¨½Î±â, ´«°¨±â
-
+	BG->SetTexture("bg_stream_mansion.png");
 	TextDrawTime("µåµð¾î!! ÃÊÅÙ Â¯ÀÇ ¼º! »ç¹ö·È¾î!,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
@@ -126,7 +126,7 @@ void StreamAnimation::UpdateD5()
 	// 13.5 ~ 16.5
 
 	// ´« ±ôºý
-
+	BG->SetTexture("bg_stream_mansion.png");
 	TextDrawTime("Àå¼Ò´Â ¾Ë·ÁÁÙ ¼ö ¾øÁö¸¸ ¸»¾ß,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
@@ -166,7 +166,7 @@ void StreamAnimation::UpdateD6()
 	// 16.5 ~ 23
 
 	// ¾ç¼Õ ¼Ò¸Å ÀÚ±â °¡¸£Å°°í ´«±ôºý
-
+	BG->SetTexture("bg_stream_mansion.png");
 	TextDrawTime("¾î¾î¾î¾î¾öÃ» ÁÁÀº µ¥¢½,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
@@ -191,7 +191,7 @@ void StreamAnimation::UpdateD7()
 	// 23 ~ 27.5
 
 	// ¾ç¼Õ ÆîÃÄ¼­ ³»¹Ð°í Èçµë
-
+	BG->SetTexture("bg_stream_mansion.png");
 	TextDrawTime("¸ðµÎÀÇ ´öºÐÀÌ¾ß °¨»ç!!,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
@@ -221,7 +221,7 @@ void StreamAnimation::UpdateD8()
 	// 27.5 ~ 37
 
 	// ÇÑ¼Õ ³»¹Ð¸ç ºêÀÌ
-
+	BG->SetTexture("bg_stream_mansion.png");
 	TextDrawTime("¾ÕÀ¸·Îµµ ÀÀ¿ø Àß ºÎÅ¹ÇØ!,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
@@ -251,7 +251,7 @@ void StreamAnimation::UpdateD9()
 	// 37 ~ 43.5
 
 	// ´« ±ôºý 
-
+	BG->SetTexture("bg_stream_mansion.png");
 	TextDrawTime("±×·³ ¶Ç º¸ÀÚ!,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
@@ -291,7 +291,7 @@ void StreamAnimation::UpdateD10()
 	// 43.5 ~ 45
 
 	// ´«°¨À¸¸ç Çã°ø Å°½º?
-
+	BG->SetTexture("bg_stream_mansion.png");
 	TextDrawTime("¢Ó½ÂÃµ¢Ó,", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 
 	if (AnimationStart == false)
