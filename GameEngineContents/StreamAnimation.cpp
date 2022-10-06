@@ -123,6 +123,7 @@ void StreamAnimation::StreamContentsCheck()
 	}
 	else if (GlobalContentsValue::Contents == "GoodEndingStream")
 	{
+		BG->SetTexture("bg_stream_mansion.png");
 		CurType = AnimationType::D1;
 	}		
 }

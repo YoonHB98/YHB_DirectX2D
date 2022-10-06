@@ -12,6 +12,7 @@ void StreamAnimation::GoodEnding()
 
 void StreamAnimation::UpdateD1()
 {
+	BG->SetTexture("bg_stream_mansion.png");
 	// 오른눈 오른손 브이 0.5초
 
 	// 0 ~ 5 텐하!
