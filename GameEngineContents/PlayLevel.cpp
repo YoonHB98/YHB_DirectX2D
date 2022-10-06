@@ -130,9 +130,10 @@ void PlayLevel::Update(float _DeltaTime)
 	{
 		BadEnd = false;
 		GlobalContentsValue::BadEndChange = false;
-		CreateActor<Change>();
-		GlobalContentsValue::Change = true;
 		YEffect->On();
+		GlobalContentsValue::Change = true;
+		CreateActor<Change>();
+
 	}
 
 	if (GlobalContentsValue::BadEndLoadEnd)

@@ -39,6 +39,7 @@ void SuperChat::Start()
 	ChatRenderer->GetTransform().SetLocalPosition(float4(RandomX, RandomY, -300));
 	ChatRenderer->GetTransform().SetLocalScale(float4(64, 64)); 
 	ChatRenderer->PixelDataInst.Slice.y = 500.0f;
+	ChatRenderer->SetRenderingOrder(501);
 	Death(3.0f);
 }
 

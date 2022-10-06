@@ -339,6 +339,13 @@ void TaskManager::NumberSetting()
 			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
 			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
 			Renderer->GetTransform().SetLocalScale(float4(12,12));
+			if (CurStatus > 80)
+			{
+				Renderer->Color.PosX = 210.0f / 255.0f;
+				Renderer->Color.PosY = 90.0f / 255.0f;
+				Renderer->Color.SizeX = 88.0f / 255.0f;
+			}
+
 
 			CurNumberRenderer.push_back(Renderer);
 		}
@@ -383,6 +390,12 @@ void TaskManager::NumberSetting()
 			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
 			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
 			Renderer->GetTransform().SetLocalScale(float4(12, 12));
+			if (CurStatus > 80)
+			{
+				Renderer->Color.PosX = 210.0f / 255.0f;
+				Renderer->Color.PosY = 90.0f / 255.0f;
+				Renderer->Color.SizeX = 88.0f / 255.0f;
+			}
 
 			CurNumberRenderer.push_back(Renderer);
 		}
@@ -405,6 +418,12 @@ void TaskManager::NumberSetting()
 			std::string b = std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png";
 			Renderer->SetTexture(std::to_string(CurNumber.at(CunrNumCount - A - 1)) + ".png");
 			Renderer->GetTransform().SetLocalScale(float4(12, 12));
+			if (CurStatus > 80)
+			{
+				Renderer->Color.PosX = 210.0f / 255.0f;
+				Renderer->Color.PosY = 90.0f / 255.0f;
+				Renderer->Color.SizeX = 88.0f / 255.0f;
+			}
 
 			CurNumberRenderer.push_back(Renderer);
 		}

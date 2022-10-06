@@ -99,6 +99,10 @@ void WebCamWindow::Update(float _DeltaTime)
 	}
 	Stop = false;
 	StateManager.Update(_DeltaTime);
+	if (GlobalContentsValue::GoodEnd)
+	{
+		Ame->ChangeFrameAnimation("ame_idle_happy6");
+	}
 
 }
 

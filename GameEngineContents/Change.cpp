@@ -17,6 +17,13 @@ void Change::Start()
 	SetLocalPosition(float4(0, 0, 0));
 	Renderer->ScaleToTexture();
 
+	{
+		GameEngineTextureRenderer* Renderer = CreateComponent<GameEngineTextureRenderer>();
+		Renderer->SetTexture("Change2.png");
+		Renderer->GetTransform().SetLocalPosition(float4(0, 0, 1));
+		Renderer->ScaleToTexture();
+	}
+
 	Bank = CreateComponent<GameEngineTextureRenderer>();
 	Bank->GetTransform().SetLocalPosition(float4(-1, -4,0));
 	Bank->GetTransform().SetLocalScale(float4(362, 238));
@@ -80,7 +87,10 @@ void Change::BootEnd(const FrameAnimation_DESC& _Info)
 	GlobalContentsValue::Change = false;
 	GlobalContentsValue::Stream = true;
 	GetLevel()->CreateActor<StreamInfo>();
-	GlobalContentsValue::BadEndLoadEnd = true;
+	if (GlobalContentsValue::BadEnd)
+	{
+		GlobalContentsValue::BadEndLoadEnd = true;
+	}
 	ChangeZPos(500);
 	Death();
 }

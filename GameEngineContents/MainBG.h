@@ -20,6 +20,8 @@ public:
 
 	GameEngineTextureRenderer* MiddleBG;
 	GameEngineSoundPlayer BgmPlayer;
+	CommentTextureRenderer* Day;
+	CommentTextureRenderer* DayTime;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
