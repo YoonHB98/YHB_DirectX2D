@@ -54,6 +54,8 @@ void StreamAnimation::Start()
 	ContentsMap["GoodEnding"] = StreamContents::GoodEnding;
 	Font = CreateComponent<Myfont>();
 	Font->SetRenderingOrder(501);
+
+
 }
 
 void StreamAnimation::Update(float _DeltaTime)
@@ -75,11 +77,11 @@ void StreamAnimation::Update(float _DeltaTime)
 			first = false;
 		}
 		Contents = ContentsMap[GlobalContentsValue::Contents];
-		ContentsUpdate(Contents);
-		if (CurContents != GlobalContentsValue::Contents)
+		ContentsUpdate(StreamContents::Test);
+	/*	if (CurContents != GlobalContentsValue::Contents)
 		{
 			CurContents = GlobalContentsValue::Contents;
-		}
+		}*/
 
 	}
 
@@ -105,6 +107,9 @@ void StreamAnimation::ContentsUpdate(StreamContents Contents)
 	case StreamContents::GoodEnding:
 		GoodEnding();
 		break;
+	case StreamContents::Test:
+		Test();
+
 	default:
 		break;
 	}

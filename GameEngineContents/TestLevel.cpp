@@ -56,111 +56,14 @@ void TestLevel::Start()
 {	
 	CreateActor<MainBG>(GameObjectGroup::BackGround);
 	CreateActor<SideBG>(GameObjectGroup::BackGround);
-	CreateActor<Asobu_Window>();
-	CreateActor<Stream_Window>();
-	CreateActor<Stream_Talk>();
-	CreateActor<Neru_Window>();
-	CreateActor<WindowIcon>();
-	CreateActor<WebCamWindow>();
-	CreateActor<ToolTip>();
-	CreateActor<ToolTipText>();
-	GameEngineActor* StreamActor = CreateActor<Stream>(GameObjectGroup::UI);
-	//GameEngineActor* CommentActor = CreateActor<Comment>(GameObjectGroup::WindowIcon);
-	GameEngineActor* StreamAnimationActor = CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
-	//CommentActor->SetParent(StreamActor);
-	StreamAnimationActor->SetParent(StreamActor);
-	CreateActor<NotificationDayTime>();
-	//CreateActor<Stream>();
-	//CreateActor<StreamAnimation>();
-    //CreateActor<LineMain>();
-	CreateActor<Mouse>();
-	CreateActor<LineText>();
-	CreateActor<Change>(GameObjectGroup::WindowIcon);
-	//CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
-	//CreateActor<Comment>(GameObjectGroup::WindowIcon);
-	//GameEngineActor* A = CreateActor<Twitter>(GameObjectGroup::WindowIcon);
-	//GameEngineActor* B = CreateActor<TweetComment>(GameObjectGroup::WindowIcon);
-
-	//B->SetParent(A);
-	//GlobalContentsValue::Stream = true;
-		//GlobalContentsValue::Twitter = true;
-	GlobalContentsValue::Contents = "  ";
-	GlobalContentsValue::WebCamWindow = true;
-	GlobalContentsValue::DayTime = 1;
-
-	YEffect = GetMainCamera()->GetCameraRenderTarget()->AddEffect<YNoiseEffect>();
-	YEffect->Off();
+	CreateActor<Stream>(GameObjectGroup::BackGround);
+	CreateActor<StreamAnimation>(GameObjectGroup::WindowIcon);
+	GlobalContentsValue::Stream = true;
+	
 }
 
 void TestLevel::Update(float _DeltaTime)
 {
-	if (CurDay != GlobalContentsValue::Day
-		&& GlobalContentsValue::Followers > 10000)
-	{
-		CurDay = GlobalContentsValue::Day;
-		GlobalContentsValue::BgmOn = true;
-		GlobalContentsValue::GoodEnd = true;
-		GlobalContentsValue::BgmName = "mainloop_happyarranged.wav";
-		GlobalContentsValue::RemainLinenum = 5;
-		GlobalContentsValue::TextContents = "GoodEnding";
-		GlobalContentsValue::CommentContents = "GoodEnding";
-		GlobalContentsValue::Contents = "GoodEndingStream";
-		time = 0.0f;
-	}
-	if (time > 2.4f && GlobalContentsValue::RemainLinenum <= 0 && GlobalContentsValue::GoodEnd)
-	{
-		GlobalContentsValue::GoodEnd = false;
-		GlobalContentsValue::Change = true;
-		CreateActor<Change>();
-	}
-	if (CurDay != GlobalContentsValue::Day
-		&& GlobalContentsValue::Mental > 80)
-	{
-		GlobalContentsValue::BadEnd = true;
-		GlobalContentsValue::RemainLinenum = 8;
-		GlobalContentsValue::TextContents = "BadEnding";
-		GlobalContentsValue::CommentContents = "BadEnding";
-		GlobalContentsValue::Contents = "BadEndingStream";
-		time = 0.0f;
-	}
-	if (GlobalContentsValue::CommentContents == "GoodEnding")
-	{
-		CreateActor<CommentGoodEnding>();
-		GlobalContentsValue::CommentContents = "";
-	}
-	if ((GlobalContentsValue::TextContents == "BadEnding" && GlobalContentsValue::RemainLinenum <= 0)
-		&& time > 2.4f && BadEnd )
-	{
-		BadEnd = false;
-		CreateActor<Change>();
-		GlobalContentsValue::Change = true;
-		YEffect->On();
-	}
-	if (true == GameEngineInput::GetInst()->IsDown("a"))
-	{
-		YEffect->Off();
-	}
-
-	if (GlobalContentsValue::Console)
-	{
-		CreateActor<NotificationDayTime>();
-		GlobalContentsValue::Console = false;
-	}
-
-	if (GlobalContentsValue::CommentContents == "BadEnding")
-	{
-		CreateActor<CommentBadEnding>();
-		GlobalContentsValue::CommentContents = "";
-	}
-	if (GlobalContentsValue::BadEndLoadEnd)
-	{
-		YEffect->Off();
-	}
-	time = time + _DeltaTime;
-	if (time < 0.0f)
-	{
-		time = 0.0f;
-	}
 	//if (GlobalContentsValue::Twitter == false)
 	//{
 	//	GlobalContentsValue::Contents = "CommunicationStart";
@@ -190,26 +93,7 @@ void TestLevel::Update(float _DeltaTime)
 	*/
 	// 레벨 바뀌어서 오면 초기화
 	// GetAccTime();
-	if (time > 2.5f
-		|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
-	{
-		time = time - 2.5f;
-		if (GlobalContentsValue::Message)
-		{
-			GlobalContentsValue::RemainLinenum = GlobalContentsValue::RemainLinenum - 1;
-			CreateActor<Notification>(GameObjectGroup::BackGround);
-			CreateActor<NotificationText>(GameObjectGroup::WindowIcon);
-		}
-	}
-	if (GlobalContentsValue::RemainLinenum <= 0)
-	{
-		GlobalContentsValue::Message = false;
-	}
-	if (GlobalContentsValue::RemainLinenum > 0)
-	{
-		GlobalContentsValue::Message = true;
-	}
-	CurDay = GlobalContentsValue::Day;
+
 }
 
 void TestLevel::End()

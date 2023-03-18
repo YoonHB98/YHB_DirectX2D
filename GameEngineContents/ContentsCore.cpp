@@ -224,11 +224,28 @@ void ContentsCore::Start()
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션
-	CreateLevel<LoadingLevel>("Loading");
-	CreateLevel<TitleLevel>("Title");
+	if (false == GameEngineInput::GetInst()->IsKey("LevelChange"))
+	{
+		GameEngineInput::GetInst()->CreateKey("MouseClick", VK_LBUTTON);
+	}
+
+	if (false == GameEngineInput::GetInst()->IsKey("FreeCameaOnOff"))
+	{
+		GameEngineInput::GetInst()->CreateKey("FreeCameaOnOff", 'O');
+	}
+
+	GameEngineInput::GetInst()->CreateKey("A", 'A');
+	GameEngineInput::GetInst()->CreateKey("S", 'S');
+	GameEngineInput::GetInst()->CreateKey("Q", 'Q');
+	GameEngineInput::GetInst()->CreateKey("W", 'W');
+	GameEngineInput::GetInst()->CreateKey("E", 'E');
+	GameEngineInput::GetInst()->CreateKey("M", 'M');
+	GameEngineInput::GetInst()->CreateKey("BACKSPACE", VK_BACK);
+	//CreateLevel<LoadingLevel>("Loading");
+	//CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-	//CreateLevel<TestLevel>("Test");
-	ChangeLevel("Loading");
+	CreateLevel<TestLevel>("Test");
+	ChangeLevel("Test");
 
 	//GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 	GameEngineGUI::CreateGUIWindow<GameContentsGUI>("Status", nullptr);

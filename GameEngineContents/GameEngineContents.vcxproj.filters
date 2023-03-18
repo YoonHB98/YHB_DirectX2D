@@ -463,5 +463,8 @@
     <ClCompile Include="GoodEndWindow.cpp">
       <Filter>Actor\Play\WindowForEnd</Filter>
     </ClCompile>
+    <ClCompile Include="TestAnimation.cpp">
+      <Filter>Actor\Play\Stream\StreamAnimation</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

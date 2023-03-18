@@ -17,6 +17,8 @@ public:
 	TestLevel& operator=(TestLevel&& _Other) noexcept = delete;
 
 	class YNoiseEffect* YEffect;
+	Myfont* Font;
+	std::string Text;
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;

@@ -100,6 +100,15 @@ void StreamAnimation::StateUpdate(AnimationType Type)
 	case AnimationType::D10:
 		UpdateD10();
 		break;
+	case AnimationType::T1:
+		UpdateT1();
+		break;
+	case AnimationType::T2:
+		UpdateT2();
+		break;
+	case AnimationType::T3:
+		UpdateT3();
+		break;
 	default:
 		break;
 	}
