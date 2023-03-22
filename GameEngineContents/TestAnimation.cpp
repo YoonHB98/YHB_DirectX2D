@@ -44,6 +44,7 @@ void StreamAnimation::UpdateT1()
 	if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 	{
 		CurType = AnimationType::T2;
+		GlobalContentsValue::ChangeTime = 0;
 	}
 
 
