@@ -190,7 +190,7 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("cho_teach.png", 2, 2);
 	GameEngineTexture::Cut("stream_cho_end.png", 1, 2);
 	GameEngineTexture::Cut("cho_dokuzetsu_superchat.png", 6, 2);
-	GameEngineTexture::Cut("cho_kawaiku_superchat.png",4, 2);
+	GameEngineTexture::Cut("cho_kawaiku_superchat.png", 4, 2);
 	GameEngineTexture::Cut("cho_nyo.png", 2, 2);
 	GameEngineTexture::Cut("cho_akaruku_superchat.png", 4, 2);
 	GameEngineTexture::Cut("stream_cho_sayonara1.png", 3, 2);
@@ -213,7 +213,7 @@ void ContentsCore::Start()
 	GameEngineTexture::Cut("ame_idle_happy6.png", 6, 2);
 	GameEngineTexture::Cut("ame_game.png", 4, 2);
 
-	GameEngineTexture::Cut("badge.png",1, 1);
+	GameEngineTexture::Cut("badge.png", 1, 1);
 	GameEngineTexture::Cut("icon_desktop_internet.png", 1, 2);
 
 	GameEngineTexture::Cut("icon_loading_poketter.png", 8, 1);
@@ -224,28 +224,11 @@ void ContentsCore::Start()
 	// 리소스를 로드하는데.
 
 	// RTTI 런 타임 타입 인포메이션
-	if (false == GameEngineInput::GetInst()->IsKey("LevelChange"))
-	{
-		GameEngineInput::GetInst()->CreateKey("MouseClick", VK_LBUTTON);
-	}
-
-	if (false == GameEngineInput::GetInst()->IsKey("FreeCameaOnOff"))
-	{
-		GameEngineInput::GetInst()->CreateKey("FreeCameaOnOff", 'O');
-	}
-
-	GameEngineInput::GetInst()->CreateKey("A", 'A');
-	GameEngineInput::GetInst()->CreateKey("S", 'S');
-	GameEngineInput::GetInst()->CreateKey("Q", 'Q');
-	GameEngineInput::GetInst()->CreateKey("W", 'W');
-	GameEngineInput::GetInst()->CreateKey("E", 'E');
-	GameEngineInput::GetInst()->CreateKey("M", 'M');
-	GameEngineInput::GetInst()->CreateKey("BACKSPACE", VK_BACK);
-	//CreateLevel<LoadingLevel>("Loading");
-	//CreateLevel<TitleLevel>("Title");
+	CreateLevel<LoadingLevel>("Loading");
+	CreateLevel<TitleLevel>("Title");
 	CreateLevel<PlayLevel>("Play");
-	CreateLevel<TestLevel>("Test");
-	ChangeLevel("Test");
+	//CreateLevel<TestLevel>("Test");
+	ChangeLevel("Loading");
 
 	//GameEngineGUI::CreateGUIWindow<GameEngineStatusWindow>("EngineStatus", nullptr);
 	GameEngineGUI::CreateGUIWindow<GameContentsGUI>("Status", nullptr);

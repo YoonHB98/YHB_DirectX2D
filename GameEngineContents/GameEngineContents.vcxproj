@@ -546,7 +546,6 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="TestAnimation.cpp" />
     <ClCompile Include="TestLevel.cpp">
       <SubType>
       </SubType>

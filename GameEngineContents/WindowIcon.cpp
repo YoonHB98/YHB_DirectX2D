@@ -111,12 +111,13 @@ void WindowIcon::Start()
 	//}
 	for (int i = 0; i < 2; i++)
 	{
-		Youtube[i]->GetPixelData().MulColor.a = 0.2f;
-		Internet[i]->GetPixelData().MulColor.a = 0.2f;
-		Asobu[i]->GetPixelData().MulColor.a = 0.2f;
-		Neru[i]->GetPixelData().MulColor.a = 0.2f;
-		Okusuri[i]->GetPixelData().MulColor.a = 0.2f;
-		Odekake[i]->GetPixelData().MulColor.a = 0.2f;
+		Youtube[i]->GetPixelData().PlusColor.a = -1.0f;
+		Youtube[i]->GetPixelData().MulColor.a = 0.0f;
+		Internet[i]->GetPixelData().MulColor.a = 0.0f;
+		Asobu[i]->GetPixelData().MulColor.a = 0.0f;
+		Neru[i]->GetPixelData().MulColor.a = 0.0f;
+		Okusuri[i]->GetPixelData().MulColor.a = 0.0f;
+		Odekake[i]->GetPixelData().MulColor.a = 0.0f;
 	}
 
 }

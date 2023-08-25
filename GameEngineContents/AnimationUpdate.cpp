@@ -4,7 +4,7 @@
 
 void StreamAnimation::Tutorial()
 {
-		GlobalContentsValue::ChangeTime = 	GlobalContentsValue::ChangeTime + GameEngineTime::GetDeltaTime();
+	GlobalContentsValue::ChangeTime = GlobalContentsValue::ChangeTime + GameEngineTime::GetDeltaTime();
 	Time = Time + GameEngineTime::GetDeltaTime();
 	StateUpdate(CurType);
 }
@@ -100,15 +100,6 @@ void StreamAnimation::StateUpdate(AnimationType Type)
 	case AnimationType::D10:
 		UpdateD10();
 		break;
-	case AnimationType::T1:
-		UpdateT1();
-		break;
-	case AnimationType::T2:
-		UpdateT2();
-		break;
-	case AnimationType::T3:
-		UpdateT3();
-		break;
 	default:
 		break;
 	}
@@ -127,8 +118,8 @@ void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& 
 		BlankXSize = 0;
 	}
 	if (Count > Text_.length())
-	{ 
-	
+	{
+
 		return;
 	}
 	CountTime = CountTime + GameEngineTime::GetDeltaTime();
@@ -188,7 +179,7 @@ void StreamAnimation::TextDrawTime(const std::string& Text_, const std::string& 
 	}
 	float4 CurPos = Pos_ - float4(0, EnterCount * 20.0f);
 	Font->SetLeftAndRightSort(LeftAndRightSort::CENTER);
-	Font->TextDraw(Text,  Font_, CurPos, Color_, Size_);
+	Font->TextDraw(Text, Font_, CurPos, Color_, Size_);
 
 }
 
@@ -221,29 +212,29 @@ void StreamAnimation::UpdateA1()
 	{
 		GlobalContentsValue::ChangeTime = 2.0f;
 	}
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") &&	GlobalContentsValue::ChangeTime > 1.0f)
-		||	GlobalContentsValue::ChangeTime >9.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::ChangeTime > 1.0f)
+		|| GlobalContentsValue::ChangeTime > 9.0f)
 	{
 		GlobalContentsValue::Tooltip = false;
 		ToolTipText::Count = ToolTipText::Count + 1;
 		CurType = AnimationType::A2;
 		Time = 0;
-			GlobalContentsValue::ChangeTime = 9.1f;
+		GlobalContentsValue::ChangeTime = 9.1f;
 		AnimationStart = false;
 	}
 }
 
 void StreamAnimation::UpdateA2()
 {
-	TextDrawTime("젤하!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255,1), 15.0f, 0.5f);
+	TextDrawTime("젤하!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1), 15.0f, 0.5f);
 	Renderer->ChangeFrameAnimation("cho_kashikoma");
 
-	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") &&GlobalContentsValue::Check == false)
-		|| 	GlobalContentsValue::ChangeTime > 18.0f)
+	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
+		|| GlobalContentsValue::ChangeTime > 18.0f)
 	{
 		CurType = AnimationType::A3;
 		Time = 0;
-			GlobalContentsValue::ChangeTime = 18.1f;
+		GlobalContentsValue::ChangeTime = 18.1f;
 		AnimationStart = false;
 	}
 
@@ -251,7 +242,7 @@ void StreamAnimation::UpdateA2()
 
 void StreamAnimation::UpdateA3()
 {
-	TextDrawTime("초절정 귀요미 천사 쨩 줄여서\n'초텐 쨩'이야", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
+	TextDrawTime("초절정 귀요미 천사 쨩 줄여서\n'초텐 쨩'이야", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 	if (AnimationStart == false)
 	{
 		Renderer->ChangeFrameAnimation("cho_idleEnd");
@@ -275,11 +266,11 @@ void StreamAnimation::UpdateA3()
 		}
 
 	if ((true == GameEngineInput::GetInst()->IsDown("MouseClick") && GlobalContentsValue::Check == false)
-		|| 	GlobalContentsValue::ChangeTime > 27.0f)
+		|| GlobalContentsValue::ChangeTime > 27.0f)
 	{
 		CurType = AnimationType::A4;
 		Time = 0;
-			GlobalContentsValue::ChangeTime = 27.1f;
+		GlobalContentsValue::ChangeTime = 27.1f;
 		AnimationStart = false;
 	}
 }
@@ -307,36 +298,36 @@ void StreamAnimation::UpdateA4()
 			CurAnim = Animation::End1;
 		}
 
-	if ( 	GlobalContentsValue::ChangeTime > 59.0f)
+	if (GlobalContentsValue::ChangeTime > 59.0f)
 	{
 		CurType = AnimationType::A5;
 		Time = 0;
-			GlobalContentsValue::ChangeTime = 59.1f;
+		GlobalContentsValue::ChangeTime = 59.1f;
 		AnimationStart = false;
 	}
-	if (	GlobalContentsValue::ChangeTime < 35.0f)
+	if (GlobalContentsValue::ChangeTime < 35.0f)
 	{
 		ClickTime(35.1f);
 		TextDrawTime("혼돈에 휩싸인 레이와 시대의\n인터넷을 비출 한 줄기 빛...", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 	}
 	else
-		if(	GlobalContentsValue::ChangeTime < 43.0f)
+		if (GlobalContentsValue::ChangeTime < 43.0f)
 		{
 			ClickTime(43.1f);
 			TextDrawTime("전자의 바다 위를 떠도는 오타쿠에게 미소를!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 		}
 		else
-		if (	GlobalContentsValue::ChangeTime < 51.0f)
+			if (GlobalContentsValue::ChangeTime < 51.0f)
 			{
-			ClickTime(51.2f);
+				ClickTime(51.2f);
 				TextDrawTime("미래의 평화를 약속할게!\n 조울증도 있지만 그래도 맡겨 줘!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 			}
-		else
-		if (	GlobalContentsValue::ChangeTime < 59.0f)
-			{
-			ClickTime(59.1f);
-			TextDrawTime("인터넷 엔젤, 지금 여기에 강림!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
-			}
+			else
+				if (GlobalContentsValue::ChangeTime < 59.0f)
+				{
+					ClickTime(59.1f);
+					TextDrawTime("인터넷 엔젤, 지금 여기에 강림!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+				}
 }
 
 void StreamAnimation::UpdateA5()
@@ -356,13 +347,13 @@ void StreamAnimation::UpdateA5()
 			Time = Time - 1.0f;
 			CurAnim = Animation::End1;
 		}
-	TextDrawTime("앞으로 인터넷에 머무르는 덕후에게\n 천사의 애정을 듬뿍 담아 치유해 줄게", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
+	TextDrawTime("앞으로 인터넷에 머무르는 덕후에게\n 천사의 애정을 듬뿍 담아 치유해 줄게", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 	ClickTime(69.1f);
-	if (	GlobalContentsValue::ChangeTime > 69.0f)
+	if (GlobalContentsValue::ChangeTime > 69.0f)
 	{
 		CurType = AnimationType::A6;
 		Time = 0;
-			GlobalContentsValue::ChangeTime = 69.1f;
+		GlobalContentsValue::ChangeTime = 69.1f;
 		AnimationStart = false;
 	}
 
@@ -386,13 +377,13 @@ void StreamAnimation::UpdateA6()
 			Time = Time - 1.0f;
 			CurAnim = Animation::End1;
 		}
-	TextDrawTime("그리고 기왕 시작한 김에\n스트리머계의 정점도 찍을 거야!", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
+	TextDrawTime("그리고 기왕 시작한 김에\n스트리머계의 정점도 찍을 거야!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 	ClickTime(77.1f);
-	if (	GlobalContentsValue::ChangeTime > 77.0f)
+	if (GlobalContentsValue::ChangeTime > 77.0f)
 	{
 		CurType = AnimationType::A7;
 		Time = 0;
-			GlobalContentsValue::ChangeTime = 77.1f;
+		GlobalContentsValue::ChangeTime = 77.1f;
 		AnimationStart = false;
 	}
 }
@@ -400,20 +391,20 @@ void StreamAnimation::UpdateA6()
 void StreamAnimation::UpdateA7()
 {
 	Renderer->ChangeFrameAnimation("pointing");
-	TextDrawTime("꿈은 크게, 팔로워 100만명!!!", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
+	TextDrawTime("꿈은 크게, 팔로워 100만명!!!", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 	ClickTime(85.1f);
-	if (	GlobalContentsValue::ChangeTime > 85.0f)
+	if (GlobalContentsValue::ChangeTime > 85.0f)
 	{
 		CurType = AnimationType::A8;
 		Time = 0;
-			GlobalContentsValue::ChangeTime = 85.1f;
+		GlobalContentsValue::ChangeTime = 85.1f;
 		AnimationStart = false;
 	}
 }
 
 void StreamAnimation::UpdateA8()
 {
-	TextDrawTime("아직 모르는 것들도 많지만 잘 부탁해♪", "Galmuri9", float4(332, 306), float4(222/255,215/255,1,1), 15.0f, 1.5f);
+	TextDrawTime("아직 모르는 것들도 많지만 잘 부탁해♪", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 	if (AnimationStart == false)
 	{
 		Renderer->ChangeFrameAnimation("cho_idleEnd");
@@ -456,112 +447,132 @@ void StreamAnimation::UpdateA9()
 	{
 		TextDrawTime("댓글 읽어볼게", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
 		ClickTime(96.1f);
-	}else
-	if (GlobalContentsValue::ChangeTime < 102.0f)
-	{
-		TextDrawTime("「"+ GlobalContentsValue::FirstComment + " 」", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
-		ClickTime(102.1f);
-	}else
-		if (GlobalContentsValue::ChangeTime < 110.0f)
+	}
+	else
+		if (GlobalContentsValue::ChangeTime < 102.0f)
 		{
-			if (GlobalContentsValue::FirstComment == "꺼져")
+			TextDrawTime("「" + GlobalContentsValue::FirstComment + " 」", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
+			ClickTime(102.1f);
+		}
+		else
+			if (GlobalContentsValue::ChangeTime < 110.0f)
 			{
-				if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
+				if (GlobalContentsValue::FirstComment == "꺼져")
 				{
-					Time = 0.0f;
-					CurAnim = Animation::Idle2;
-				}
-				if (GlobalContentsValue::ChangeTime<106.0f)
-				{
-					TextDrawTime("너나 꺼져", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.3f);
-					ClickTime(106.1f);
-				}else	
-				if (GlobalContentsValue::ChangeTime < 110.0f)
-				{
-					TextDrawTime("훈수는 사절이야", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.3f);
-					ClickTime(110.1f);
-				}
-			}else
-				if (GlobalContentsValue::FirstComment == "와 줘서 고마워")
-				{
-					if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
+					if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
 					{
 						Time = 0.0f;
-						CurAnim = Animation::Idle3;
+						CurAnim = Animation::Idle2;
 					}
-					TextDrawTime("에헤헤, 초텐이다냥", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.6f);
-					ClickTime(110.1f);
-				}
-			
-		}else
-			if (GlobalContentsValue::SecondComment == "")
-			{
-				GlobalContentsValue::ChangeTime = 130.1f;
-			}else
-			if (GlobalContentsValue::ChangeTime < 115.0f)
-			{
-				TextDrawTime("「" + GlobalContentsValue::SecondComment + " 」", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
-				ClickTime(115.1f);
-			}else
-				if (GlobalContentsValue::ChangeTime < 123.0f)
-				{
-					if (GlobalContentsValue::SecondComment == "꺼져")
+					if (GlobalContentsValue::ChangeTime < 106.0f)
 					{
-						if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
-						{
-							Time = 0.0f;
-							CurAnim = Animation::Idle2;
-						}if (GlobalContentsValue ::ChangeTime <119.0f)
-						{
-							TextDrawTime("너나 꺼져", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
-							ClickTime(119.1f);
-						}else
-						if (GlobalContentsValue::ChangeTime < 123.0f)
-						{
-							TextDrawTime("훈수는 사절이야", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
-							ClickTime(123.1f);
-						}
+						TextDrawTime("너나 꺼져", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.3f);
+						ClickTime(106.1f);
 					}
 					else
-						if (GlobalContentsValue::SecondComment == "와 줘서 고마워")
+						if (GlobalContentsValue::ChangeTime < 110.0f)
 						{
-							if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
-							{
-								Time = 0.0f;
-								CurAnim = Animation::Idle3;
-							}
-							TextDrawTime("에헤헤, 초텐이다냥", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
-							ClickTime(123.1f);
+							TextDrawTime("훈수는 사절이야", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.3f);
+							ClickTime(110.1f);
 						}
 				}
+				else
+					if (GlobalContentsValue::FirstComment == "와 줘서 고마워")
+					{
+						if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
+						{
+							Time = 0.0f;
+							CurAnim = Animation::Idle3;
+						}
+						TextDrawTime("에헤헤, 초텐이다냥", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.6f);
+						ClickTime(110.1f);
+					}
 
-			if (GlobalContentsValue::ChangeTime>123.0f)
-			{
-				GlobalContentsValue::ChangeTime = 250.0f;
 			}
-			if (GlobalContentsValue::ChangeTime > 123.0f)
+			else
+				if (GlobalContentsValue::SecondComment == "")
+				{
+					GlobalContentsValue::ChangeTime = 130.1f;
+				}
+				else
+					if (GlobalContentsValue::ChangeTime < 115.0f)
+					{
+						TextDrawTime("「" + GlobalContentsValue::SecondComment + " 」", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
+						ClickTime(115.1f);
+					}
+					else
+						if (GlobalContentsValue::ChangeTime < 123.0f)
+						{
+							if (GlobalContentsValue::SecondComment == "꺼져")
+							{
+								if (CurAnim != Animation::Idle2 && CurAnim != Animation::End2)
+								{
+									Time = 0.0f;
+									CurAnim = Animation::Idle2;
+								}if (GlobalContentsValue::ChangeTime < 119.0f)
+								{
+									TextDrawTime("너나 꺼져", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
+									ClickTime(119.1f);
+								}
+								else
+									if (GlobalContentsValue::ChangeTime < 123.0f)
+									{
+										TextDrawTime("훈수는 사절이야", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
+										ClickTime(123.1f);
+									}
+							}
+							else
+								if (GlobalContentsValue::SecondComment == "와 줘서 고마워")
+								{
+									if (CurAnim != Animation::Idle3 && CurAnim != Animation::End3)
+									{
+										Time = 0.0f;
+										CurAnim = Animation::Idle3;
+									}
+									TextDrawTime("에헤헤, 초텐이다냥", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 0.5f);
+									ClickTime(123.1f);
+								}
+						}
+
+	if (GlobalContentsValue::ChangeTime > 123.0f)
+	{
+		GlobalContentsValue::ChangeTime = 250.0f;
+	}
+	if (GlobalContentsValue::ChangeTime > 123.0f)
+	{
+		Renderer->ChangeFrameAnimation("ChoEnd");
+		TextDrawTime("   ", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
+		if (GlobalContentsValue::Contents == "Tutorial")
+		{
+			GlobalContentsValue::Tooltip = true;
+		}
+		if (StreamEnd == false)
+		{
+			ToolTipText::Count = ToolTipText::Count + 1;
+			StreamEnd = true;
+			GameEngineSoundPlayer BGM = GameEngineSound::SoundPlayControl("endHaishin.wav", 0);
+		}
+		if (StreamEnd == true)
+		{
+			EndTimer = EndTimer + GameEngineTime::GetDeltaTime();
+			if (EndTimer > 1.0f)
 			{
-				Renderer->ChangeFrameAnimation("ChoEnd");
-				TextDrawTime("   ", "Galmuri9", float4(332, 306), float4(222 / 255, 215 / 255, 1, 1), 15.0f, 1.5f);
 				if (GlobalContentsValue::Contents == "Tutorial")
 				{
-					GlobalContentsValue::Tooltip = true;
-				}
-				if (StreamEnd == false)
-				{
-					ToolTipText::Count = ToolTipText::Count + 1;
-					StreamEnd = true;
-					GameEngineSoundPlayer BGM = GameEngineSound::SoundPlayControl("endHaishin.wav", 0);
-				}
-				if (StreamEnd == true)
-				{
-					EndTimer = EndTimer + GameEngineTime::GetDeltaTime();
-					if (EndTimer > 1.0f)
+					if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 					{
-					if (GlobalContentsValue::Contents == "Tutorial")
+						EndTimer = 0.0f;
+						GlobalContentsValue::Stream = false;
+						GlobalContentsValue::ChangeTime = 0.0f;
+						GlobalContentsValue::Twitter = true;
+						GlobalContentsValue::Tooltip = false;
+						GlobalContentsValue::RemainTwitnum = 3;
+						Renderer->ChangeFrameAnimation("cho_idleEnd");
+					}
+					else
+						if (EndTimer > 3.0f
+							|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
 						{
-						if (true == GameEngineInput::GetInst()->IsDown("MouseClick"))
-							{
 							EndTimer = 0.0f;
 							GlobalContentsValue::Stream = false;
 							GlobalContentsValue::ChangeTime = 0.0f;
@@ -569,23 +580,12 @@ void StreamAnimation::UpdateA9()
 							GlobalContentsValue::Tooltip = false;
 							GlobalContentsValue::RemainTwitnum = 3;
 							Renderer->ChangeFrameAnimation("cho_idleEnd");
-						}else
-							if (EndTimer > 3.0f
-								|| true == GameEngineInput::GetInst()->IsDown("MouseClick"))
-								{
-								EndTimer = 0.0f;
-								GlobalContentsValue::Stream = false;
-								GlobalContentsValue::ChangeTime = 0.0f;
-								GlobalContentsValue::Twitter = true;
-								GlobalContentsValue::Tooltip = false;
-								GlobalContentsValue::RemainTwitnum = 3;
-								Renderer->ChangeFrameAnimation("cho_idleEnd");
-								}
 						}
-					}
 				}
-				return;
 			}
+		}
+		return;
+	}
 	if (AnimationStart == false)
 	{
 		Renderer->ChangeFrameAnimation("cho_idleEnd");
